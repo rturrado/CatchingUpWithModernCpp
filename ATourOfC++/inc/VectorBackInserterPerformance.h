@@ -1,0 +1,6 @@
+#ifndef __VECTOR_BACK_INSERTER_PERFORMANCE_H__
+#define __VECTOR_BACK_INSERTER_PERFORMANCE_H__
+
+void vector_back_inserter_performance_main();
+
+#endif

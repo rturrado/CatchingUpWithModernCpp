@@ -1,0 +1,6 @@
+#ifndef __TEMPLATE_VARIABLES_WITH_CONSTEXPR_H__
+#define __TEMPLATE_VARIABLES_WITH_CONSTEXPR_H__
+
+void template_variables_with_constexpr_main();
+
+#endif

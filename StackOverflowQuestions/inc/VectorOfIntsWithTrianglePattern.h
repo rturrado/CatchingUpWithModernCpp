@@ -1,0 +1,6 @@
+#ifndef __VECTOR_OF_INTS_WITH_TRIANGLE_PATTERN_H__
+#define __VECTOR_OF_INTS_WITH_TRIANGLE_PATTERN_H__
+
+void vector_of_ints_with_triangle_pattern_main();
+
+#endif
