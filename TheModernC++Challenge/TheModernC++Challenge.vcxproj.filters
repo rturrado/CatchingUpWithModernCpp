@@ -60,6 +60,9 @@
     <ClCompile Include="src\Problem11.cpp">
       <Filter>Source Files\Chapter1_MathProblems</Filter>
     </ClCompile>
+    <ClCompile Include="src\Problem12.cpp">
+      <Filter>Source Files\Chapter1_MathProblems</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Utils.h">
