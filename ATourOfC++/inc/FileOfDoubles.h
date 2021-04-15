@@ -1,9 +1,6 @@
 #ifndef __FILE_OF_DOUBLES_H__
 #define __FILE_OF_DOUBLES_H__
 
-#include <exception>
-#include <fstream>
-#include <sstream>
 #include <string>
 #include <vector>
 
