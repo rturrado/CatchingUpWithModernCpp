@@ -29,10 +29,13 @@ void print_armstrong_numbers_with_three_digits()
 
 // Write a function that determines the Armstrong numbers up to a limit, regardless of their number of digits
 // v1: using a std::string for converting a number to a container of digits
-void print_armstrong_numbers_up_to_a_limit_v1(size_t n, bool printResults)
+void print_armstrong_numbers_up_to_a_limit_v1(size_t n, bool print_results)
 {
     // Print Armstrong numbers
-    if (printResults) std::cout << "Armstrong numbers up to " << n << ":\n";
+    if (print_results)
+    {
+        std::cout << "Armstrong numbers up to " << n << ":\n";
+    }
     for (auto i = 0u; i <= n; ++i)
     {
         // Turn current number into a string
@@ -44,20 +47,26 @@ void print_armstrong_numbers_up_to_a_limit_v1(size_t n, bool printResults)
             });
         if (i == sum_of_powers)
         {
-            if (printResults) std::cout << "\t" << i << "\n";
+            if (print_results)
+            {
+                std::cout << "\t" << i << "\n";
+            }
         }
     }
 }
 
 // Write a function that determines the Armstrong numbers up to a limit, regardless of their number of digits
 // v2: using Digits class for converting a number to a container of digits
-void print_armstrong_numbers_up_to_a_limit_v2(size_t n, bool printResults)
+void print_armstrong_numbers_up_to_a_limit_v2(size_t n, bool print_results)
 {
     // Turn current number into a deque of numbers
     Digits<size_t> digits{};
 
     // Print Armstrong numbers
-    if (printResults) std::cout << "Armstrong numbers up to " << n << ":\n";
+    if (print_results)
+    {
+        std::cout << "Armstrong numbers up to " << n << ":\n";
+    }
     for (auto i = 0u; i <= n; ++i, ++digits)
     {
         auto sum_of_powers = std::accumulate(digits.cbegin(), digits.cend(), static_cast<size_t>(0),
@@ -66,16 +75,22 @@ void print_armstrong_numbers_up_to_a_limit_v2(size_t n, bool printResults)
             });
         if (i == sum_of_powers)
         {
-            if (printResults) std::cout << "\t" << i << "\n";
+            if (print_results)
+            {
+                std::cout << "\t" << i << "\n";
+            }
         }
     }
 }
 
 // Write a function that determines the Armstrong numbers up to a limit, regardless of their number of digits
 // v3: book's version
-void print_armstrong_numbers_up_to_a_limit_v3(int const n, bool printResults)
+void print_armstrong_numbers_up_to_a_limit_v3(int const n, bool print_results)
 {
-    if (printResults) std::cout << "Armstrong numbers up to " << n << ":\n";
+    if (print_results)
+    {
+        std::cout << "Armstrong numbers up to " << n << ":\n";
+    }
     for (int i = 0; i <= n; ++i)
     {
         std::vector<int> digits;
@@ -93,8 +108,45 @@ void print_armstrong_numbers_up_to_a_limit_v3(int const n, bool printResults)
 
         if (i == arm)
         {
-            if (printResults) std::cout << "\t" << arm << "\n";
+            if (print_results)
+            {
+                std::cout << "\t" << arm << "\n";
+            }
         }
+    }
+}
+
+namespace P8
+{
+    void test_function_performance()
+    {
+        std::cout << "Test function performance:\n";
+        auto t1 = function_timer<>::duration(
+            []() {
+                for (int i = 0; i < 10000; ++i)
+                {
+                    print_armstrong_numbers_up_to_a_limit_v1(1000, false);
+                }
+            });
+        std::cout << "\tv1: " << std::chrono::duration<double, std::milli>(t1).count() << " ms" << std::endl;
+
+        auto t2 = function_timer<>::duration(
+            []() {
+                for (int i = 0; i < 10000; ++i)
+                {
+                    print_armstrong_numbers_up_to_a_limit_v2(1000, false);
+                }
+            });
+        std::cout << "\tv2: " << std::chrono::duration<double, std::milli>(t2).count() << " ms" << std::endl;
+
+        auto t3 = function_timer<>::duration(
+            []() {
+                for (int i = 0; i < 10000; ++i)
+                {
+                    print_armstrong_numbers_up_to_a_limit_v3(1000, false);
+                }
+            });
+        std::cout << "\tv3: " << std::chrono::duration<double, std::milli>(t3).count() << " ms" << std::endl;
     }
 }
 
@@ -106,14 +158,4 @@ void problem_8_main()
     auto n{ read_positive_number(0) };
     // Print Armstrong numbers up to the limit
     print_armstrong_numbers_up_to_a_limit_v1(n, true);
-    print_armstrong_numbers_up_to_a_limit_v2(n, true);
-
-    auto t1 = perf_timer<>::duration([]() { for (int i = 0; i < 10000; ++i) print_armstrong_numbers_up_to_a_limit_v1(1000, false); });
-    std::cout << std::chrono::duration<double, std::milli>(t1).count() << "ms" << std::endl;
-
-    auto t2 = perf_timer<>::duration([]() { for (int i = 0; i < 10000; ++i) print_armstrong_numbers_up_to_a_limit_v2(1000, false); });
-    std::cout << std::chrono::duration<double, std::milli>(t2).count() << "ms" << std::endl;
-
-    auto t3 = perf_timer<>::duration([]() { for (int i = 0; i < 10000; ++i) print_armstrong_numbers_up_to_a_limit_v3(1000, false); });
-    std::cout << std::chrono::duration<double, std::milli>(t3).count() << "ms" << std::endl;
 }

@@ -3,11 +3,16 @@
 #include <tuple>
 #include <string>
 #include <string_view>
+#include <utility>  // for pair
+#include <vector>
 
 #include "Chapter1_MathProblems.h"
 #include "Utils.h"
 
-enum class DigitPosition : std::size_t
+constexpr size_t maxRomanNumeral{ 3999 };
+constexpr size_t maxToRomanVersion{ 4 };  // Number of implementations of to_roman function
+
+enum class DigitPosition
 {
     Units,
     Tens,
@@ -15,6 +20,7 @@ enum class DigitPosition : std::size_t
     Thousands
 };
 
+// v1: one different function for each digit position
 namespace P11_V1
 {
     std::string thousands_to_roman(size_t n)
@@ -25,7 +31,7 @@ namespace P11_V1
         case 1: return "M";
         case 2: return "MM";
         case 3: return "MMM";
-        default: throw std::out_of_range("Trying to convert to Roman numeral a number equal or bigger than 4000"); break;
+        default: assert(0 <= n && n <= 3); return "";
         }
     }
 
@@ -84,9 +90,12 @@ namespace P11_V1
     }
 }
 
+// v2: one function for all digit positions
+// We use a map for knowing what 3 possible letters are used for each digit position
+// We use a tuple for getting the letter that means one unit, five units, and ten units for each digit position
 namespace P11_V2
 {
-    std::map<DigitPosition, std::tuple<char, char, char>> romanLettersForDigitPosition{
+    std::map<DigitPosition, std::tuple<char, char, char>> romanLettersForDigitPosition {
         {DigitPosition::Thousands, {'M', ' ', ' '}},
         {DigitPosition::Hundreds, {'C', 'D', 'M'}},
         {DigitPosition::Tens, {'X', 'L', 'C'}},
@@ -95,11 +104,6 @@ namespace P11_V2
 
     std::string to_roman(size_t n, DigitPosition dp)
     {
-        if (dp == DigitPosition::Thousands && n > 3)
-        {
-            throw std::out_of_range("Trying to convert to Roman numeral a number equal or bigger than 4000");
-        }
-
         std::string one{ get<0>(romanLettersForDigitPosition[dp]) };
         std::string five{ get<1>(romanLettersForDigitPosition[dp]) };
         std::string ten{ get<2>(romanLettersForDigitPosition[dp]) };
@@ -121,31 +125,24 @@ namespace P11_V2
     };
 }
 
+// v3: one function for all digit positions
+// We use a string_view for knowing what 3 possible letters are used for each digit position
+// We use a string_view substring for getting the letter that means one unit, five units, and ten units for each digit position
 namespace P11_V3
 {
-    constexpr std::string_view romanNumeralLetters{ "IVXLCDM" };
-    constexpr std::string_view getRomanLettersForDigitPosition(const DigitPosition& dp)
+    const std::string_view romanNumeralLetters{ "IVXLCDM  " };
+    const std::string_view getRomanLettersForDigitPosition(const DigitPosition& dp)
     {
         size_t pos{ static_cast<size_t>(dp) * 2 };
-        size_t count{ (dp == DigitPosition::Thousands) ? 1u : 3u };
+        size_t count{ 3u };
         return romanNumeralLetters.substr(pos, count);
     }
 
     std::string to_roman(size_t n, DigitPosition dp)
     {
-        if (dp == DigitPosition::Thousands && n > 3)
-        {
-            throw std::out_of_range("Trying to convert to Roman numeral a number equal or bigger than 4000");
-        }
-
         std::string one{ getRomanLettersForDigitPosition(dp)[0] };
-        std::string five{};
-        std::string ten{};
-        if (dp != DigitPosition::Thousands)
-        {
-            five = getRomanLettersForDigitPosition(dp)[1];
-            ten = getRomanLettersForDigitPosition(dp)[2];
-        }
+        std::string five{ getRomanLettersForDigitPosition(dp)[1] };
+        std::string ten{ getRomanLettersForDigitPosition(dp)[2] };
 
         switch (n)
         {
@@ -164,32 +161,141 @@ namespace P11_V3
     };
 }
 
-std::string to_roman(size_t n)
+// v4: book's version
+namespace P11_V4
 {
+    std::string to_roman(size_t value)
+    {
+        std::vector<std::pair<size_t, char const*>> roman
+        {
+            { 1000, "M" }, { 900, "CM" },
+            { 500, "D" }, { 400, "CD" },
+            { 100, "C" }, { 90, "XC" },
+            { 50, "L" }, { 40, "XL" },
+            { 10, "X" }, { 9, "IX" },
+            { 5, "V" }, { 4, "IV" },
+            { 1, "I" }
+        };
+
+        std::string result;
+        for (auto const& kvp : roman)
+        {
+            while (value >= kvp.first)
+            {
+                result += kvp.second;
+                value -= kvp.first;
+            }
+        }
+
+        return result;
+    }
+}
+
+std::string to_roman(size_t n, size_t version)
+{
+    if (n > maxRomanNumeral)
+    {
+        throw std::out_of_range("Trying to convert to Roman numeral a number bigger than " + maxRomanNumeral);
+    }
+    if (version > maxToRomanVersion)
+    {
+        throw std::out_of_range("Trying to execute a version of to_roman bigger than " + maxToRomanVersion);
+    }
+
     std::string ret{};
-    size_t thousands{ n / 1000 };
-    size_t hundreds{ (n % 1000) / 100 };
-    size_t tens{ (n % 100) / 10 };
-    size_t units{ n % 10 };
 
-    ret = P11_V1::thousands_to_roman(thousands)
-        + P11_V1::hundreds_to_roman(hundreds)
-        + P11_V1::tens_to_roman(tens)
-        + P11_V1::units_to_roman(units);
+    if (version == 4)
+    {
+        ret = P11_V4::to_roman(n);
+    }
+    else
+    {
+        size_t thousands{ n / 1000 };
+        size_t hundreds{ (n % 1000) / 100 };
+        size_t tens{ (n % 100) / 10 };
+        size_t units{ n % 10 };
 
-/*
-    ret = P11_V2::to_roman(thousands, DigitPosition::Thousands)
-        + P11_V2::to_roman(hundreds, DigitPosition::Hundreds)
-        + P11_V2::to_roman(tens, DigitPosition::Tens)
-        + P11_V2::to_roman(units, DigitPosition::Units);
-
-    ret = P11_V3::to_roman(thousands, DigitPosition::Thousands)
-        + P11_V3::to_roman(hundreds, DigitPosition::Hundreds)
-        + P11_V3::to_roman(tens, DigitPosition::Tens)
-        + P11_V3::to_roman(units, DigitPosition::Units);
-*/
+        switch (version)
+        {
+        case 1:
+            ret = P11_V1::thousands_to_roman(thousands)
+                + P11_V1::hundreds_to_roman(hundreds)
+                + P11_V1::tens_to_roman(tens)
+                + P11_V1::units_to_roman(units);
+            break;
+        case 2:
+            ret = P11_V2::to_roman(thousands, DigitPosition::Thousands)
+                + P11_V2::to_roman(hundreds, DigitPosition::Hundreds)
+                + P11_V2::to_roman(tens, DigitPosition::Tens)
+                + P11_V2::to_roman(units, DigitPosition::Units);
+            break;
+        case 3:
+            ret = P11_V3::to_roman(thousands, DigitPosition::Thousands)
+                + P11_V3::to_roman(hundreds, DigitPosition::Hundreds)
+                + P11_V3::to_roman(tens, DigitPosition::Tens)
+                + P11_V3::to_roman(units, DigitPosition::Units);
+            break;
+        default:
+            assert(version <= 3); break;
+        }
+    }
 
     return ret;
+}
+
+namespace P11
+{
+    void test_function_performance()
+    {
+        std::cout << "Test function performance:\n";
+        auto t1 = function_timer<>::duration(
+            []() {
+                for (int i = 0; i < 10000; ++i)
+                {
+                    for (size_t j : { 99, 999, 1999 })
+                    {
+                        to_roman(j, 1);
+                    }                    
+                }
+            });
+        std::cout << "\tv1: " << std::chrono::duration<double, std::milli>(t1).count() << " ms" << std::endl;
+
+        auto t2 = function_timer<>::duration(
+            []() {
+                for (int i = 0; i < 10000; ++i)
+                {
+                    for (size_t j : { 99, 999, 1999 })
+                    {
+                        to_roman(j, 2);
+                    }
+                }
+            });
+        std::cout << "\tv2: " << std::chrono::duration<double, std::milli>(t2).count() << " ms" << std::endl;
+
+        auto t3 = function_timer<>::duration(
+            []() {
+                for (int i = 0; i < 10000; ++i)
+                {
+                    for (size_t j : { 99, 999, 1999 })
+                    {
+                        to_roman(j, 3);
+                    }
+                }
+            });
+        std::cout << "\tv3: " << std::chrono::duration<double, std::milli>(t3).count() << " ms" << std::endl;
+
+        auto t4 = function_timer<>::duration(
+            []() {
+                for (int i = 0; i < 10000; ++i)
+                {
+                    for (size_t j : { 99, 999, 1999 })
+                    {
+                        to_roman(j, 4);
+                    }
+                }
+            });
+        std::cout << "\tv4: " << std::chrono::duration<double, std::milli>(t4).count() << " ms" << std::endl;
+    }
 }
 
 // Converting numercial values to Roman
@@ -201,5 +307,7 @@ void problem_11_main()
 
     // Print the prime factors of that number
     std::cout << "Number\tRoman numeral equivalent\n";
-    std::cout << n << "\t" << to_roman(n) << "\n";
+    std::cout << n << "\t" << to_roman(n, 1) << "\n";
+
+    P11::test_function_performance();
 }

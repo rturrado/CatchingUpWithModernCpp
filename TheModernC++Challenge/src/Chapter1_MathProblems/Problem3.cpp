@@ -15,7 +15,7 @@ auto lcm(const std::vector<size_t>& v)
             return accum + possible_lcm % n;
         };
 
-        size_t sum_of_mods = std::accumulate(std::next(v.crbegin()), v.crend(), 0, accum_plus_possible_lcm_mod_n);
+        size_t sum_of_mods = std::accumulate(std::next(v.crbegin()), v.crend(), static_cast<size_t>(0), accum_plus_possible_lcm_mod_n);
 
         if (sum_of_mods == 0)
         {
