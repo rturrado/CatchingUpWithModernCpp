@@ -158,4 +158,6 @@ void problem_8_main()
     auto n{ read_positive_number(0) };
     // Print Armstrong numbers up to the limit
     print_armstrong_numbers_up_to_a_limit_v1(n, true);
+
+    //P8::test_function_performance();
 }

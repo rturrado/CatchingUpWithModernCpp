@@ -55,27 +55,27 @@ auto get_collatz_sequence(size_t n)
 std::pair<size_t, size_t> get_longest_collatz_sequence_v1(size_t limit)
 {
     std::size_t n{ 1 };
-    std::size_t n_collatz_sequence_size{ 1 };
+    std::size_t n_size{ 1 };
 
     for (size_t i = 1; i <= limit; ++i)
     {
-        size_t i_collatz_sequence_size{ get_collatz_sequence_size(i) };
+        size_t i_size{ get_collatz_sequence_size(i) };
 
-        if (i_collatz_sequence_size > n_collatz_sequence_size)
+        if (i_size > n_size)
         {
             n = i;
-            n_collatz_sequence_size = i_collatz_sequence_size;
+            n_size = i_size;
         }
     }
 
-    return std::make_pair(n, n_collatz_sequence_size);
+    return std::make_pair(n, n_size);
 }
 
 // v2: book's version
 std::pair<size_t, size_t> get_longest_collatz_sequence_v2(size_t limit)
 {
-    size_t length{ 0 };
     size_t number{ 0 };
+    size_t length{ 0 };
 
     std::vector<size_t> cache( limit + 1, 0 );
 
@@ -99,8 +99,8 @@ std::pair<size_t, size_t> get_longest_collatz_sequence_v2(size_t limit)
 
         if (cache[i] > length)
         {
-            length = cache[i];
             number = i;
+            length = cache[i];
         }
     }
 
@@ -137,11 +137,11 @@ void problem_12_main()
     // n being the number up to limit with longest Collatz sequence
     size_t n{ 1 };
     size_t n_collatz_sequence_size{ 1 };
-    auto result = get_longest_collatz_sequence_v2(limit);
+    auto result = get_longest_collatz_sequence_v1(limit);
 
     // Print results
     std::cout << "\tn: " << result.first << "\n";
     std::cout << "\tCollatz sequence (" << result.first << ") size: " << result.second << "\n";
 
-    P12::test_function_performance(limit);
+    //P12::test_function_performance(limit);
  }

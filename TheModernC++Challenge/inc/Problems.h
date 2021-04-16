@@ -7,8 +7,9 @@
 
 class Problems
 {
+    static const size_t maxNumberOfProblems{ 100 };
     using FunctionType = std::function<void()>;
-    using ArrayOfProblemsType = std::array<FunctionType, 100>;
+    using ArrayOfProblemsType = std::array<FunctionType, Problems::maxNumberOfProblems>;
 public:
     Problems();
     FunctionType& operator[](const size_t pos)

@@ -309,5 +309,5 @@ void problem_11_main()
     std::cout << "Number\tRoman numeral equivalent\n";
     std::cout << n << "\t" << to_roman(n, 1) << "\n";
 
-    P11::test_function_performance();
+    //P11::test_function_performance();
 }
