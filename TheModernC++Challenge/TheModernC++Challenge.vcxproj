@@ -159,6 +159,7 @@
     <ClCompile Include="src\Problem10.cpp" />
     <ClCompile Include="src\Problem11.cpp" />
     <ClCompile Include="src\Problem12.cpp" />
+    <ClCompile Include="src\Problem13.cpp" />
     <ClCompile Include="src\Problem8.cpp" />
     <ClCompile Include="src\Problems.cpp" />
     <ClCompile Include="src\Utils.cpp" />
