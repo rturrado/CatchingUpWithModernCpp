@@ -25,6 +25,14 @@ std::ostream& operator<<(std::ostream& os, const std::vector<T>& v)
 }
 
 
+// Check if input stream is clear
+bool is_istream_clear(const std::istream& is);
+
+
+// Clear input stream
+void clear_istream(std::istream& is);
+
+
 // Read a positive number in the range [lower_limit, upper_limit)
 // or [lower_limit, SIZE_T_MAX) in case upper_limit is not specified
 size_t read_positive_number(size_t lower_limit, size_t upper_limit = std::numeric_limits<size_t>::max());
@@ -35,6 +43,10 @@ size_t read_positive_number(size_t lower_limit, size_t upper_limit = std::numeri
 // minimum_list_size is the minimum number of the elements to read for the list
 std::vector<size_t> read_list_of_positive_numbers(size_t minimum_list_size, size_t lower_limit,
     size_t upper_limit = std::numeric_limits<size_t>::max());
+
+
+// Read a n-digit string
+std::string read_n_digit_string(size_t n);
 
 
 // Check if a number is prime or not

@@ -104,3 +104,32 @@ std::vector<size_t> read_list_of_positive_numbers(size_t minimum_list_size, size
     clear_istream(std::cin);
     return v;
 }
+
+
+// Read a n-digit string
+std::string read_n_digit_string(size_t n)
+{
+    std::string ret{};
+
+    bool valid_input{ false };
+    while (!valid_input)
+    {
+        std::cout << "Please enter a " << n << " digit string: ";
+        std::cin >> ret;
+        if (ret.size() != n ||
+            std::count_if(ret.begin(), ret.end(), std::isdigit) != 10)
+        {
+            std::cout << "\tError: invalid input\n";
+        }
+        else
+        {
+            valid_input = true;
+        }
+        if (!valid_input)
+        {
+            clear_istream(std::cin);
+        }
+    }
+
+    return ret;
+}
