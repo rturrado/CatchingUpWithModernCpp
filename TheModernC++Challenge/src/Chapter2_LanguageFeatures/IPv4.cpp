@@ -2,7 +2,13 @@
 
 #include <algorithm>
 #include <ios>
+#include <regex>
 #include <sstream>
+
+// Notes
+// 
+// uint8_t is an alias for unsigned char and thus treated as char by streams
+// We use a temporary string in the string constructor, and a std::to_string conversion in the octets constructor
 
 IPv4::IPv4(const std::string& address)
     // Initialize address
@@ -10,48 +16,35 @@ IPv4::IPv4(const std::string& address)
 {
     // Initialize array of octets
     std::istringstream iss{ _address };
-    std::for_each(_octets.begin(), _octets.end(), [&iss](uint8_t& n) { iss >> n; });
+    std::for_each(_octets.begin(), _octets.end(),
+        [&iss, temp = std::string{}](uint8_t& n) mutable {
+            std::getline(iss, temp, '.');
+            n = std::stoi(temp);
+        }
+    );
 }
 
 IPv4::IPv4(uint8_t o0, uint8_t o1, uint8_t o2, uint8_t o3)
-{
     // Initialize array of octets
-    _octets[0] = o0;
-    _octets[1] = o1;
-    _octets[2] = o2;
-    _octets[3] = o3;
-
+    : _octets{ o0, o1, o2, o3 }
+{
     // Initialize address
     std::ostringstream oss;
-    std::for_each(_octets.begin(), _octets.end(),
-        [&oss, first = true](uint8_t n) mutable { oss << (first ? "" : ".") << n; first = false; });
+    std::for_each(_octets.cbegin(), _octets.cend(),
+        [&oss, first = true](uint8_t n) mutable {
+            oss << (first ? "" : ".") << std::to_string(n);
+            first = false;
+        }
+    );
+    _address = oss.str();
 }
 
-IPv4::IPv4(IPv4&& rhs) noexcept
-    : _address{ std::move(rhs._address) }
-    , _octets{ std::move(rhs._octets) }
+std::ostream& operator<<(std::ostream& os, const IPv4& ipv4)
 {
-    // Do nothing
+    return os << ipv4._address;
 }
 
-IPv4& IPv4::operator=(IPv4&& rhs) noexcept
-{
-    _address = std::move(rhs._address);
-    _octets = std::move(rhs._octets);
-    return *this;
-}
-
-std::string IPv4::to_string() const
-{
-    return _address;
-}
-
-std::ostream& operator<<(std::ostream& os, const IPv4& address)
-{
-    return os << address.to_string();
-}
-
-std::istream& operator>>(std::istream& is, IPv4& address)
+std::istream& operator>>(std::istream& is, IPv4& ipv4)
 {
     bool error{ false };
 
@@ -62,29 +55,31 @@ std::istream& operator>>(std::istream& is, IPv4& address)
     // Check string is a valid IPv4 address
     std::regex pattern{ R"(^([[:digit:]]{1,3})\.([[:digit:]]{1,3})\.([[:digit:]]{1,3})\.([[:digit:]]{1,3})$)" };
     std::smatch matches;
-    if (std::regex_search(str, matches, pattern))  // format is correct
+    if (std::regex_search(str, matches, pattern))
     {
         for (const std::string& match : matches)
         {
-            if (std::stoi(match) > 255)  // every number is not bigger than 255
+            if (std::stoi(match) > 255)
             {
-                error = true;
+                error = true;  // an octet is bigger than 255
                 break;
             }
         }
     }
     else
     {
-        error = true;
+        error = true;  // string format is not correct
     }
+
     if (error)
     {
         is.setstate(std::ios_base::failbit);
+        ipv4._address = std::string{};
     }
     else
     {
-        IPv4 temp{ str };
-        address = std::move(temp);
+        ipv4._address = str;
     }
+
     return is;
 }
