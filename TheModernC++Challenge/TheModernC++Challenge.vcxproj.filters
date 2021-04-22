@@ -16,6 +16,12 @@
     <Filter Include="Source Files\Chapter1_MathProblems">
       <UniqueIdentifier>{748356c9-86fb-40ba-abdf-becdfefe5084}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Chapter2_LanguageFeatures">
+      <UniqueIdentifier>{bdaf025e-ea73-4589-b573-254a88429adf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Chapter2_LanguageFeatures">
+      <UniqueIdentifier>{52e34233-b082-4532-bc2f-411322e53de9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp">
@@ -69,6 +75,12 @@
     <ClCompile Include="src\Chapter1_MathProblems\Problem14.cpp">
       <Filter>Source Files\Chapter1_MathProblems</Filter>
     </ClCompile>
+    <ClCompile Include="src\Chapter2_LanguageFeatures\Problem15.cpp">
+      <Filter>Source Files\Chapter2_LanguageFeatures</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chapter2_LanguageFeatures\IPv4.cpp">
+      <Filter>Source Files\Chapter2_LanguageFeatures</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Utils.h">
@@ -82,6 +94,12 @@
     </ClInclude>
     <ClInclude Include="inc\Digits.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Chapter2_LanguageFeatures.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Chapter2_LanguageFeatures\IPv4.h">
+      <Filter>Header Files\Chapter2_LanguageFeatures</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

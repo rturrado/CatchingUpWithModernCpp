@@ -1,9 +1,11 @@
 #include "Problems.h"
 
 #include "Chapter1_MathProblems.h"
+#include "Chapter2_LanguageFeatures.h"
 
 Problems::Problems()
 {
+    // Math problems
     _arr[_size++] = problem_1_main;
     _arr[_size++] = problem_2_main;
     _arr[_size++] = problem_3_main;
@@ -18,4 +20,7 @@ Problems::Problems()
     _arr[_size++] = problem_12_main;
     _arr[_size++] = problem_13_main;
     _arr[_size++] = problem_14_main;
+
+    // Language features
+    _arr[_size++] = problem_15_main;
 }
