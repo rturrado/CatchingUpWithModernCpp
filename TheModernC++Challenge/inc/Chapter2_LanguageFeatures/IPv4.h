@@ -19,12 +19,21 @@ class IPv4
 public:
     IPv4() = default;
     explicit IPv4(const std::string& address);
-    IPv4(uint8_t o0, uint8_t o1, uint8_t o2, uint8_t o3);
+    explicit IPv4(const char* address);
+    explicit constexpr IPv4(uint32_t address);
+    constexpr IPv4(uint8_t o0, uint8_t o1, uint8_t o2, uint8_t o3);
+
+    std::string to_string() const;
+    constexpr uint32_t to_ulong() const noexcept;
+
+    IPv4& operator++();
+    IPv4 operator++(int);
 private:
+    friend bool operator==(const IPv4& lhs, const IPv4& rhs);
+    friend bool operator<(const IPv4& lhs, const IPv4& rhs);
     friend std::ostream& operator<<(std::ostream& os, const IPv4& ipv4);
     friend std::istream& operator>>(std::istream& is, IPv4& ipv4);
 
-    std::string _address{};
     std::array<uint8_t, 4> _octets{};
 };
 

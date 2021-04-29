@@ -23,4 +23,5 @@ Problems::Problems()
 
     // Language features
     _arr[_size++] = problem_15_main;
+    _arr[_size++] = problem_16_main;
 }

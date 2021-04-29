@@ -81,6 +81,9 @@
     <ClCompile Include="src\Chapter2_LanguageFeatures\IPv4.cpp">
       <Filter>Source Files\Chapter2_LanguageFeatures</Filter>
     </ClCompile>
+    <ClCompile Include="src\Chapter2_LanguageFeatures\Problem16.cpp">
+      <Filter>Source Files\Chapter2_LanguageFeatures</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Utils.h">
@@ -99,6 +102,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\Chapter2_LanguageFeatures\IPv4.h">
+      <Filter>Header Files\Chapter2_LanguageFeatures</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Chapter2_LanguageFeatures\IPv4Range.h">
       <Filter>Header Files\Chapter2_LanguageFeatures</Filter>
     </ClInclude>
   </ItemGroup>
