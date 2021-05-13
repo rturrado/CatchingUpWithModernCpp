@@ -18,13 +18,13 @@
     <ClInclude Include="inc\ConceptOverload.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\MakeUnique.h">
+    <ClInclude Include="inc\Coroutines.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\InitialCheck.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Coroutines.h">
+    <ClInclude Include="inc\MakeUnique.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -32,13 +32,13 @@
     <ClCompile Include="src\ConceptOverload.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\InitialCheck.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="src\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\MakeUnique.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\InitialCheck.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
