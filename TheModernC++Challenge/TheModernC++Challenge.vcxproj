@@ -164,6 +164,7 @@
     <ClCompile Include="src\Chapter2_LanguageFeatures\IPv4.cpp" />
     <ClCompile Include="src\Chapter2_LanguageFeatures\Problem15.cpp" />
     <ClCompile Include="src\Chapter2_LanguageFeatures\Problem16.cpp" />
+    <ClCompile Include="src\Chapter2_LanguageFeatures\Problem17.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Problems.cpp" />
     <ClCompile Include="src\Utils.cpp" />
@@ -171,6 +172,7 @@
   <ItemGroup>
     <ClInclude Include="inc\Chapter1_MathProblems.h" />
     <ClInclude Include="inc\Chapter2_LanguageFeatures.h" />
+    <ClInclude Include="inc\Chapter2_LanguageFeatures\Array2D.h" />
     <ClInclude Include="inc\Chapter2_LanguageFeatures\IPv4.h" />
     <ClInclude Include="inc\Chapter2_LanguageFeatures\IPv4Range.h" />
     <ClInclude Include="inc\Digits.h" />
