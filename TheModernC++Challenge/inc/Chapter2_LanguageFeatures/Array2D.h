@@ -15,7 +15,6 @@ concept printable = requires(std::ostream & os, T t) { os << t; };
 template <printable T>
 class Array2D
 {
-/*
     class ConstIterator
     {
     public:
@@ -58,24 +57,63 @@ class Array2D
         using reference = T&;
         using value_type = T;
     
-        constexpr auto operator*() const noexcept -> reference { return const_cast<reference>(_MyBase::operator*()); }
-        constexpr auto operator->() const noexcept -> pointer { return this->_ptr; }
-        constexpr auto operator++() noexcept -> Iterator& { _MyBase::operator++();  return *this; }
-        constexpr auto operator++(int) noexcept -> Iterator { Iterator tmp{ *this }; _MyBase::operator++(); return tmp; }
-        constexpr auto operator--() noexcept -> Iterator& { _MyBase::operator--(); return *this; }
-        constexpr auto operator--(int) noexcept -> Iterator { Iterator tmp{ *this }; _MyBase::operator--(); return tmp; }
-        constexpr auto operator+=(const difference_type offset) noexcept -> Iterator& { _MyBase::operator+=(offset); return *this; }
-        constexpr auto operator+(const difference_type offset) const noexcept -> Iterator { Iterator tmp{ *this }; tmp += offset; return tmp; }
-        constexpr auto operator-=(const difference_type offset) noexcept -> Iterator& { _MyBase::operator-=(offset); return *this; }
-        constexpr auto operator-(const difference_type offset) const noexcept -> Iterator { Iterator tmp{ *this }; tmp -= offset; return tmp; }
+        constexpr reference operator*() const noexcept { return const_cast<reference>(_MyBase::operator*()); }
+        constexpr pointer operator->() const noexcept { return this->_ptr; }
+        constexpr Iterator& operator++() noexcept { _MyBase::operator++();  return *this; }
+        constexpr Iterator operator++(int) noexcept { Iterator tmp{ *this }; _MyBase::operator++(); return tmp; }
+        constexpr Iterator& operator--() noexcept { _MyBase::operator--(); return *this; }
+        constexpr Iterator operator--(int) noexcept { Iterator tmp{ *this }; _MyBase::operator--(); return tmp; }
+        constexpr Iterator& operator+=(const difference_type offset) noexcept { _MyBase::operator+=(offset); return *this; }
+        constexpr Iterator operator+(const difference_type offset) const noexcept { Iterator tmp{ *this }; tmp += offset; return tmp; }
+        constexpr Iterator& operator-=(const difference_type offset) noexcept { _MyBase::operator-=(offset); return *this; }
+        constexpr Iterator operator-(const difference_type offset) const noexcept { Iterator tmp{ *this }; tmp -= offset; return tmp; }
+        constexpr difference_type operator-(const Iterator& other) const noexcept { return this->_ptr - other._ptr; }
     };
-*/
+
+    template <typename Iter>
+    class ReverseIterator
+    {
+    public:
+        using difference_type = Iter::difference_type;
+        using iterator_category = Iter::iterator_category;
+        using pointer = Iter::pointer;
+        using reference = Iter::reference;
+        using value_type = Iter::value_type;
+
+        template <typename>
+        friend class ReverseIterator;
+
+        constexpr ReverseIterator(Iter it) noexcept : _current{ std::move(it) } {}
+        template <typename OtherIter>
+        constexpr ReverseIterator(const ReverseIterator<OtherIter>& other) noexcept : _current{ other._current } {}
+        constexpr reference operator*() const noexcept { Iter tmp{ _current }; return *(--tmp); }
+        constexpr pointer operator->() const noexcept { Iter tmp{ _current }; --tmp; return tmp->operator->(); }
+        constexpr ReverseIterator& operator++() noexcept { --_current; return *this; }
+        constexpr ReverseIterator operator++(int) noexcept { ReverseIterator tmp{ *this }; --_current; return tmp; }
+        constexpr ReverseIterator& operator--() noexcept { ++_current; return *this; }
+        constexpr ReverseIterator operator--(int) noexcept { ReverseIterator tmp{ *this }; ++_current; return tmp; }
+        constexpr ReverseIterator& operator+=(const difference_type offset) noexcept { _current -= offset; return *this; }
+        constexpr ReverseIterator operator+(const difference_type offset) const noexcept { return ReverseIterator{ _current - offset }; }
+        constexpr ReverseIterator& operator-=(const difference_type offset) noexcept { _current += offset; return *this; }
+        constexpr ReverseIterator operator-(const difference_type offset) const noexcept { return ReverseIterator{ _current + offset }; }
+        template <typename OtherIter>
+        constexpr difference_type operator-(const ReverseIterator<OtherIter>& other) const noexcept { return _current - other._current; }
+        template <typename OtherIter>
+        constexpr bool operator==(const ReverseIterator<OtherIter>& other) const noexcept { return _current == other._current; }
+        template <typename OtherIter>
+        constexpr bool operator<=>(const ReverseIterator<OtherIter>& other) const noexcept { return _current <=> other._current; }
+
+    protected:
+        Iter _current{};
+    };
 
 public:
-    using const_iterator = const T*;  // ConstIterator;
+    using const_iterator = ConstIterator;
     using const_reference = const T&;
-    using iterator = T*;  // Iterator;
+    using const_reverse_iterator = ReverseIterator<ConstIterator>;
+    using iterator = Iterator;
     using reference = T&;
+    using reverse_iterator = ReverseIterator<iterator>;
     using size_type = std::vector<T>::size_type;
     using value_type = T;
 
@@ -136,8 +174,12 @@ public:
 
     [[nodiscard]] constexpr iterator begin() const noexcept { return iterator(const_cast<T*>(_data.data())); }
     [[nodiscard]] constexpr iterator end() const noexcept { return iterator(const_cast<T*>(_data.data()) + _data.size()); }
-    [[nodiscard]] constexpr const_iterator cbegin() const noexcept { return const_iterator(const_cast<T*>(_data.data())); }
-    [[nodiscard]] constexpr const_iterator cend() const noexcept { return const_iterator(const_cast<T*>(_data.data()) + _data.size()); }
+    [[nodiscard]] constexpr const_iterator cbegin() const noexcept { return begin(); }
+    [[nodiscard]] constexpr const_iterator cend() const noexcept { return end(); }
+    [[nodiscard]] constexpr reverse_iterator rbegin() const noexcept { return reverse_iterator(end()); }
+    [[nodiscard]] constexpr reverse_iterator rend() const noexcept { return reverse_iterator(begin()); }
+    [[nodiscard]] constexpr const_reverse_iterator crbegin() const noexcept { return rbegin(); }
+    [[nodiscard]] constexpr const_reverse_iterator crend() const noexcept { return rend(); }
 
     constexpr void swap(size_type left_row, size_type left_col, size_type right_row, size_type right_col)
     {

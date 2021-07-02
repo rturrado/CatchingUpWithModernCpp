@@ -68,6 +68,10 @@ void problem_17_main()
         auto col1{ arr3.column_as_vector(3) };
         print(col1);
 
+        // Reverse iterators
+        std::transform(arr1.crbegin(), arr1.crend(), arr5.begin(), [](auto n) { return n + 1; });
+        arr5.print();
+
         // Test out of range access
         arr5.swap(3, 0, 2, 2);
         arr5.print();
