@@ -18,7 +18,7 @@ void problem_17_main()
         // Then modified using iota()
         Array2D<int> arr1(3, 3);
         std::iota(arr1.begin(), arr1.end(), 1);
-        arr1.print();
+        std::cout << arr1;
 
         // Array of floats initialized with width and height
         // Then modified using at()
@@ -32,7 +32,7 @@ void problem_17_main()
                 f *= 2;
             }
         }
-        arr2.print();
+        std::cout << arr2;
 
         // Array initialized with a initializer list of initializer lists
         Array2D<std::string> arr3{
@@ -41,40 +41,40 @@ void problem_17_main()
             { "nombre", "no", "quiero", "acordarme" },
             { "no", "ha", "mucho", "que" }
         };
-        arr3.print(10);
+        std::cout << arr3;
 
         // Array initialized with move constructor
         auto arr4{ std::move(arr2) };
-        arr4.print();
+        std::cout << arr4;
 
         // Array initialized with copy constructor
         // Then modified using transform()
         // transform() uses difference_type operator-()
         auto arr5{ arr1 };
         std::transform(arr1.cbegin(), arr1.cend(), arr5.begin(), [](auto n) { return n + 1; });
-        arr5.print();
+        std::cout << arr5;
 
         // Swapping of elements
         arr5.swap(0, 0, 2, 2);
-        arr5.print();
+        std::cout << arr5;
 
         // Sub arrays
         auto arr6{ arr3.sub_array(1, 1, 1, 2) };
-        arr6.print();
+        std::cout << arr6;
 
         // Rows and columns as vectors
         auto row1{ arr3.row_as_vector(2) };
-        print(row1);
+        std::cout << row1;
         auto col1{ arr3.column_as_vector(3) };
-        print(col1);
+        std::cout << col1;
 
         // Reverse iterators
         std::transform(arr1.crbegin(), arr1.crend(), arr5.begin(), [](auto n) { return n + 1; });
-        arr5.print();
+        std::cout << arr5;
 
         // Test out of range access
         arr5.swap(3, 0, 2, 2);
-        arr5.print();
+        std::cout << arr5;
     }
     catch (const std::exception& err)
     {

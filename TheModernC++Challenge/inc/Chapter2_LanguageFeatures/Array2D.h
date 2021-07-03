@@ -5,6 +5,7 @@
 #include <format>
 #include <iostream>
 #include <iterator>
+#include <ranges>
 #include <sstream>
 #include <stdexcept>
 #include <vector>
@@ -235,33 +236,44 @@ public:
         return column_vector;
     }
 
-    void print(uint16_t column_width = 6) const noexcept
+    friend auto get_column_width(const Array2D& arr, size_type column)
     {
-        auto print_left_border = [](auto row, auto num_rows) {
+        auto column_vector = arr.column_as_vector(column);
+        std::ostringstream oss{};
+        std::for_each(column_vector.cbegin(), column_vector.cend(),
+            [&oss](const auto& val) { oss << val; oss.seekp(0); });
+        return oss.str().size();
+    }
+
+    friend std::ostream& operator<<(std::ostream& os, const Array2D& arr)
+    {
+        auto print_left_border = [&os](auto row, auto num_rows) {
             char c{ static_cast<char>(179) };
             if (row == 0) { c = static_cast<char>(218); }
             else if (row == num_rows - 1) { c = static_cast<char>(192); }
-            std::cout << c;
+            os << c;
         };
 
-        auto print_right_border = [](auto row, auto num_rows) {
+        auto print_right_border = [&os](auto row, auto num_rows) {
             char c{ static_cast<char>(179) };
             if (row == 0) { c = static_cast<char>(191); }
             else if (row == num_rows - 1) { c = static_cast<char>(217); }
-            std::cout << " " << c;
+            os << " " << c;
         };
 
-        for (auto row = 0; row < _height; ++row)
+        for (auto row = 0; row < arr._height; ++row)
         {
-            print_left_border(row, _height);
-            for (auto col = 0; col < _width; ++col)
+            print_left_border(row, arr._height);
+            for (auto col = 0; col < arr._width; ++col)
             {
-                std::cout << (col == 0 ? " " : ", ") << std::format("{1:>{0}}", column_width, this->at(row, col));
+                auto column_width{ get_column_width(arr, col) };
+
+                os << (col == 0 ? " " : ", ") << std::format("{1:>{0}}", column_width, arr.at(row, col));
             }
-            print_right_border(row, _height);
-            std::cout << "\n";
+            print_right_border(row, arr._height);
+            os << "\n";
         }
-        std::cout << "\n";
+        return os << "\n";
     }
 
 private:
@@ -271,14 +283,14 @@ private:
 };
 
 template <printable T>
-void print(const std::vector<T>& v)
+std::ostream& operator<<(std::ostream& os, const std::vector<T>& v)
 {
-    std::cout << "[";
-    std::for_each(v.cbegin(), v.cend(), [ first = true ](const auto& e) mutable {
-        std::cout << (first ? " " : ", ") << e;
+    os << "[";
+    std::for_each(v.cbegin(), v.cend(), [ &os, first = true ](const auto& e) mutable {
+        os << (first ? " " : ", ") << e;
         first = false;
     });
-    std::cout << " ]\n\n";
+    return os << " ]\n\n";
 }
 
 #endif
