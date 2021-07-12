@@ -245,6 +245,18 @@ public:
         return oss.str().size();
     }
 
+    friend auto get_column_widths(const Array2D& arr)
+    {
+        std::vector<size_t> column_widths{};
+
+        for (auto col{0}; col < arr._height; ++col)
+        {
+            column_widths.push_back(get_column_width(arr, col));
+        }
+
+        return column_widths;
+    }
+
     friend std::ostream& operator<<(std::ostream& os, const Array2D& arr)
     {
         auto print_left_border = [&os](auto row, auto num_rows) {
@@ -261,14 +273,14 @@ public:
             os << " " << c;
         };
 
+        auto column_widths = get_column_widths(arr);
+
         for (auto row = 0; row < arr._height; ++row)
         {
             print_left_border(row, arr._height);
             for (auto col = 0; col < arr._width; ++col)
             {
-                auto column_width{ get_column_width(arr, col) };
-
-                os << (col == 0 ? " " : ", ") << std::format("{1:>{0}}", column_width, arr.at(row, col));
+                os << (col == 0 ? " " : ", ") << std::format("{1:>{0}}", column_widths[col], arr.at(row, col));
             }
             print_right_border(row, arr._height);
             os << "\n";
