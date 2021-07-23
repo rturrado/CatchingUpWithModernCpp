@@ -16,7 +16,7 @@ std::string read_n_digit_isbn(size_t n)
         
         std::getline(std::cin, ret);
         
-        auto number_of_digits{ std::count_if(ret.begin(), ret.end(), std::isdigit) };
+        auto number_of_digits{ std::count_if(ret.begin(), ret.end(), [](auto& n) { return std::isdigit(n) != 0; }) };
         auto number_of_separators{ std::count_if(ret.begin(), ret.end(),
             [&separators](char c) { return separators.find(c) != std::string::npos; }) };
         

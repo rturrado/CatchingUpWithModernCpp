@@ -117,7 +117,7 @@ std::string read_n_digit_string(size_t n)
         std::cout << "Please enter a " << n << " digit string: ";
         std::cin >> ret;
         if (ret.size() != n ||
-            std::count_if(ret.begin(), ret.end(), std::isdigit) != 10)
+            std::count_if(ret.begin(), ret.end(), [](auto& n) { return std::isdigit(n) != 0; }) != 10)
         {
             std::cout << "\tError: invalid input\n";
         }
