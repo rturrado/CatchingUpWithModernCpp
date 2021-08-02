@@ -93,6 +93,9 @@
     <ClCompile Include="src\Chapter2_LanguageFeatures\Problem19.cpp">
       <Filter>Source Files\Chapter2_LanguageFeatures</Filter>
     </ClCompile>
+    <ClCompile Include="src\Chapter2_LanguageFeatures\Problem20.cpp">
+      <Filter>Source Files\Chapter2_LanguageFeatures</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Utils.h">
@@ -123,6 +126,9 @@
       <Filter>Header Files\Chapter2_LanguageFeatures</Filter>
     </ClInclude>
     <ClInclude Include="inc\Problem19.h">
+      <Filter>Header Files\Chapter2_LanguageFeatures</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Chapter2_LanguageFeatures\Problem20.h">
       <Filter>Header Files\Chapter2_LanguageFeatures</Filter>
     </ClInclude>
   </ItemGroup>
