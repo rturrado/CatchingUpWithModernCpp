@@ -7,7 +7,6 @@
 #include <vector>
 
 #include "Problem20.h"
-#include "Utils.h"
 
 // Container any, all, none
 // Write a set of general-purpose functions that enable checking whether any, all, or none

@@ -88,7 +88,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>./inc;./inc/Chapter2_LanguageFeatures;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./inc;./inc/Chapter1_MathProblems;./inc/Chapter2_LanguageFeatures;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
@@ -104,7 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>./inc;./inc/Chapter2_LanguageFeatures;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./inc;./inc/Chapter1_MathProblems;./inc/Chapter2_LanguageFeatures;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
@@ -120,7 +120,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>./inc;./inc/Chapter2_LanguageFeatures;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./inc;./inc/Chapter1_MathProblems;./inc/Chapter2_LanguageFeatures;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
@@ -136,7 +136,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>./inc;./inc/Chapter2_LanguageFeatures;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./inc;./inc/Chapter1_MathProblems;./inc/Chapter2_LanguageFeatures;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
@@ -168,22 +168,28 @@
     <ClCompile Include="src\Chapter2_LanguageFeatures\Problem18.cpp" />
     <ClCompile Include="src\Chapter2_LanguageFeatures\Problem19.cpp" />
     <ClCompile Include="src\Chapter2_LanguageFeatures\Problem20.cpp" />
+    <ClCompile Include="src\Chapter2_LanguageFeatures\Problem21.cpp" />
+    <ClCompile Include="src\Chapter2_LanguageFeatures\UniqueHdl.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Problems.cpp" />
     <ClCompile Include="src\Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Chapter1_MathProblems.h" />
+    <ClInclude Include="inc\Chapter1_MathProblems\Digits.h" />
     <ClInclude Include="inc\Chapter2_LanguageFeatures.h" />
     <ClInclude Include="inc\Chapter2_LanguageFeatures\Array2D.h" />
+    <ClInclude Include="inc\Chapter2_LanguageFeatures\Problem19.h" />
+    <ClInclude Include="inc\Chapter2_LanguageFeatures\UniqueHdl.h" />
     <ClInclude Include="inc\Chapter2_LanguageFeatures\IPv4.h" />
     <ClInclude Include="inc\Chapter2_LanguageFeatures\IPv4Range.h" />
     <ClInclude Include="inc\Chapter2_LanguageFeatures\Problem18.h" />
     <ClInclude Include="inc\Chapter2_LanguageFeatures\Problem20.h" />
-    <ClInclude Include="inc\Digits.h" />
-    <ClInclude Include="inc\Problem19.h" />
     <ClInclude Include="inc\Problems.h" />
     <ClInclude Include="inc\Utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="res\sample.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

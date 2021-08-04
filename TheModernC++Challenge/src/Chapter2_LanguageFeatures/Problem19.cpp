@@ -22,7 +22,7 @@ void problem_19_main()
     std::cout << v_str << "\n";
 
     std::list<float> l_float{};
-    push_back_list_v2(l_float, 3.14, 0.99, -273.0);
+    push_back_list_v2(l_float, 3.14f, 0.99f, -273.0f);
     std::cout << l_float << "\n";
 
     std::cout << "\n";

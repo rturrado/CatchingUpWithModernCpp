@@ -22,6 +22,9 @@
     <Filter Include="Header Files\Chapter2_LanguageFeatures">
       <UniqueIdentifier>{52e34233-b082-4532-bc2f-411322e53de9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Chapter1_MathProblems">
+      <UniqueIdentifier>{372c77a9-c4e8-4ac3-a0fa-2cce39d06748}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp">
@@ -96,6 +99,12 @@
     <ClCompile Include="src\Chapter2_LanguageFeatures\Problem20.cpp">
       <Filter>Source Files\Chapter2_LanguageFeatures</Filter>
     </ClCompile>
+    <ClCompile Include="src\Chapter2_LanguageFeatures\Problem21.cpp">
+      <Filter>Source Files\Chapter2_LanguageFeatures</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chapter2_LanguageFeatures\UniqueHdl.cpp">
+      <Filter>Source Files\Chapter2_LanguageFeatures</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Utils.h">
@@ -105,9 +114,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\Problems.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Digits.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\Chapter2_LanguageFeatures.h">
@@ -125,11 +131,22 @@
     <ClInclude Include="inc\Chapter2_LanguageFeatures\Problem18.h">
       <Filter>Header Files\Chapter2_LanguageFeatures</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Problem19.h">
-      <Filter>Header Files\Chapter2_LanguageFeatures</Filter>
-    </ClInclude>
     <ClInclude Include="inc\Chapter2_LanguageFeatures\Problem20.h">
       <Filter>Header Files\Chapter2_LanguageFeatures</Filter>
     </ClInclude>
+    <ClInclude Include="inc\Chapter2_LanguageFeatures\UniqueHdl.h">
+      <Filter>Header Files\Chapter2_LanguageFeatures</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Chapter2_LanguageFeatures\Problem19.h">
+      <Filter>Header Files\Chapter2_LanguageFeatures</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Chapter1_MathProblems\Digits.h">
+      <Filter>Header Files\Chapter1_MathProblems</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="res\sample.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
