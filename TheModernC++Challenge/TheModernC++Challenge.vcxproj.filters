@@ -102,6 +102,9 @@
     <ClCompile Include="src\Chapter2_LanguageFeatures\Problem21.cpp">
       <Filter>Source Files\Chapter2_LanguageFeatures</Filter>
     </ClCompile>
+    <ClCompile Include="src\Chapter2_LanguageFeatures\Problem22.cpp">
+      <Filter>Source Files\Chapter2_LanguageFeatures</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Utils.h">
@@ -139,6 +142,9 @@
     </ClInclude>
     <ClInclude Include="inc\Chapter1_MathProblems\Digits.h">
       <Filter>Header Files\Chapter1_MathProblems</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Chapter2_LanguageFeatures\temperature.h">
+      <Filter>Header Files\Chapter2_LanguageFeatures</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

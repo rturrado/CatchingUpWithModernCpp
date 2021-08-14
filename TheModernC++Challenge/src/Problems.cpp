@@ -29,4 +29,5 @@ Problems::Problems()
     _arr[_size++] = problem_19_main;
     _arr[_size++] = problem_20_main;
     _arr[_size++] = problem_21_main;
+    _arr[_size++] = problem_22_main;
 }
