@@ -4,6 +4,7 @@
 #include <iomanip>
 #include <iostream>
 #include <stdexcept>
+#include <type_traits>  // for std::common_type_t
 
 
 namespace my_temperature
@@ -133,7 +134,7 @@ namespace my_temperature
     Rep_ kelvin_to_fahrenheit(Rep_ k) { return (k * 9 / 5) + 32; }
 
     template <typename Rep_>
-    [[nodiscard]] Rep_ to_celsius(const temperature<Rep_>& t)
+    [[nodiscard]] constexpr Rep_ to_celsius(const temperature<Rep_>& t)
     {
         Rep_ ret{};
 
@@ -150,7 +151,7 @@ namespace my_temperature
     }
 
     template <typename Rep_>
-    [[nodiscard]] Rep_ to_fahrenheit(const temperature<Rep_>& t)
+    [[nodiscard]] constexpr Rep_ to_fahrenheit(const temperature<Rep_>& t)
     {
         Rep_ ret{};
 
@@ -167,7 +168,7 @@ namespace my_temperature
     }
 
     template <typename Rep_>
-    [[nodiscard]] Rep_ to_kelvin(const temperature<Rep_>& t)
+    [[nodiscard]] constexpr Rep_ to_kelvin(const temperature<Rep_>& t)
     {
         Rep_ ret{};
 
@@ -181,6 +182,71 @@ namespace my_temperature
         }
 
         return ret;
+    }
+
+
+    // Comparisons
+    //
+    bool simple_compare_long_doubles(long double lhs, long double rhs)
+    {
+        return std::fabs(lhs - rhs) <= std::numeric_limits<long double>::epsilon();
+    }
+
+    template <typename Rep_, typename Rep2_>
+    bool operator==(const temperature<Rep_>& lhs, const temperature<Rep2_>& rhs)
+    {
+        return simple_compare_long_doubles(
+            static_cast<long double>(to_celsius(lhs)),
+            static_cast<long double>(to_celsius(rhs)));
+    }
+
+    template <typename Rep_, typename Rep2_>
+    bool operator!=(const temperature<Rep_>& lhs, const temperature<Rep2_>& rhs)
+    {
+        return not (lhs == rhs);
+    }
+
+    template <typename Rep_, typename Rep2_>
+    constexpr bool operator<(const temperature<Rep_>& lhs, const temperature<Rep2_>& rhs)
+    {
+        return static_cast<long double>(to_celsius(lhs)) < static_cast<long double>(to_celsius(rhs));
+    }
+
+    template <typename Rep_, typename Rep2_>
+    constexpr bool operator>(const temperature<Rep_>& lhs, const temperature<Rep2_>& rhs)
+    {
+        return rhs < lhs;
+    }
+
+    template <typename Rep_, typename Rep2_>
+    constexpr bool operator<=(const temperature<Rep_>& lhs, const temperature<Rep2_>& rhs)
+    {
+        return not (lhs > rhs);
+    }
+
+    template <typename Rep_, typename Rep2_>
+    constexpr bool operator>=(const temperature<Rep_>& lhs, const temperature<Rep2_>& rhs)
+    {
+        return not (lhs < rhs);
+    }
+
+
+    // Arithmetic
+    //
+    template <typename Rep_, typename Rep2_>
+    constexpr auto operator+(const temperature<Rep_>& lhs, const temperature<Rep2_>& rhs)
+    {
+        using CT_ = std::common_type_t<Rep_, Rep2_>;
+        return temperature<CT_>(
+            static_cast<long double>(to_celsius(lhs)) + static_cast<long double>(to_celsius(rhs)), Scale::Celsius);
+    }
+
+    template <typename Rep_, typename Rep2_>
+    constexpr auto operator-(const temperature<Rep_>& lhs, const temperature<Rep2_>& rhs)
+    {
+        using CT_ = std::common_type_t<Rep_, Rep2_>;
+        return temperature<CT_>(
+            static_cast<long double>(to_celsius(lhs)) - static_cast<long double>(to_celsius(rhs)), Scale::Celsius);
     }
 
 

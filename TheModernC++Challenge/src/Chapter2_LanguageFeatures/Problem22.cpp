@@ -12,10 +12,22 @@ void problem_22_main()
     using namespace my_temperature;
     using namespace my_temperature_literals;
 
-    temperature t1{ 35, Scale::Celsius };
-    temperature t2{ 35, Scale::Fahrenheit };
-    temperature t3{ 35, Scale::Kelvin };
-
     std::cout << 35.5_deg << " in Fahrenheit: " << to_fahrenheit(35.5_deg) << "\n";
-    std::cout << 35.5_deg << " in Kelvin: " << to_kelvin(35.5_deg) << "\n";
+    std::cout << 35.5_deg << " in Kelvin: " << to_kelvin(35.5_deg) << "\n\n";
+
+    temperature t1{ 12.3, Scale::Celsius };
+    temperature t2{ 12.3, Scale::Fahrenheit };
+    temperature t3{ 12.3, Scale::Kelvin };
+
+    std::cout << t1 << " == " << t2 << "? " << std::boolalpha << (t1 == t2) << ". ";
+    std::cout << t2 << " == " << to_celsius(t2) << " Celsius" << "\n";
+    std::cout << t1 << " < " << t2 << "? " << std::boolalpha << (t1 < t2) << ". ";
+    std::cout << t2 << " == " << to_celsius(t2) << " Celsius" << "\n";
+    std::cout << t1 << " > " << t3 << "? " << std::boolalpha << (t1 > t3) << ". ";
+    std::cout << t3 << " == " << to_celsius(t3) << " Celsius" << "\n\n";
+
+    std::cout << t1 << " + " << t2 << " = " << (t1 + t2) << ". ";
+    std::cout << t2 << " == " << to_celsius(t2) << " Celsius" << "\n";
+    std::cout << t1 << " - " << t3 << " = " << (t1 - t3) << ". ";
+    std::cout << t3 << " == " << to_celsius(t3) << " Celsius" << "\n";
 }
