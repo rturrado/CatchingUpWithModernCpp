@@ -180,7 +180,8 @@
     <ClInclude Include="inc\Chapter2_LanguageFeatures.h" />
     <ClInclude Include="inc\Chapter2_LanguageFeatures\Array2D.h" />
     <ClInclude Include="inc\Chapter2_LanguageFeatures\Problem19.h" />
-    <ClInclude Include="inc\Chapter2_LanguageFeatures\temperature.h" />
+    <ClInclude Include="inc\Chapter2_LanguageFeatures\temperature_v1.h" />
+    <ClInclude Include="inc\Chapter2_LanguageFeatures\temperature_v2.h" />
     <ClInclude Include="inc\Chapter2_LanguageFeatures\UniqueHdl.h" />
     <ClInclude Include="inc\Chapter2_LanguageFeatures\IPv4.h" />
     <ClInclude Include="inc\Chapter2_LanguageFeatures\IPv4Range.h" />

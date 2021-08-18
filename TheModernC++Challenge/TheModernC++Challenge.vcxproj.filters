@@ -143,7 +143,10 @@
     <ClInclude Include="inc\Chapter1_MathProblems\Digits.h">
       <Filter>Header Files\Chapter1_MathProblems</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Chapter2_LanguageFeatures\temperature.h">
+    <ClInclude Include="inc\Chapter2_LanguageFeatures\temperature_v1.h">
+      <Filter>Header Files\Chapter2_LanguageFeatures</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Chapter2_LanguageFeatures\temperature_v2.h">
       <Filter>Header Files\Chapter2_LanguageFeatures</Filter>
     </ClInclude>
   </ItemGroup>
