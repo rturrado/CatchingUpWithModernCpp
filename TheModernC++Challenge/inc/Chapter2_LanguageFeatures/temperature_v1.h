@@ -1,10 +1,11 @@
 #ifndef __TEMPERATURE_V1_H__
 #define __TEMPERATURE_V1_H__
 
-#include <iomanip>
-#include <iostream>
-#include <stdexcept>
-#include <type_traits>  // for std::common_type_t
+#include <iomanip>  // setprecision
+#include <ios>  // fixed
+#include <iostream>  // ostream
+#include <stdexcept>  // runtime_error
+#include <type_traits>  // common_type_t
 
 
 // V1: my initial solution.

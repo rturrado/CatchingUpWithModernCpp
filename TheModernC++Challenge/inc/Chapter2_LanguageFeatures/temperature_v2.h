@@ -1,9 +1,10 @@
 #ifndef __TEMPERATURE_V2_H__
 #define __TEMPERATURE_V2_H__
 
-#include <iomanip>
-#include <iostream>
-#include <type_traits>  // for std::common_type_t
+#include <iomanip>  // setprecision
+#include <ios>  // fixed
+#include <iostream>  // ostream
+#include <type_traits>  // common_type_t
 
 
 // V2: based on the book answer; also similar to Boost.Unit's implementation
@@ -146,7 +147,6 @@ namespace my_temperature_v2
         using CT_ = std::common_type_t<Rep_, Rep2_>;
         return temperature<CT_, S2>(conversion_helper<Rep_, S, Rep2_, S2>::convert(t.value()));
     }
-
 
 
     // Comparisons
