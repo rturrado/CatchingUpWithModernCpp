@@ -3,31 +3,40 @@
 
 #include <cassert>
 #include <functional>
-#include <array>
+#include <vector>
+
+#include "Chapter1_MathProblems.h"
+#include "Chapter2_LanguageFeatures.h"
+#include "Chapter3_StringsAndRegularExpressions.h"
 
 class Problems
 {
-    static const size_t maxNumberOfProblems{ 100 };
     using FunctionType = std::function<void()>;
-    using ArrayOfProblemsType = std::array<FunctionType, Problems::maxNumberOfProblems>;
+
 public:
-    Problems();
-    FunctionType& operator[](const size_t pos)
+    static Problems& get_instance()
     {
-        return _arr[pos];
+        static Problems instance;
+        return instance;
     }
-    size_t size()
+    constexpr size_t size()
     {
-        return _size;
+        return data_.size();
     }
     void execute(size_t i)
     {
-        assert((i > 0) && (i <= _size));
-        std::invoke(_arr[i - 1]);
+        assert((i > 0) && (i <= data_.size()));
+        std::invoke(data_[i - 1]);
     }
+
 private:
-    ArrayOfProblemsType _arr{};
-    size_t _size{ 0 };
+    Problems() {};
+
+    std::vector<FunctionType> data_{
+        problem_1_main, problem_2_main, problem_3_main, problem_4_main, problem_5_main, problem_6_main, problem_7_main, problem_8_main, problem_9_main, problem_10_main, problem_11_main, problem_12_main, problem_13_main, problem_14_main, // Math problems
+        problem_15_main, problem_16_main, problem_17_main, problem_18_main, problem_19_main, problem_20_main, problem_21_main, problem_22_main, // Language features
+        problem_23_main  // Strings and regular expressions
+    };
 };
 
 #endif

@@ -25,6 +25,12 @@
     <Filter Include="Header Files\Chapter1_MathProblems">
       <UniqueIdentifier>{372c77a9-c4e8-4ac3-a0fa-2cce39d06748}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Chapter3_StringsAndRegularExpressions">
+      <UniqueIdentifier>{4c8873d1-a966-41b9-a5d5-c9af429aaafb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Chapter3_StringsAndRegularExpressions">
+      <UniqueIdentifier>{5dd7f469-7ec1-4341-94b8-9c23f777c337}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp">
@@ -53,9 +59,6 @@
     </ClCompile>
     <ClCompile Include="src\Chapter1_MathProblems\Problem7.cpp">
       <Filter>Source Files\Chapter1_MathProblems</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Problems.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Chapter1_MathProblems\Problem9.cpp">
       <Filter>Source Files\Chapter1_MathProblems</Filter>
@@ -105,6 +108,9 @@
     <ClCompile Include="src\Chapter2_LanguageFeatures\Problem22.cpp">
       <Filter>Source Files\Chapter2_LanguageFeatures</Filter>
     </ClCompile>
+    <ClCompile Include="src\Chapter3_StringsAndRegularExpressions\Problem23.cpp">
+      <Filter>Source Files\Chapter3_StringsAndRegularExpressions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Utils.h">
@@ -148,6 +154,9 @@
     </ClInclude>
     <ClInclude Include="inc\Chapter2_LanguageFeatures\temperature_v2.h">
       <Filter>Header Files\Chapter2_LanguageFeatures</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Chapter3_StringsAndRegularExpressions.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

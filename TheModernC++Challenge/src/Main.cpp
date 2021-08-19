@@ -8,7 +8,7 @@
 
 int main()
 {
-    Problems problems{};
+    Problems& problems{ Problems::get_instance() };
 
     while (true)
     {

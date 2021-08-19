@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <cmath>
 #include <chrono>
+#include <concepts>
 #include <iostream>
 #include <numeric>
 #include <ostream>
@@ -13,20 +14,34 @@
 
 // Print container
 template <typename T>
-concept printable = requires (std::ostream & os, T t) { os << t; };
+concept printable = requires (std::ostream& os, const T& t) { os << t; };
 
 template <typename C>
-concept implements_operator_extraction = requires (std::ostream & os, C c) { os << c; };
+concept implements_operator_extraction = requires (std::ostream& os, const C& c) { os << c; };
 
 template <typename C>
-requires (!implements_operator_extraction<C>)
-std::ostream& operator<<(std::ostream& os, const C& c) requires (printable<typename C::value_type>)
+requires (!std::same_as<typename C::value_type, uint8_t>) && (!implements_operator_extraction<C>) && printable<typename C::value_type>
+std::ostream& operator<<(std::ostream& os, const C& c)
 {
     os << "{";
-    std::for_each(c.cbegin(), c.cend(), [first = true, &os](const auto n) mutable { os << (first ? " " : ", ") << n; first = false; });
+    std::for_each(cbegin(c), cend(c), [first = true, &os](const auto n) mutable {
+        os << (first ? " " : ", ") << n; first = false;
+    });
     os << " }";
     return os;
-}
+};
+
+template <typename C>
+requires std::same_as<typename C::value_type, uint8_t> && (!implements_operator_extraction<C>)
+std::ostream& operator<<(std::ostream& os, const C& c)
+{
+    os << "{";
+    std::for_each(cbegin(c), cend(c), [first = true, &os](const auto n) mutable {
+        os << (first ? " " : ", ") << std::hex << static_cast<uint16_t>(n); first = false;
+    });
+    os << " }";
+    return os;
+};
 
 
 // Check if input stream is clear
