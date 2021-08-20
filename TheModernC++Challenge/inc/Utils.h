@@ -5,6 +5,8 @@
 #include <cmath>
 #include <chrono>
 #include <concepts>
+#include <iomanip>  // std::setfill, std::setw
+#include <ios>  // std::hex
 #include <iostream>
 #include <numeric>
 #include <ostream>
@@ -37,7 +39,7 @@ std::ostream& operator<<(std::ostream& os, const C& c)
 {
     os << "{";
     std::for_each(cbegin(c), cend(c), [first = true, &os](const auto n) mutable {
-        os << (first ? " " : ", ") << std::hex << static_cast<uint16_t>(n); first = false;
+        os << (first ? " " : ", ") << "0x" << std::hex << std::setw(2) << std::setfill('0') << static_cast<uint16_t>(n); first = false;
     });
     os << " }";
     return os;

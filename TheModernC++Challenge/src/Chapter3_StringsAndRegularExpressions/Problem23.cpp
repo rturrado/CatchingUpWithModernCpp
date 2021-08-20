@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <array>
-#include <iomanip>
+#include <iomanip>  // std::setfill, std::setw
+#include <ios>  // std::hex
 #include <iostream>
 #include <numeric>
 #include <sstream>
@@ -30,7 +31,7 @@ requires (std::is_same_v<typename Container::value_type, uint8_t>)
 // Input: { 1, 2, 3, 4, 5, 6 }, output: "010203040506"
 void problem_23_main()
 {
-    std::vector<uint8_t> v{ 0xBA, 0xAD, 0xF0, 0x0D };
+    std::vector<uint8_t> v{ 0xBA, 0xAD, 0xf0, 0x0d };
     std::cout << "Converting vector " << v << " to string \"" << to_string(v) << "\"\n";
     
     std::array<uint8_t, 6> a{};
