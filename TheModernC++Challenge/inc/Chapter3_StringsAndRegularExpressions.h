@@ -3,5 +3,6 @@
 
 void problem_23_main();
 void problem_24_main();
+void problem_25_main();
 
 #endif
