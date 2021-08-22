@@ -73,4 +73,5 @@ void problem_21_main()
     {
         std::cout << "Error: " << ex.what();
     }
+    std::cout << "\n";
 }

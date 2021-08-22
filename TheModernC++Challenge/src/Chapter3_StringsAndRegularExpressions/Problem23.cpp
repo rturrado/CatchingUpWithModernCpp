@@ -37,4 +37,6 @@ void problem_23_main()
     std::array<uint8_t, 6> a{};
     std::iota(begin(a), end(a), 1);
     std::cout << "Converting array " << a << " to string \"" << to_string(a) << "\"\n";
+
+    std::cout << "\n";
 }
