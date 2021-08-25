@@ -117,6 +117,12 @@
     <ClCompile Include="src\Chapter3_StringsAndRegularExpressions\Problem25.cpp">
       <Filter>Source Files\Chapter3_StringsAndRegularExpressions</Filter>
     </ClCompile>
+    <ClCompile Include="src\Chapter3_StringsAndRegularExpressions\Problem26.cpp">
+      <Filter>Source Files\Chapter3_StringsAndRegularExpressions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chapter3_StringsAndRegularExpressions\Problem27.cpp">
+      <Filter>Source Files\Chapter3_StringsAndRegularExpressions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Utils.h">
