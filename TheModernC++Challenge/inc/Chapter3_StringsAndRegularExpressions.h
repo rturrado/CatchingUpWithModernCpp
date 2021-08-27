@@ -8,5 +8,6 @@ void problem_26_main();
 void problem_27_main();
 void problem_28_main();
 void problem_29_main();
+void problem_30_main();
 
 #endif
