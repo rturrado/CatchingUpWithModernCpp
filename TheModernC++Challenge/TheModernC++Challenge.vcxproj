@@ -176,6 +176,7 @@
     <ClCompile Include="src\Chapter3_StringsAndRegularExpressions\Problem26.cpp" />
     <ClCompile Include="src\Chapter3_StringsAndRegularExpressions\Problem27.cpp" />
     <ClCompile Include="src\Chapter3_StringsAndRegularExpressions\Problem28.cpp" />
+    <ClCompile Include="src\Chapter3_StringsAndRegularExpressions\Problem29.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Utils.cpp" />
   </ItemGroup>
