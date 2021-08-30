@@ -4,13 +4,12 @@
 #include <regex>
 #include <string>
 
-class invalid_url : public std::exception
+struct invalid_url : public std::exception
 {
-public:
-    invalid_url(const std::string& url) noexcept : url_{ std::string{"invalid URL: \"" + url + "\""}} {}
-    const char* what() const noexcept { return url_.c_str(); }
+    explicit invalid_url(const std::string& url) noexcept { message_ += "\"" + url + "\""; }
+    const char* what() const noexcept { return message_.c_str(); }
 private:
-    std::string url_{};
+    std::string message_{ "invalid URL: "};
 };
 
 struct url
@@ -87,20 +86,19 @@ private:
 // (protocol, domain, port, path, query, and fragment)
 void problem_30_main()
 {
-    try
+    for (const auto& s : { "http://user:pass@example.com:992/animal/bird?species=seagull#wings",
+                           "http://example.com/animal/bird#wings",
+                           "This is not a valid URL!" })
     {
-        for (const auto& s : { "http://user:pass@example.com:992/animal/bird?species=seagull#wings",
-                               "http://example.com/animal/bird#wings",
-                               "This is not a valid URL!" }
-            )
+        try
         {
             url u{ s };
             std::cout << "Parsing URL \"" << s << "\":\n" << u << "\n";
         }
-    }
-    catch (const std::exception& err)
-    {
-        std::cout << "Error: " << err.what() << "\n";
+        catch (const std::exception& err)
+        {
+            std::cout << "Error: " << err.what() << "\n";
+        }
     }
 
     std::cout << "\n";

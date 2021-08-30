@@ -35,7 +35,7 @@ private:
     std::vector<FunctionType> data_{
         problem_1_main, problem_2_main, problem_3_main, problem_4_main, problem_5_main, problem_6_main, problem_7_main, problem_8_main, problem_9_main, problem_10_main, problem_11_main, problem_12_main, problem_13_main, problem_14_main, // Math problems
         problem_15_main, problem_16_main, problem_17_main, problem_18_main, problem_19_main, problem_20_main, problem_21_main, problem_22_main, // Language features
-        problem_23_main, problem_24_main, problem_25_main, problem_26_main, problem_27_main, problem_28_main, problem_29_main, problem_30_main  // Strings and regular expressions
+        problem_23_main, problem_24_main, problem_25_main, problem_26_main, problem_27_main, problem_28_main, problem_29_main, problem_30_main, problem_31_main  // Strings and regular expressions
     };
 };
 

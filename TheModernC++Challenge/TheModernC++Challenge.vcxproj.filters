@@ -132,6 +132,9 @@
     <ClCompile Include="src\Chapter3_StringsAndRegularExpressions\Problem30.cpp">
       <Filter>Source Files\Chapter3_StringsAndRegularExpressions</Filter>
     </ClCompile>
+    <ClCompile Include="src\Chapter3_StringsAndRegularExpressions\Problem31.cpp">
+      <Filter>Source Files\Chapter3_StringsAndRegularExpressions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Utils.h">
