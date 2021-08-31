@@ -120,7 +120,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>./inc;./inc/Chapter1_MathProblems;./inc/Chapter2_LanguageFeatures;./inc/Chapter3_StringsAndRegularExpressions;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./inc;./inc/Chapter1_MathProblems;./inc/Chapter2_LanguageFeatures;./inc/Chapter3_StringsAndRegularExpressions;./inc/Chapter4_StreamsAndFilesystems;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
@@ -179,6 +179,7 @@
     <ClCompile Include="src\Chapter3_StringsAndRegularExpressions\Problem29.cpp" />
     <ClCompile Include="src\Chapter3_StringsAndRegularExpressions\Problem30.cpp" />
     <ClCompile Include="src\Chapter3_StringsAndRegularExpressions\Problem31.cpp" />
+    <ClCompile Include="src\Chapter4_StreamsAndFilesystems\Problem32.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Utils.cpp" />
   </ItemGroup>
@@ -196,6 +197,7 @@
     <ClInclude Include="inc\Chapter2_LanguageFeatures\Problem18.h" />
     <ClInclude Include="inc\Chapter2_LanguageFeatures\Problem20.h" />
     <ClInclude Include="inc\Chapter3_StringsAndRegularExpressions.h" />
+    <ClInclude Include="inc\Chapter4_StreamsAndFilesystems.h" />
     <ClInclude Include="inc\Problems.h" />
     <ClInclude Include="inc\Utils.h" />
   </ItemGroup>

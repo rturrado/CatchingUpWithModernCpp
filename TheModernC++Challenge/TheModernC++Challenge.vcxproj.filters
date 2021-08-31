@@ -31,6 +31,12 @@
     <Filter Include="Header Files\Chapter3_StringsAndRegularExpressions">
       <UniqueIdentifier>{5dd7f469-7ec1-4341-94b8-9c23f777c337}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Chapter4_StreamsAndFilesystems">
+      <UniqueIdentifier>{7d98dc4a-70d1-4225-bed6-af7562a03a22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Chapter4_StreamsAndFilesystems">
+      <UniqueIdentifier>{10892a1e-9f04-4b1a-aff4-ce620eb18101}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp">
@@ -135,6 +141,9 @@
     <ClCompile Include="src\Chapter3_StringsAndRegularExpressions\Problem31.cpp">
       <Filter>Source Files\Chapter3_StringsAndRegularExpressions</Filter>
     </ClCompile>
+    <ClCompile Include="src\Chapter4_StreamsAndFilesystems\Problem32.cpp">
+      <Filter>Source Files\Chapter4_StreamsAndFilesystems</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Utils.h">
@@ -180,6 +189,9 @@
       <Filter>Header Files\Chapter2_LanguageFeatures</Filter>
     </ClInclude>
     <ClInclude Include="inc\Chapter3_StringsAndRegularExpressions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Chapter4_StreamsAndFilesystems.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
