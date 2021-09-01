@@ -150,6 +150,7 @@
     <ClInclude Include="inc\BitSequenceToInt.h" />
     <ClInclude Include="inc\ParseIniFile.h" />
     <ClInclude Include="inc\ParseIniFileWithBoost.h" />
+    <ClInclude Include="inc\ParseLinesOfDatesAndTimes.h" />
     <ClInclude Include="inc\VectorOfIntsWithTrianglePattern.h" />
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +158,7 @@
     <ClCompile Include="src\BitSequenceToInt.cpp" />
     <ClCompile Include="src\ParseIniFile.cpp" />
     <ClCompile Include="src\ParseIniFileWithBoost.cpp" />
+    <ClCompile Include="src\ParseLinesOfDatesAndTimes.cpp" />
     <ClCompile Include="src\VectorOfIntsWithTrianglePattern.cpp" />
   </ItemGroup>
   <ItemGroup>
