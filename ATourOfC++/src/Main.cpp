@@ -4,7 +4,6 @@
 #include <vector>
 
 #include "Auto.h"
-#include "Async.h"
 #include "Bitset.h"
 #include "ConditionVariable.h"
 #include "Constructors.h"
@@ -33,6 +32,7 @@
 #include "Utils.h"
 #include "VectorBackInserterPerformance.h"
 
+import Async;
 import MyModule;
 
 // Namespaces
@@ -47,8 +47,10 @@ int main()
 /*
     // Auto
     { std::cout << "[AUTO]\n"; auto_main(); std::cout << "\n"; }
+*/
     // Async
     { std::cout << "[ASYNC]\n"; async_main(); std::cout << "\n"; }
+/*
     // Bitset
     { std::cout << "[BITSET]\n"; bitset_main(); std::cout << "\n"; }
     // Classes
