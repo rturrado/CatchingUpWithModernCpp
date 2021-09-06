@@ -18,9 +18,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="inc\Auto.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\Constructors.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -110,9 +107,6 @@
     <ClCompile Include="inc\MyModule.ixx">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Auto.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Constructors.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -198,6 +192,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="mod\Async.ixx">
+      <Filter>Module Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mod\Auto.ixx">
+      <Filter>Module Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mod\Utils.ixx">
       <Filter>Module Files</Filter>
     </ClCompile>
   </ItemGroup>

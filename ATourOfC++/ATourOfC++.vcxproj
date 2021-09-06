@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="inc\Auto.h" />
     <ClInclude Include="inc\Bitset.h" />
     <ClInclude Include="inc\ConditionVariable.h" />
     <ClInclude Include="inc\Constructors.h" />
@@ -52,7 +51,8 @@
   <ItemGroup>
     <ClCompile Include="inc\MyModule.ixx" />
     <ClCompile Include="mod\Async.ixx" />
-    <ClCompile Include="src\Auto.cpp" />
+    <ClCompile Include="mod\Auto.ixx" />
+    <ClCompile Include="mod\Utils.ixx" />
     <ClCompile Include="src\Bitset.cpp" />
     <ClCompile Include="src\ConditionVariable.cpp" />
     <ClCompile Include="src\Constructors.cpp" />
