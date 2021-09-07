@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <format>
 #include <iostream>
 #include <numeric>
 #include <ranges>
@@ -67,4 +68,14 @@ void ranges_main()
     // Example 3: accumulate working on a range
     std::cout << "Sum of previous vector: ";
     std::cout << std::accumulate(r2.begin(), r2.end(), 0);
+    std::cout << "\n";
+
+    // Example 4: sort using projections
+    std::vector<std::vector<int>> a{ {5,10}, {2,5}, {4,7}, {3,9} };
+    std::ranges::sort(a, std::ranges::greater{}, [](auto&& t) { return t[1]; });
+    for (bool first{ true }; auto&& t : a)
+    {
+        std::cout << (first ? "" : ", ") << std::format("[{}, {}]", t[0], t[1]);
+        first = false;
+    }
 }
