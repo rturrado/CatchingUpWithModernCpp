@@ -13,11 +13,11 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Module Files">
+      <UniqueIdentifier>{01047067-2689-41f2-8ed8-423c253a68f1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="inc\Auto.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\Constructors.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -102,16 +102,10 @@
     <ClInclude Include="inc\PackagedTask.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Async.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="inc\MyModule.ixx">
       <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Auto.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Constructors.cpp">
       <Filter>Source Files</Filter>
@@ -197,8 +191,14 @@
     <ClCompile Include="src\PackagedTask.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Async.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="mod\Async.ixx">
+      <Filter>Module Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mod\Auto.ixx">
+      <Filter>Module Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mod\Utils.ixx">
+      <Filter>Module Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

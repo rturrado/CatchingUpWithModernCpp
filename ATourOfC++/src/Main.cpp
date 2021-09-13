@@ -3,8 +3,6 @@
 #include <string>
 #include <vector>
 
-#include "Auto.h"
-#include "Async.h"
 #include "Bitset.h"
 #include "ConditionVariable.h"
 #include "Constructors.h"
@@ -30,10 +28,12 @@
 #include "TemplateArgumentDeduction.h"
 #include "TemplateFolds.h"
 #include "Thread.h"
-#include "Utils.h"
 #include "VectorBackInserterPerformance.h"
 
+import Auto;
+import Async;
 import MyModule;
+import Utils;
 
 // Namespaces
 namespace MyNamespace
@@ -44,9 +44,10 @@ namespace MyNamespace
 
 int main()
 {
-/*
+
     // Auto
     { std::cout << "[AUTO]\n"; auto_main(); std::cout << "\n"; }
+/*
     // Async
     { std::cout << "[ASYNC]\n"; async_main(); std::cout << "\n"; }
     // Bitset
