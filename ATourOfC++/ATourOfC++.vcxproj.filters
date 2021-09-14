@@ -18,177 +18,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="inc\Constructors.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\ConstructorsAndDestructorsOrder.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\ExplicitConstructor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\FileOfDoubles.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Filesystem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Initialization.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\InvalidatedIterators.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Istreams.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\MoveConstructor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\MyClass.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\MyEnum.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\OstreamsFormatting.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\PointersArraysAndReferences.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\RawLoopVersusStlAlgorithmPerformance.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\StreamIterators.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\StreamIterators2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\StringStreams.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\TemplateArgumentDeduction.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\TemplateFolds.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Utils.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\VectorBackInserterPerformance.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Span.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Bitset.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Pair.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Thread.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\ConditionVariable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\Random.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\PackagedTask.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="inc\MyModule.ixx">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Constructors.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ConstructorsAndDestructorsOrder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ExplicitConstructor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\FileOfDoubles.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Filesystem.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Initialization.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\InvalidatedIterators.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Istreams.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\MoveConstructor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\MyClass.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\MyEnum.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\OstreamsFormatting.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\PointersArraysAndReferences.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\RawLoopVersusStlAlgorithmPerformance.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\StreamIterators.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\StreamIterators2.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\StringStreams.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\TemplateArgumentDeduction.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\TemplateFolds.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Utils.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\VectorBackInserterPerformance.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Span.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Bitset.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Pair.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Thread.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ConditionVariable.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\PackagedTask.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="mod\Async.ixx">
@@ -198,6 +36,87 @@
       <Filter>Module Files</Filter>
     </ClCompile>
     <ClCompile Include="mod\Utils.ixx">
+      <Filter>Module Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mod\Bitset.ixx">
+      <Filter>Module Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mod\MyClass.ixx">
+      <Filter>Module Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mod\ConditionVariable.ixx">
+      <Filter>Module Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mod\Constructors.ixx">
+      <Filter>Module Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mod\ConstructorsAndDestructorsOrder.ixx">
+      <Filter>Module Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mod\MyModule.ixx">
+      <Filter>Module Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mod\ExplicitConstructor.ixx">
+      <Filter>Module Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mod\MyEnum.ixx">
+      <Filter>Module Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mod\FileOfDoubles.ixx">
+      <Filter>Module Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mod\Filesystem.ixx">
+      <Filter>Module Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mod\Initialization.ixx">
+      <Filter>Module Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mod\InvalidatedIterators.ixx">
+      <Filter>Module Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mod\Istreams.ixx">
+      <Filter>Module Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mod\MoveConstructor.ixx">
+      <Filter>Module Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mod\OstreamsFormatting.ixx">
+      <Filter>Module Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mod\PackagedTask.ixx">
+      <Filter>Module Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mod\Pair.ixx">
+      <Filter>Module Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mod\PointersArraysAndReferences.ixx">
+      <Filter>Module Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RawLoopVersusStlAlgorithmPerformance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mod\Span.ixx">
+      <Filter>Module Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mod\StreamIterators.ixx">
+      <Filter>Module Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mod\StreamIterators2.ixx">
+      <Filter>Module Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mod\StringStreams.ixx">
+      <Filter>Module Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mod\TemplateArgumentDeduction.ixx">
+      <Filter>Module Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mod\TemplateFolds.ixx">
+      <Filter>Module Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mod\Thread.ixx">
+      <Filter>Module Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mod\VectorBackInserterPerformance.ixx">
       <Filter>Module Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,8 +1,7 @@
-#ifndef __RANDOM_H__
-#define __RANDOM_H__
+export module Random;
 
-#include <boost/uuid/uuid_generators.hpp>
-#include <random>
+import <boost/uuid/uuid_generators.hpp>;
+import <random>;
 
 // Random int generator
 // Generates a random int in the range [low, high]
@@ -28,12 +27,10 @@ public:
     RandomDouble(double low, double high) : low_{ low }, high_{ high } {}
     double operator()()
     {
-        return std::uniform_real_distribution<double>{ low_, high_ }(engine_);
+        return std::uniform_real_distribution<double>{ low_, high_ }( engine_ );
     }
 private:
     double low_{ 0.0 };
     double high_{ 1.0 };
     std::mt19937 engine_{ std::random_device{}() };
 };
-
-#endif

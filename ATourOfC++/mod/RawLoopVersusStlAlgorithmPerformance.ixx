@@ -1,11 +1,11 @@
-#include <algorithm>
-#include <chrono>
-#include <iostream>
-#include <limits>
-#include <random>
-#include <vector>
+export module RawLoopVersusStlAlgorithmPerformance;
 
-#include "RawLoopVersusStlAlgorithmPerformance.h"
+import <algorithm>;
+import <chrono>;
+import <iostream>;
+import <limits>;
+import <random>;
+import <vector>;
 
 // You have to compile in Release (and with optimizations) to see that the STL algorithm is faster than the for raw loop
 // Otherwise, the lambda used by the STL algorithm is compiled as a function and is called for every vector element
@@ -35,7 +35,7 @@ void benchmark(std::vector<int>& input, size_t size)
     std::cout << "2) STL algorithm: " << std::fixed << fms(interval).count() << "ms\n";
 }
 
-void raw_loop_versus_stl_algorithm_performance_main()
+export void raw_loop_versus_stl_algorithm_performance_main()
 {
     const std::vector<size_t> vector_sizes = { 100'000, 1'000'000, 10'000'000 };
 
@@ -45,9 +45,10 @@ void raw_loop_versus_stl_algorithm_performance_main()
 
         std::vector<int> input(size, 0);
         // Fill input with numbers in the range [1, 100]
-        std::mt19937 mt{ std::random_device{}() };
-        std::uniform_int_distribution<int> dist{ 1, 100 };
-        std::for_each(input.begin(), input.end(), [&dist, &mt](int &n) { n = dist(mt); });
+        std::random_device rd;
+        std::mt19937 mt(rd());
+        std::uniform_int_distribution<> dist(1, 100);
+        std::for_each(input.begin(), input.end(), [&dist, &mt](int& n) { n = dist(mt); });
 
         benchmark(input, size);
         std::cout << "\n";

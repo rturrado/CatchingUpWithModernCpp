@@ -1,39 +1,40 @@
-#include <exception>
-#include <iostream>
-#include <string>
-#include <vector>
+import <exception>;
+import <iostream>;
+import <string>;
+import <vector>;
 
-#include "Bitset.h"
-#include "ConditionVariable.h"
-#include "Constructors.h"
-#include "ConstructorsAndDestructorsOrder.h"
-#include "ExplicitConstructor.h"
-#include "FileOfDoubles.h"
-#include "Filesystem.h"
-#include "Initialization.h"
-#include "InvalidatedIterators.h"
-#include "Istreams.h"
-#include "MyClass.h"
-#include "MyEnum.h"
-#include "MoveConstructor.h"
-#include "OstreamsFormatting.h"
-#include "PackagedTask.h"
-#include "Pair.h"
-#include "PointersArraysAndReferences.h"
 #include "RawLoopVersusStlAlgorithmPerformance.h"
-#include "Span.h"
-#include "StreamIterators.h"
-#include "StreamIterators2.h"
-#include "StringStreams.h"
-#include "TemplateArgumentDeduction.h"
-#include "TemplateFolds.h"
-#include "Thread.h"
-#include "VectorBackInserterPerformance.h"
 
-import Auto;
 import Async;
+import Auto;
+import Bitset;
+import ConditionVariable;
+import Constructors;
+import ConstructorsAndDestructorsOrder;
+import ExplicitConstructor;
+import FileOfDoubles;
+import Filesystem;
+import Initialization;
+import InvalidatedIterators;
+import Istreams;
+import MyClass;
+import MyEnum;
 import MyModule;
+import MoveConstructor;
+import OstreamsFormatting;
+import PackagedTask;
+import Pair;
+import PointersArraysAndReferences;
+//import RawLoopVersusStlAlgorithmPerformance;
+import Span;
+import StreamIterators;
+import StreamIterators2;
+import StringStreams;
+import TemplateArgumentDeduction;
+import TemplateFolds;
+import Thread;
 import Utils;
+import VectorBackInserterPerformance;
 
 // Namespaces
 namespace MyNamespace
@@ -44,12 +45,10 @@ namespace MyNamespace
 
 int main()
 {
-
+    // Async
+    { std::cout << "[ASYNC]\n"; async_main(); std::cout << "\n\n"; }
     // Auto
     { std::cout << "[AUTO]\n"; auto_main(); std::cout << "\n"; }
-/*
-    // Async
-    { std::cout << "[ASYNC]\n"; async_main(); std::cout << "\n"; }
     // Bitset
     { std::cout << "[BITSET]\n"; bitset_main(); std::cout << "\n"; }
     // Classes
@@ -139,8 +138,7 @@ int main()
     // Thread
     { std::cout << "[THREAD]\n"; thread_main(); std::cout << "\n"; }
     // Vector back inserter performance
-    { std::cout << "[VECTOR BACK INSERTER PERFORMANCE]\n"; vector_back_inserter_performance_main(); std::cout << "\n"; \}
-*/
+    { std::cout << "[VECTOR BACK INSERTER PERFORMANCE]\n"; vector_back_inserter_performance_main(); std::cout << "\n"; }
     // 
     { /* std::cout << "[]\n"; _main(); std::cout << "\n"; */ }
 }

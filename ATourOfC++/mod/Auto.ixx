@@ -5,6 +5,8 @@ import <iostream>;
 import <typeinfo>;
 import <vector>;
 
+import Utils;
+
 export void auto_main()
 {
     { auto b = true; std::cout << "auto b = true; b = " << std::boolalpha << b << "; type of b = " << typeid(b).name() << "\n"; }

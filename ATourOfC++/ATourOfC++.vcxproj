@@ -19,68 +19,41 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="inc\Bitset.h" />
-    <ClInclude Include="inc\ConditionVariable.h" />
-    <ClInclude Include="inc\Constructors.h" />
-    <ClInclude Include="inc\ConstructorsAndDestructorsOrder.h" />
-    <ClInclude Include="inc\ExplicitConstructor.h" />
-    <ClInclude Include="inc\FileOfDoubles.h" />
-    <ClInclude Include="inc\Filesystem.h" />
-    <ClInclude Include="inc\PackagedTask.h" />
-    <ClInclude Include="inc\Pair.h" />
     <ClInclude Include="inc\Random.h" />
-    <ClInclude Include="inc\Span.h" />
-    <ClInclude Include="inc\Initialization.h" />
-    <ClInclude Include="inc\InvalidatedIterators.h" />
-    <ClInclude Include="inc\Istreams.h" />
-    <ClInclude Include="inc\MoveConstructor.h" />
-    <ClInclude Include="inc\MyClass.h" />
-    <ClInclude Include="inc\MyEnum.h" />
-    <ClInclude Include="inc\OstreamsFormatting.h" />
-    <ClInclude Include="inc\PointersArraysAndReferences.h" />
     <ClInclude Include="inc\RawLoopVersusStlAlgorithmPerformance.h" />
-    <ClInclude Include="inc\StreamIterators.h" />
-    <ClInclude Include="inc\StreamIterators2.h" />
-    <ClInclude Include="inc\StringStreams.h" />
-    <ClInclude Include="inc\TemplateArgumentDeduction.h" />
-    <ClInclude Include="inc\TemplateFolds.h" />
-    <ClInclude Include="inc\Thread.h" />
-    <ClInclude Include="inc\Utils.h" />
-    <ClInclude Include="inc\VectorBackInserterPerformance.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="inc\MyModule.ixx" />
     <ClCompile Include="mod\Async.ixx" />
     <ClCompile Include="mod\Auto.ixx" />
+    <ClCompile Include="mod\Bitset.ixx" />
+    <ClCompile Include="mod\ConditionVariable.ixx" />
+    <ClCompile Include="mod\Constructors.ixx" />
+    <ClCompile Include="mod\ConstructorsAndDestructorsOrder.ixx" />
+    <ClCompile Include="mod\ExplicitConstructor.ixx" />
+    <ClCompile Include="mod\FileOfDoubles.ixx" />
+    <ClCompile Include="mod\Filesystem.ixx" />
+    <ClCompile Include="mod\Initialization.ixx" />
+    <ClCompile Include="mod\InvalidatedIterators.ixx" />
+    <ClCompile Include="mod\Istreams.ixx" />
+    <ClCompile Include="mod\MoveConstructor.ixx" />
+    <ClCompile Include="mod\MyClass.ixx" />
+    <ClCompile Include="mod\MyEnum.ixx" />
+    <ClCompile Include="mod\MyModule.ixx" />
+    <ClCompile Include="mod\OstreamsFormatting.ixx" />
+    <ClCompile Include="mod\PackagedTask.ixx" />
+    <ClCompile Include="mod\Pair.ixx" />
+    <ClCompile Include="mod\PointersArraysAndReferences.ixx" />
+    <ClCompile Include="mod\Span.ixx" />
+    <ClCompile Include="mod\StreamIterators.ixx" />
+    <ClCompile Include="mod\StreamIterators2.ixx" />
+    <ClCompile Include="mod\StringStreams.ixx" />
+    <ClCompile Include="mod\TemplateArgumentDeduction.ixx" />
+    <ClCompile Include="mod\TemplateFolds.ixx" />
+    <ClCompile Include="mod\Thread.ixx" />
     <ClCompile Include="mod\Utils.ixx" />
-    <ClCompile Include="src\Bitset.cpp" />
-    <ClCompile Include="src\ConditionVariable.cpp" />
-    <ClCompile Include="src\Constructors.cpp" />
-    <ClCompile Include="src\ConstructorsAndDestructorsOrder.cpp" />
-    <ClCompile Include="src\ExplicitConstructor.cpp" />
-    <ClCompile Include="src\FileOfDoubles.cpp" />
-    <ClCompile Include="src\Filesystem.cpp" />
-    <ClCompile Include="src\PackagedTask.cpp" />
-    <ClCompile Include="src\Pair.cpp" />
-    <ClCompile Include="src\Span.cpp" />
-    <ClCompile Include="src\Initialization.cpp" />
-    <ClCompile Include="src\InvalidatedIterators.cpp" />
-    <ClCompile Include="src\Istreams.cpp" />
-    <ClCompile Include="src\Main.cpp" />
-    <ClCompile Include="src\MoveConstructor.cpp" />
-    <ClCompile Include="src\MyClass.cpp" />
-    <ClCompile Include="src\MyEnum.cpp" />
-    <ClCompile Include="src\OstreamsFormatting.cpp" />
-    <ClCompile Include="src\PointersArraysAndReferences.cpp" />
+    <ClCompile Include="mod\VectorBackInserterPerformance.ixx" />
     <ClCompile Include="src\RawLoopVersusStlAlgorithmPerformance.cpp" />
-    <ClCompile Include="src\StreamIterators.cpp" />
-    <ClCompile Include="src\StreamIterators2.cpp" />
-    <ClCompile Include="src\StringStreams.cpp" />
-    <ClCompile Include="src\TemplateArgumentDeduction.cpp" />
-    <ClCompile Include="src\TemplateFolds.cpp" />
-    <ClCompile Include="src\Thread.cpp" />
-    <ClCompile Include="src\Utils.cpp" />
-    <ClCompile Include="src\VectorBackInserterPerformance.cpp" />
+    <ClCompile Include="src\Main.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -154,6 +127,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>./inc;./mod;C:\Libraries\boost_1_75_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
+      <FloatingPointModel>Precise</FloatingPointModel>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -170,6 +144,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>./inc;./mod;C:\Libraries\boost_1_75_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
+      <FloatingPointModel>Precise</FloatingPointModel>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -190,6 +165,7 @@
       <IntrinsicFunctions>false</IntrinsicFunctions>
       <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
       <AdditionalIncludeDirectories>./inc;./mod;C:\Libraries\boost_1_75_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <FloatingPointModel>Precise</FloatingPointModel>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -206,6 +182,8 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalIncludeDirectories>./inc;./mod;C:\Libraries\boost_1_75_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <FloatingPointModel>Precise</FloatingPointModel>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
