@@ -88,7 +88,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>./inc;./inc/Chapter1_MathProblems;./inc/Chapter2_LanguageFeatures;./inc/Chapter3_StringsAndRegularExpressions;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./inc;./inc/Chapter1_MathProblems;./inc/Chapter2_LanguageFeatures;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
@@ -104,7 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>./inc;./inc/Chapter1_MathProblems;./inc/Chapter2_LanguageFeatures;./inc/Chapter3_StringsAndRegularExpressions;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./inc;./inc/Chapter1_MathProblems;./inc/Chapter2_LanguageFeatures;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
@@ -120,7 +120,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>./inc;./inc/Chapter1_MathProblems;./inc/Chapter2_LanguageFeatures;./inc/Chapter3_StringsAndRegularExpressions;./inc/Chapter4_StreamsAndFilesystems;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./inc;./inc/Chapter1_MathProblems;./inc/Chapter2_LanguageFeatures;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
@@ -136,7 +136,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>./inc;./inc/Chapter1_MathProblems;./inc/Chapter2_LanguageFeatures;./inc/Chapter3_StringsAndRegularExpressions;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./inc;./inc/Chapter1_MathProblems;./inc/Chapter2_LanguageFeatures;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
@@ -181,6 +181,17 @@
     <ClCompile Include="src\Chapter3_StringsAndRegularExpressions\Problem31.cpp" />
     <ClCompile Include="src\Chapter4_StreamsAndFilesystems\Problem32.cpp" />
     <ClCompile Include="src\Chapter4_StreamsAndFilesystems\Problem33.cpp" />
+    <ClCompile Include="src\Chapter4_StreamsAndFilesystems\Problem34.cpp" />
+    <ClCompile Include="src\Chapter4_StreamsAndFilesystems\Problem35.cpp" />
+    <ClCompile Include="src\Chapter4_StreamsAndFilesystems\Problem36.cpp" />
+    <ClCompile Include="src\Chapter4_StreamsAndFilesystems\Problem37.cpp" />
+    <ClCompile Include="src\Chapter4_StreamsAndFilesystems\Problem38.cpp" />
+    <ClCompile Include="src\Chapter5_DateAndTime\Problem39.cpp" />
+    <ClCompile Include="src\Chapter5_DateAndTime\Problem40.cpp" />
+    <ClCompile Include="src\Chapter5_DateAndTime\Problem41.cpp" />
+    <ClCompile Include="src\Chapter5_DateAndTime\Problem42.cpp" />
+    <ClCompile Include="src\Chapter5_DateAndTime\Problem43.cpp" />
+    <ClCompile Include="src\Chapter5_DateAndTime\Problem44.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Utils.cpp" />
   </ItemGroup>
@@ -199,10 +210,12 @@
     <ClInclude Include="inc\Chapter2_LanguageFeatures\Problem20.h" />
     <ClInclude Include="inc\Chapter3_StringsAndRegularExpressions.h" />
     <ClInclude Include="inc\Chapter4_StreamsAndFilesystems.h" />
+    <ClInclude Include="inc\Chapter5_DateAndTime.h" />
     <ClInclude Include="inc\Problems.h" />
     <ClInclude Include="inc\Utils.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="res\problem34.txt" />
     <Text Include="res\sample.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
