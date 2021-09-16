@@ -144,6 +144,9 @@
     <ClCompile Include="src\Chapter4_StreamsAndFilesystems\Problem32.cpp">
       <Filter>Source Files\Chapter4_StreamsAndFilesystems</Filter>
     </ClCompile>
+    <ClCompile Include="src\Chapter4_StreamsAndFilesystems\Problem33.cpp">
+      <Filter>Source Files\Chapter4_StreamsAndFilesystems</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Utils.h">

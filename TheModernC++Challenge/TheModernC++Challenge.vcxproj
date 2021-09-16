@@ -180,6 +180,7 @@
     <ClCompile Include="src\Chapter3_StringsAndRegularExpressions\Problem30.cpp" />
     <ClCompile Include="src\Chapter3_StringsAndRegularExpressions\Problem31.cpp" />
     <ClCompile Include="src\Chapter4_StreamsAndFilesystems\Problem32.cpp" />
+    <ClCompile Include="src\Chapter4_StreamsAndFilesystems\Problem33.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Utils.cpp" />
   </ItemGroup>
