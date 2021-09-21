@@ -40,8 +40,8 @@ void problem_36_main()
     const auto d1_path{ "C:\\Users\\Roberto\\Pictures" };
     const auto d2_path{ "D:\\Programacion\\vim" };
 
-    const ch::years duration1{5};
-    const ch::minutes duration2{12h + 30min};
+    const ch::years duration1{ 5 };
+    const ch::minutes duration2{ 12h + 30min };
     
     for (const auto& path : { d1_path, d2_path })
     {
