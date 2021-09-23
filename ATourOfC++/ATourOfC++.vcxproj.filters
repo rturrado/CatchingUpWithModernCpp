@@ -24,6 +24,12 @@
     <ClInclude Include="inc\Random.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="inc\ConditionVariable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\PackagedTask.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp">
@@ -42,9 +48,6 @@
       <Filter>Module Files</Filter>
     </ClCompile>
     <ClCompile Include="mod\MyClass.ixx">
-      <Filter>Module Files</Filter>
-    </ClCompile>
-    <ClCompile Include="mod\ConditionVariable.ixx">
       <Filter>Module Files</Filter>
     </ClCompile>
     <ClCompile Include="mod\Constructors.ixx">
@@ -83,9 +86,6 @@
     <ClCompile Include="mod\OstreamsFormatting.ixx">
       <Filter>Module Files</Filter>
     </ClCompile>
-    <ClCompile Include="mod\PackagedTask.ixx">
-      <Filter>Module Files</Filter>
-    </ClCompile>
     <ClCompile Include="mod\Pair.ixx">
       <Filter>Module Files</Filter>
     </ClCompile>
@@ -118,6 +118,12 @@
     </ClCompile>
     <ClCompile Include="mod\VectorBackInserterPerformance.ixx">
       <Filter>Module Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ConditionVariable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PackagedTask.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

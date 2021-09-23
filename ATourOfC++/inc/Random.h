@@ -1,12 +1,11 @@
 #ifndef __RANDOM_H__
 #define __RANDOM_H__
 
-#include <boost/uuid/uuid_generators.hpp>
 #include <random>
 
 // Random int generator
 // Generates a random int in the range [low, high]
-export class RandomInt
+class RandomInt
 {
 public:
     RandomInt(int low, int high) : low_{ low }, high_{ high } {}
@@ -22,7 +21,7 @@ private:
 
 // Random int generator
 // Generates a random double in the range [low, high]
-export class RandomDouble
+class RandomDouble
 {
 public:
     RandomDouble(double low, double high) : low_{ low }, high_{ high } {}

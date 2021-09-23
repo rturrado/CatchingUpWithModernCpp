@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="inc\ConditionVariable.h" />
+    <ClInclude Include="inc\PackagedTask.h" />
     <ClInclude Include="inc\Random.h" />
     <ClInclude Include="inc\RawLoopVersusStlAlgorithmPerformance.h" />
   </ItemGroup>
@@ -26,7 +28,6 @@
     <ClCompile Include="mod\Async.ixx" />
     <ClCompile Include="mod\Auto.ixx" />
     <ClCompile Include="mod\Bitset.ixx" />
-    <ClCompile Include="mod\ConditionVariable.ixx" />
     <ClCompile Include="mod\Constructors.ixx" />
     <ClCompile Include="mod\ConstructorsAndDestructorsOrder.ixx" />
     <ClCompile Include="mod\ExplicitConstructor.ixx" />
@@ -40,7 +41,6 @@
     <ClCompile Include="mod\MyEnum.ixx" />
     <ClCompile Include="mod\MyModule.ixx" />
     <ClCompile Include="mod\OstreamsFormatting.ixx" />
-    <ClCompile Include="mod\PackagedTask.ixx" />
     <ClCompile Include="mod\Pair.ixx" />
     <ClCompile Include="mod\PointersArraysAndReferences.ixx" />
     <ClCompile Include="mod\Span.ixx" />
@@ -52,6 +52,8 @@
     <ClCompile Include="mod\Thread.ixx" />
     <ClCompile Include="mod\Utils.ixx" />
     <ClCompile Include="mod\VectorBackInserterPerformance.ixx" />
+    <ClCompile Include="src\ConditionVariable.cpp" />
+    <ClCompile Include="src\PackagedTask.cpp" />
     <ClCompile Include="src\RawLoopVersusStlAlgorithmPerformance.cpp" />
     <ClCompile Include="src\Main.cpp" />
   </ItemGroup>
