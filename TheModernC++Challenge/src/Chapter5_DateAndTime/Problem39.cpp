@@ -5,6 +5,7 @@
 #include <functional>  // invoke
 #include <numeric>  // iota
 #include <random>  // mt19937, random_device
+#include <utility>  // pair
 #include <vector>
 
 template <typename Duration, typename F, typename... Args>
@@ -53,7 +54,8 @@ void problem_39_main()
     namespace ch = std::chrono;
 
     std::cout << "Measuring times...\n";
-    for (const auto& [num_elems, num_reps] : std::vector<std::pair<size_t, size_t>>{ {1'000'000, 1}, {1000, 1000} })
+    using vector_of_elems_and_reps = std::vector<std::pair<size_t, size_t>>;
+    for (const auto& [num_elems, num_reps] : vector_of_elems_and_reps{ {1'000'000, 1}, {1000, 1000} })
     {
         auto duration_1{ measure_time<ch::milliseconds>(sort_iota_vector, num_elems, num_reps) };
         auto duration_2{ measure_time<ch::milliseconds>(sort_shuffle_vector, num_elems, num_reps) };
