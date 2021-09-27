@@ -27,7 +27,7 @@ size_t read_positive_number(size_t lower_limit, size_t upper_limit)
     size_t n{ 0 };
     for (;;)
     {
-        std::cout << "Please enter a number in the range [" << lower_limit << ", " << upper_limit << "): ";
+        std::cout << std::dec << "Please enter a number in the range [" << lower_limit << ", " << upper_limit << "): ";
         std::cin >> n;
         if (std::cin.fail())
         {
