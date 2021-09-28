@@ -28,17 +28,17 @@
     <Filter Include="Source Files\Chapter3_StringsAndRegularExpressions">
       <UniqueIdentifier>{4c8873d1-a966-41b9-a5d5-c9af429aaafb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Chapter3_StringsAndRegularExpressions">
-      <UniqueIdentifier>{5dd7f469-7ec1-4341-94b8-9c23f777c337}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Chapter4_StreamsAndFilesystems">
       <UniqueIdentifier>{7d98dc4a-70d1-4225-bed6-af7562a03a22}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Chapter4_StreamsAndFilesystems">
-      <UniqueIdentifier>{10892a1e-9f04-4b1a-aff4-ce620eb18101}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Chapter5_DateAndTime">
       <UniqueIdentifier>{8ae74330-f2ed-4d19-9395-219151fc1ef0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Chapter6_AlgorithmsAndDataStructures">
+      <UniqueIdentifier>{ab37eeb1-5fa7-478d-a44a-be8864cda287}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Chapter6_AlgorithmsAndDataStructures">
+      <UniqueIdentifier>{678cd18d-ebdb-4e52-b2f2-021c6d12bbf9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -183,6 +183,9 @@
     <ClCompile Include="src\Chapter5_DateAndTime\Problem44.cpp">
       <Filter>Source Files\Chapter5_DateAndTime</Filter>
     </ClCompile>
+    <ClCompile Include="src\Chapter6_AlgorithmsAndDataStructures\Problem45.cpp">
+      <Filter>Source Files\Chapter6_AlgorithmsAndDataStructures</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Utils.h">
@@ -235,6 +238,12 @@
     </ClInclude>
     <ClInclude Include="inc\Chapter5_DateAndTime.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Chapter6_AlgorithmsAndDataStructures.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Chapter6_AlgorithmsAndDataStructures\PriorityQueue.h">
+      <Filter>Header Files\Chapter6_AlgorithmsAndDataStructures</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

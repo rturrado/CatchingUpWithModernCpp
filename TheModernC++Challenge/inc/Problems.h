@@ -10,6 +10,7 @@
 #include "Chapter3_StringsAndRegularExpressions.h"
 #include "Chapter4_StreamsAndFilesystems.h"
 #include "Chapter5_DateAndTime.h"
+#include "Chapter6_AlgorithmsAndDataStructures.h"
 
 class Problems
 {
@@ -39,7 +40,8 @@ private:
         problem_15_main, problem_16_main, problem_17_main, problem_18_main, problem_19_main, problem_20_main, problem_21_main, problem_22_main, // Language features
         problem_23_main, problem_24_main, problem_25_main, problem_26_main, problem_27_main, problem_28_main, problem_29_main, problem_30_main, problem_31_main,  // Strings and regular expressions
         problem_32_main, problem_33_main, problem_34_main, problem_35_main, problem_36_main, problem_37_main, problem_38_main,  // Streams and filesystems
-        problem_39_main, problem_40_main, problem_41_main, problem_42_main, problem_43_main, problem_44_main  // Date and time
+        problem_39_main, problem_40_main, problem_41_main, problem_42_main, problem_43_main, problem_44_main,  // Date and time
+        problem_45_main  // Algorithms and data structures
     };
 };
 

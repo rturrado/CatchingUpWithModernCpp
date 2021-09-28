@@ -9,6 +9,8 @@ namespace ch = std::chrono; using namespace ch;
 
 using vector_of_participants_and_time_zones = std::vector<std::pair<std::string_view, std::string_view>>;
 
+// This solution is based on the video Welcome To The Time Zone,
+// by Howard Hinnant at CppCon 2016: https://youtu.be/Vwd3pduVGKY?t=968
 template <typename Duration>
 void display_local_meeting_times(
     const ch::zoned_time<Duration>& meeting_zt,
