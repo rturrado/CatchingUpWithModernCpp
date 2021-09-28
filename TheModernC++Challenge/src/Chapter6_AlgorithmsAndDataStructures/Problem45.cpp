@@ -1,7 +1,7 @@
 #include "PriorityQueue.h"
 #include "Utils.h"  // operator<<(std::ostream&, PriorityQueue&)
 
-#include <functional>  // less
+#include <functional>  // greater
 #include <iostream>  // cout
 
 // Priority queue
@@ -31,8 +31,15 @@ void problem_45_main()
     std::cout << "PriorityQueue<int> pq_1{ cbegin(v), cend(v) };\n";
     std::cout << "\tpq_1: " << pq_1 << "\n\n";
     
-    PriorityQueue<int, std::less<int>> pq_2{ cbegin(v), cend(v) };
-    std::cout << "PriorityQueue<int, std::less<int>> pq_2{ cbegin(v), cend(v) };\n";
+    // Notice pq_2 won't necessarily output { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }
+    //
+    // The array representation of a heap doesn't necessarily store things in sequential order.
+    // For example, inserting the items 1, 2, and 3 into a min-heap can create the array representation [1, 3, 2] or [1, 2, 3].
+    // Both are valid heaps. Which one is created depends on insertion order.
+    //
+    // From Stack Overflow: https://stackoverflow.com/a/38365848/260313
+    PriorityQueue<int, std::greater<int>> pq_2{ cbegin(v), cend(v) };
+    std::cout << "PriorityQueue<int, std::greater<int>> pq_2{ cbegin(v), cend(v) };\n";
     std::cout << "\tpq_2: " << pq_2 << "\n\n";
     // PriorityQueue<int, std::less<int>> pq_4{ pq_1 };  // wrong: argument types are PriorityQueue<int, std::greater<int>>
 
@@ -44,7 +51,7 @@ void problem_45_main()
     std::cout << "PriorityQueue<int> pq_5{ std::move(pq_1) }; pq_5: " << pq_5 << "\n\n";
     // std::cout << pq_1 << "\n";  // wrong: use of a moved from object
 
-    pq_5.swap(pq_3);
+    swap(pq_5, pq_3);
     std::cout << "pq_5.swap(pq_3);\n";
     std::cout << "\tpq_5: " << pq_5 << "\n";
     std::cout << "\tpq_3: " << pq_3 << "\n\n";
@@ -65,4 +72,23 @@ void problem_45_main()
 
     std::cout << std::boolalpha << "pq_3.empty(): " << pq_3.empty() << "\n";
     std::cout << std::boolalpha << "pq_5.empty(): " << pq_5.empty() << "\n\n";
+
+    PriorityQueue<int, std::greater<int>> pq_6{};
+    std::cout << "PriorityQueue<int, std::greater<int>> pq_6{};\n";
+    std::cout << "\tpq_6: " << pq_6 << "\n\n";
+
+    for (int i{ 9 }; i > 0; --i)
+    {
+        pq_6.push(i);
+        std::cout << "pq_6.push(" << i << "); pq_6: " << pq_6 << "\n";
+    }
+    std::cout << "\n";
+
+    // Notice the smallest element is always the one being removed, since this is a min-heap
+    while (not pq_6.empty())
+    {
+        pq_6.pop();
+        std::cout << "pq_6.pop(); pq_6: " << pq_6 << "\n";
+    }
+    std::cout << "\n";
 }
