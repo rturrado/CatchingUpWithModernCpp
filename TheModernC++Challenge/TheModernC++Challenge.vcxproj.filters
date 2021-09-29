@@ -186,6 +186,9 @@
     <ClCompile Include="src\Chapter6_AlgorithmsAndDataStructures\Problem45.cpp">
       <Filter>Source Files\Chapter6_AlgorithmsAndDataStructures</Filter>
     </ClCompile>
+    <ClCompile Include="src\Chapter6_AlgorithmsAndDataStructures\Problem46.cpp">
+      <Filter>Source Files\Chapter6_AlgorithmsAndDataStructures</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Utils.h">
@@ -243,6 +246,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\Chapter6_AlgorithmsAndDataStructures\PriorityQueue.h">
+      <Filter>Header Files\Chapter6_AlgorithmsAndDataStructures</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Chapter6_AlgorithmsAndDataStructures\CircularBuffer.h">
       <Filter>Header Files\Chapter6_AlgorithmsAndDataStructures</Filter>
     </ClInclude>
   </ItemGroup>
