@@ -17,7 +17,7 @@ void filter_ages_with_rx_cpp_main()
     auto values = rxcpp::observable<>::iterate(ages).  // chaining
         filter([](int age) {return age >= 13 && age <= 19; }).
         subscribe(
-            [&count](int n) { count++;  std::cout << count << ": " << n << "\n"; },  // lambda called to handle every event
+            [&count](int n) { count++; std::cout << count << ": " << n << "\n"; },  // lambda called to handle every event
             []() { std::cout << "End of example\n"; }  // lambda called when observable is complete
     );
 }

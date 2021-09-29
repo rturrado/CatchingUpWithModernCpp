@@ -33,7 +33,7 @@ std::vector<std::vector<uint32_t>> pascal_triangle(const size_t n)
 
 // Pascal's triangle
 //
-//  Write a function that prints up to 10 rows of Pascal's triangle to the console
+// Write a function that prints up to 10 rows of Pascal's triangle to the console
 void problem_32_main()
 {
     for (size_t n : { 0, 1, 2, 10, 40 })

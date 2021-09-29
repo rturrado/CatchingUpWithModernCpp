@@ -31,7 +31,7 @@ class Array2D
         constexpr ConstIterator(_TPtr ptr) noexcept : _ptr{ ptr } {}
         constexpr reference operator*() const noexcept { return *_ptr; }
         constexpr pointer operator->() const noexcept { return _ptr; }
-        constexpr ConstIterator& operator++() noexcept { ++_ptr;  return *this; }
+        constexpr ConstIterator& operator++() noexcept { ++_ptr; return *this; }
         constexpr ConstIterator operator++(int) noexcept { ConstIterator tmp{ *this }; ++(*this); return tmp; }
         constexpr ConstIterator& operator--() noexcept { --_ptr; return *this; }
         constexpr ConstIterator operator--(int) noexcept { ConstIterator tmp{ *this }; --(*this); return tmp; }
@@ -60,7 +60,7 @@ class Array2D
     
         constexpr reference operator*() const noexcept { return const_cast<reference>(_MyBase::operator*()); }
         constexpr pointer operator->() const noexcept { return this->_ptr; }
-        constexpr Iterator& operator++() noexcept { _MyBase::operator++();  return *this; }
+        constexpr Iterator& operator++() noexcept { _MyBase::operator++(); return *this; }
         constexpr Iterator operator++(int) noexcept { Iterator tmp{ *this }; _MyBase::operator++(); return tmp; }
         constexpr Iterator& operator--() noexcept { _MyBase::operator--(); return *this; }
         constexpr Iterator operator--(int) noexcept { Iterator tmp{ *this }; _MyBase::operator--(); return tmp; }
