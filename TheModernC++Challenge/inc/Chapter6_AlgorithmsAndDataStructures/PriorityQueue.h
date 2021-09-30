@@ -16,8 +16,68 @@ public:
     using size_type = Container::size_type;
     using reference = Container::reference;
     using const_reference = Container::const_reference;
-    using iterator = Container::iterator;
+
+private:
+    /*
+    // There is no way to iterate in order over a priority queue,
+    // retrieving its top element in every iteration,
+    // without modifying the queue
+    //
+    // The iterator below lets you walk a priority queue in order,
+    // by first creating a copy of it and then sorting it
+    // (sort would not be needed; we could do a pop for every iteration)
+    class ConstIterator
+    {
+    public:
+        using iterator_category = std::random_access_iterator_tag;
+        using reference = Container::const_reference;
+
+        using TPtr_ = size_type;
+
+        constexpr ConstIterator() noexcept : ptr_{} {}
+        constexpr ConstIterator(const PriorityQueue& pq, TPtr_ pos) noexcept
+            : pq_{ pq }, ptr_{ pos }
+        {
+            std::sort_heap(pq_.container_.begin(), pq_.container_.end(), pq_.compare_);
+        }
+        constexpr reference operator*() const noexcept { return pq_.container_[ptr_]; }
+        constexpr reference operator->() const noexcept { return pq_.container_[ptr_]; }
+        constexpr ConstIterator& operator++() noexcept { ptr_++; return *this; }
+        constexpr bool operator==(const ConstIterator& other) const noexcept
+        {
+            return pq_.container_ == other.pq_.container_ && ptr_ == other.ptr_;
+        }
+        constexpr bool operator<=>(const ConstIterator& other) const noexcept
+        {
+            return pq_.container_ == other.pq_.container_ and ptr_ <=> other.ptr_;
+        }
+
+    private:
+        PriorityQueue<T, Compare> pq_{};
+        TPtr_ ptr_{};
+    };
+
+    class Iterator : public ConstIterator
+    {
+        using MyBase_ = ConstIterator;
+
+    public:
+        using iterator_category = std::random_access_iterator_tag;
+        using reference = Container::reference;
+
+        constexpr reference operator*() const noexcept { return const_cast<reference>(MyBase_::operator*()); }
+        constexpr reference operator->() const noexcept { return const_cast<reference>(MyBase_::operator->()); }
+        constexpr Iterator& operator++() noexcept { MyBase_::operator++(); return *this; }
+    };
+    */
+
+public:
+    /*
+    using const_iterator = ConstIterator;
+    using iterator = Iterator;
+    */
     using const_iterator = Container::const_iterator;
+    using iterator = Container::iterator;
 
     PriorityQueue() = default;
 
@@ -34,6 +94,12 @@ public:
     [[nodiscard]] constexpr bool empty() const noexcept { return container_.empty(); }
     void swap(PriorityQueue& other) noexcept { std::swap(container_, other.container_); std::swap(compare_, other.compare_); }
 
+    /*/
+    constexpr iterator begin() noexcept { return Iterator{ *this, 0 }; }
+    constexpr iterator end() noexcept { return Iterator{ *this, size() }; }
+    constexpr const_iterator cbegin() const noexcept { return ConstIterator{ *this, 0 }; }
+    constexpr const_iterator cend() const noexcept { return ConstIterator{ *this, size() }; }
+    */
     constexpr iterator begin() noexcept { return container_.begin(); }
     constexpr iterator end() noexcept { return container_.end(); }
     constexpr const_iterator cbegin() const noexcept { return container_.cbegin(); }
