@@ -16,7 +16,7 @@ int main()
         auto n{ read_positive_number(1, problems.size() + static_cast<size_t>(1)) };
 
         // Execute problem
-        std::cout << "[PROBLEM " << n << "]\n";
+        std::cout << "\n[PROBLEM " << n << "]\n";
         problems.execute(n);
     }
 }

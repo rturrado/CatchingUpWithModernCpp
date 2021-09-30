@@ -194,6 +194,7 @@
     <ClCompile Include="src\Chapter5_DateAndTime\Problem44.cpp" />
     <ClCompile Include="src\Chapter6_AlgorithmsAndDataStructures\Problem45.cpp" />
     <ClCompile Include="src\Chapter6_AlgorithmsAndDataStructures\Problem46.cpp" />
+    <ClCompile Include="src\Chapter6_AlgorithmsAndDataStructures\Problem47.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Utils.cpp" />
   </ItemGroup>
@@ -215,6 +216,7 @@
     <ClInclude Include="inc\Chapter5_DateAndTime.h" />
     <ClInclude Include="inc\Chapter6_AlgorithmsAndDataStructures.h" />
     <ClInclude Include="inc\Chapter6_AlgorithmsAndDataStructures\CircularBuffer.h" />
+    <ClInclude Include="inc\Chapter6_AlgorithmsAndDataStructures\DoubleBuffer.h" />
     <ClInclude Include="inc\Chapter6_AlgorithmsAndDataStructures\PriorityQueue.h" />
     <ClInclude Include="inc\Problems.h" />
     <ClInclude Include="inc\Utils.h" />
