@@ -5,12 +5,13 @@
 #include <cmath>
 #include <chrono>
 #include <concepts>
-#include <iomanip>  // std::setfill, std::setw
-#include <ios>  // std::hex
+#include <iomanip>  // setfill, setw
+#include <ios>  // hex
 #include <iostream>
 #include <numeric>
 #include <ostream>
 #include <string>
+#include <utility>  // pair
 #include <vector>
 
 
@@ -44,6 +45,14 @@ std::ostream& operator<<(std::ostream& os, const C& c)
     os << " }";
     return os;
 };
+
+
+// Print pair
+template<typename T, typename U>
+std::ostream& operator<<(std::ostream& os, const std::pair<T, U>& p)
+{
+    return os << std::format("[{}, {}]", p.first, p.second);
+}
 
 
 // Check if input stream is clear
