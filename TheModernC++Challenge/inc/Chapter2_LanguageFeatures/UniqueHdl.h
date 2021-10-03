@@ -5,7 +5,7 @@
 
 
 // From Windows with C++ - C++ and the Windows API
-// (https://docs.microsoft.com/en-us/archive/msdn-magazine/2011/july/msdn-magazine-windows-with-c-c-and-the-windows-api)
+// https://docs.microsoft.com/en-us/archive/msdn-magazine/2011/july/msdn-magazine-windows-with-c-c-and-the-windows-api
 //
 // In C++, a traits class is commonly used to provide information about a given type.
 // In this way I can write a single class template for handles and provide different traits classes for the different types of handles in the Windows API.
