@@ -41,7 +41,7 @@ private:
         problem_23_main, problem_24_main, problem_25_main, problem_26_main, problem_27_main, problem_28_main, problem_29_main, problem_30_main, problem_31_main,  // Strings and regular expressions
         problem_32_main, problem_33_main, problem_34_main, problem_35_main, problem_36_main, problem_37_main, problem_38_main,  // Streams and filesystems
         problem_39_main, problem_40_main, problem_41_main, problem_42_main, problem_43_main, problem_44_main,  // Date and time
-        problem_45_main, problem_46_main, problem_47_main, problem_48_main, problem_49_main  // Algorithms and data structures
+        problem_45_main, problem_46_main, problem_47_main, problem_48_main, problem_49_main, problem_50_main  // Algorithms and data structures
     };
 };
 
