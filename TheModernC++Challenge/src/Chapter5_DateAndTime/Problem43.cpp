@@ -34,7 +34,7 @@ void problem_43_main()
 {
     using namespace std::literals;
 
-    ch::zoned_time<minutes> meeting_zt{ "Europe/Madrid", ch::sys_days{2021y / October / 23} + 18h };
+    ch::zoned_time<ch::minutes> meeting_zt{ "Europe/Madrid", ch::sys_days{2021y / October / 23} + 18h };
 
     auto participants = vector_of_participants_and_time_zones{
         { "Laura"sv, "America/Los_Angeles"sv },

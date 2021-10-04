@@ -13,7 +13,7 @@ unsigned int weekday_to_i(const std::chrono::year_month_day& date)
 // This function should return a value between 1 (for Monday) and 7 (for Sunday).
 void problem_41_main()
 {
-    namespace ch = std::chrono; using namespace ch;
+    namespace ch = std::chrono; using namespace std::chrono_literals;
 
     auto date_1{ 1946y / 8 / 11 };
     auto date_2{ 1952y / 4 / 24 };

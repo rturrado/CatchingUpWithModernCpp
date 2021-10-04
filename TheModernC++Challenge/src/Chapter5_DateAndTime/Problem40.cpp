@@ -14,7 +14,7 @@ int difference_in_days(std::chrono::sys_days start_date, std::chrono::sys_days e
 // The function should work regardless of the order of the input dates.
 void problem_40_main()
 {
-    namespace ch = std::chrono; using namespace ch;
+    namespace ch = std::chrono; using namespace std::chrono_literals;
 
     auto x{ 2012y / 1 / 24 };
     auto y{ 2013y / 1 / 8 };

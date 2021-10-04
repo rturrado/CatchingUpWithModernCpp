@@ -18,7 +18,7 @@ void print_calendar_month(const ch::year& y, const ch::month& m)
     for (unsigned int i{ 0 }; i < y_m_1_iso_wd; ++i) { std::cout << std::format("{:>4}", ' '); }
 
     // Month days
-    unsigned int y_m_d_last{ ch::year_month_day_last{y / m / last}.day() };
+    unsigned int y_m_d_last{ ch::year_month_day_last{y / m / ch::last}.day() };
     for (unsigned int i{ 1 }; i <= y_m_d_last; ++i)
     {
         std::cout << std::format("{:>4}", i);
@@ -40,6 +40,7 @@ void print_calendar_month(const ch::year& y, const ch::month& m)
 void problem_44_main()
 {
     using vector_of_pairs_year_month = std::vector<std::pair<ch::year, ch::month>>;
+
     for (const auto& [year, month] : vector_of_pairs_year_month{ {1970y, January}, {1977y, May}, {2012y, February} })
     {
         print_calendar_month(year, month);
