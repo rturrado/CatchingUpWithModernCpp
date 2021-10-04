@@ -1,4 +1,4 @@
-#include <algorithm>  // transform
+#include <algorithm>  // for_each
 #include <cctype>  // isalpha
 #include <filesystem>  // path
 #include <format>
@@ -7,7 +7,7 @@
 #include <map>
 #include <numeric>  // accumulate
 #include <stdexcept>  // runtime_error
-#include <string>
+#include <string>  // getline
 
 using letter_counts = std::map<char, size_t>;
 
@@ -36,23 +36,23 @@ letter_counts count_letters(std::ifstream& in_file)
 
 void print_histogram(letter_counts& counts)
 {
+    const size_t histogram_width{ 300 };
+
     size_t total_count = std::accumulate(cbegin(counts), cend(counts), static_cast<size_t>(0), [](auto total, auto& kvp) {
         return total + kvp.second;
-        });
+    });
 
-    auto bar_width = [](double frequency, size_t line_width) {
-        // Subtract 12 to the line width for char, percentage and spaces, e.g.: 'e (13.25 %) '
-        return static_cast<size_t>(((line_width - 12) * frequency) / 100);
+    auto print_histogram_line = [&histogram_width, &total_count](char c, size_t count) {
+        double frequency{ (count * 100.0) / total_count };
+
+        // Subtract 12 for line header, e.g.: 'e (13.25 %) '
+        size_t bar_width{ static_cast<size_t>(((histogram_width - 12) * frequency) / 100) };
+
+        std::cout << std::format("\t{} ({:5.2f} %) {:=>{}}\n", c, frequency, '>', bar_width);
     };
 
-    auto print_histogram_line = [&total_count, &bar_width](char c, size_t count, size_t line_width) {
-        double frequency = (count * 100.0) / total_count;
-        std::cout << std::format("\t{} ({:5.2f} %) {:=>{}}\n", c, frequency, '>', bar_width(frequency, line_width));
-    };
-
-    const size_t histogram_width{ 300 };
-    std::for_each(cbegin(counts), cend(counts), [&print_histogram_line, &histogram_width](auto& kvp) {
-        print_histogram_line(kvp.first, kvp.second, histogram_width);
+    std::for_each(cbegin(counts), cend(counts), [&print_histogram_line](const auto& kvp) {
+        print_histogram_line(kvp.first, kvp.second);
     });
 }
 
