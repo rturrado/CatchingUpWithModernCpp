@@ -7,7 +7,7 @@
 
 using phone_numbers = std::vector<std::string>;
 
-const enum class country_code {
+enum class country_code {
     US = 1,
     Spain = 34,
     UK = 44
@@ -25,7 +25,7 @@ std::ostream& operator<<(std::ostream& os, const country_code& cc)
     return os;
 }
 
-phone_numbers filter(const phone_numbers& ph_nos, const country_code& cc)
+phone_numbers filter_phone_numbers_by_country_code(const phone_numbers& ph_nos, const country_code& cc)
 {
     phone_numbers ret{};
     std::smatch matches{};
@@ -65,6 +65,6 @@ void problem_50_main()
     for (const country_code& cc : { country_code::US, country_code::Spain, country_code::UK })
     {
         std::cout << "Filtering numbers from: " << cc << "\n\t";
-        std::cout << filter(phone_numbers, cc) << "\n\n";
+        std::cout << filter_phone_numbers_by_country_code(phone_numbers, cc) << "\n\n";
     }
 }
