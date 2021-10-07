@@ -9,5 +9,6 @@ void problem_49_main();
 void problem_50_main();
 void problem_51_main();
 void problem_52_main();
+void problem_53_main();
 
 #endif

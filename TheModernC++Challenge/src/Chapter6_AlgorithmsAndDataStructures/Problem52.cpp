@@ -22,23 +22,21 @@ permutations all_permutations_rec_impl(std::string str)
     return ret;
 }
 
-permutations all_permutations_rec(const std::string& str)
+permutations all_permutations_rec(std::string str)
 {
     if (str.empty()) { return {}; }
 
-    auto str_copy{ str };
-    std::sort(begin(str_copy), end(str_copy));
-    return all_permutations_rec_impl(str_copy);
+    std::sort(begin(str), end(str));
+    return all_permutations_rec_impl(str);
 }
 
-permutations all_permutations(const std::string& str)
+permutations all_permutations(std::string str)
 {
     if (str.empty()) { return {}; }
 
     permutations ret{};
-    auto str_copy{ str };
-    std::sort(begin(str_copy), end(str_copy));
-    do { ret.push_back(str_copy); } while (std::next_permutation(begin(str_copy), end(str_copy)));
+    std::sort(begin(str), end(str));
+    do { ret.push_back(str); } while (std::next_permutation(begin(str), end(str)));
     return ret;
 }
 
