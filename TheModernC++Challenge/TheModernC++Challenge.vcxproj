@@ -201,6 +201,7 @@
     <ClCompile Include="src\Chapter6_AlgorithmsAndDataStructures\Problem51.cpp" />
     <ClCompile Include="src\Chapter6_AlgorithmsAndDataStructures\Problem52.cpp" />
     <ClCompile Include="src\Chapter6_AlgorithmsAndDataStructures\Problem53.cpp" />
+    <ClCompile Include="src\Chapter6_AlgorithmsAndDataStructures\Problem54.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Utils.cpp" />
   </ItemGroup>

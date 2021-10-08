@@ -48,7 +48,7 @@ std::ostream& operator<<(std::ostream& os, const C& c)
 
 
 // Print pair
-template<typename T, typename U>
+template<typename T, typename U = T>
 std::ostream& operator<<(std::ostream& os, const std::pair<T, U>& p)
 {
     return os << std::format("[{}, {}]", p.first, p.second);
