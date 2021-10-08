@@ -213,6 +213,9 @@
     <ClCompile Include="src\Chapter6_AlgorithmsAndDataStructures\Problem54.cpp">
       <Filter>Source Files\Chapter6_AlgorithmsAndDataStructures</Filter>
     </ClCompile>
+    <ClCompile Include="src\Chapter6_AlgorithmsAndDataStructures\Problem55.cpp">
+      <Filter>Source Files\Chapter6_AlgorithmsAndDataStructures</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Utils.h">
