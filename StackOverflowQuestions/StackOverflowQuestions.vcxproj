@@ -155,6 +155,7 @@
     <ClInclude Include="inc\VectorOfIntsWithTrianglePattern.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="mod\ParsingDates.ixx" />
     <ClCompile Include="mod\PopenTest.ixx" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\BitSequenceToInt.cpp" />

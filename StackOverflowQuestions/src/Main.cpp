@@ -7,6 +7,7 @@
 #include "PlayingWithTimeZonesAndDst.h"
 #include "VectorOfIntsWithTrianglePattern.h"
 
+import ParsingDates;
 import PopenTest;
 
 int main()
@@ -24,7 +25,9 @@ int main()
     { std::cout << "[PARSE LINES OF DATES AND TIMES]\n"; parse_lines_of_dates_and_times_main(); std::cout << "\n"; }
     // Playing with time zones and DST
     { std::cout << "[PLAYING WITH TIME ZONES AND DST]\n"; playing_with_time_zones_and_dst_main(); std::cout << "\n"; }
-*/
     // Popen test
     { std::cout << "[POPEN TEST]\n"; popen_test_main(); std::cout << "\n"; }
+*/
+    // Parsing dates
+    { std::cout << "[PARSING DATES]\n"; parsing_dates_main(); std::cout << "\n"; }
 }

@@ -62,6 +62,9 @@
     <ClCompile Include="mod\PopenTest.ixx">
       <Filter>Module Files</Filter>
     </ClCompile>
+    <ClCompile Include="mod\ParsingDates.ixx">
+      <Filter>Module Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\file.ini">
