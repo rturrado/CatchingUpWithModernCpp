@@ -12,5 +12,6 @@ void problem_52_main();
 void problem_53_main();
 void problem_54_main();
 void problem_55_main();
+void problem_56_main();
 
 #endif

@@ -46,7 +46,7 @@ export void parsing_dates_main()
         "2019/13/20",  // wrong: month is 13
         "2021/2/29" })  // wrong: non existing date
     {
-        std::cout << "\t" << date << ":\n";
+        std::cout << "\t\"" << date << "\":\n";
         using_just_chrono(date);
         using_regex_and_chrono(date);
     }
@@ -56,14 +56,14 @@ export void parsing_dates_main()
 // Outputs:
 //
 // Parsing dates:
-//     2021/03/01:
+//     "2021/03/01":
 //         using just chrono: Mon
 //         using rgx and chr: Mon
-//       2022/4/2:
+//     "  2022/4/2":
 //         using rgx and chr: Sat
-//       5/3/2023:
+//     "5/3/2023":
 //         using just chrono: Sun
-//     abracadabra:
-//     2020/12/32:
-//     2019/13/20:
-//     2021/2/29:
+//     "abracadabra":
+//     "2020/12/32":
+//     "2019/13/20":
+//     "2021/2/29":
