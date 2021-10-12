@@ -97,6 +97,10 @@ private:
         problem_54_main,
         problem_55_main,
         problem_56_main,
+        problem_57_main,
+        problem_58_main,
+        problem_59_main,
+        problem_60_main,
     };
 };
 

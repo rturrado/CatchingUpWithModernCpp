@@ -219,6 +219,18 @@
     <ClCompile Include="src\Chapter6_AlgorithmsAndDataStructures\Problem56.cpp">
       <Filter>Source Files\Chapter6_AlgorithmsAndDataStructures</Filter>
     </ClCompile>
+    <ClCompile Include="src\Chapter6_AlgorithmsAndDataStructures\Problem57.cpp">
+      <Filter>Source Files\Chapter6_AlgorithmsAndDataStructures</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chapter6_AlgorithmsAndDataStructures\Problem58.cpp">
+      <Filter>Source Files\Chapter6_AlgorithmsAndDataStructures</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chapter6_AlgorithmsAndDataStructures\Problem59.cpp">
+      <Filter>Source Files\Chapter6_AlgorithmsAndDataStructures</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chapter6_AlgorithmsAndDataStructures\Problem60.cpp">
+      <Filter>Source Files\Chapter6_AlgorithmsAndDataStructures</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Utils.h">
