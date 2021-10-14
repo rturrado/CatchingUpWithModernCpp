@@ -15,7 +15,7 @@
 
 // Undirected graph
 //
-// Like input network of nodes
+// The graph is a map where the key is a pair of nodes, and the mapped value the distance between them
 template <typename Node, typename Distance>
 class undirected_graph_map
 {
@@ -49,7 +49,7 @@ private:
 
 // Directed graph
 //
-// Like output network of shortest paths
+// The digraph is a map where the key is a source node, and the mapped value is a pair of destination node and distance between the nodes
 template <typename Node, typename Distance>
 class directed_graph_map
 {
@@ -74,12 +74,14 @@ public:
     friend constexpr const_iterator cbegin(const directed_graph_map<Node, Distance>& graph) { return begin(graph.data_); }
     friend constexpr const_iterator cend(const directed_graph_map<Node, Distance>& graph) { return end(graph.data_); }
 
+    friend std::ostream& operator<<(std::ostream& os, const directed_graph_map<Node, Distance>& graph) { return os << graph.data_; }
+
 private:
     std::map<key_type, mapped_type> data_;
 };
 
 
-// Distances from a source node to a list of destination nodes
+// Distance map associating a node to a distance
 template <typename Node, typename Distance>
 using distance_map = std::map<Node, Distance>;
 
@@ -109,8 +111,8 @@ Node get_nearest_node_not_in_sp_set(const distance_map<Node, Distance>& distance
     auto is_not_in_sp_set = [&sp_set](const auto& kvp) { return not sp_set.contains(kvp.first); };
 
     // From the map of distances,
-    // filter out the destination nodes already in shortest path tree,
-    // and return the nearest destination node
+    // filter out the destination nodes already in shortest paths set,
+    // and return the nearest of them
     auto distances_to_nodes_not_in_sp_set{ distances | std::views::filter(is_not_in_sp_set) };
     return std::ranges::min_element(
         distances_to_nodes_not_in_sp_set,
@@ -123,19 +125,19 @@ Node get_nearest_node_not_in_sp_set(const distance_map<Node, Distance>& distance
 template <typename Node, typename Distance>
 directed_graph_map<Node, Distance> get_shortest_paths_digraph(const undirected_graph_map<Node, Distance>& graph, const Node& s)
 {
-    // Return a directed graph with the shortest paths from the source node
+    // Return a directed graph with the shortest paths towards the source node
     // Initialize it with a zero distance from the source node to itself
     directed_graph_map<Node, Distance> sp_digraph{ {s, {s, 0}} };
 
-    // Map of distances between the source node and all the other nodes
-    distance_map<Node, Distance> distances{};
-
-    // List of destination nodes, i.e. all nodes except source
+    // Set of destination nodes, i.e. all nodes except source
     node_set<Node> ds{ get_node_list(graph) };
     ds.erase(s);
 
     // Set of nodes for which we already know the shortest path
     node_set<Node> sp_set{};
+
+    // Map of distances between the source node and all the other nodes
+    distance_map<Node, Distance> distances{};
 
     // Start with infinite distances between the source node and all the other nodes
     std::transform(cbegin(ds), cend(ds), std::inserter(distances, end(distances)), [&s](const auto& d) {
@@ -148,7 +150,7 @@ directed_graph_map<Node, Distance> get_shortest_paths_digraph(const undirected_g
     // Loop destination nodes
     while (not ds.empty())
     {
-        // Get destination node nearest to source and not already in the shortest path tree
+        // Get destination node nearest to source and not already in the shortest path set
         Node u{ get_nearest_node_not_in_sp_set(distances, sp_set) };
 
         // Remove it from the list of destination nodes
@@ -160,26 +162,28 @@ directed_graph_map<Node, Distance> get_shortest_paths_digraph(const undirected_g
         // Helper lambdas
         auto is_not_in_sp_set = [&sp_set](const auto& d) { return not sp_set.contains(d); };
         auto are_adjacent = [&graph](const auto& u, const auto& d) { return graph.contains({ u, d }); };
-        auto are_closer_through_nearest_node = [&graph, &distances, &u](const auto& s, const auto& d) {
+        auto are_closer_through_u = [&graph, &distances, &u](const auto& s, const auto& d) {
             return
                 distances[u] != std::numeric_limits<Distance>::max() and
                 distances[u] + graph.at({ u, d }) < distances[d];
         };
-        auto update_shortest_path_through_nearest_node = [&graph, &sp_digraph, &distances, &u](const auto& s, const auto& d) {
-            sp_digraph[d] = std::make_pair(u, graph.at({ u, d }));
-            distances[d] = distances[u] + graph.at({ u, d });
+        auto update_shortest_path_through_u = [&graph, &sp_digraph, &distances, &u](const auto& s, const auto& d) {
+            sp_digraph[d] = std::make_pair(u, graph.at({ u, d }));  // adding (d -> u) connection to shortest path (u -> ... -> s)            
+
+            distances[d] = distances[u] + graph.at({ u, d });  // setting (d -> ... -> s) distance as (d -> u) + (u -> ... -> s)
         };
 
         // Update distances[d] if
-        // - d is not in shortest path tree set, and
-        // - there is an edge from s to d, and
+        // - d is not in shortest path set, and
+        // - there is an edge from u to d, and
         // - the path from s to d is shorter through u
         for (auto& kvp : distances)
         {
             const Node& d{ kvp.first };
-            if (is_not_in_sp_set(d) and are_adjacent(u, d) and are_closer_through_nearest_node(s, d))
+
+            if (is_not_in_sp_set(d) and are_adjacent(u, d) and are_closer_through_u(s, d))
             {
-                update_shortest_path_through_nearest_node(s, d);
+                update_shortest_path_through_u(s, d);
             }
         }
     }    
@@ -224,7 +228,9 @@ void print_shortest_paths_digraph(const directed_graph_map<Node, Distance>& grap
     {
         Node s{ kvp.first };
 
-        oss << "\t" << d << " -> " << s << " : " << get_shortest_path_distance(graph, s, d) << "\t" << get_shortest_path_string(graph, s, d) << "\n";
+        oss << "\t" << d << " -> " << s << " : "
+            << get_shortest_path_distance(graph, s, d) << "\t"
+            << get_shortest_path_string(graph, s, d) << "\n";
     }
     std::cout << oss.str();
 }
