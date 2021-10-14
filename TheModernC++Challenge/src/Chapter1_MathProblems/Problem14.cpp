@@ -2,6 +2,7 @@
 #include "Utils.h"
 
 #include <cassert>
+#include <numeric>  // accumulate
 
 std::string read_n_digit_isbn(size_t n)
 {

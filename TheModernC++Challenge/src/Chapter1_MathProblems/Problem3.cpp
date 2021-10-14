@@ -2,6 +2,7 @@
 #include "Utils.h"
 
 #include <algorithm>
+#include <numeric>  // accumulate
 
 auto lcm(const std::vector<size_t>& v)
 {

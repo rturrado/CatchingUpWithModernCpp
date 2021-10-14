@@ -1,14 +1,14 @@
 #ifndef __UTILS_H__
 #define __UTILS_H__
 
-#include <algorithm>
-#include <cmath>
+#include <algorithm>  // for_each, sort
+#include <cmath>  // sqrt
 #include <chrono>
 #include <concepts>
 #include <iomanip>  // setfill, setw
 #include <ios>  // hex
 #include <iostream>
-#include <numeric>
+#include <limits>  // numeric_limits
 #include <ostream>
 #include <string>
 #include <utility>  // pair
@@ -27,7 +27,7 @@ requires (!std::same_as<typename C::value_type, uint8_t>) && (!implements_operat
 std::ostream& operator<<(std::ostream& os, const C& c)
 {
     os << "{";
-    std::for_each(cbegin(c), cend(c), [first = true, &os](const auto n) mutable {
+    std::for_each(cbegin(c), cend(c), [first = true, &os](const auto& n) mutable {
         os << (first ? " " : ", ") << n; first = false;
     });
     os << " }";
@@ -39,7 +39,7 @@ requires std::same_as<typename C::value_type, uint8_t> && (!implements_operator_
 std::ostream& operator<<(std::ostream& os, const C& c)
 {
     os << "{";
-    std::for_each(cbegin(c), cend(c), [first = true, &os](const auto n) mutable {
+    std::for_each(cbegin(c), cend(c), [first = true, &os](const auto& n) mutable {
         os << (first ? " " : ", ") << "0x" << std::hex << std::setw(2) << std::setfill('0') << static_cast<uint16_t>(n); first = false;
     });
     os << " }";
@@ -51,7 +51,7 @@ std::ostream& operator<<(std::ostream& os, const C& c)
 template<typename T, typename U = T>
 std::ostream& operator<<(std::ostream& os, const std::pair<T, U>& p)
 {
-    return os << std::format("[{}, {}]", p.first, p.second);
+    return os << "[" << p.first << ", " << p.second << "]";
 }
 
 

@@ -3,6 +3,7 @@
 
 #include <chrono>  // ms
 #include <iostream>  // cout
+#include <numeric>  // iota
 #include <thread>  // this_thread
 
 // This test shows that, if we don't update the full buffer on every write operation, we'll get unexpected results

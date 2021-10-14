@@ -4,6 +4,7 @@
 
 #include <cmath>
 #include <iostream>
+#include <numeric>  // accumulate
 
 // Armstrong numbers
 
