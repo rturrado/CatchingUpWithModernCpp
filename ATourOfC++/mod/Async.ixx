@@ -15,13 +15,15 @@ export void async_main()
     //
     // More into detail, std::async will set the value of a promise (or throw an exception), and a future will read that value
     // But, since the promise and the future could not coexist in time, the value is kept in a shared state
-    // The standard states that the last future referring to a shared state should block until the thread for the asynchronously running function finishes
-    // Note std::async will run its task in a separate thread
+    // The standard states that the destructor for the last future referring to a shared state for a non-deferred task launched via std::async
+    // blocks until the task completes
+    // In essence, the destructor for such a future does an implicit join on the thread on which the asynchronously executing task is running
     //
     // https://stackoverflow.com/a/18143844/260313
     // http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3451.pdf
     // http://scottmeyers.blogspot.com/2013/03/stdfutures-from-stdasync-arent-special.html
     // https://en.cppreference.com/w/cpp/thread/future/~future
+    // Scott Meyers' Effective Modern C++, Item 38, Be aware of varying thread handle destructor behaviour
     std::cout << "First example: two non-concurrent asyncs: ";
     std::async([]() { f(); });  // ~future blocks
     std::async([]() { g(); });  // ~future blocks
