@@ -184,7 +184,7 @@ namespace TMP
         static constexpr bool has_amicable = (N == p);
         static constexpr size_t value = m;
     };
-}
+}  // namespace TMP
 
 
 template <
