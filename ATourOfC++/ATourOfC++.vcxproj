@@ -21,7 +21,6 @@
   <ItemGroup>
     <ClInclude Include="inc\ConditionVariable.h" />
     <ClInclude Include="inc\PackagedTask.h" />
-    <ClInclude Include="inc\Random.h" />
     <ClInclude Include="inc\RawLoopVersusStlAlgorithmPerformance.h" />
   </ItemGroup>
   <ItemGroup>
@@ -127,7 +126,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>./inc;./mod;C:\Libraries\boost_1_75_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../inc;./inc;./mod;C:\Libraries\boost_1_75_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <FloatingPointModel>Precise</FloatingPointModel>
     </ClCompile>
@@ -144,7 +143,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>./inc;./mod;C:\Libraries\boost_1_75_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../inc;./inc;./mod;C:\Libraries\boost_1_75_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <FloatingPointModel>Precise</FloatingPointModel>
     </ClCompile>
@@ -166,7 +165,7 @@
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <IntrinsicFunctions>false</IntrinsicFunctions>
       <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
-      <AdditionalIncludeDirectories>./inc;./mod;C:\Libraries\boost_1_75_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../inc;./inc;./mod;C:\Libraries\boost_1_75_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <FloatingPointModel>Precise</FloatingPointModel>
     </ClCompile>
     <Link>
@@ -183,7 +182,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>./inc;./mod;C:\Libraries\boost_1_75_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../inc;./inc;./mod;C:\Libraries\boost_1_75_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <FloatingPointModel>Precise</FloatingPointModel>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
     </ClCompile>

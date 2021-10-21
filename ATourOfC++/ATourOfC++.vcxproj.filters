@@ -21,9 +21,6 @@
     <ClInclude Include="inc\RawLoopVersusStlAlgorithmPerformance.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Random.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\ConditionVariable.h">
       <Filter>Header Files</Filter>
     </ClInclude>

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30804.86
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31717.71
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ATourOfC++", "ATourOfC++\ATourOfC++.vcxproj", "{B756BDD2-A15D-4A1C-820F-D756A79D9E79}"
 EndProject
@@ -26,6 +26,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{58E27341-A0BB-4B93-86E8-3392A193AD0A}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "inc", "inc", "{0E209F6A-FF36-40CA-AC4B-A452D4A37600}"
+	ProjectSection(SolutionItems) = preProject
+		inc\Random.h = inc\Random.h
 	EndProjectSection
 EndProject
 Global
@@ -119,6 +124,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0E209F6A-FF36-40CA-AC4B-A452D4A37600} = {58E27341-A0BB-4B93-86E8-3392A193AD0A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {34DDEB3F-4CE7-4306-BE4B-7F550D616475}
