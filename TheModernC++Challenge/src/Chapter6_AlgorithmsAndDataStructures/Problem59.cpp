@@ -2,10 +2,8 @@
 
 #include <iostream>  // cout
 #include <numeric>  // transform_reduce
-#include <random>  // default_random_engine, random_device, uniform_int_distribution
 #include <sstream>  // ostringstream
 #include <string>
-#include <string_view>
 #include <vector>
 
 class WeaselSequence
@@ -49,7 +47,7 @@ private:
 
     size_t get_random_int() { return get_random_int(0, static_cast<int>(size()) - 1); }
 
-    static char get_random_letter() { static RandomLetter<true> random_letter_{}; return random_letter_(); }
+    static char get_random_letter() { static RandomLetter random_letter_{}; return random_letter_(); }
     static size_t get_random_int(int low, int high) { static RandomInt random_int_{ low, high }; return random_int_(); }
 };
 

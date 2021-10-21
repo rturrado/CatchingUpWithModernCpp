@@ -38,18 +38,14 @@ private:
 
 // Random letter generator
 // Generates a random letter
-// Uppercase template parameter indicates is letter is lowercase or uppercase
-// Valid letters are the 26 letters of the English alphabet plus the white space
+// Valid letters are the white space and the 26 letters of the English alphabet, both in uppercase and lowercase
 template<bool Uppercase = false>
 class RandomLetter
 {
 public:
     char operator()()
     {
-        static std::string_view valid_letters{};
-
-        if constexpr (Uppercase) { valid_letters = " ABCDEFGHIJKLMNOPQRSTUVWXYZ"; }
-        else { valid_letters = " abcdefghijklmnopqrstuvwxyz"; }
+        static const std::string_view valid_letters{ " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" };
 
         return valid_letters[std::uniform_int_distribution<size_t>{ 0, valid_letters.size() - 1 }(engine_)];
     }
