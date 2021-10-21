@@ -16,8 +16,8 @@
 // The packaged_task provides wrapper code to put the return value or exception from the task into a promise
 
 double accum(double* beg, double* end, double init)
-// compute the sum of [beg:end) starting with the initial value init
 {
+    // Compute the sum of [beg:end) starting with the initial value init
     return std::accumulate(beg, end, init);
 }
 
