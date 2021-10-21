@@ -18,7 +18,7 @@ public:
 
     // Choose one element of data_ randomly
     // Fill that element randomly
-    void mutate() noexcept { data_[get_random_int()] = get_random_letter(); }
+    void mutate() noexcept { data_[get_random_index()] = get_random_letter(); }
 
     [[nodiscard]] constexpr size_t size() const noexcept { return target_.size(); }
 
@@ -45,7 +45,7 @@ private:
     std::string target_{};
     std::string data_{};
 
-    size_t get_random_int() { return get_random_int(0, static_cast<int>(size()) - 1); }
+    size_t get_random_index() { return get_random_int(0, static_cast<int>(size()) - 1); }
 
     static char get_random_letter() { static RandomLetter random_letter_{}; return random_letter_(); }
     static size_t get_random_int(int low, int high) { static RandomInt random_int_{ low, high }; return random_int_(); }
