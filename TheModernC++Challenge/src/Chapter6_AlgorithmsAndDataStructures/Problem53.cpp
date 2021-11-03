@@ -1,3 +1,5 @@
+#include "Chapter6_AlgorithmsAndDataStructures.h"
+
 #include <algorithm>  // sort
 #include <iomanip>  // setprecision
 #include <ios>  // fixed

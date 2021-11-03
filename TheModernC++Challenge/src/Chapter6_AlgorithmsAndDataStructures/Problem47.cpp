@@ -1,10 +1,13 @@
-#include "DoubleBuffer.h"
-#include "Utils.h"
+#include "Chapter6_AlgorithmsAndDataStructures.h"
+#include "Chapter6_AlgorithmsAndDataStructures/DoubleBuffer.h"
+#include "Print.h"
 
-#include <chrono>  // ms
+#include <algorithm>  // for_each
+#include <chrono>
 #include <iostream>  // cout
 #include <numeric>  // iota
 #include <thread>  // this_thread
+#include <vector>
 
 // This test shows that, if we don't update the full buffer on every write operation, we'll get unexpected results
 // This is due to the the fact that the double buffering technique swaps the read and write buffers after every write

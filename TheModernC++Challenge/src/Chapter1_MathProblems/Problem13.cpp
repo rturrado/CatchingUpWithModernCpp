@@ -1,6 +1,6 @@
 #include "Chapter1_MathProblems.h"
 
-#include <iostream>
+#include <iostream>  // cout
 #include <random>
 
 double compute_pi(size_t number_of_iterations)

@@ -1,5 +1,8 @@
 #include "Chapter1_MathProblems.h"
-#include "Utils.h"
+#include "Chapter1_MathProblems/Math.h"  // is_prime
+#include "ConsoleRead.h"  // read_positive_number
+
+#include <iostream>  // cout
 
 // Sexy prime pairs
 // Write a program that prints all sexy prime pairs up to a limit entered by the user

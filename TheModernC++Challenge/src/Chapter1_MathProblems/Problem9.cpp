@@ -1,5 +1,9 @@
 #include "Chapter1_MathProblems.h"
-#include "Utils.h"
+#include "Chapter1_MathProblems/Math.h"  // prime_factors
+#include "ConsoleRead.h"  // read_positive_number
+#include "Print.h"
+
+#include <iostream>  // cout
 
 // Prime factors of a number
 // Write a program that prints the prime factors of a number entered by the user

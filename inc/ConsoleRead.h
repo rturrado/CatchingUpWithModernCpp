@@ -1,17 +1,27 @@
-#include "Utils.h"
+#ifndef __CONSOLE_READ_H__
+#define __CONSOLE_READ_H__
 
-#include <algorithm>
+#include <algorithm>  // count_if
+#include <cctype>  // isdigit
+#include <ios>  // dec, streamsize
+#include <iostream>  // cin, cout
+#include <istream>
+#include <limits>  // numeric_limits
+#include <ostream>
+#include <stdexcept>  // invalid_argument, out_of_range
+#include <string>  // stoul
+#include <vector>
 
 
 // Check if input stream is clear
-bool is_istream_clear(const std::istream& is)
+inline bool is_istream_clear(const std::istream& is)
 {
     return (is.rdbuf()->in_avail() == 1);  // a correct input will be followed by the ENTER character
 }
 
 
 // Clear input stream
-void clear_istream(std::istream& is)
+inline void clear_istream(std::istream& is)
 {
     is.clear();
     if (std::streamsize n = is.rdbuf()->in_avail())  // ignores whatever there may be within is
@@ -21,8 +31,11 @@ void clear_istream(std::istream& is)
 }
 
 
-// Read positive number
-size_t read_positive_number(size_t lower_limit, size_t upper_limit)
+// Read a positive number in the range [lower_limit, upper_limit)
+// or [lower_limit, SIZE_T_MAX) in case upper_limit is not specified
+inline size_t read_positive_number(
+    size_t lower_limit,
+    size_t upper_limit = std::numeric_limits<size_t>::max())
 {
     size_t n{ 0 };
     for (;;)
@@ -49,8 +62,13 @@ size_t read_positive_number(size_t lower_limit, size_t upper_limit)
     return n;
 }
 
-// Read list of positive numbers
-std::vector<size_t> read_list_of_positive_numbers(size_t minimum_list_size, size_t lower_limit, size_t upper_limit)
+// Read a list of positive numbers in the range [lower_limit, upper_limit)
+// or [lower_limit, SIZE_T_MAX) in case upper_limit is not specified
+// minimum_list_size is the minimum number of the elements to read for the list
+inline std::vector<size_t> read_list_of_positive_numbers(
+    size_t minimum_list_size,
+    size_t lower_limit,
+    size_t upper_limit = std::numeric_limits<size_t>::max())
 {
     std::vector<size_t> v{};
     while (v.size() < minimum_list_size)
@@ -107,7 +125,7 @@ std::vector<size_t> read_list_of_positive_numbers(size_t minimum_list_size, size
 
 
 // Read a n-digit string
-std::string read_n_digit_string(size_t n)
+inline std::string read_n_digit_string(size_t n)
 {
     std::string ret{};
 
@@ -133,3 +151,5 @@ std::string read_n_digit_string(size_t n)
 
     return ret;
 }
+
+#endif  // __CONSOLE_READ_H__

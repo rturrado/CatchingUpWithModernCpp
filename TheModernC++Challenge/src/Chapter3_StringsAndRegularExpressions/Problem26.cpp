@@ -1,11 +1,12 @@
-#include <algorithm>
+#include "Chapter3_StringsAndRegularExpressions.h"
+#include "Print.h"
+
+#include <algorithm>  // for_each
 #include <array>
-#include <iostream>
+#include <iostream>  // cout
 #include <list>
 #include <string>
 #include <vector>
-
-#include "Utils.h"
 
 template <typename Container>
 std::string join(const Container& c, const std::string& delimiter)

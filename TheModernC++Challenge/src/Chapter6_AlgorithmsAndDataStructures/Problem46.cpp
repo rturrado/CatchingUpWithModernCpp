@@ -1,9 +1,10 @@
-#include "CircularBuffer.h"
-#include "Utils.h"
+#include "Chapter6_AlgorithmsAndDataStructures.h"
+#include "Chapter6_AlgorithmsAndDataStructures/CircularBuffer.h"
+#include "Print.h"
 
 #include <iostream>  // cout
 #include <stdexcept>  // runtime_error
-#include <string_view>
+#include <string_view>  // literals
 
 // Create a data structure that represents a circular buffer of a fixed size.
 // A circular buffer overwrites existing elements when the buffer is being filled beyond its fixed size.

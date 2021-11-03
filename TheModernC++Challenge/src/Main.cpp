@@ -1,10 +1,7 @@
-#include <array>
-#include <iostream>
-#include <functional>
-
-#include "Chapter1_MathProblems.h"
+#include "ConsoleRead.h"
 #include "Problems.h"
-#include "Utils.h"
+
+#include <iostream>
 
 int main()
 {

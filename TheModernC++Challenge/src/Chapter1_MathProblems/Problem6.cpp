@@ -1,7 +1,11 @@
 #include "Chapter1_MathProblems.h"
-#include "Utils.h"
+#include "Chapter1_MathProblems/Math.h"  // divisors
+#include "ConsoleRead.h"  // read_positive_number
+#include "Print.h"
 
+#include <iostream>  // cout
 #include <numeric>  // accumulate
+
 
 // Abundant numbers
 // Write a program that prints all abundant numbers and their abundance, up to a number entered by the user

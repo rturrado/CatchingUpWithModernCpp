@@ -1,16 +1,18 @@
-#include "Utils.h"
+#include "Chapter6_AlgorithmsAndDataStructures.h"
+#include "Print.h"
 
-#include <algorithm>  // minmax
+#include <algorithm>  // for_each, minmax, transform
 #include <initializer_list>
 #include <iostream>  // cout
+#include <iterator>  // inserter
 #include <limits>  // numeric_limits
 #include <map>
-#include <ranges>  // views::filter, min_element
+#include <ranges>
 #include <set>
 #include <ostream>
 #include <sstream>  // ostringstream
 #include <string>
-#include <utility>  // pair
+#include <utility>  // initializer_list, make_pair, pair
 
 
 // Undirected graph
@@ -113,7 +115,7 @@ Node get_nearest_node_not_in_sp_set(const distance_map<Node, Distance>& distance
     // From the map of distances,
     // filter out the destination nodes already in shortest paths set,
     // and return the nearest of them
-    auto distances_to_nodes_not_in_sp_set{ distances | std::views::filter(is_not_in_sp_set) };
+    auto distances_to_nodes_not_in_sp_set{ distances | std::ranges::views::filter(is_not_in_sp_set) };
     return std::ranges::min_element(
         distances_to_nodes_not_in_sp_set,
         std::less<Distance>{},

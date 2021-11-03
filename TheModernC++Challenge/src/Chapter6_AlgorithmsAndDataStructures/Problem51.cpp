@@ -1,8 +1,11 @@
-#include "Utils.h"
+#include "Chapter6_AlgorithmsAndDataStructures.h"
+#include "Print.h"
 
-#include <algorithm>  // remove_if
+#include <algorithm>  // remove_if, transform
+#include <functional>  // reference_wrapper
 #include <iostream>  // cout
 #include <regex>  // regex_match, regex_replace, smatch
+#include <sstream>  // ostringstream
 #include <string>
 #include <vector>
 

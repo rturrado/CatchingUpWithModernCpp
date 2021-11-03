@@ -1,10 +1,14 @@
 #include "Chapter1_MathProblems.h"
-#include "Digits.h"
-#include "Utils.h"
+#include "Chapter1_MathProblems/Digits.h"
+#include "Chapter1_MathProblems/Math.h"  // is_prime
+#include "ConsoleRead.h"  // read_positive_number
+#include "Timer.h"  // function_timer
 
-#include <cmath>
-#include <iostream>
+#include <cmath>  // pow
+#include <chrono>  // duration, milli
+#include <iostream>  // cout
 #include <numeric>  // accumulate
+#include <string>  // to_string
 
 // Armstrong numbers
 

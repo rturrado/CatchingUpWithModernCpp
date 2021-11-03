@@ -1,6 +1,10 @@
+#include "Chapter6_AlgorithmsAndDataStructures.h"
 #include "Random.h"
 
+#include <algorithm>  // copy, max_element
+#include <functional>  // plus
 #include <iostream>  // cout
+#include <iterator>  // ostream_iterator
 #include <numeric>  // transform_reduce
 #include <sstream>  // ostringstream
 #include <string>

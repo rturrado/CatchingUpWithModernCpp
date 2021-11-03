@@ -1,7 +1,9 @@
-#include <algorithm>
-#include <cctype>
+#include "Chapter3_StringsAndRegularExpressions.h"
+
+#include <algorithm>  // for_each
+#include <cctype>  // isalpha, tolower, toupper
 #include <format>
-#include <iostream>
+#include <iostream>  // cout
 #include <string>
 
 std::string capitalize(const std::string& s)

@@ -1,7 +1,7 @@
 #include "Chapter1_MathProblems.h"
 
 #include <bitset>
-#include <iostream>
+#include <iostream>  // cout
 
 size_t binary_to_gray(size_t binary)
 {

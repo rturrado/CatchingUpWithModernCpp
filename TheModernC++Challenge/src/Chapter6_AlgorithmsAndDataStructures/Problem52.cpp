@@ -1,4 +1,6 @@
-#include <algorithm>  // for_each, sort, next_permutation
+#include "Chapter6_AlgorithmsAndDataStructures.h"
+
+#include <algorithm>  // for_each, next_permutation, sort
 #include <iostream>  // cout
 #include <string>
 #include <vector>

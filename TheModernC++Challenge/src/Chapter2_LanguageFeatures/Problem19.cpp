@@ -1,12 +1,11 @@
 #include "Chapter2_LanguageFeatures.h"
+#include "Chapter2_LanguageFeatures/Problem19.h"
+#include "Print.h"
 
-#include <iostream>
+#include <iostream>  // cout
 #include <list>
 #include <string>
 #include <vector>
-
-#include "Problem19.h"
-#include "Utils.h"
 
 // Adding a range of values to a container
 // Write a general-purpose function that can add any number of elements

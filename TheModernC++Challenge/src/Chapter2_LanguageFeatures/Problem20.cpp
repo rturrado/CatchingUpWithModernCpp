@@ -1,12 +1,11 @@
 #include "Chapter2_LanguageFeatures.h"
+#include "Chapter2_LanguageFeatures/Problem20.h"
 
 #include <array>
-#include <cassert>
-#include <iostream>
+#include <cassert>  // assert
+#include <iostream>  // cout
 #include <list>
 #include <vector>
-
-#include "Problem20.h"
 
 // Container any, all, none
 // Write a set of general-purpose functions that enable checking whether any, all, or none

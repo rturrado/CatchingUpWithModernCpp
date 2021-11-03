@@ -1,14 +1,16 @@
+#include "Chapter6_AlgorithmsAndDataStructures.h"
 #include "Random.h"
 
+#include <algorithm>  // for_each
 #include <atomic>
 #if defined _WIN32
 #include <conio.h>  // _getch
 #endif
+#include <chrono>
 #include <cstdlib>  // system
 #include <future>  // async
 #include <iostream>  // cout
-#include <iterator>  // cbegin, cend, begin, end
-#include <thread>
+#include <thread>  // this_thread
 #include <vector>
 
 std::atomic<bool> stop_game{ false };

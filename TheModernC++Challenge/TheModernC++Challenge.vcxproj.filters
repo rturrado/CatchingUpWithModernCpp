@@ -45,9 +45,6 @@
     <ClCompile Include="src\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Utils.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Chapter1_MathProblems\Problem1.cpp">
       <Filter>Source Files\Chapter1_MathProblems</Filter>
     </ClCompile>
@@ -233,9 +230,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="inc\Utils.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\Chapter1_MathProblems.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -295,6 +289,18 @@
     </ClInclude>
     <ClInclude Include="inc\Chapter6_AlgorithmsAndDataStructures\DoubleBuffer.h">
       <Filter>Header Files\Chapter6_AlgorithmsAndDataStructures</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Chapter1_MathProblems\Math.h">
+      <Filter>Header Files\Chapter1_MathProblems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\ConsoleRead.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\Print.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\Timer.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

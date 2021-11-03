@@ -1,7 +1,7 @@
 #include "Chapter1_MathProblems.h"
-#include "Utils.h"
+#include "Chapter1_MathProblems/Math.h"  // divisors_sum, TMP
 
-#include <numeric>
+#include <iostream>  // cout
 
 constexpr size_t limit{ 1'000'000 };
 

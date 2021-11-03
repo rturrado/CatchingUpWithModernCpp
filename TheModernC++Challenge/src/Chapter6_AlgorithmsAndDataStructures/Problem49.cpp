@@ -1,8 +1,11 @@
+#include "Chapter6_AlgorithmsAndDataStructures.h"
+
 #include <algorithm>  // for_each
 #include <cctype>  // isalpha
-#include <filesystem>  // path
+#include <exception>
+#include <filesystem>
 #include <format>
-#include <fstream>
+#include <fstream>  // ifstream
 #include <iostream>  // cout
 #include <map>
 #include <numeric>  // accumulate

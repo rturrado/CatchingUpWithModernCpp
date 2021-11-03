@@ -1,8 +1,8 @@
 #include "Chapter2_LanguageFeatures.h"
-#include "Problem18.h"
+#include "Chapter2_LanguageFeatures/Problem18.h"
 
-#include <functional>
-#include <iostream>
+#include <functional>  // greter
+#include <iostream>  // cout
 #include <string>
 
 // Minimum function with any number of arguments
@@ -17,7 +17,9 @@ void problem_18_main()
     test_minimum(std::string("en"), std::string("un"), std::string("lugar"), std::string("de"), std::string("la"), std::string("Mancha"));
     std::cout << "\n";
 
-    test_compare_with("more_than", more_than<int>, 1, 7, -3, 42);
-    test_compare_with("std::greater", std::greater<std::string>{}, std::string("en"), std::string("un"), std::string("lugar"), std::string("de"), std::string("la"), std::string("Mancha"));
+    test_compare_with("more_than", more_than<int>,
+        1, 7, -3, 42);
+    test_compare_with("std::greater", std::greater<std::string>{},
+        std::string("en"), std::string("un"), std::string("lugar"), std::string("de"), std::string("la"), std::string("Mancha"));
     std::cout << "\n";
 }

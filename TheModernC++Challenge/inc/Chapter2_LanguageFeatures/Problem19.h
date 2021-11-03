@@ -1,6 +1,8 @@
 #ifndef __PROBLEM_19_H__
 #define __PROBLEM_19_H__
 
+#include <utility>  // forward
+
 template <typename C, typename T>
 concept ContainerWithPushBack = requires (C c, T t) { c.push_back(t); };
 

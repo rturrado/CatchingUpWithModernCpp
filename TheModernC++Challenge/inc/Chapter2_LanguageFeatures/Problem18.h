@@ -2,7 +2,7 @@
 #define __PROBLEM_18_H__
 
 #include <algorithm>
-#include <iostream>
+#include <iostream>  // cout
 #include <string>
 #include <sstream>
 

@@ -1,5 +1,8 @@
 #include "Chapter1_MathProblems.h"
-#include "Utils.h"
+#include "Chapter1_MathProblems/Math.h"  // is_prime
+#include "ConsoleRead.h"  // read_positive_number
+
+#include <iostream>  // cout
 
 size_t biggest_prime_smaller_than(const size_t n)
 {

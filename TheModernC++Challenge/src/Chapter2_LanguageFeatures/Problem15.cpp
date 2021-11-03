@@ -1,10 +1,8 @@
 #include "Chapter2_LanguageFeatures.h"
-#include "IPv4.h"
-#include "Utils.h"
+#include "Chapter2_LanguageFeatures/IPv4.h"
+#include "ConsoleRead.h"  // clear_istream
 
-#include <iostream>
-#include <exception>
-#include <string>
+#include <iostream>  // cout
 
 // IPv4 data type
 // Write a class that represents an IPv4 address.

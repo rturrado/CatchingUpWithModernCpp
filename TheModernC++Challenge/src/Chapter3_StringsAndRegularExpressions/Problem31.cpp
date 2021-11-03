@@ -1,9 +1,11 @@
+#include "Chapter3_StringsAndRegularExpressions.h"
+
 #include <exception>
-#include <iomanip>  // setw
-#include <iostream>
-#include <regex>
-#include <sstream>
-#include <string>
+#include <iomanip>  // setfill, setw
+#include <iostream>  // cout
+#include <regex>  // regex_match, regex_replace, smatch
+#include <sstream>  // ostringstream
+#include <string>  // stoi
 
 struct invalid_date_format : public std::exception
 {
@@ -26,9 +28,9 @@ std::string format_date_v1(const std::string& s)
         std::regex_match(s, matches, valid_format_pattern_2)) and
         matches.size() == 4)
     {
-        day = stoi(matches[1].str());
-        month = stoi(matches[2].str());
-        year = stoi(matches[3].str());
+        day = std::stoi(matches[1].str());
+        month = std::stoi(matches[2].str());
+        year = std::stoi(matches[3].str());
     }
     else
     {

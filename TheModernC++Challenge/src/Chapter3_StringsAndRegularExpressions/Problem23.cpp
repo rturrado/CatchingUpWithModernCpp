@@ -1,14 +1,16 @@
-#include <algorithm>
-#include <array>
-#include <iomanip>  // std::setfill, std::setw
-#include <ios>  // std::hex
-#include <iostream>
-#include <numeric>
-#include <sstream>
-#include <string>
-#include <vector>
+#include "Chapter3_StringsAndRegularExpressions.h"
+#include "Print.h"
 
-#include "Utils.h"
+#include <algorithm>  // for_each
+#include <array>
+#include <iomanip>  // setfill, setw
+#include <ios>  // hex
+#include <iostream>  // cout
+#include <numeric>  // iota
+#include <sstream>  // ostringstream
+#include <string>
+#include <type_traits>  // is_same_v
+#include <vector>
 
 template <typename Container>
 std::string to_string(const Container& container)

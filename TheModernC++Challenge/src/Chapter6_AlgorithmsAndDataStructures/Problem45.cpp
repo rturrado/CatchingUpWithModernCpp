@@ -1,8 +1,11 @@
-#include "PriorityQueue.h"
-#include "Utils.h"  // operator<<(std::ostream&, PriorityQueue&)
+#include "Chapter6_AlgorithmsAndDataStructures.h"
+#include "Chapter6_AlgorithmsAndDataStructures/PriorityQueue.h"
+#include "Print.h"
 
-#include <functional>  // greater
+#include <ios>  // boolalpha
+#include <functional>  // greater, less
 #include <iostream>  // cout
+#include <vector>
 
 // Priority queue
 //

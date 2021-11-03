@@ -1,10 +1,10 @@
 #include "Chapter2_LanguageFeatures.h"
-#include "Array2D.h"
+#include "Chapter2_LanguageFeatures/Array2D.h"
 
-#include <algorithm>
+#include <algorithm>  // transform
 #include <exception>
-#include <iostream>
-#include <numeric>
+#include <iostream>  // cout
+#include <numeric>  // iota
 
 // Creating a 2D array with basic operations
 // Write a class template that represents a two-dimensional array container with methods for

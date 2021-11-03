@@ -1,15 +1,15 @@
 #include "Chapter2_LanguageFeatures.h"
-#include "IPv4.h"
-#include "IPv4Range.h"
-#include "Utils.h"
+#include "Chapter2_LanguageFeatures/IPv4.h"
+#include "Chapter2_LanguageFeatures/IPv4Range.h"
+#include "ConsoleRead.h"  // clear_istream
 
-#include <iostream>
+#include <iostream>  // cout
 
 namespace P16
 {
     void test_IPv4Range()
     {
-        // 
+        // IPv4Range is an l-value
         const IPv4Range range{ IPv4{ "10.10.10.10" }, IPv4{ "10.10.10.15" } };
         for (const auto& address : range)
         {
@@ -17,25 +17,25 @@ namespace P16
         }
         std::cout << "\n";
 
-        // 
+        // IPv4Range is an r-value, but constructed from two IPv4 l-values
         IPv4 a1{ "0.0.0.0" };
         IPv4 a2{ "0.0.0.5" };
-        for (const auto& address : IPv4Range{ a1, a2 })
+        for (auto&& address : IPv4Range{ a1, a2 })
         {
             std::cout << "\t" << address << "\n";
         }
         std::cout << "\n";
-        //
+        // a2 is still valid
         std::cout << "\t" << a2 << "\n\n";
 
-        //
-        for (const auto& address : IPv4Range{ IPv4{"15.23.18.200"}, IPv4{"15.23.18.210"} })
+        // IPv4Range is an r-value, and constructed from two IPv4 r-values
+        for (auto&& address : IPv4Range{ IPv4{"15.23.18.200"}, IPv4{"15.23.18.210"} })
         {
             std::cout << "\t" << address << "\n";
         }
         std::cout << "\n";
 
-        //
+        // cbegin, cend
         for (auto it = range.cbegin(); it != range.cend(); ++it)
         {
             std::cout << "\t" << *it << "\t" << it->to_ulong() << "\n";
@@ -85,5 +85,5 @@ void problem_16_main()
     }
     std::cout << "\n";
 
-    //P16::test_IPv4Range();
+    P16::test_IPv4Range();
 }

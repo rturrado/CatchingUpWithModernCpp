@@ -1,13 +1,13 @@
 #include "Chapter2_LanguageFeatures.h"
-#include "UniqueHdl.h"
+#include "Chapter2_LanguageFeatures/UniqueHdl.h"
 
-#include <cassert>
-#include <iostream>
+#include <cassert>  // assert
+#include <iostream>  // cout
 #include <filesystem>
 #include <vector>
-#include <stdexcept>
+#include <stdexcept>  // runtime_error
 
-#include <windows.h>
+#include <windows.h>  // CreateFileW
 
 void function_that_throws() { throw std::runtime_error{"I'm a throwing function!\n"}; }
 

@@ -1,8 +1,11 @@
 #include "Chapter1_MathProblems.h"
-#include "Utils.h"
+#include "ConsoleRead.h"  // clear_istream
 
-#include <cassert>
+#include <algorithm>  // count_if, remove_if
+#include <cassert>  // assert
+#include <iostream>  // cout
 #include <numeric>  // accumulate
+#include <string>  // getline
 
 std::string read_n_digit_isbn(size_t n)
 {

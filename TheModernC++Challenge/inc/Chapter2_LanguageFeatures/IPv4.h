@@ -2,7 +2,7 @@
 #define __IPV4_H__
 
 #include <array>
-#include <iostream>
+#include <iostream>  // cout
 #include <string>
 
 // Notes

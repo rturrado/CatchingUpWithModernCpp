@@ -1,5 +1,9 @@
 #include "Chapter1_MathProblems.h"
-#include "Utils.h"
+#include "ConsoleRead.h"  // read_positive_number
+#include "Print.h"
+
+#include <iostream>  // cout
+#include <vector>
 
 // Sum of naturals divisible by 3 and 5
 // Write a program that calculates and prints the sum of all natural numbers divisible by either 3 or 5,

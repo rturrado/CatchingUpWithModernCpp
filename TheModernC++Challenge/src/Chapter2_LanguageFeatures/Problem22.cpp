@@ -1,6 +1,9 @@
 #include "Chapter2_LanguageFeatures.h"
-#include "temperature_v1.h"
-#include "temperature_v2.h"
+#include "Chapter2_LanguageFeatures/temperature_v1.h"
+#include "Chapter2_LanguageFeatures/temperature_v2.h"
+
+#include <ios>  // boolalpha
+#include <iostream>  // cout
 
 
 void test_temperature_v1()

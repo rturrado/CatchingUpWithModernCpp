@@ -1,7 +1,9 @@
+#include "Chapter3_StringsAndRegularExpressions.h"
+#include "Print.h"
+
+#include <iostream>  // cout
 #include <string>
 #include <vector>
-
-#include "Utils.h"
 
 std::vector<std::string> split(const std::string& s, const std::string& delimiters)
 {
@@ -25,7 +27,7 @@ std::vector<std::string> split(const std::string& s, const std::string& delimite
 // Splitting a string into tokens with a list of possible delimiters
 //
 // Write a function that, given a string and a list of possible delimiter characters,
-// splits the string into tokens separated by any of the delimiters and returns them in an std::vector.
+// splits the string into tokens separated by any of the delimiters and returns them in a std::vector.
 //
 // Example: "this,is.a sample!!" with delimiters ",.! ", output: { "this", "is", "a", "sample" }.
 void problem_27_main()

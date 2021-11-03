@@ -1,6 +1,9 @@
+#include "Chapter4_StreamsAndFilesystems.h"
+
 #include <boost/uuid/random_generator.hpp>  // random_generator
 #include <boost/uuid/uuid_io.hpp>  // to_string
-#include <filesystem>  // path
+#include <exception>
+#include <filesystem>
 #include <fstream>  // ofstream
 #include <ios>  // ios_base
 #include <iostream>  // cout

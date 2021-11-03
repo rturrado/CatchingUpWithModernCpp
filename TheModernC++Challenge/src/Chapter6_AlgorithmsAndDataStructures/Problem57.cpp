@@ -1,6 +1,8 @@
-#include "Utils.h"
+#include "Chapter6_AlgorithmsAndDataStructures.h"
+#include "Print.h"
 
 #include <algorithm>  // iter_swap
+#include <functional>  // less
 #include <iostream>  // cout
 #include <iterator>  // distance
 #include <vector>

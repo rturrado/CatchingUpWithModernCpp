@@ -30,8 +30,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "inc", "inc", "{0E209F6A-FF36-40CA-AC4B-A452D4A37600}"
 	ProjectSection(SolutionItems) = preProject
+		inc\ConsoleRead.h = inc\ConsoleRead.h
+		inc\Print.h = inc\Print.h
 		inc\Random.h = inc\Random.h
+		inc\Timer.h = inc\Timer.h
 	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppCon2021", "CppCon2021\CppCon2021.vcxproj", "{33465EBB-499C-44BD-A017-EF915A23DE0A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -121,6 +126,14 @@ Global
 		{56327771-E3D2-4F9D-B441-797407AC6A11}.Release|x64.Build.0 = Release|x64
 		{56327771-E3D2-4F9D-B441-797407AC6A11}.Release|x86.ActiveCfg = Release|Win32
 		{56327771-E3D2-4F9D-B441-797407AC6A11}.Release|x86.Build.0 = Release|Win32
+		{33465EBB-499C-44BD-A017-EF915A23DE0A}.Debug|x64.ActiveCfg = Debug|x64
+		{33465EBB-499C-44BD-A017-EF915A23DE0A}.Debug|x64.Build.0 = Debug|x64
+		{33465EBB-499C-44BD-A017-EF915A23DE0A}.Debug|x86.ActiveCfg = Debug|Win32
+		{33465EBB-499C-44BD-A017-EF915A23DE0A}.Debug|x86.Build.0 = Debug|Win32
+		{33465EBB-499C-44BD-A017-EF915A23DE0A}.Release|x64.ActiveCfg = Release|x64
+		{33465EBB-499C-44BD-A017-EF915A23DE0A}.Release|x64.Build.0 = Release|x64
+		{33465EBB-499C-44BD-A017-EF915A23DE0A}.Release|x86.ActiveCfg = Release|Win32
+		{33465EBB-499C-44BD-A017-EF915A23DE0A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,6 +1,8 @@
 #ifndef __PROBLEM_20_H__
 #define __PROBLEM_20_H__
 
+#include <algorithm>  // find
+
 template <typename C, typename... Args>
 bool contains_any(C& c, Args&&... args)
 {
