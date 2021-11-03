@@ -5,9 +5,7 @@ module;
 #include <algorithm>  // copy
 #include <iostream>  // cout
 #include <iterator>  // ostream_iterator
-#include <ranges>  // filter, transform
-#include <sstream>  // ostringstream
-#include <utility>  // pair
+#include <ranges>
 #include <vector>
 
 export module Ranges;
