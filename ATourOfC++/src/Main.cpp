@@ -140,7 +140,7 @@ int main()
     // Thread
     { std::cout << "[THREAD]\n"; thread_main(); std::cout << "\n"; }
     // Vector back inserter performance
-    { std::cout << "[VECTOR BACK INSERTER PERFORMANCE]\n"; vector_back_inserter_performance_main(); std::cout << "\n"; }
+    { std::cout << "[VECTOR BACK INSERTER PERFORMANCE]\n"; vector_back_inserter_performance_main(); }
     // 
     { /* std::cout << "[]\n"; _main(); std::cout << "\n"; */ }
 }
