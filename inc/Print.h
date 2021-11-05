@@ -11,10 +11,10 @@
 
 // Print container
 template <typename T>
-concept printable = requires (std::ostream & os, const T & t) { os << t; };
+concept printable = requires (std::ostream& os, const T& t) { os << t; };
 
 template <typename C>
-concept implements_operator_extraction = requires (std::ostream & os, const C & c) { os << c; };
+concept implements_operator_extraction = requires (std::ostream& os, const C& c) { os << c; };
 
 template <typename C>
     requires (!std::same_as<typename C::value_type, uint8_t>) && (!implements_operator_extraction<C>) && printable<typename C::value_type>
