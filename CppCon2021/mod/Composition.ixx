@@ -1,4 +1,6 @@
-// References: Desing idioms from an alternate universe; Dr Ivan Cukic; CppCon 2021
+// References:
+// - Desing idioms from an alternate universe; Dr Ivan Cukic; CppCon 2021
+// - C++ Data Pipes: https://dev.goodwu.net/post/2016-04-18-data-pipes/
 
 module;
 

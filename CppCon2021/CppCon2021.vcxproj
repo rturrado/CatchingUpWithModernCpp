@@ -89,7 +89,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(SolutionDir)mod;$(ProjectDir)inc;$(ProjectDir)mod;C:\Libraries\generator\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(ProjectDir)inc;$(ProjectDir)mod;C:\Libraries\generator\include;C:\Libraries\range-v3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <EnableModules>
       </EnableModules>
       <CompileAs>Default</CompileAs>
@@ -112,7 +112,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(SolutionDir)mod;$(ProjectDir)inc;$(ProjectDir)mod;C:\Libraries\generator\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(ProjectDir)inc;$(ProjectDir)mod;C:\Libraries\generator\include;C:\Libraries\range-v3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <EnableModules>
       </EnableModules>
       <CompileAs>Default</CompileAs>
@@ -135,7 +135,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(SolutionDir)mod;$(ProjectDir)inc;$(ProjectDir)mod;C:\Libraries\generator\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(ProjectDir)inc;$(ProjectDir)mod;C:\Libraries\generator\include;C:\Libraries\range-v3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <EnableModules>
       </EnableModules>
       <CompileAs>Default</CompileAs>
@@ -158,7 +158,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(SolutionDir)mod;$(ProjectDir)inc;$(ProjectDir)mod;C:\Libraries\generator\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(ProjectDir)inc;$(ProjectDir)mod;C:\Libraries\generator\include;C:\Libraries\range-v3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <EnableModules>
       </EnableModules>
       <CompileAs>Default</CompileAs>
