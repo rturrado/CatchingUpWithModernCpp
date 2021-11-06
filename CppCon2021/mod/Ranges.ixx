@@ -136,13 +136,13 @@ export void ranges_main()
 
     // Cycle (range/v3)
     {
-        namespace rv3 = ranges;
+        namespace r3v = ranges::views;
 
         std::vector<int> v{ 1, 2, 3 };
-        const auto seq{ v | rv3::views::cycle };  // 1, 2, 3, 1, 2, 3...
+        const auto seq{ v | r3v::cycle };  // 1, 2, 3, 1, 2, 3...
         auto seq_first_n = [&seq](size_t n) {
             return seq
-                | rv3::views::take(n);
+                | r3v::take(n);
         };  // first n elements of sequence
         
         for (auto&& n : seq_first_n(9)) { std::cout << n << " "; }
@@ -151,12 +151,12 @@ export void ranges_main()
 
     // Indices (range/v3)
     {
-        namespace rv3 = ranges;
+        namespace r3v = ranges::views;
 
         auto first_n_odd = [&odd](size_t n) {
-            return rv3::views::indices
-                | rv3::views::filter(odd)
-                | rv3::views::take(n);
+            return r3v::indices
+                | r3v::filter(odd)
+                | r3v::take(n);
         };  // 1, 3, 5... nth odd number
         
         for (auto&& n : first_n_odd(5)) { std::cout << n << " "; }
@@ -165,12 +165,13 @@ export void ranges_main()
 
     // Zip (range/v3)
     {
-        namespace rv3 = ranges;
+        namespace r3 = ranges;
+        namespace r3v = ranges::views;
 
         const int size{ 26 };
-        const auto letters{ rv3::views::iota('a') | rv3::views::take(size) };
-        const auto numbers{ rv3::views::indices | rv3::views::take(size) };
-        const auto pairs{ rv3::views::zip(letters, numbers) | rv3::to<std::vector> };
+        const auto letters{ r3v::iota('a') | r3v::take(size) };
+        const auto numbers{ r3v::indices | r3v::take(size) };
+        const auto pairs{ r3v::zip(letters, numbers) | r3::to<std::vector> };
         std::cout << pairs << "\n";
     }
 }
