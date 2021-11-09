@@ -232,6 +232,12 @@
     <ClCompile Include="src\Chapter6_AlgorithmsAndDataStructures\Problem58.cpp" />
     <ClCompile Include="src\Chapter6_AlgorithmsAndDataStructures\Problem59.cpp" />
     <ClCompile Include="src\Chapter6_AlgorithmsAndDataStructures\Problem60.cpp" />
+    <ClCompile Include="src\Chapter7_Concurrency\Problem61.cpp" />
+    <ClCompile Include="src\Chapter7_Concurrency\Problem62.cpp" />
+    <ClCompile Include="src\Chapter7_Concurrency\Problem63.cpp" />
+    <ClCompile Include="src\Chapter7_Concurrency\Problem64.cpp" />
+    <ClCompile Include="src\Chapter7_Concurrency\Problem65.cpp" />
+    <ClCompile Include="src\Chapter7_Concurrency\Problem66.cpp" />
     <ClCompile Include="src\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -258,6 +264,7 @@
     <ClInclude Include="inc\Chapter6_AlgorithmsAndDataStructures\CircularBuffer.h" />
     <ClInclude Include="inc\Chapter6_AlgorithmsAndDataStructures\DoubleBuffer.h" />
     <ClInclude Include="inc\Chapter6_AlgorithmsAndDataStructures\PriorityQueue.h" />
+    <ClInclude Include="inc\Chapter7_Concurrency.h" />
     <ClInclude Include="inc\Problems.h" />
   </ItemGroup>
   <ItemGroup>

@@ -40,6 +40,9 @@
     <Filter Include="Header Files\Chapter6_AlgorithmsAndDataStructures">
       <UniqueIdentifier>{678cd18d-ebdb-4e52-b2f2-021c6d12bbf9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Chapter7_Concurrency">
+      <UniqueIdentifier>{6710d26d-4052-4977-bbeb-6a024bc13ec4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp">
@@ -228,6 +231,24 @@
     <ClCompile Include="src\Chapter6_AlgorithmsAndDataStructures\Problem60.cpp">
       <Filter>Source Files\Chapter6_AlgorithmsAndDataStructures</Filter>
     </ClCompile>
+    <ClCompile Include="src\Chapter7_Concurrency\Problem61.cpp">
+      <Filter>Source Files\Chapter7_Concurrency</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chapter7_Concurrency\Problem62.cpp">
+      <Filter>Source Files\Chapter7_Concurrency</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chapter7_Concurrency\Problem63.cpp">
+      <Filter>Source Files\Chapter7_Concurrency</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chapter7_Concurrency\Problem64.cpp">
+      <Filter>Source Files\Chapter7_Concurrency</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chapter7_Concurrency\Problem65.cpp">
+      <Filter>Source Files\Chapter7_Concurrency</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chapter7_Concurrency\Problem66.cpp">
+      <Filter>Source Files\Chapter7_Concurrency</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Chapter1_MathProblems.h">
@@ -300,6 +321,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\inc\Timer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Chapter7_Concurrency.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -29,7 +29,7 @@ void clear_screen()
 void wait_for_key_pressed()
 {
 #if defined _WIN32
-    _getch();
+    [[maybe_unused]] int i = _getch();
 #elif defined (__LINUX__) || defined(__gnu_linux__) || defined(__linux__)
     std::system("read");
 #elif defined (__APPLE__)

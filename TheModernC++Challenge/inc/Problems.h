@@ -7,6 +7,7 @@
 #include "Chapter4_StreamsAndFilesystems.h"
 #include "Chapter5_DateAndTime.h"
 #include "Chapter6_AlgorithmsAndDataStructures.h"
+#include "Chapter7_Concurrency.h"
 
 #include <cassert>  // assert
 #include <functional>  // function, invoke
@@ -101,6 +102,13 @@ private:
         problem_58_main,
         problem_59_main,
         problem_60_main,
+
+        problem_61_main,  // Concurrency
+        problem_62_main,
+        problem_63_main,
+        problem_64_main,
+        problem_65_main,
+        problem_66_main,
     };
 };
 
