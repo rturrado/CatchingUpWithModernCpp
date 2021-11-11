@@ -32,7 +32,8 @@ auto parallel_binary_operation(ForwardIt first, ForwardIt last, BinaryOperation&
 
     std::counting_semaphore task_slots(thread_pool_size);
     size_t num_blocks{ (size / block_size) + (size % block_size) };
-    auto futures{ std::vector<std::future<T>>(num_blocks) };
+    auto futures{ std::vector<std::future<void>>(num_blocks) };
+    auto block_results{ std::vector<T>(num_blocks) };
 
     // Launch one task per block
     // We can run thread_pool_size tasks in parallel
@@ -47,24 +48,21 @@ auto parallel_binary_operation(ForwardIt first, ForwardIt last, BinaryOperation&
 
         futures[i] = std::async(
             std::launch::async,
-            [&binary_op, cbegin_it, cend_it, &task_slots]() {
-                // Execute task
-                auto it{ binary_op(cbegin_it, cend_it) };
-                // Release a task slot
+            [&binary_op, cbegin_it, cend_it, &block_result=block_results[i], &task_slots]() {
+                // Execute task, and set the result for the block
+                block_result = binary_op(cbegin_it, cend_it);
+
+                // Release the task slot
                 task_slots.release();
-                // Return min element value
-                return *it;
             }
         );
     }
 
-    // Copy the block results to a container
-    // Notice this operation waits for all the tasks to finish, by calling get() on all the futures
-    auto block_results{ std::vector<T>(num_blocks) };
-    std::transform(std::begin(futures), std::end(futures), std::begin(block_results), [](auto& ft) { return ft.get(); });
+    // Wait for all the tasks to finish
+    for (auto& future : futures) { future.get(); };
 
     // Apply the binary operation to the container with the block results
-    return *binary_op(std::begin(block_results), std::end(block_results));
+    return binary_op(std::begin(block_results), std::end(block_results));
 }
 
 template <typename ForwardIt>
@@ -72,7 +70,7 @@ auto parallel_min(ForwardIt first, ForwardIt last,
     size_t thread_pool_size = THREAD_POOL_SIZE_DEFAULT, size_t block_size = BLOCK_SIZE_DEFAULT)
 {
     return parallel_binary_operation(first, last,
-        [](auto first, auto last) { return std::min_element(first, last); },
+        [](auto first, auto last) { return *std::min_element(first, last); },
         thread_pool_size, block_size);
 }
 
@@ -81,7 +79,7 @@ auto parallel_max(ForwardIt first, ForwardIt last,
     size_t thread_pool_size = THREAD_POOL_SIZE_DEFAULT, size_t block_size = BLOCK_SIZE_DEFAULT)
 {
     return parallel_binary_operation(first, last,
-        [](auto first, auto last) { return std::max_element(first, last); },
+        [](auto first, auto last) { return *std::max_element(first, last); },
         thread_pool_size, block_size);
 }
 

@@ -50,7 +50,8 @@ void parallel_transform(InputIt first, InputIt last, OutputIt d_first, UnaryOper
                     end_it,
                     d_begin_it,
                     std::forward<UnaryOperation>(f));
-                // Release a task slot
+
+                // Release the task slot
                 task_slots.release();
             }
         );
