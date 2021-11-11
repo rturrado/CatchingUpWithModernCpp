@@ -22,12 +22,10 @@ void parallel_transform(InputIt first, InputIt last, OutputIt d_first, UnaryOper
     size_t thread_pool_size = THREAD_POOL_SIZE_DEFAULT, size_t block_size = BLOCK_SIZE_DEFAULT)
 {
     size_t size{ static_cast<size_t>(std::distance(first, last)) };
-    
     thread_pool_size = std::min(thread_pool_size, THREAD_POOL_SIZE_MAX);
     block_size = std::max(block_size, BLOCK_SIZE_MIN);
 
     std::counting_semaphore task_slots(thread_pool_size);
-
     size_t num_blocks{ (size / block_size) + (size % block_size) };
     auto futures{ std::vector<std::future<void>>(num_blocks) };
     
@@ -96,6 +94,7 @@ void problem_61_main()
         std::cout << std::format("\n\tstd::transform(ex::par): {}", t);
     }
     // Parallel transform with different thread pool and block sizes
+    std::cout << std::format("\n\tparallel_transform:");
     for (size_t thread_pool_size : { 4, 8, 16 })
     {
         for (size_t block_size : { 1'000, 10'000, 100'000 })
@@ -106,8 +105,8 @@ void problem_61_main()
                     parallel_transform(std::cbegin(x), std::cend(x), std::begin(x), square, thread_pool_size, block_size);
                 }
             ) };
-            assert("Error: vectors are different" and w == x);
-            std::cout << std::format("\n\tparallel_transform(thread_pool_size={}, block_size={}): {}", thread_pool_size, block_size, t);
+            assert("Error: custom parallel transform returns a different result, " and w == x);
+            std::cout << std::format("\n\t\tthread_pool_size={}, block_size={}: {}", thread_pool_size, block_size, t);
         }
     }
 
