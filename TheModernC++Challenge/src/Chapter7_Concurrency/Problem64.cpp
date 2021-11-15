@@ -2,7 +2,7 @@
 #include "Timer.h"
 
 #include <algorithm>  // generate_n, iter_swap, sort
-#include <future>  // async, future
+#include <future>  // async
 #include <iostream>  // cout
 #include <random>  // default_random_engine, random_device
 #include <vector>
