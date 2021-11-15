@@ -57,7 +57,7 @@ void WeatherData::read_data_files()
             std::cout << "Reading data file: " << x.path() << "\n";
 
             // Open file
-            std::ifstream data_file_fs{ x };
+            std::ifstream data_file_fs{ x.path() };
             // Read header
             read_header(data_file_fs);
             // Read data
