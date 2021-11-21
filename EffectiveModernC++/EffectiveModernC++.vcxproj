@@ -147,9 +147,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="inc\Item41_Constructors.h" />
+    <ClInclude Include="inc\Item41_Assignment.h" />
     <ClInclude Include="inc\nullptr.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Item41_Constructors.cpp" />
+    <ClCompile Include="src\Item41_Assignment.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\nullptr.cpp" />
   </ItemGroup>
