@@ -33,27 +33,48 @@ namespace item_41_constructors
     class Widget
     {
     public:
-        void addNameByValue(String name) { names_.push_back(std::move(name)); }
-        void addNameByLvalueReference(const String& name) { names_.push_back(name); }
-        void addNameByRvalueReference(String&& name) { names_.push_back(std::move(name)); }
+        void addNameByValue(String name) { std::cout << "\tBefore names_.push_back(std::move(name))\n"; names_.push_back(std::move(name)); }
+        void addNameByLvalueReference(const String& name) { std::cout << "\tBefore names_.push_back(name)\n"; names_.push_back(name); }
+        void addNameByRvalueReference(String&& name) { std::cout << "\tBefore names_.push_back(std::move(name))\n"; names_.push_back(std::move(name)); }
         template <typename T>
-        void addNameByUniversalReference(T&& name) { names_.push_back(std::forward<T>(name)); }
+        void addNameByUniversalReference(T&& name) { std::cout << "\tBefore names_.push_back(std::forward<T>(name))\n"; names_.push_back(std::forward<T>(name)); }
     private:
         std::vector<String> names_{};
     };
 }  // namespace item_41_constructors
 
 
+// Item 41 talks about considering pass by value for copyable parameters that are cheap to move and always copied
+// When all of that applies, pass by value may be preferable to a) overloading, and b) using universal references
+//
+// - Overloading:
+//   - requires implementing two functions that do essentially the same thing, one for lvalue references and one for rvalue references
+//   - furthermore, there will be two functions in object code
+//
+// - Using universal references also leads to some complications:
+//   - implementation in header file,
+//   - several functions in objet code,
+//   - argument types that can't be passed,
+//   - intimidating compiler error messages when clients pass improper argument types
+//
+// The cost of passing by value, compared to the other options, should be one extra move
+//
+// Widget implements different functions in order to allow testing of pass by value, overloading, and using universal references
+// All those functions have a String parameter that is pushed back into a vector
+// String is a class that just holds a std::string and prints whenever an object of type String is constructed, destructed or assigned
 void item_41_constructors_main()
 {
     using namespace item_41_constructors;
 
-    std::cout << "* String john{\"John\"}:\n"; const String john{ "John" };
-    { Widget w{}; std::cout << "* addNameByValue:\n"; w.addNameByValue(john); }
-    { Widget w{}; std::cout << "* addNameByLvalueReference:\n"; w.addNameByLvalueReference(john); }
-    { Widget w{}; std::cout << "* addNameByRvalueReference:\n"; w.addNameByRvalueReference(String{ "Maria" }); }
-    { Widget w{}; std::cout << "* addNameByUniversalReference (lvalue):\n"; w.addNameByUniversalReference(john); }
-    { Widget w{}; std::cout << "* addNameByUniversalReference (rvalue):\n"; w.addNameByUniversalReference(String{ "Maria" }); }
+    std::cout << "String john{\"John\"}:\n"; const String john{ "John" };
 
-    std::cout << "* Exiting\n";
+    { Widget w{}; std::cout << "addNameByValue (lvalue):\n"; w.addNameByValue(john); }  // 1 copy, 1 move
+    { Widget w{}; std::cout << "addNameByLvalueReference:\n"; w.addNameByLvalueReference(john); }  // 1 copy
+    { Widget w{}; std::cout << "addNameByUniversalReference (lvalue):\n"; w.addNameByUniversalReference(john); }  // 1 copy
+
+    { Widget w{}; std::cout << "addNameByValue (rvalue):\n"; String maria{ "Maria" }; w.addNameByValue(std::move(maria)); }  // 2 moves
+    { Widget w{}; std::cout << "addNameByRvalueReference:\n"; String maria{ "Maria" }; w.addNameByRvalueReference(std::move(maria)); }  // 1 move
+    { Widget w{}; std::cout << "addNameByUniversalReference (rvalue):\n"; String maria{ "Maria" }; w.addNameByUniversalReference(std::move(maria)); }  // 1 move
+
+    std::cout << "Exiting\n";
 }
