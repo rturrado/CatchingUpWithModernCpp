@@ -20,7 +20,7 @@ namespace item_41_assignment
         String(String&& other) { std::cout << "\tString(String&& other)\n"; move_data(std::move(other)); }
         String& operator=(const String& other) { std::cout << "\tString& operator=(const String& other)\n"; copy_data(other); return *this; }
         String& operator=(String&& other) { std::cout << "\tString& operator=(String&& other)\n"; move_data(std::move(other)); return *this; }
-        ~String() { std::cout << "\t~String()\n"; delete_data(data_, size_); data_ = nullptr; size_ = 0; };
+        ~String() { std::cout << "\t~String()\n"; deallocate_data(data_, size_); data_ = nullptr; size_ = 0; };
 
         size_t length_str(const char* other)
         {
@@ -30,7 +30,7 @@ namespace item_41_assignment
         {
             size_t length{ length_str(cstr) };
 
-            data_ = new_data(length);
+            data_ = allocate_data(length);
             size_ = length;
 
             strcpy_s(static_cast<char*>(data_), length, cstr);
@@ -42,7 +42,7 @@ namespace item_41_assignment
             // Otherwise, pass by reference followed by copy assignment would be just as expensive as pass by value followed by move assignment
             if (size_ < other.size_)
             {
-                data_ = realloc_data(other.size_);
+                data_ = reallocate_data(other.size_);
                 size_ = other.size_;
             }
             else
@@ -55,17 +55,17 @@ namespace item_41_assignment
         {
             auto current_data{ std::exchange(data_, other.data_) };
             auto current_size{ size_ }; size_ = other.size_;
-            delete_data(current_data, current_size);
+            deallocate_data(current_data, current_size);
             other.data_ = nullptr;
             other.size_ = 0;
         }
-        void* new_data(size_t size)
+        void* allocate_data(size_t size)
         {
             void* ret{ malloc(size) };
             std::cout << std::format("\t\t{:p}: new({})\n", ret, size);
             return ret;
         }
-        void delete_data(void* data, size_t size)
+        void deallocate_data(void* data, size_t size)
         {
             if (data)
             {
@@ -77,13 +77,13 @@ namespace item_41_assignment
                 std::cout << std::format("\t\t{:p}: delete(0)\n", data);
             }
         }
-        void* realloc_data(size_t size)
+        void* reallocate_data(size_t size)
         {
             if (data_ and size_)
             {
-                delete_data(data_, size_);
+                deallocate_data(data_, size_);
             }
-            return new_data(size);
+            return allocate_data(size);
         }
 
     private:
