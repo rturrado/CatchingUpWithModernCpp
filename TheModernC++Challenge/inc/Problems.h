@@ -8,6 +8,7 @@
 #include "Chapter5_DateAndTime.h"
 #include "Chapter6_AlgorithmsAndDataStructures.h"
 #include "Chapter7_Concurrency.h"
+#include "Chapter8_DesignPatterns.h"
 
 #include <cassert>  // assert
 #include <functional>  // function, invoke
@@ -109,6 +110,8 @@ private:
         problem_64_main,
         problem_65_main,
         problem_66_main,
+
+        problem_67_main,  // Design patterns
     };
 };
 

@@ -43,6 +43,9 @@
     <Filter Include="Source Files\Chapter7_Concurrency">
       <UniqueIdentifier>{6710d26d-4052-4977-bbeb-6a024bc13ec4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Chapter8_DesignPatterns">
+      <UniqueIdentifier>{6a50e7c5-def9-42ce-9cb7-7300673df419}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp">
@@ -249,6 +252,9 @@
     <ClCompile Include="src\Chapter7_Concurrency\Problem66.cpp">
       <Filter>Source Files\Chapter7_Concurrency</Filter>
     </ClCompile>
+    <ClCompile Include="src\Chapter8_DesignPatterns\Problem67.cpp">
+      <Filter>Source Files\Chapter8_DesignPatterns</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Chapter1_MathProblems.h">
@@ -324,6 +330,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\Chapter7_Concurrency.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Chapter8_DesignPatterns.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
