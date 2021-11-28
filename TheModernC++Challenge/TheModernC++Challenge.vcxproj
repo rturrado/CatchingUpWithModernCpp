@@ -239,6 +239,7 @@
     <ClCompile Include="src\Chapter7_Concurrency\Problem65.cpp" />
     <ClCompile Include="src\Chapter7_Concurrency\Problem66.cpp" />
     <ClCompile Include="src\Chapter8_DesignPatterns\Problem67.cpp" />
+    <ClCompile Include="src\Chapter8_DesignPatterns\Problem68.cpp" />
     <ClCompile Include="src\Main.cpp" />
   </ItemGroup>
   <ItemGroup>

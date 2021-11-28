@@ -255,6 +255,9 @@
     <ClCompile Include="src\Chapter8_DesignPatterns\Problem67.cpp">
       <Filter>Source Files\Chapter8_DesignPatterns</Filter>
     </ClCompile>
+    <ClCompile Include="src\Chapter8_DesignPatterns\Problem68.cpp">
+      <Filter>Source Files\Chapter8_DesignPatterns</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Chapter1_MathProblems.h">
