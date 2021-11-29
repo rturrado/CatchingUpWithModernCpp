@@ -16,7 +16,7 @@
 #include <vector>
 
 static const size_t THREAD_POOL_SIZE_DEFAULT{ std::thread::hardware_concurrency() };
-static const size_t THREAD_POOL_SIZE_MAX{ std::thread::hardware_concurrency() * 2 };
+static const size_t THREAD_POOL_SIZE_MAX{ static_cast<size_t>(std::thread::hardware_concurrency()) * 2 };
 static const size_t BLOCK_SIZE_DEFAULT{ 10'000 };
 static const size_t BLOCK_SIZE_MIN{ 100 };
 
