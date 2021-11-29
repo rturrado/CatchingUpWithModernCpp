@@ -1,5 +1,5 @@
-#ifndef __CONSOLE_READ_H__
-#define __CONSOLE_READ_H__
+#ifndef CONSOLE_READ_H
+#define CONSOLE_READ_H
 
 #include <algorithm>  // count_if
 #include <cctype>  // isdigit
@@ -152,4 +152,4 @@ inline std::string read_n_digit_string(size_t n)
     return ret;
 }
 
-#endif  // __CONSOLE_READ_H__
+#endif  // CONSOLE_READ_H

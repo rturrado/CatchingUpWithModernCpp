@@ -1,5 +1,5 @@
-#ifndef __PROBLEM_19_H__
-#define __PROBLEM_19_H__
+#ifndef PROBLEM_19_H
+#define PROBLEM_19_H
 
 #include <utility>  // forward
 
@@ -26,4 +26,4 @@ void push_back_list_v2(ContainerWithPushBack& c, Args... args)
     (c.push_back(args), ...);
 }
 
-#endif
+#endif  // PROBLEM_19_H

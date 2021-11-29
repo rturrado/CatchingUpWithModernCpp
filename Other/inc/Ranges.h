@@ -1,6 +1,6 @@
-#ifndef __RANGES_H__
-#define __RANGES_H__
+#ifndef RANGES_H
+#define RANGES_H
 
 void ranges_main();
 
-#endif
+#endif  // RANGES_H

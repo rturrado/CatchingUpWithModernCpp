@@ -1,5 +1,5 @@
-#ifndef __MAKE_UNIQUE_H__
-#define __MAKE_UNIQUE_H__
+#ifndef MAKE_UNIQUE_H
+#define MAKE_UNIQUE_H
 #include <memory>
 
 template<typename T, typename... Args>
@@ -18,4 +18,4 @@ struct Y {
 
 void make_unique_main();
 
-#endif
+#endif  // MAKE_UNIQUE_H

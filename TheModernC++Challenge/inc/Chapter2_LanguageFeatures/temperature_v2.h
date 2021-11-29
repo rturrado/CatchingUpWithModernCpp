@@ -1,5 +1,5 @@
-#ifndef __TEMPERATURE_V2_H__
-#define __TEMPERATURE_V2_H__
+#ifndef TEMPERATURE_V2_H
+#define TEMPERATURE_V2_H
 
 #include <iomanip>  // setprecision
 #include <ios>  // fixed
@@ -227,4 +227,4 @@ namespace my_temperature_v2
 // namespace my_temperature_v2
 
 
-#endif
+#endif  // TEMPERATURE_V2_H

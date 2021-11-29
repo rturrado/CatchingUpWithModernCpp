@@ -1,5 +1,5 @@
-#ifndef __COROUTINES_H__
-#define __COROUTINES_H__
+#ifndef COROUTINES_H
+#define COROUTINES_H
 
 #include <coroutine>
 #include <iostream>
@@ -106,4 +106,4 @@ void coroutines_main()
     std::cout << "Multiplies: " << result << "\n";
 }
 
-#endif
+#endif  // COROUTINES_H

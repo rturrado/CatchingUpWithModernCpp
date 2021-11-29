@@ -1,7 +1,7 @@
-#ifndef __CHAPTER_8_DESIGN_PATTERNS_H__
-#define __CHAPTER_8_DESIGN_PATTERNS_H__
+#ifndef CHAPTER_8_DESIGN_PATTERNS_H
+#define CHAPTER_8_DESIGN_PATTERNS_H
 
 void problem_67_main();
 void problem_68_main();
 
-#endif
+#endif  // CHAPTER_8_DESIGN_PATTERNS_H

@@ -1,5 +1,5 @@
-#ifndef __IPV4RANGE_H__
-#define __IPV4RANGE_H__
+#ifndef IPV4_RANGE_H
+#define IPV4_RANGE_H
 
 #include "IPv4.h"
 
@@ -43,4 +43,4 @@ private:
     IPv4 _end;
 };
 
-#endif
+#endif  // IPV4_RANGE_H

@@ -1,5 +1,5 @@
-#ifndef __CHAPTER_1_MATH_PROBLEMS_H__
-#define __CHAPTER_1_MATH_PROBLEMS_H__
+#ifndef CHAPTER_1_MATH_PROBLEMS_H
+#define CHAPTER_1_MATH_PROBLEMS_H
 
 void problem_1_main();
 void problem_2_main();
@@ -16,4 +16,4 @@ void problem_12_main();
 void problem_13_main();
 void problem_14_main();
 
-#endif
+#endif  // CHAPTER_1_MATH_PROBLEMS_H

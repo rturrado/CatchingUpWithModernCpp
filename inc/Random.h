@@ -1,5 +1,5 @@
-#ifndef __RANDOM_H__
-#define __RANDOM_H__
+#ifndef RANDOM_H
+#define RANDOM_H
 
 #include <random>
 #include <string_view>
@@ -45,6 +45,7 @@ class RandomLetter
 public:
     char operator()()
     {
+        // Notice the first letter is intentionally blank
         static const std::string_view valid_letters{ " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" };
 
         return valid_letters[std::uniform_int_distribution<size_t>{ 0, valid_letters.size() - 1 }(engine_)];
@@ -53,4 +54,4 @@ private:
     std::default_random_engine engine_{ std::random_device{}() };
 };
 
-#endif
+#endif  // RANDOM_H

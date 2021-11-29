@@ -1,6 +1,6 @@
-#ifndef __PACKAGED_TASK_H__
-#define __PACKAGED_TASK_H__
+#ifndef PACKAGED_TASK_H
+#define PACKAGED_TASK_H
 
 void packaged_task_main();
 
-#endif
+#endif  // PACKAGED_TASK_H

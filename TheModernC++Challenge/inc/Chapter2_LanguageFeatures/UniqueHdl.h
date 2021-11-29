@@ -1,5 +1,5 @@
-#ifndef __HANDLE_H__
-#define __HANDLE_H__
+#ifndef UNIQUE_HDL_H
+#define UNIQUE_HDL_H
 
 #include <windows.h>
 
@@ -72,5 +72,4 @@ private:
 };
 
 
-#endif
-
+#endif  // UNIQUE_HDL_H

@@ -1,6 +1,6 @@
-#ifndef __SPLIT_AND_REVERSE_H__
-#define __SPLIT_AND_REVERSE_H__
+#ifndef SPLIT_AND_REVERSE_H
+#define SPLIT_AND_REVERSE_H
 
 void split_and_reverse_main();
 
-#endif
+#endif  // SPLIT_AND_REVERSE_H

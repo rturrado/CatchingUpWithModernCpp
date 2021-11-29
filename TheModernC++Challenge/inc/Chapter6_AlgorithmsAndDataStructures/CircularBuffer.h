@@ -1,5 +1,5 @@
-#ifndef __CIRCULAR_BUFFER_H__
-#define __CIRCULAR_BUFFER_H__
+#ifndef CIRCULAR_BUFFER_H
+#define CIRCULAR_BUFFER_H
 
 #include <algorithm>  // swap
 #include <stdexcept>  // out_of_range
@@ -134,4 +134,4 @@ auto cbegin(const CircularBuffer<T>& cb) -> decltype(cb.cbegin()) { return cb.cb
 template <typename T>
 auto cend(const CircularBuffer<T>& cb) -> decltype(cb.cend()) { return cb.cend(); }
 
-#endif
+#endif  // CIRCULAR_BUFFER_H

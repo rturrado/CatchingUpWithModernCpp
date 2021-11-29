@@ -1,5 +1,5 @@
-#ifndef __PRIORITY_QUEUE_H__
-#define __PRIORITY_QUEUE_H__
+#ifndef PRIORITY_QUEUE_H
+#define PRIORITY_QUEUE_H
 
 #include <algorithm>  // make_heap, push_heap, pop_heap, swap
 #include <functional>  // less
@@ -122,4 +122,4 @@ auto cbegin(const PriorityQueue<T, Compare>& pq) -> decltype(pq.cbegin()) { retu
 template <typename T, typename Compare>
 auto cend(const PriorityQueue<T, Compare>& pq) -> decltype(pq.cend()) { return pq.cend(); }
 
-#endif
+#endif  // PRIORITY_QUEUE_H

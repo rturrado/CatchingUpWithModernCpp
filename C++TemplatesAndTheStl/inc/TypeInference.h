@@ -1,6 +1,6 @@
-#ifndef __TYPE_INFERENCE_H__
-#define __TYPE_INFERENCE_H__
+#ifndef TYPE_INFERENCE_H
+#define TYPE_INFERENCE_H
 
 void type_inference_main();
 
-#endif
+#endif  // TYPE_INFERENCE_H

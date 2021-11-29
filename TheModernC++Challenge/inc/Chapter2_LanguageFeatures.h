@@ -1,5 +1,5 @@
-#ifndef __CHAPTER_2_LANGUAGE_FEATURES_H__
-#define __CHAPTER_2_LANGUAGE_FEATURES_H__
+#ifndef CHAPTER_2_LANGUAGE_FEATURES_H
+#define CHAPTER_2_LANGUAGE_FEATURES_H
 
 void problem_15_main();
 void problem_16_main();
@@ -10,4 +10,4 @@ void problem_20_main();
 void problem_21_main();
 void problem_22_main();
 
-#endif
+#endif  // CHAPTER_2_LANGUAGE_FEATURES_H

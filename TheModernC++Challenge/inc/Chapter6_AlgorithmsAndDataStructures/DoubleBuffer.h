@@ -1,5 +1,5 @@
-#ifndef __DOUBLE_BUFFER_H__
-#define __DOUBLE_BUFFER_H__
+#ifndef DOUBLE_BUFFER_H
+#define DOUBLE_BUFFER_H
 
 #include <algorithm>  // copy
 #include <mutex>
@@ -61,4 +61,4 @@ private:
     mutable std::mutex buffers_mutex{};
 };
 
-#endif
+#endif  // DOUBLE_BUFFER_H

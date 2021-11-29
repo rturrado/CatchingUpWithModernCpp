@@ -1,5 +1,5 @@
-#ifndef __PROBLEMS_H__
-#define __PROBLEMS_H__
+#ifndef PROBLEMS_H
+#define PROBLEMS_H
 
 #include "Chapter1_MathProblems.h"
 #include "Chapter2_LanguageFeatures.h"
@@ -116,4 +116,4 @@ private:
     };
 };
 
-#endif
+#endif  // PROBLEMS_H

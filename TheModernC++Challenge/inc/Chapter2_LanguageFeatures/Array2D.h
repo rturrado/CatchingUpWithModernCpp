@@ -1,5 +1,5 @@
-#ifndef __ARRAY_2D_H__
-#define __ARRAY_2D_H__
+#ifndef ARRAY_2D_H
+#define ARRAY_2D_H
 
 #include <algorithm>
 #include <format>
@@ -305,4 +305,4 @@ std::ostream& operator<<(std::ostream& os, const std::vector<T>& v)
     return os << " ]\n\n";
 }
 
-#endif
+#endif  // ARRAY_2D_H

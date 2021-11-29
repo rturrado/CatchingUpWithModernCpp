@@ -1,5 +1,5 @@
-#ifndef __NULLPTR_H__
-#define __NULLPTR_H__
+#ifndef NULLPTR_H
+#define NULLPTR_H
 
 #include <memory>
 
@@ -19,4 +19,4 @@ void g(FuncType func, PtrType ptr)
 
 void nullptr_main();
 
-#endif
+#endif  // NULLPTR_H

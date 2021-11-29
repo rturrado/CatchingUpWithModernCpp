@@ -1,6 +1,6 @@
-#ifndef __LAMBDA_CLOSURES_H__
-#define __LAMBDA_CLOSURES_H__
+#ifndef LAMBDA_CLOSURES_H
+#define LAMBDA_CLOSURES_H
 
 void lambda_closures_main();
 
-#endif
+#endif  // LAMBDA_CLOSURES_H

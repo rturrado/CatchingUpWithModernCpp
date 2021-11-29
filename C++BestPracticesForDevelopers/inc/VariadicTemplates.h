@@ -1,5 +1,5 @@
-#ifndef __VARIADIC_TEMPLATES_H__
-#define __VARIADIC_TEMPLATES_H__
+#ifndef VARIADIC_TEMPLATES_H
+#define VARIADIC_TEMPLATES_H
 
 // Base case
 template<typename T>
@@ -15,4 +15,4 @@ T summer(T first, Args... args)
     return first + summer(args...);
 }
 
-#endif
+#endif  // VARIADIC_TEMPLATES_H

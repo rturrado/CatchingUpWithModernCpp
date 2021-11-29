@@ -1,5 +1,5 @@
-#ifndef __TIMER_H__
-#define __TIMER_H__
+#ifndef TIMER_H
+#define TIMER_H
 
 #include <chrono>  // high_resolution_clock, microseconds
 #include <functional>  // invoke
@@ -21,4 +21,4 @@ struct function_timer
     }
 };
 
-#endif  // __TIMER_H__
+#endif  // TIMER_H

@@ -1,5 +1,5 @@
-#ifndef __IPV4_H__
-#define __IPV4_H__
+#ifndef IPV4_H
+#define IPV4_H
 
 #include <array>
 #include <iostream>  // cout
@@ -37,4 +37,4 @@ private:
     std::array<uint8_t, 4> _octets{};
 };
 
-#endif
+#endif  // IPV4_H

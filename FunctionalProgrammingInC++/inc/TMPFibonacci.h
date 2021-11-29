@@ -1,5 +1,5 @@
-#ifndef __TMP_FIBONACCI_H__
-#define __TMP_FIBONACCI_H__
+#ifndef TMP_FIBONACCI_H
+#define TMP_FIBONACCI_H
 
 template<int n>
 struct Fibonacci
@@ -21,4 +21,4 @@ struct Fibonacci<1>
 
 void tmp_fibonacci_main();
 
-#endif
+#endif  // TMP_FIBONACCI_H

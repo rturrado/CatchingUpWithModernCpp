@@ -1,5 +1,5 @@
-#ifndef __TRANSFORM_H__
-#define __TRANSFORM_H__
+#ifndef TRANSFORM_H
+#define TRANSFORM_H
 
 #include <algorithm>
 #include <iostream>
@@ -29,5 +29,5 @@ public:
 
 void transform_main();
 
-#endif
+#endif  // TRANSFORM_H
 

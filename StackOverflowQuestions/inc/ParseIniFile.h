@@ -1,6 +1,6 @@
-#ifndef __PARSE_INI_FILE_H__
-#define __PARSE_INI_FILE_H__
+#ifndef PARSE_INI_FILE_H
+#define PARSE_INI_FILE_H
 
 void parse_ini_file_main();
 
-#endif
+#endif  // PARSE_INI_FILE_H

@@ -1,6 +1,6 @@
-#ifndef __ITEM_41_ASSIGNMENT_H__
-#define __ITEM_41_ASSIGNMENT_H__
+#ifndef ITEM_41_ASSIGNMENT_H
+#define ITEM_41_ASSIGNMENT_H
 
 void item_41_assignment_main();
 
-#endif
+#endif  // ITEM_41_ASSIGNMENT_H

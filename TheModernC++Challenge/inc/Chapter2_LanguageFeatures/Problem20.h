@@ -1,5 +1,5 @@
-#ifndef __PROBLEM_20_H__
-#define __PROBLEM_20_H__
+#ifndef PROBLEM_20_H
+#define PROBLEM_20_H
 
 #include <algorithm>  // find
 
@@ -21,4 +21,4 @@ bool contains_none(C& c, Args&&... args)
     return (... and (std::find(cbegin(c), cend(c), args) == cend(c)));
 }
 
-#endif
+#endif  // PROBLEM_20_H

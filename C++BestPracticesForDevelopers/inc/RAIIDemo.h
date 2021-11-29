@@ -1,5 +1,5 @@
-#ifndef __RAII_DEMO_H__
-#define __RAII_DEMO_H__
+#ifndef RAII_DEMO_H
+#define RAII_DEMO_H
 
 #include <iostream>
 
@@ -14,4 +14,4 @@ private:
 
 void raii_demo_main();
 
-#endif
+#endif  // RAII_DEMO_H

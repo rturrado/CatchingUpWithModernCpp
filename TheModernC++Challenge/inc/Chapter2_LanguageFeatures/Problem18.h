@@ -1,5 +1,5 @@
-#ifndef __PROBLEM_18_H__
-#define __PROBLEM_18_H__
+#ifndef PROBLEM_18_H
+#define PROBLEM_18_H
 
 #include <algorithm>
 #include <iostream>  // cout
@@ -102,4 +102,4 @@ void test_compare_with(const std::string& cmp_name, Compare cmp, Args&&... args)
 
 
 
-#endif
+#endif  // PROBLEM_18_H

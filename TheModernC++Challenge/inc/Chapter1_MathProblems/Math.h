@@ -1,5 +1,5 @@
-#ifndef __MATH_H__
-#define __MATH_H__
+#ifndef MATH_H
+#define MATH_H
 
 #include <algorithm>  // sort
 #include <cmath>  // sqrt
@@ -113,4 +113,4 @@ namespace TMP
     };
 }  // namespace TMP
 
-#endif  // __MATH_H__
+#endif  // MATH_H

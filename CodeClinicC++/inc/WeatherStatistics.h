@@ -1,5 +1,5 @@
-#ifndef __WEATHER_STATISTICS_H__
-#define __WEATHER_STATISTICS_H__
+#ifndef WEATHER_STATISTICS_H
+#define WEATHER_STATISTICS_H
 
 #include <ctime>
 #include <fstream>
@@ -58,4 +58,4 @@ std::string time_t_to_string(std::time_t time_point);
 
 void weather_statistics_main();
 
-#endif
+#endif  // WEATHER_STATISTICS_H

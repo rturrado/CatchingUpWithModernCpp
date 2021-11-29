@@ -1,5 +1,5 @@
-#ifndef __DIGITS_H__
-#define __DIGITS_H__
+#ifndef DIGITS_H
+#define DIGITS_H
 
 #include <deque>
 
@@ -84,4 +84,4 @@ Digits<T>& Digits<T>::operator--()
     return *this;
 }
 
-#endif
+#endif  // DIGITS_H

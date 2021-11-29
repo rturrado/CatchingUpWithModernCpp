@@ -1,5 +1,5 @@
-#ifndef __CHAPTER_6_ALGORITHMS_AND_DATA_STRUCTURES_H__
-#define __CHAPTER_6_ALGORITHMS_AND_DATA_STRUCTURES_H__
+#ifndef CHAPTER_6_ALGORITHMS_AND_DATA_STRUCTURES_H
+#define CHAPTER_6_ALGORITHMS_AND_DATA_STRUCTURES_H
 
 void problem_45_main();
 void problem_46_main();
@@ -18,4 +18,4 @@ void problem_58_main();
 void problem_59_main();
 void problem_60_main();
 
-#endif
+#endif  // CHAPTER_6_ALGORITHMS_AND_DATA_STRUCTURES_H

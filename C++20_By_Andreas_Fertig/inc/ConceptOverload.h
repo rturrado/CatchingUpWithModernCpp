@@ -1,5 +1,5 @@
-#ifndef __CONCEPT_OVERLOAD_H__
-#define __CONCEPT_OVERLOAD_H__
+#ifndef CONCEPT_OVERLOAD_H
+#define CONCEPT_OVERLOAD_H
 
 #include <iostream>
 #include <type_traits>
@@ -36,4 +36,4 @@ void Fun(const T&)
 
 void concept_overload_main();
 
-#endif
+#endif  // CONCEPT_OVERLOAD_H

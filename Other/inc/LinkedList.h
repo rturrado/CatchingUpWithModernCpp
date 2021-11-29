@@ -1,5 +1,5 @@
-#ifndef __LINKED_LIST_H__
-#define __LINKED_LIST_H__
+#ifndef LINKED_LIST_H
+#define LINKED_LIST_H
 
 #include <iostream>
 #include <memory>
@@ -171,4 +171,4 @@ std::ostream& operator<<(std::ostream& os, const LinkedList<T>& list)
 void linked_list_main();
 
 
-#endif
+#endif  // LINKED_LIST_H

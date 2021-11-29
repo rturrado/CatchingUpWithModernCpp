@@ -1,5 +1,5 @@
-#ifndef __PRINT_H__
-#define __PRINT_H__
+#ifndef PRINT_H
+#define PRINT_H
 
 #include <algorithm>  // for_each, sort
 #include <concepts>
@@ -48,4 +48,4 @@ std::ostream& operator<<(std::ostream& os, const std::pair<T, U>& p)
     return os << "[" << p.first << ", " << p.second << "]";
 }
 
-#endif  // __PRINT_H__
+#endif  // PRINT_H

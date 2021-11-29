@@ -1,6 +1,6 @@
-#ifndef __FILESYSTEM_H__
-#define __FILESYSTEM_H__
+#ifndef FILESYSTEM_H
+#define FILESYSTEM_H
 
 void filesystem_main();
 
-#endif
+#endif  // FILESYSTEM_H

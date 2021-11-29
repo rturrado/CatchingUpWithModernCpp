@@ -1,6 +1,6 @@
-#ifndef __CONDITION_VARIABLE_H__
-#define __CONDITION_VARIABLE_H__
+#ifndef CONDITION_VARIABLE_H
+#define CONDITION_VARIABLE_H
 
 void condition_variable_main();
 
-#endif
+#endif  // CONDITION_VARIABLE_H

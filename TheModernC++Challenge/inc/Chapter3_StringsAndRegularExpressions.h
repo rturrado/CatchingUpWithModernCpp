@@ -1,5 +1,5 @@
-#ifndef __CHAPTER_3_STRINGS_AND_REGULAR_EXPRESSIONS_H__
-#define __CHAPTER_3_STRINGS_AND_REGULAR_EXPRESSIONS_H__
+#ifndef CHAPTER_3_STRINGS_AND_REGULAR_EXPRESSIONS_H
+#define CHAPTER_3_STRINGS_AND_REGULAR_EXPRESSIONS_H
 
 void problem_23_main();
 void problem_24_main();
@@ -11,4 +11,4 @@ void problem_29_main();
 void problem_30_main();
 void problem_31_main();
 
-#endif
+#endif  // CHAPTER_3_STRINGS_AND_REGULAR_EXPRESSIONS_H
