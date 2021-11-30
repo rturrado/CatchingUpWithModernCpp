@@ -3,5 +3,7 @@
 
 void problem_67_main();
 void problem_68_main();
+void problem_69_main();
+void problem_70_main();
 
 #endif  // CHAPTER_8_DESIGN_PATTERNS_H

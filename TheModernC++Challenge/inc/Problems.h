@@ -113,6 +113,8 @@ private:
 
         problem_67_main,  // Design patterns
         problem_68_main,
+        problem_69_main,
+        problem_70_main,
     };
 };
 

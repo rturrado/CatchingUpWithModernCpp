@@ -18,6 +18,8 @@ constexpr const auto lowercase_range{ std::pair<int, int>{ 97, 122 } };
 class PasswordGenerator
 {
 public:
+    virtual ~PasswordGenerator() = default;
+
     virtual [[nodiscard]] std::string generate() const noexcept = 0;
 };
 
