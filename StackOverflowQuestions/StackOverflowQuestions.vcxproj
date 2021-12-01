@@ -151,6 +151,7 @@
     <ClInclude Include="inc\ParseIniFile.h" />
     <ClInclude Include="inc\ParseIniFileWithBoost.h" />
     <ClInclude Include="inc\ParseLinesOfDatesAndTimes.h" />
+    <ClInclude Include="inc\ParseTimeStringsToDurationsAndCompare.h" />
     <ClInclude Include="inc\PlayingWithTimeZonesAndDst.h" />
     <ClInclude Include="inc\VectorOfIntsWithTrianglePattern.h" />
   </ItemGroup>
@@ -162,6 +163,7 @@
     <ClCompile Include="src\ParseIniFile.cpp" />
     <ClCompile Include="src\ParseIniFileWithBoost.cpp" />
     <ClCompile Include="src\ParseLinesOfDatesAndTimes.cpp" />
+    <ClCompile Include="src\ParseTimeStringsToDurationsAndCompare.cpp" />
     <ClCompile Include="src\PlayingWithTimeZonesAndDst.cpp" />
     <ClCompile Include="src\VectorOfIntsWithTrianglePattern.cpp" />
   </ItemGroup>

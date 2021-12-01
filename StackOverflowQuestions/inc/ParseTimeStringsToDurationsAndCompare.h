@@ -1,0 +1,6 @@
+#ifndef PARSE_TIME_STRINGS_TO_DURATIONS_AND_COMPARE_H
+#define PARSE_TIME_STRINGS_TO_DURATIONS_AND_COMPARE_H
+
+void parse_time_strings_to_durations_and_compare_main();
+
+#endif

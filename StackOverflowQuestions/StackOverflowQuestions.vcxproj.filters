@@ -36,6 +36,9 @@
     <ClInclude Include="inc\PlayingWithTimeZonesAndDst.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="inc\ParseTimeStringsToDurationsAndCompare.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\VectorOfIntsWithTrianglePattern.cpp">
@@ -64,6 +67,9 @@
     </ClCompile>
     <ClCompile Include="mod\ParsingDates.ixx">
       <Filter>Module Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ParseTimeStringsToDurationsAndCompare.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

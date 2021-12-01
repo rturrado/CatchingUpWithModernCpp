@@ -4,6 +4,7 @@
 #include "ParseIniFile.h"
 #include "ParseIniFileWithBoost.h"
 #include "ParseLinesOfDatesAndTimes.h"
+#include "ParseTimeStringsToDurationsAndCompare.h"
 #include "PlayingWithTimeZonesAndDst.h"
 #include "VectorOfIntsWithTrianglePattern.h"
 
@@ -21,6 +22,8 @@ int main()
     { std::cout << "[PARSE INI FILE WITH BOOST]\n"; parse_ini_file_with_boost_main(); std::cout << "\n"; }
     // Vector of ints with triangle pattern
     { std::cout << "[VECTOR OF INTS WITH TRIANGLE PATTERN]\n"; vector_of_ints_with_triangle_pattern_main(); std::cout << "\n"; }
+    // Parsing dates
+    { std::cout << "[PARSING DATES]\n"; parsing_dates_main(); std::cout << "\n"; }
     // Parse lines of dates and times
     { std::cout << "[PARSE LINES OF DATES AND TIMES]\n"; parse_lines_of_dates_and_times_main(); std::cout << "\n"; }
     // Playing with time zones and DST
@@ -28,6 +31,6 @@ int main()
     // Popen test
     { std::cout << "[POPEN TEST]\n"; popen_test_main(); std::cout << "\n"; }
 */
-    // Parsing dates
-    { std::cout << "[PARSING DATES]\n"; parsing_dates_main(); std::cout << "\n"; }
+    // Parsing time strings to durations and compare
+    { std::cout << "[PARSING TIME STRINGS TO DURATIONS AND COMPARE]\n"; parse_time_strings_to_durations_and_compare_main(); std::cout << "\n"; }
 }
