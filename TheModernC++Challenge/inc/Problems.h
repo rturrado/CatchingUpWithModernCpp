@@ -115,6 +115,7 @@ private:
         problem_68_main,
         problem_69_main,
         problem_70_main,
+        problem_71_main,
     };
 };
 
