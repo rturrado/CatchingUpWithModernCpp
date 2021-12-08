@@ -23,7 +23,7 @@ double accum(double* beg, double* end, double init)
 
 void packaged_task_main()
 {
-    RandomDouble randomDouble{0.0, 20.0};
+    RandomFloatingPoint randomDouble{0.0, 20.0};
     std::vector<double> v(10);
     std::for_each(v.begin(), v.end(), [&randomDouble](double& n) { n = randomDouble(); });
 

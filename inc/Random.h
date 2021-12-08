@@ -1,6 +1,7 @@
 #ifndef RANDOM_H
 #define RANDOM_H
 
+#include <concepts>  // floating_point
 #include <random>
 #include <string_view>
 
@@ -22,17 +23,18 @@ private:
 
 // Random double generator
 // Generates a random double in the range [low, high]
-class RandomDouble
+template <std::floating_point T = double>
+class RandomFloatingPoint
 {
 public:
-    RandomDouble(double low, double high) : low_{ low }, high_{ high } {}
-    double operator()()
+    RandomFloatingPoint(T low, T high) : low_{ low }, high_{ high } {}
+    T operator()()
     {
-        return std::uniform_real_distribution<double>{ low_, high_ }(engine_);
+        return std::uniform_real_distribution<T>{ low_, high_ }(engine_);
     }
 private:
-    double low_{ 0.0 };
-    double high_{ 1.0 };
+    T low_{ 0.0 };
+    T high_{ 1.0 };
     std::default_random_engine engine_{ std::random_device{}() };
 };
 
