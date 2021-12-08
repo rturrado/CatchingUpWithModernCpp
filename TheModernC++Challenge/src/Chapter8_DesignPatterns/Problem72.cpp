@@ -1,7 +1,7 @@
 #include "Chapter8_DesignPatterns.h"
+#include "PrettyPrint.h"
 #include "Print.h"
 
-#include <algorithm>  // fill_n
 #include <cassert>  // assert
 #include <cmath>  // abs
 #include <iostream>  // cout
@@ -13,36 +13,13 @@
 #include <vector>
 
 
-struct FillLineStart
-{
-    size_t level{};
-    char value{ '\t' };
-};
-
-std::ostream& operator<<(std::ostream& os, const FillLineStart& fill)
-{
-    std::fill_n(std::ostream_iterator<char>(os), fill.level, fill.value);
-    return os;
-}
-
-FillLineStart operator+(const FillLineStart& fill, size_t increase)
-{
-    return FillLineStart(fill.level + increase, fill.value);
-}
-
-FillLineStart operator+(size_t increase, const FillLineStart& fill)
-{
-    return fill + increase;
-}
-
-
 struct Discount
 {
     virtual ~Discount() = default;
 
     virtual [[nodiscard]] float percentage(size_t, float) const noexcept = 0;
 
-    virtual [[nodiscard]] void print(std::ostream& os, FillLineStart fill_line_start = FillLineStart{}) const noexcept = 0;
+    virtual [[nodiscard]] void print(std::ostream& os, FillLineStart fill_line_start = {}) const noexcept = 0;
 
     friend std::ostream& operator<<(std::ostream& os, const Discount& d) { d.print(os); return os; }
 };
@@ -52,7 +29,7 @@ struct ArticleFixedDiscount : public Discount
 {
     explicit ArticleFixedDiscount(float p) : percentage_{ p } {}
 
-    virtual [[nodiscard]] void print(std::ostream& os, FillLineStart fill_line_start = FillLineStart{}) const noexcept override
+    virtual [[nodiscard]] void print(std::ostream& os, FillLineStart fill_line_start = {}) const noexcept override
     {
         os << fill_line_start << "ArticleFixedDiscount(percentage : " << percentage_ << ")";
     }
@@ -75,7 +52,7 @@ class OrderLineVolumeDiscount : public Discount
 public:
     OrderLineVolumeDiscount(float p, size_t q) : percentage_{ p }, minimum_article_quantity_{ q } {}
 
-    virtual [[nodiscard]] void print(std::ostream& os, FillLineStart fill_line_start = FillLineStart{}) const noexcept override
+    virtual [[nodiscard]] void print(std::ostream& os, FillLineStart fill_line_start = {}) const noexcept override
     {
         os << fill_line_start << "ArticleVolumeDiscount(percentage : " << percentage_ << ", minimum_article_quantity : " << minimum_article_quantity_ << ")";
     }
@@ -99,7 +76,7 @@ struct OrderLinePriceDiscount : public Discount
 public:
     OrderLinePriceDiscount(float p, float mtap) : percentage_{ p }, minimum_total_article_price_{ mtap } {}
 
-    virtual [[nodiscard]] void print(std::ostream& os, FillLineStart fill_line_start = FillLineStart{}) const noexcept override
+    virtual [[nodiscard]] void print(std::ostream& os, FillLineStart fill_line_start = {}) const noexcept override
     {
         os << fill_line_start << "OrderLinePriceDiscount(percentage : " << percentage_ << ", minimum_total_article_price : " << minimum_total_article_price_ << ")";
     }
@@ -123,7 +100,7 @@ struct OrderPriceDiscount : public Discount
 public:
     OrderPriceDiscount(float p, float mtop) : percentage_{ p }, minimum_total_order_price_{ mtop } {}
 
-    virtual [[nodiscard]] void print(std::ostream& os, FillLineStart fill_line_start = FillLineStart{}) const noexcept override
+    virtual [[nodiscard]] void print(std::ostream& os, FillLineStart fill_line_start = {}) const noexcept override
     {
         os << fill_line_start << "OrderPriceDiscount(percentage : " << percentage_ << ", minimum_total_order_price : " << minimum_total_order_price_ << ")";
     }
@@ -148,7 +125,7 @@ struct Article
     float price{};
     std::vector<std::shared_ptr<Discount>> discounts{};
 
-    void print(std::ostream& os, FillLineStart fill_line_start = FillLineStart{}) const noexcept
+    void print(std::ostream& os, FillLineStart fill_line_start = {}) const noexcept
     {
         os << fill_line_start << "Article(\n";
         os << (fill_line_start + 1) << "id : " << id << ",\n";
@@ -167,7 +144,7 @@ struct Store
 {
     std::vector<std::shared_ptr<Article>> articles{};
 
-    void print(std::ostream& os, FillLineStart fill_line_start = FillLineStart{}) const noexcept
+    void print(std::ostream& os, FillLineStart fill_line_start = {}) const noexcept
     {
         os << fill_line_start << "Store[\n";
         for (auto&& article : articles) { article->print(os, fill_line_start + 1); os << "\n"; }
@@ -183,7 +160,7 @@ struct Customer
     size_t id{};
     std::vector<std::shared_ptr<Discount>> discounts{};
 
-    void print(std::ostream& os, FillLineStart fill_line_start = FillLineStart{}) const noexcept
+    void print(std::ostream& os, FillLineStart fill_line_start = {}) const noexcept
     {
         os << fill_line_start << "Customer(\n";
         os << (fill_line_start + 1) << "id : " << id << ",\n";
@@ -203,7 +180,7 @@ struct OrderLine
     size_t quantity{};
     std::vector<std::shared_ptr<Discount>> discounts{};
 
-    void print(std::ostream& os, FillLineStart fill_line_start = FillLineStart{}) const noexcept
+    void print(std::ostream& os, FillLineStart fill_line_start = {}) const noexcept
     {
         os << fill_line_start << "OrderLine(\n";
         os << (fill_line_start + 1) << "article :\n"; article->print(os, fill_line_start + 2); os << ",\n";
@@ -225,7 +202,7 @@ struct Order
     std::shared_ptr<Customer> customer{};
     std::vector<std::shared_ptr<Discount>> discounts{};
 
-    void print(std::ostream& os, FillLineStart fill_line_start = FillLineStart{}) const noexcept
+    void print(std::ostream& os, FillLineStart fill_line_start = {}) const noexcept
     {
         os << fill_line_start << "Order(\n";
         os << (fill_line_start + 1) << "id : " << id << ",\n";

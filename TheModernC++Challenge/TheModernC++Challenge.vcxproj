@@ -251,6 +251,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\inc\ConsoleRead.h" />
+    <ClInclude Include="..\inc\PrettyPrint.h" />
     <ClInclude Include="..\inc\Print.h" />
     <ClInclude Include="..\inc\Timer.h" />
     <ClInclude Include="inc\Chapter1_MathProblems.h" />

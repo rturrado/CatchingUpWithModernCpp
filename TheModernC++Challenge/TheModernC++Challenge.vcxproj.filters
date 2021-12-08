@@ -350,6 +350,9 @@
     <ClInclude Include="inc\Chapter8_DesignPatterns.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\inc\PrettyPrint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="res\sample.txt">
