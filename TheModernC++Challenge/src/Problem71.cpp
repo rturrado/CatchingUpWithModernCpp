@@ -153,7 +153,7 @@ protected:
     constexpr Subject(const Subject& other) {}
     constexpr Subject(Subject&& other) noexcept { other.id_ = static_cast<size_t>(-1); other.observers_.clear(); }
     constexpr Subject& operator=(const Subject& other) { return *this; }
-    constexpr Subject& operator=(Subject&& other)
+    constexpr Subject& operator=(Subject&& other) noexcept
     {
         if (this != &other)
         {
@@ -209,7 +209,7 @@ public:
         }
         return *this;
     }
-    constexpr ObservableVector& operator=(ObservableVector&& other)
+    constexpr ObservableVector& operator=(ObservableVector&& other) noexcept
     {
         if (this != &other)
         {
@@ -294,7 +294,7 @@ void problem_71_main()
     auto sp_ov_0{ std::make_shared<ObservableVector<std::string>>() };
     auto sp_ov_1{ std::make_shared<ObservableVector<float>>(5) }; for (auto i = 0; i < sp_ov_1->size(); ++i) { (*sp_ov_1)[i] = 3.14f * i; }
     auto sp_ov_2{ std::make_shared<ObservableVector<double>>(3, 1.5) };
-    const char* cstr{ "Hello, universe!" };  auto sp_ov_3{ std::make_shared<ObservableVector<char>>(cstr + 4, cstr + 8) };
+    const char* cstr{ "Hello, universe!" }; auto sp_ov_3{ std::make_shared<ObservableVector<char>>(cstr + 4, cstr + 8) };
     auto sp_ov_4{ std::make_shared<ObservableVector<int>>()};
     std::cout << "\tov_0: " << *sp_ov_0 << "\n";
     std::cout << "\tov_1: " << *sp_ov_1 << "\n";
