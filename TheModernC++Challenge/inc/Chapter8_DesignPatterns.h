@@ -6,5 +6,6 @@ void problem_68_main();
 void problem_69_main();
 void problem_70_main();
 void problem_71_main();
+void problem_72_main();
 
 #endif  // CHAPTER_8_DESIGN_PATTERNS_H

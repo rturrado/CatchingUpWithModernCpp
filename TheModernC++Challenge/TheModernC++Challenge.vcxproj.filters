@@ -267,6 +267,9 @@
     <ClCompile Include="src\Problem71.cpp">
       <Filter>Source Files\Chapter8_DesignPatterns</Filter>
     </ClCompile>
+    <ClCompile Include="src\Chapter8_DesignPatterns\Problem72.cpp">
+      <Filter>Source Files\Chapter8_DesignPatterns</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Chapter1_MathProblems.h">

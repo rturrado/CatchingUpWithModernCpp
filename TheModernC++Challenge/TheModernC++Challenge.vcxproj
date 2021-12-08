@@ -245,6 +245,7 @@
     <ClCompile Include="src\Chapter8_DesignPatterns\Problem68.cpp" />
     <ClCompile Include="src\Chapter8_DesignPatterns\Problem69.cpp" />
     <ClCompile Include="src\Chapter8_DesignPatterns\Problem70.cpp" />
+    <ClCompile Include="src\Chapter8_DesignPatterns\Problem72.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Problem71.cpp" />
   </ItemGroup>
