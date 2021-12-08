@@ -3,13 +3,11 @@
 #include "Print.h"
 
 #include <cassert>  // assert
-#include <cmath>  // abs
+#include <cmath>  // fabs
 #include <iostream>  // cout
 #include <limits>  // epsilon, numeric_limits
 #include <memory>  // make_shared, shared_ptr
 #include <ostream>
-#include <string>
-#include <unordered_map>
 #include <vector>
 
 
@@ -20,9 +18,9 @@ struct Discount
     virtual [[nodiscard]] float percentage(size_t, float) const noexcept = 0;
 
     virtual [[nodiscard]] void print(std::ostream& os, FillLineStart fill_line_start = {}) const noexcept = 0;
-
-    friend std::ostream& operator<<(std::ostream& os, const Discount& d) { d.print(os); return os; }
 };
+
+std::ostream& operator<<(std::ostream& os, const Discount& d) { d.print(os); return os; }
 
 
 struct ArticleFixedDiscount : public Discount
@@ -223,6 +221,7 @@ std::ostream& operator<<(std::ostream& os, const Order& o) { o.print(os); return
 struct PriceCalculator
 {
     virtual ~PriceCalculator() = default;
+
     virtual [[nodiscard]] float calculate(const Order& order) const noexcept = 0;
 };
 
