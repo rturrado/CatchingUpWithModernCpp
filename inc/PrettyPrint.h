@@ -20,7 +20,7 @@ std::ostream& operator<<(std::ostream& os, const FillLineStart& fill)
 
 FillLineStart operator+(const FillLineStart& fill, size_t increase)
 {
-    return FillLineStart(fill.level + increase, fill.value);
+    return FillLineStart{ fill.level + increase, fill.value };
 }
 
 FillLineStart operator+(size_t increase, const FillLineStart& fill)
