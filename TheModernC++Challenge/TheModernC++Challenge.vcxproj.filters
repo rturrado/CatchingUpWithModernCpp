@@ -46,6 +46,9 @@
     <Filter Include="Source Files\Chapter8_DesignPatterns">
       <UniqueIdentifier>{6a50e7c5-def9-42ce-9cb7-7300673df419}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Chapter9_DataSerialization">
+      <UniqueIdentifier>{b445339d-8c26-4190-9225-a6eba6136f9d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp">
@@ -270,6 +273,27 @@
     <ClCompile Include="src\Chapter8_DesignPatterns\Problem72.cpp">
       <Filter>Source Files\Chapter8_DesignPatterns</Filter>
     </ClCompile>
+    <ClCompile Include="src\Chapter9_DataSerialization\Problem73.cpp">
+      <Filter>Source Files\Chapter9_DataSerialization</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chapter9_DataSerialization\Problem74.cpp">
+      <Filter>Source Files\Chapter9_DataSerialization</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chapter9_DataSerialization\Problem75.cpp">
+      <Filter>Source Files\Chapter9_DataSerialization</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chapter9_DataSerialization\Problem76.cpp">
+      <Filter>Source Files\Chapter9_DataSerialization</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chapter9_DataSerialization\Problem77.cpp">
+      <Filter>Source Files\Chapter9_DataSerialization</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chapter9_DataSerialization\Problem78.cpp">
+      <Filter>Source Files\Chapter9_DataSerialization</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Libraries\pugixml\src\pugixml.cpp">
+      <Filter>Source Files\Chapter9_DataSerialization</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Chapter1_MathProblems.h">
@@ -351,6 +375,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\inc\PrettyPrint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Chapter9_DataSerialization.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

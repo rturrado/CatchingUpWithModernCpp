@@ -9,6 +9,7 @@
 #include "Chapter6_AlgorithmsAndDataStructures.h"
 #include "Chapter7_Concurrency.h"
 #include "Chapter8_DesignPatterns.h"
+#include "Chapter9_DataSerialization.h"
 
 #include <cassert>  // assert
 #include <functional>  // function, invoke
@@ -117,6 +118,13 @@ private:
         problem_70_main,
         problem_71_main,
         problem_72_main,
+
+        problem_73_main,  // Data serialization
+        problem_74_main,
+        problem_75_main,
+        problem_76_main,
+        problem_77_main,
+        problem_78_main,
     };
 };
 
