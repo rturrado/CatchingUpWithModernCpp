@@ -13,7 +13,7 @@
 #include <vector>
 
 
-namespace xml
+namespace rtc::pugixml
 {
     // Runtime errors
     struct AttributeError : public std::runtime_error
@@ -28,13 +28,6 @@ namespace xml
         ChildError(const std::string& name) : std::runtime_error{ message_ + name } {}
     private:
         static inline std::string message_{ "trying to access child " };
-    };
-
-    struct ChildrenError : public std::runtime_error
-    {
-        ChildrenError(const std::string& name) : std::runtime_error{ message_ + name } {}
-    private:
-        static inline std::string message_{ "trying to access children " };
     };
 
     struct AppendAttributeError : public std::runtime_error
@@ -66,275 +59,273 @@ namespace xml
 
 
     // pugixml function wrappers
-    auto attribute(const pugi::xml_node& node, const char* name)
+    auto attribute_or_throw(const pugi::xml_node& node, const char* name)
     {
         if (auto ret{ node.attribute(name) }) { return ret; }
         else { throw AttributeError{ name }; }
     }
 
-    auto child(const pugi::xml_node& node, const char* name)
+    auto child_or_throw(const pugi::xml_node& node, const char* name)
     {
         if (auto ret{ node.child(name) }) { return ret; }
         else { throw ChildError{ name }; }
     }
 
-    auto children(const pugi::xml_node& node, const char* name)
-    {
-        auto ret{ node.children(name) };
-        if (not ret.empty()) { return ret; }
-        else { throw ChildrenError{ name }; }
-    }
-
-    auto append_attribute(pugi::xml_node& node, const char* name)
+    auto append_attribute_or_throw(pugi::xml_node& node, const char* name)
     {
         auto ret{ node.append_attribute(name) };
         if (ret) { return ret; }
-        else { throw xml::AppendAttributeError{ name }; }
+        else { throw AppendAttributeError{ name }; }
     }
 
-    auto append_child(pugi::xml_node& root, const char* name)
+    auto append_child_or_throw(pugi::xml_node& root, const char* name)
     {
         auto ret{ root.append_child(name) };
         if (ret) { return ret; }
-        else { throw xml::AppendChildError{ name }; }
+        else { throw AppendChildError{ name }; }
     }
 
-    void load_file(pugi::xml_document& doc, const char* path)
+    void load_file_or_throw(pugi::xml_document& doc, const char* path)
     {
         auto result{ doc.load_file(path) };
-        if (not result) { throw xml::LoadFromError{ result.description(), result.offset}; }
+        if (not result) { throw LoadFromError{ result.description(), result.offset }; }
+    }
+}  // namespace rtc::pugixml
+
+
+struct Role
+{
+    std::string star{};
+    std::string name{};
+
+    void to_xml(pugi::xml_node& root) const
+    {
+        rtc::pugixml::append_attribute_or_throw(root, "star") = star.c_str();
+        rtc::pugixml::append_attribute_or_throw(root, "name") = name.c_str();
     }
 
-
-    struct Role
+    void from_xml(const pugi::xml_node& root)
     {
-        std::string star{};
-        std::string name{};
+        star = rtc::pugixml::attribute_or_throw(root, "star").as_string();
+        name = rtc::pugixml::attribute_or_throw(root, "name").as_string();
+    }
+};
 
-        void to_xml(pugi::xml_node& root) const
-        {
-            append_attribute(root, "star") = star.c_str();
-            append_attribute(root, "name") = name.c_str();
-        }
-
-        void from_xml(const pugi::xml_node& root)
-        {
-            star = attribute(root, "star").as_string();
-            name = attribute(root, "name").as_string();
-        }
-    };
-
-    bool operator==(const Role& lhs, const Role& rhs) { return lhs.star == rhs.star and lhs.name == rhs.name; }
+bool operator==(const Role& lhs, const Role& rhs) { return lhs.star == rhs.star and lhs.name == rhs.name; }
 
 
-    struct Cast
+struct Cast
+{
+    std::vector<Role> cast{};
+
+    void to_xml(pugi::xml_node& root) const
     {
-        std::vector<Role> cast{};
-
-        void to_xml(pugi::xml_node& root) const
+        for (auto&& role : cast)
         {
-            for (auto&& role : cast)
-            {
-                auto node{ append_child(root, "role") }; role.to_xml(node);
-            }
+            auto node{ rtc::pugixml::append_child_or_throw(root, "role") }; role.to_xml(node);
         }
-
-        void from_xml(const pugi::xml_node& root)
-        {
-            for (auto&& node : children(root, "role"))
-            {
-                Role role{};
-                role.from_xml(node);
-                cast.push_back(role);
-            }
-        }
-    };
-
-    bool operator==(const Cast& lhs, const Cast& rhs) { return lhs.cast == rhs.cast; }
-
-
-    struct Director
-    {
-        std::string name{};
-
-        void to_xml(pugi::xml_node& root) const { append_attribute(root, "name") = name.c_str(); }
-
-        void from_xml(const pugi::xml_node& root) { name = attribute(root, "name").as_string(); }
-    };
-
-    bool operator==(const Director& lhs, const Director& rhs) { return lhs.name == rhs.name; }
-
-
-    struct Directors
-    {
-        std::vector<Director> directors{};
-
-        void to_xml(pugi::xml_node& root) const
-        {
-            for (auto&& director : directors)
-            {
-                auto node{ append_child(root, "director") }; director.to_xml(node);
-            }
-        }
-
-        void from_xml(const pugi::xml_node& root)
-        {
-            for (auto&& node : children(root, "director"))
-            {
-                Director director{};
-                director.from_xml(node);
-                directors.push_back(director);
-            }
-        }
-    };
-
-    bool operator==(const Directors& lhs, const Directors& rhs) { return lhs.directors == rhs.directors; }
-
-
-    struct Writer
-    {
-        std::string name{};
-
-        void to_xml(pugi::xml_node& root) const { append_attribute(root, "name") = name.c_str(); }
-
-        void from_xml(const pugi::xml_node& root) { name = attribute(root, "name").as_string(); }
-    };
-
-    bool operator==(const Writer& lhs, const Writer& rhs) { return lhs.name == rhs.name; }
-
-
-    struct Writers
-    {
-        std::vector<Writer> writers{};
-
-        void to_xml(pugi::xml_node& root) const
-        {
-            for (auto&& writer : writers)
-            {
-                auto node{ append_child(root, "writer") }; writer.to_xml(node);
-            }
-        }
-
-        void from_xml(const pugi::xml_node& root)
-        {
-            for (auto&& node : children(root, "writer"))
-            {
-                Writer writer{};
-                writer.from_xml(node);
-                writers.push_back(writer);
-            }
-        }
-    };
-
-    bool operator==(const Writers& lhs, const Writers& rhs) { return lhs.writers == rhs.writers; }
-
-
-    struct Movie
-    {
-        size_t id{};
-        std::string title{};
-        std::chrono::year year{};
-        size_t length{};
-        Cast cast{};
-        Directors directors{};
-        Writers writers{};
-
-        void to_xml(pugi::xml_node& root) const
-        {
-            append_attribute(root, "id") = id;
-            append_attribute(root, "title") = title.c_str();
-            append_attribute(root, "year") = static_cast<int>(year);
-            append_attribute(root, "length") = length;
-            { auto node{ append_child(root, "cast") }; cast.to_xml(node); }
-            { auto node{ append_child(root, "directors") }; directors.to_xml(node); }
-            { auto node{ append_child(root, "writers") }; writers.to_xml(node); }
-        }
-
-        void from_xml(const pugi::xml_node& root)
-        {
-            id = attribute(root, "id").as_uint();
-            title = attribute(root, "title").as_string();
-            year = std::chrono::year{ attribute(root, "year").as_int() };
-            length = attribute(root, "length").as_uint();
-            cast.from_xml(root.child("cast"));
-            directors.from_xml(root.child("directors"));
-            writers.from_xml(root.child("writers"));
-        }
-    };
-
-    bool operator==(const Movie& lhs, const Movie& rhs)
-    {
-        return lhs.id == rhs.id
-            and lhs.title == rhs.title
-            and lhs.year == rhs.year
-            and lhs.length == rhs.length
-            and lhs.cast == rhs.cast
-            and lhs.directors == rhs.directors
-            and lhs.writers == rhs.writers;
     }
 
-
-    struct Movies
+    void from_xml(const pugi::xml_node& root)
     {
-        std::vector<Movie> movies{};
-
-        void to_xml(pugi::xml_node& root) const
+        for (auto&& node : root.children("role"))
         {
-            for (auto&& movie : movies)
-            {
-                auto node{ append_child(root, "movie") }; movie.to_xml(node);
-            }
+            Role role{};
+            role.from_xml(node);
+            cast.push_back(role);
         }
+    }
+};
 
-        void from_xml(const pugi::xml_node& root)
-        {
-            for (auto&& node : children(root, "movie"))
-            {
-                Movie movie{};
-                movie.from_xml(node);
-                movies.push_back(movie);
-            }
-        }
-    };
-
-    bool operator==(const Movies& lhs, const Movies& rhs) { return lhs.movies == rhs.movies; }
+bool operator==(const Cast& lhs, const Cast& rhs) { return lhs.cast == rhs.cast; }
 
 
-    struct File
+struct Director
+{
+    std::string name{};
+
+    void to_xml(pugi::xml_node& root) const { rtc::pugixml::append_attribute_or_throw(root, "name") = name.c_str(); }
+
+    void from_xml(const pugi::xml_node& root) { name = rtc::pugixml::attribute_or_throw(root, "name").as_string(); }
+};
+
+bool operator==(const Director& lhs, const Director& rhs) { return lhs.name == rhs.name; }
+
+
+struct Directors
+{
+    std::vector<Director> directors{};
+
+    void to_xml(pugi::xml_node& root) const
     {
-        Movies movies{};
-
-        void to_xml(pugi::xml_document& doc) const
+        for (auto&& director : directors)
         {
-            auto node{ append_child(doc, "movies") }; movies.to_xml(node);
+            auto node{ rtc::pugixml::append_child_or_throw(root, "director") }; director.to_xml(node);
         }
+    }
 
-        void from_xml(const pugi::xml_document& doc)
+    void from_xml(const pugi::xml_node& root)
+    {
+        for (auto&& node : root.children("director"))
         {
-            movies.from_xml(doc.child("movies"));
+            Director director{};
+            director.from_xml(node);
+            directors.push_back(director);
         }
+    }
+};
 
-        void save_to(const std::filesystem::path& output_file_path) const
+bool operator==(const Directors& lhs, const Directors& rhs) { return lhs.directors == rhs.directors; }
+
+
+struct Writer
+{
+    std::string name{};
+
+    void to_xml(pugi::xml_node& root) const { rtc::pugixml::append_attribute_or_throw(root, "name") = name.c_str(); }
+
+    void from_xml(const pugi::xml_node& root) { name = rtc::pugixml::attribute_or_throw(root, "name").as_string(); }
+};
+
+bool operator==(const Writer& lhs, const Writer& rhs) { return lhs.name == rhs.name; }
+
+
+struct Writers
+{
+    std::vector<Writer> writers{};
+
+    void to_xml(pugi::xml_node& root) const
+    {
+        for (auto&& writer : writers)
         {
-            pugi::xml_document doc{};
-
-            this->to_xml(doc);
-
-            doc.save_file(output_file_path.c_str());
+            auto node{ rtc::pugixml::append_child_or_throw(root, "writer") }; writer.to_xml(node);
         }
+    }
 
-        void load_from(const std::filesystem::path& input_file_path)
+    void from_xml(const pugi::xml_node& root)
+    {
+        for (auto&& node : root.children("writer"))
         {
-            pugi::xml_document doc{};
-
-            load_file(doc, input_file_path.string().c_str());
-
-            this->from_xml(doc);
+            Writer writer{};
+            writer.from_xml(node);
+            writers.push_back(writer);
         }
-    };
+    }
+};
 
-    bool operator==(const File& lhs, const File& rhs) { return lhs.movies == rhs.movies; }
-}  // namespace xml
+bool operator==(const Writers& lhs, const Writers& rhs) { return lhs.writers == rhs.writers; }
+
+
+struct Movie
+{
+    size_t id{};
+    std::string title{};
+    std::chrono::year year{};
+    size_t length{};
+    Cast cast{};
+    Directors directors{};
+    Writers writers{};
+
+    void to_xml(pugi::xml_node& root) const
+    {
+        using namespace rtc::pugixml;
+
+        append_attribute_or_throw(root, "id") = id;
+        append_attribute_or_throw(root, "title") = title.c_str();
+        append_attribute_or_throw(root, "year") = static_cast<int>(year);
+        append_attribute_or_throw(root, "length") = length;
+        { auto node{ append_child_or_throw(root, "cast") }; cast.to_xml(node); }
+        { auto node{ append_child_or_throw(root, "directors") }; directors.to_xml(node); }
+        { auto node{ append_child_or_throw(root, "writers") }; writers.to_xml(node); }
+    }
+
+    void from_xml(const pugi::xml_node& root)
+    {
+        using namespace rtc::pugixml;
+
+        id = attribute_or_throw(root, "id").as_uint();
+        title = attribute_or_throw(root, "title").as_string();
+        year = std::chrono::year{ attribute_or_throw(root, "year").as_int() };
+        length = attribute_or_throw(root, "length").as_uint();
+        cast.from_xml(child_or_throw(root, "cast"));
+        directors.from_xml(child_or_throw(root, "directors"));
+        writers.from_xml(child_or_throw(root, "writers"));
+    }
+};
+
+bool operator==(const Movie& lhs, const Movie& rhs)
+{
+    return lhs.id == rhs.id
+        and lhs.title == rhs.title
+        and lhs.year == rhs.year
+        and lhs.length == rhs.length
+        and lhs.cast == rhs.cast
+        and lhs.directors == rhs.directors
+        and lhs.writers == rhs.writers;
+}
+
+
+struct Movies
+{
+    std::vector<Movie> movies{};
+
+    void to_xml(pugi::xml_node& root) const
+    {
+        for (auto&& movie : movies)
+        {
+            auto node{ rtc::pugixml::append_child_or_throw(root, "movie") }; movie.to_xml(node);
+        }
+    }
+
+    void from_xml(const pugi::xml_node& root)
+    {
+        for (auto&& node : root.children("movie"))
+        {
+            Movie movie{};
+            movie.from_xml(node);
+            movies.push_back(movie);
+        }
+    }
+};
+
+bool operator==(const Movies& lhs, const Movies& rhs) { return lhs.movies == rhs.movies; }
+
+
+struct XmlFile
+{
+    Movies movies{};
+
+    void to_xml(pugi::xml_document& doc) const
+    {
+        auto node{ rtc::pugixml::append_child_or_throw(doc, "movies") }; movies.to_xml(node);
+    }
+
+    void from_xml(const pugi::xml_document& doc)
+    {
+        movies.from_xml(rtc::pugixml::child_or_throw(doc, "movies"));
+    }
+
+    void save_to(const std::filesystem::path& output_file_path) const
+    {
+        pugi::xml_document doc{};
+
+        this->to_xml(doc);
+
+        doc.save_file(output_file_path.c_str());
+    }
+
+    void load_from(const std::filesystem::path& input_file_path)
+    {
+        pugi::xml_document doc{};
+
+
+        rtc::pugixml::load_file_or_throw(doc, input_file_path.string().c_str());
+
+        this->from_xml(doc);
+    }
+};
+
+bool operator==(const XmlFile& lhs, const XmlFile& rhs) { return lhs.movies == rhs.movies; }
 
 
 // Serializing and deserializing data to/from XML
@@ -372,24 +363,24 @@ void problem_73_main()
     try
     {
         std::cout << "Writing XML out to: " << temp_file_path << "\n";
-        const xml::File out_xml{
-            .movies = xml::Movies{{
+        const XmlFile out_xml{
+            .movies = Movies{{
                 {.id = 9871, .title = "Forrest Gump", .year = 1994y, .length = 202,
-                    .cast = xml::Cast{{
+                    .cast = Cast{{
                         {.star = "Tom Hanks", .name = "Forrest Gump"},
                         {.star = "Sally Field", .name = "Mrs. Gump"},
                         {.star = "Robin Wright", .name = "Jenny Curran"},
                         {.star = "Mykelti Williamson", .name = "Bubba Blue"}
                     }},
-                    .directors = xml::Directors{{ {.name = "Robert Zemeckis"} }},
-                    .writers = xml::Writers{{ {.name = "Winston Groom"}, {.name = "Eric Roth"} }}
+                    .directors = Directors{{ {.name = "Robert Zemeckis"} }},
+                    .writers = Writers{{ {.name = "Winston Groom"}, {.name = "Eric Roth"} }}
                 }
             }}
         };
         out_xml.save_to(temp_file_path);
 
         std::cout << "Reading XML in from: " << temp_file_path << "\n";
-        xml::File in_xml{};
+        XmlFile in_xml{};
         in_xml.load_from(temp_file_path);
 
         std::cout << "Checking if serializing and deserializing the XML object created the same object... ";
