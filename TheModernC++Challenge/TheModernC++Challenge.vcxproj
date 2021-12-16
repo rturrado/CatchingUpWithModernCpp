@@ -285,6 +285,7 @@
     <ClInclude Include="inc\Chapter8_DesignPatterns.h" />
     <ClInclude Include="inc\Chapter9_DataSerialization.h" />
     <ClInclude Include="inc\Chapter9_DataSerialization\pugixml_wrapper.h" />
+    <ClInclude Include="inc\Chapter9_DataSerialization\XmlMovies.h" />
     <ClInclude Include="inc\Problems.h" />
   </ItemGroup>
   <ItemGroup>

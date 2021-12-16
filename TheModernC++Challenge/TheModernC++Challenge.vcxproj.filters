@@ -49,6 +49,9 @@
     <Filter Include="Source Files\Chapter9_DataSerialization">
       <UniqueIdentifier>{b445339d-8c26-4190-9225-a6eba6136f9d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Chapter9_DataSerialization">
+      <UniqueIdentifier>{4f8b783a-e886-4de7-84c4-ba95286f28a5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp">
@@ -381,7 +384,10 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\Chapter9_DataSerialization\pugixml_wrapper.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Chapter9_DataSerialization</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Chapter9_DataSerialization\XmlMovies.h">
+      <Filter>Header Files\Chapter9_DataSerialization</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

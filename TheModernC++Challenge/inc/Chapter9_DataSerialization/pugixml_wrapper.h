@@ -3,8 +3,9 @@
 
 #include "pugixml.hpp"
 
-#include <stdexcept>  // runtime_error
+#include <cstddef>  // ptrdiff_t
 #include <sstream>  // ostringstream
+#include <stdexcept>  // runtime_error
 #include <string>
 
 namespace rtc::pugixml
@@ -53,33 +54,33 @@ namespace rtc::pugixml
 
 
     // pugixml function wrappers
-    auto attribute_or_throw(const pugi::xml_node& node, const char* name)
+    inline auto attribute_or_throw(const pugi::xml_node& node, const char* name)
     {
         if (auto ret{ node.attribute(name) }) { return ret; }
         else { throw AttributeError{ name }; }
     }
 
-    auto child_or_throw(const pugi::xml_node& node, const char* name)
+    inline auto child_or_throw(const pugi::xml_node& node, const char* name)
     {
         if (auto ret{ node.child(name) }) { return ret; }
         else { throw ChildError{ name }; }
     }
 
-    auto append_attribute_or_throw(pugi::xml_node& node, const char* name)
+    inline auto append_attribute_or_throw(pugi::xml_node& node, const char* name)
     {
         auto ret{ node.append_attribute(name) };
         if (ret) { return ret; }
         else { throw AppendAttributeError{ name }; }
     }
 
-    auto append_child_or_throw(pugi::xml_node& root, const char* name)
+    inline auto append_child_or_throw(pugi::xml_node& root, const char* name)
     {
         auto ret{ root.append_child(name) };
         if (ret) { return ret; }
         else { throw AppendChildError{ name }; }
     }
 
-    void load_file_or_throw(pugi::xml_document& doc, const char* path)
+    inline void load_file_or_throw(pugi::xml_document& doc, const char* path)
     {
         auto result{ doc.load_file(path) };
         if (not result) { throw LoadFromError{ result.description(), result.offset }; }
