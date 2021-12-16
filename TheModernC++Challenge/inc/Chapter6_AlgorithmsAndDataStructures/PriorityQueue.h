@@ -94,7 +94,7 @@ public:
     [[nodiscard]] constexpr bool empty() const noexcept { return container_.empty(); }
     void swap(PriorityQueue& other) noexcept { std::swap(container_, other.container_); std::swap(compare_, other.compare_); }
 
-    /*/
+    /*
     constexpr iterator begin() noexcept { return Iterator{ *this, 0 }; }
     constexpr iterator end() noexcept { return Iterator{ *this, size() }; }
     constexpr const_iterator cbegin() const noexcept { return ConstIterator{ *this, 0 }; }
