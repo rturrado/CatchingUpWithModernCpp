@@ -139,7 +139,7 @@ public:
 
     void attach(const std::shared_ptr<Observer<T>> observer) noexcept
     {
-        observers_.insert( std::end(observers_), observer);
+        observers_.insert(std::end(observers_), observer);
     }
     void detach(const std::shared_ptr<Observer<T>> observer) noexcept
     {
@@ -155,10 +155,7 @@ protected:
     constexpr Subject& operator=(const Subject& other) { return *this; }
     constexpr Subject& operator=(Subject&& other) noexcept
     {
-        if (this != &other)
-        {
-            other.id_ = static_cast<size_t>(-1); other.observers_.clear();
-        }
+        other.id_ = static_cast<size_t>(-1); other.observers_.clear();
         return *this;
     }
 
@@ -199,26 +196,20 @@ public:
     constexpr ObservableVector(ObservableVector&& other) noexcept : Subject<T>{ std::move(other) }, v_{ std::move(other.v_) } {}
     constexpr ObservableVector& operator=(const ObservableVector& other)
     {
-        if (this != &other)
-        {
-            Subject<T>::operator=(other);
-            v_.clear();
-            v_ = other.v_;
+        Subject<T>::operator=(other);
+        v_.clear();
+        v_ = other.v_;
 
-            if (Subject<T>::is_observed()) { Subject<T>::notify(Notification{ NotificationType::COPY_ASSIGNMENT }); }
-        }
+        if (Subject<T>::is_observed()) { Subject<T>::notify(Notification{ NotificationType::COPY_ASSIGNMENT }); }
         return *this;
     }
     constexpr ObservableVector& operator=(ObservableVector&& other) noexcept
     {
-        if (this != &other)
-        {
-            Subject<T>::operator=(std::move(other));
-            v_.clear();
-            v_ = std::move(other.v_);
+        Subject<T>::operator=(std::move(other));
+        v_.clear();
+        v_ = std::move(other.v_);
 
-            if (Subject<T>::is_observed()) { Subject<T>::notify(Notification{ NotificationType::MOVE_ASSIGNMENT }); }
-        }
+        if (Subject<T>::is_observed()) { Subject<T>::notify(Notification{ NotificationType::MOVE_ASSIGNMENT }); }
         return *this;
     }
     constexpr reference operator[](size_type pos) { return v_[pos]; }
