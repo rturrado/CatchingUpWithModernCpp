@@ -46,8 +46,8 @@ void problem_73_main()
     try
     {
         std::cout << "Writing XML out to: " << temp_file_path << "\n";
-        const Xml out_xml{
-            .movies = Movies{{
+        Xml out_xml{
+            Movies{{
                 {.id = 9871, .title = "Forrest Gump", .year = 1994y, .length = 202,
                     .cast = Cast{{
                         {.star = "Tom Hanks", .name = "Forrest Gump"},
@@ -62,18 +62,16 @@ void problem_73_main()
         };
         out_xml.save_to(temp_file_path);
 
-        std::cout << "Reading XML in from: " << temp_file_path << "\n";
+        std::cout << "Reading XML in from: " << temp_file_path << "\n\n";
         Xml in_xml{};
         in_xml.load_from(temp_file_path);
 
         std::cout << "Checking if serializing and deserializing the XML object created the same object... ";
         assert(in_xml == out_xml and "Error: serializing and deserializing the XML object created a different object");
-        std::cout << "OK\n";
+        std::cout << "OK\n\n";
     }
     catch (const std::exception& err)
     {
-        std::cout << "Error: " << err.what() << ".\n";
+        std::cout << "\"Error: " << err.what() << ".\"\n\n";
     }
-
-    std::cout << "\n";
 }

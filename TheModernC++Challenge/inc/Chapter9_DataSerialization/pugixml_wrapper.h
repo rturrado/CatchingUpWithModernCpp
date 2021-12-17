@@ -52,6 +52,19 @@ namespace rtc::pugixml
         static inline std::string message_{};
     };
 
+    struct SaveToError : public std::runtime_error
+    {
+        SaveToError(const std::string& file_path) : std::runtime_error{ "" }
+        {
+            std::ostringstream oss{};
+            oss << "trying to save to: \"" << file_path;
+            message_ = oss.str();
+        }
+        virtual const char* what() const noexcept override { return message_.c_str(); }
+    private:
+        static inline std::string message_{};
+    };
+
 
     // pugixml function wrappers
     inline auto attribute_or_throw(const pugi::xml_node& node, const char* name)
@@ -80,10 +93,16 @@ namespace rtc::pugixml
         else { throw AppendChildError{ name }; }
     }
 
-    inline void load_file_or_throw(pugi::xml_document& doc, const char* path)
+    inline void load_xml_document_from_file_or_throw(pugi::xml_document& doc, const char* path)
     {
         auto result{ doc.load_file(path) };
         if (not result) { throw LoadFromError{ result.description(), result.offset }; }
+    }
+
+    inline void save_xml_document_to_file_or_throw(pugi::xml_document& doc, const char* path)
+    {
+        auto result{ doc.save_file(path) };
+        if (not result) { throw SaveToError{ path }; }
     }
 }  // namespace rtc::pugixml
 

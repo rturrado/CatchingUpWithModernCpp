@@ -18,13 +18,13 @@ namespace rtc::xml_movies
         std::string star{};
         std::string name{};
 
-        void to_xml(pugi::xml_node& root) const
+        void save_to_xml_node(pugi::xml_node& root) const
         {
             rtc::pugixml::append_attribute_or_throw(root, "star") = star.c_str();
             rtc::pugixml::append_attribute_or_throw(root, "name") = name.c_str();
         }
 
-        void from_xml(const pugi::xml_node& root)
+        void load_from_xml_node(const pugi::xml_node& root)
         {
             star = rtc::pugixml::attribute_or_throw(root, "star").as_string();
             name = rtc::pugixml::attribute_or_throw(root, "name").as_string();
@@ -38,20 +38,20 @@ namespace rtc::xml_movies
     {
         std::vector<Role> cast{};
 
-        void to_xml(pugi::xml_node& root) const
+        void save_to_xml_node(pugi::xml_node& root) const
         {
             for (auto&& role : cast)
             {
-                auto node{ rtc::pugixml::append_child_or_throw(root, "role") }; role.to_xml(node);
+                auto node{ rtc::pugixml::append_child_or_throw(root, "role") }; role.save_to_xml_node(node);
             }
         }
 
-        void from_xml(const pugi::xml_node& root)
+        void load_from_xml_node(const pugi::xml_node& root)
         {
             for (auto&& node : root.children("role"))
             {
                 Role role{};
-                role.from_xml(node);
+                role.load_from_xml_node(node);
                 cast.push_back(role);
             }
         }
@@ -64,9 +64,9 @@ namespace rtc::xml_movies
     {
         std::string name{};
 
-        void to_xml(pugi::xml_node& root) const { rtc::pugixml::append_attribute_or_throw(root, "name") = name.c_str(); }
+        void save_to_xml_node(pugi::xml_node& root) const { rtc::pugixml::append_attribute_or_throw(root, "name") = name.c_str(); }
 
-        void from_xml(const pugi::xml_node& root) { name = rtc::pugixml::attribute_or_throw(root, "name").as_string(); }
+        void load_from_xml_node(const pugi::xml_node& root) { name = rtc::pugixml::attribute_or_throw(root, "name").as_string(); }
     };
 
     inline bool operator==(const Director& lhs, const Director& rhs) { return lhs.name == rhs.name; }
@@ -76,20 +76,20 @@ namespace rtc::xml_movies
     {
         std::vector<Director> directors{};
 
-        void to_xml(pugi::xml_node& root) const
+        void save_to_xml_node(pugi::xml_node& root) const
         {
             for (auto&& director : directors)
             {
-                auto node{ rtc::pugixml::append_child_or_throw(root, "director") }; director.to_xml(node);
+                auto node{ rtc::pugixml::append_child_or_throw(root, "director") }; director.save_to_xml_node(node);
             }
         }
 
-        void from_xml(const pugi::xml_node& root)
+        void load_from_xml_node(const pugi::xml_node& root)
         {
             for (auto&& node : root.children("director"))
             {
                 Director director{};
-                director.from_xml(node);
+                director.load_from_xml_node(node);
                 directors.push_back(director);
             }
         }
@@ -102,9 +102,9 @@ namespace rtc::xml_movies
     {
         std::string name{};
 
-        void to_xml(pugi::xml_node& root) const { rtc::pugixml::append_attribute_or_throw(root, "name") = name.c_str(); }
+        void save_to_xml_node(pugi::xml_node& root) const { rtc::pugixml::append_attribute_or_throw(root, "name") = name.c_str(); }
 
-        void from_xml(const pugi::xml_node& root) { name = rtc::pugixml::attribute_or_throw(root, "name").as_string(); }
+        void load_from_xml_node(const pugi::xml_node& root) { name = rtc::pugixml::attribute_or_throw(root, "name").as_string(); }
     };
 
     inline bool operator==(const Writer& lhs, const Writer& rhs) { return lhs.name == rhs.name; }
@@ -114,20 +114,20 @@ namespace rtc::xml_movies
     {
         std::vector<Writer> writers{};
 
-        void to_xml(pugi::xml_node& root) const
+        void save_to_xml_node(pugi::xml_node& root) const
         {
             for (auto&& writer : writers)
             {
-                auto node{ rtc::pugixml::append_child_or_throw(root, "writer") }; writer.to_xml(node);
+                auto node{ rtc::pugixml::append_child_or_throw(root, "writer") }; writer.save_to_xml_node(node);
             }
         }
 
-        void from_xml(const pugi::xml_node& root)
+        void load_from_xml_node(const pugi::xml_node& root)
         {
             for (auto&& node : root.children("writer"))
             {
                 Writer writer{};
-                writer.from_xml(node);
+                writer.load_from_xml_node(node);
                 writers.push_back(writer);
             }
         }
@@ -146,7 +146,7 @@ namespace rtc::xml_movies
         Directors directors{};
         Writers writers{};
 
-        void to_xml(pugi::xml_node& root) const
+        void save_to_xml_node(pugi::xml_node& root) const
         {
             using namespace rtc::pugixml;
 
@@ -154,12 +154,12 @@ namespace rtc::xml_movies
             append_attribute_or_throw(root, "title") = title.c_str();
             append_attribute_or_throw(root, "year") = static_cast<int>(year);
             append_attribute_or_throw(root, "length") = length;
-            { auto node{ append_child_or_throw(root, "cast") }; cast.to_xml(node); }
-            { auto node{ append_child_or_throw(root, "directors") }; directors.to_xml(node); }
-            { auto node{ append_child_or_throw(root, "writers") }; writers.to_xml(node); }
+            { auto node{ append_child_or_throw(root, "cast") }; cast.save_to_xml_node(node); }
+            { auto node{ append_child_or_throw(root, "directors") }; directors.save_to_xml_node(node); }
+            { auto node{ append_child_or_throw(root, "writers") }; writers.save_to_xml_node(node); }
         }
 
-        void from_xml(const pugi::xml_node& root)
+        void load_from_xml_node(const pugi::xml_node& root)
         {
             using namespace rtc::pugixml;
 
@@ -167,9 +167,9 @@ namespace rtc::xml_movies
             title = attribute_or_throw(root, "title").as_string();
             year = std::chrono::year{ attribute_or_throw(root, "year").as_int() };
             length = attribute_or_throw(root, "length").as_uint();
-            cast.from_xml(child_or_throw(root, "cast"));
-            directors.from_xml(child_or_throw(root, "directors"));
-            writers.from_xml(child_or_throw(root, "writers"));
+            cast.load_from_xml_node(child_or_throw(root, "cast"));
+            directors.load_from_xml_node(child_or_throw(root, "directors"));
+            writers.load_from_xml_node(child_or_throw(root, "writers"));
         }
     };
 
@@ -188,24 +188,25 @@ namespace rtc::xml_movies
     struct Movies
     {
         std::vector<Movie> movies{};
-
-        void to_xml(pugi::xml_node& root) const
+    
+        void save_to_xml_node(pugi::xml_node& root) const
         {
             for (auto&& movie : movies)
             {
-                auto node{ rtc::pugixml::append_child_or_throw(root, "movie") }; movie.to_xml(node);
+                auto node{ rtc::pugixml::append_child_or_throw(root, "movie") }; movie.save_to_xml_node(node);
             }
         }
 
-        void from_xml(const pugi::xml_node& root)
+        void load_from_xml_node(const pugi::xml_node& root)
         {
             for (auto&& node : root.children("movie"))
             {
                 Movie movie{};
-                movie.from_xml(node);
+                movie.load_from_xml_node(node);
                 movies.push_back(movie);
             }
         }
+
     };
 
     inline bool operator==(const Movies& lhs, const Movies& rhs) { return lhs.movies == rhs.movies; }
@@ -215,33 +216,41 @@ namespace rtc::xml_movies
     {
         Movies movies{};
 
-        void to_xml(pugi::xml_document& doc) const
+        Xml() = default;
+        Xml(const Movies& mvs) : movies{ mvs } {}
+
+        void save_to(const std::filesystem::path& output_file_path)
         {
-            auto node{ rtc::pugixml::append_child_or_throw(doc, "movies") }; movies.to_xml(node);
-        }
+            save_to_xml_document();
 
-        void from_xml(const pugi::xml_document& doc)
-        {
-            movies.from_xml(rtc::pugixml::child_or_throw(doc, "movies"));
-        }
-
-        void save_to(const std::filesystem::path& output_file_path) const
-        {
-            pugi::xml_document doc{};
-
-            this->to_xml(doc);
-
-            doc.save_file(output_file_path.c_str());
+            rtc::pugixml::save_xml_document_to_file_or_throw(doc_, output_file_path.string().c_str());
         }
 
         void load_from(const std::filesystem::path& input_file_path)
         {
-            pugi::xml_document doc{};
+            rtc::pugixml::load_xml_document_from_file_or_throw(doc_, input_file_path.string().c_str());
 
+            load_from_xml_document();
+        }
 
-            rtc::pugixml::load_file_or_throw(doc, input_file_path.string().c_str());
+        [[nodiscard]] const pugi::xml_node& get_root() const { return doc_.root(); }
 
-            this->from_xml(doc);
+    private:
+        // doc_ should be used as a cache, but it isn't at the moment
+        // We load from file to doc_, and then from doc_ to the different structs
+        // We save from the different structs to doc_, and then to file
+        // We never check if the structs contents have changed, so we could avoid writing to doc_ and even to file
+        // That same check would be mandatory before querying doc_ directly, once loaded (e.g. problem 74)
+        pugi::xml_document doc_{};
+
+        void save_to_xml_document()
+        {
+            auto node{ rtc::pugixml::append_child_or_throw(doc_, "movies") }; movies.save_to_xml_node(node);
+        }
+
+        void load_from_xml_document()
+        {
+            movies.load_from_xml_node(rtc::pugixml::child_or_throw(doc_, "movies"));
         }
     };
 
