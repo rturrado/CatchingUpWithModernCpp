@@ -90,7 +90,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(ProjectDir)inc;C:\Libraries\boost_1_75_0;C:\Libraries\pugixml\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(ProjectDir)inc;C:\Libraries\boost_1_75_0;C:\Libraries\nlohmann\json\single_include;C:\Libraries\pugixml\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalModuleDependencies>
       </AdditionalModuleDependencies>
@@ -112,7 +112,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(ProjectDir)inc;C:\Libraries\boost_1_75_0;C:\Libraries\pugixml\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(ProjectDir)inc;C:\Libraries\boost_1_75_0;C:\Libraries\nlohmann\json\single_include;C:\Libraries\pugixml\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalModuleDependencies>
       </AdditionalModuleDependencies>
@@ -134,7 +134,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(ProjectDir)inc;C:\Libraries\boost_1_75_0;C:\Libraries\pugixml\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(ProjectDir)inc;C:\Libraries\boost_1_75_0;C:\Libraries\nlohmann\json\single_include;C:\Libraries\pugixml\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalModuleDependencies>
       </AdditionalModuleDependencies>
@@ -157,7 +157,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(ProjectDir)inc;C:\Libraries\boost_1_75_0;C:\Libraries\pugixml\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(ProjectDir)inc;C:\Libraries\boost_1_75_0;C:\Libraries\nlohmann\json\single_include;C:\Libraries\pugixml\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalModuleDependencies>
       </AdditionalModuleDependencies>
@@ -284,6 +284,8 @@
     <ClInclude Include="inc\Chapter7_Concurrency.h" />
     <ClInclude Include="inc\Chapter8_DesignPatterns.h" />
     <ClInclude Include="inc\Chapter9_DataSerialization.h" />
+    <ClInclude Include="inc\Chapter9_DataSerialization\JsonMovies.h" />
+    <ClInclude Include="inc\Chapter9_DataSerialization\Movies.h" />
     <ClInclude Include="inc\Chapter9_DataSerialization\pugixml_wrapper.h" />
     <ClInclude Include="inc\Chapter9_DataSerialization\XmlMovies.h" />
     <ClInclude Include="inc\Problems.h" />

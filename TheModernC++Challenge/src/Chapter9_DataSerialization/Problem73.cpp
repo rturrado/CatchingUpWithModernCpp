@@ -1,8 +1,6 @@
 #include "Chapter9_DataSerialization.h"
+#include "Chapter9_DataSerialization/Movies.h"
 #include "Chapter9_DataSerialization/XmlMovies.h"
-#include "Chapter9_DataSerialization/pugixml_wrapper.h"
-
-#include "pugixml.hpp"
 
 #include <cassert>  // assert
 #include <chrono>
@@ -38,7 +36,8 @@
 //   </movies>
 void problem_73_main()
 {
-    using namespace rtc::xml_movies;
+    using namespace rtc::movies;
+    using namespace rtc::movies::xml;
     using namespace std::chrono_literals;
 
     const auto temp_file_path{ std::filesystem::temp_directory_path() / "list_of_movies.xml" };
@@ -46,9 +45,9 @@ void problem_73_main()
     try
     {
         std::cout << "Writing XML out to: " << temp_file_path << "\n";
-        Xml out_xml{
-            Movies{{
-                {.id = 9871, .title = "Forrest Gump", .year = 1994y, .length = 202,
+        doc out_doc{
+            Catalog{{
+                {   .id = 9871, .title = "Forrest Gump", .year = 1994y, .length = 202,
                     .cast = Cast{{
                         {.star = "Tom Hanks", .name = "Forrest Gump"},
                         {.star = "Sally Field", .name = "Mrs. Gump"},
@@ -60,14 +59,14 @@ void problem_73_main()
                 }
             }}
         };
-        out_xml.save_to(temp_file_path);
+        out_doc.save_to(temp_file_path);
 
         std::cout << "Reading XML in from: " << temp_file_path << "\n\n";
-        Xml in_xml{};
-        in_xml.load_from(temp_file_path);
+        doc in_doc{};
+        in_doc.load_from(temp_file_path);
 
         std::cout << "Checking if serializing and deserializing the XML object created the same object... ";
-        assert(in_xml == out_xml and "Error: serializing and deserializing the XML object created a different object");
+        assert(in_doc == out_doc and "Error: serializing and deserializing the XML object created a different object");
         std::cout << "OK\n\n";
     }
     catch (const std::exception& err)

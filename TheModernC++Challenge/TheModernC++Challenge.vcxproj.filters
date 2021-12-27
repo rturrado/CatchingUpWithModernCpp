@@ -389,6 +389,12 @@
     <ClInclude Include="inc\Chapter9_DataSerialization\XmlMovies.h">
       <Filter>Header Files\Chapter9_DataSerialization</Filter>
     </ClInclude>
+    <ClInclude Include="inc\Chapter9_DataSerialization\Movies.h">
+      <Filter>Header Files\Chapter9_DataSerialization</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Chapter9_DataSerialization\JsonMovies.h">
+      <Filter>Header Files\Chapter9_DataSerialization</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="res\sample.txt">

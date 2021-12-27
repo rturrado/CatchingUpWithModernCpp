@@ -1,4 +1,5 @@
 #include "Chapter9_DataSerialization.h"
+#include "Chapter9_DataSerialization/Movies.h"
 #include "Chapter9_DataSerialization/XmlMovies.h"
 #include "Chapter9_DataSerialization/pugixml_wrapper.h"
 
@@ -9,7 +10,7 @@
 #include <iostream>  // cout
 
 
-void print_movies_released_after_year(const rtc::xml_movies::Xml& xml, int year)
+void print_movies_released_after_year(const rtc::movies::xml::doc& doc, int year)
 {
     std::cout << "Movies released after year: " << year << "\n";
 
@@ -17,7 +18,7 @@ void print_movies_released_after_year(const rtc::xml_movies::Xml& xml, int year)
     vars.add("year", pugi::xpath_type_number);
     vars.set("year", static_cast<double>(year));
     const pugi::xpath_query query{"/movies/movie[@year > $year]", &vars};
-    auto movies{ query.evaluate_node_set(xml.get_root()) };
+    auto movies{ query.evaluate_node_set(doc.get_pugi_xml_root()) };
 
     for (auto&& movie : movies)
     {
@@ -28,12 +29,12 @@ void print_movies_released_after_year(const rtc::xml_movies::Xml& xml, int year)
 }
 
 
-void print_last_actor_in_casting_list_for_every_movie(const rtc::xml_movies::Xml& xml)
+void print_last_actor_in_casting_list_for_every_movie(const rtc::movies::xml::doc& doc)
 {
     std::cout << "Last actor in the casting list for every movie:\n";
 
     const pugi::xpath_query query{ "/movies/movie" };
-    auto movies{ query.evaluate_node_set(xml.get_root()) };
+    auto movies{ query.evaluate_node_set(doc.get_pugi_xml_root()) };
 
     for (auto&& movie : movies)
     {
@@ -56,7 +57,8 @@ void print_last_actor_in_casting_list_for_every_movie(const rtc::xml_movies::Xml
 //   - The name of the last actor in the casting list for each movie in the file.
 void problem_74_main()
 {
-    using namespace rtc::xml_movies;
+    using namespace rtc::movies;
+    using namespace rtc::movies::xml;
     using namespace std::chrono_literals;
 
     const auto temp_file_path{ std::filesystem::temp_directory_path() / "list_of_movies.xml" };
@@ -64,9 +66,9 @@ void problem_74_main()
     try
     {
         std::cout << "Writing XML out to: " << temp_file_path << "\n";
-        Xml out_xml{
-            Movies{{
-                {.id = 11001, .title = "The Matrix", .year = 1999y, .length = 196,
+        doc out_doc{
+            Catalog{{
+                {   .id = 11001, .title = "The Matrix", .year = 1999y, .length = 196,
                     .cast = Cast{{
                         {.star = "Keanu Reeves", .name = "Neo"},
                         {.star = "Lawrence Fishburne", .name = "Morpheus"},
@@ -76,7 +78,7 @@ void problem_74_main()
                     .directors = Directors{{ {.name = "Lana Wachowski"}, {.name = "Lilly Wachowski"} }},
                     .writers = Writers{{ {.name = "Lana Wachowski"}, {.name = "Lilly Wachowski"} }}
                 },
-                {.id = 9871, .title = "Forrest Gump", .year = 1994y, .length = 202,
+                {   .id = 9871, .title = "Forrest Gump", .year = 1994y, .length = 202,
                     .cast = Cast{{
                         {.star = "Tom Hanks", .name = "Forrest Gump"},
                         {.star = "Sally Field", .name = "Mrs. Gump"},
@@ -88,23 +90,23 @@ void problem_74_main()
                 }
             }}
         };
-        out_xml.save_to(temp_file_path);
+        out_doc.save_to(temp_file_path);
 
         std::cout << "Reading XML in from: " << temp_file_path << "\n\n";
-        Xml in_xml{};
-        in_xml.load_from(temp_file_path);
+        doc in_doc{};
+        in_doc.load_from(temp_file_path);
 
         std::cout << "Checking if serializing and deserializing the XML object created the same object... ";
-        assert(in_xml == out_xml and "Error: serializing and deserializing the XML object created a different object");
+        assert(in_doc == out_doc and "Error: serializing and deserializing the XML object created a different object");
         std::cout << "OK\n\n";
 
         for (auto year : { 1992, 1996, 2000 })
         {
-            print_movies_released_after_year(in_xml, year);
+            print_movies_released_after_year(in_doc, year);
         }
         std::cout << "\n";
 
-        print_last_actor_in_casting_list_for_every_movie(in_xml);
+        print_last_actor_in_casting_list_for_every_movie(in_doc);
         std::cout << "\n";
     }
     catch (const std::exception& err)
