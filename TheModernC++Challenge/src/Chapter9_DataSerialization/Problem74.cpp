@@ -57,8 +57,6 @@ void print_last_actor_in_casting_list_for_every_movie(const rtc::movies::xml::do
 //   - The name of the last actor in the casting list for each movie in the file.
 void problem_74_main()
 {
-    using namespace rtc::movies;
-    using namespace rtc::movies::xml;
     using namespace std::chrono_literals;
 
     const auto temp_file_path{ std::filesystem::temp_directory_path() / "list_of_movies.xml" };
@@ -66,34 +64,34 @@ void problem_74_main()
     try
     {
         std::cout << "Writing XML out to: " << temp_file_path << "\n";
-        doc out_doc{
-            Catalog{{
+        rtc::movies::xml::doc out_doc{
+            rtc::movies::Catalog{{
                 {   .id = 11001, .title = "The Matrix", .year = 1999y, .length = 196,
-                    .cast = Cast{{
+                    .cast = rtc::movies::Cast{{
                         {.star = "Keanu Reeves", .name = "Neo"},
                         {.star = "Lawrence Fishburne", .name = "Morpheus"},
                         {.star = "Carrie-Anne Moss", .name = "Trinity"},
                         {.star = "Hugo Weaving", .name = "Agent Smith"}
                     }},
-                    .directors = Directors{{ {.name = "Lana Wachowski"}, {.name = "Lilly Wachowski"} }},
-                    .writers = Writers{{ {.name = "Lana Wachowski"}, {.name = "Lilly Wachowski"} }}
+                    .directors = rtc::movies::Directors{{ {.name = "Lana Wachowski"}, {.name = "Lilly Wachowski"} }},
+                    .writers = rtc::movies::Writers{{ {.name = "Lana Wachowski"}, {.name = "Lilly Wachowski"} }}
                 },
                 {   .id = 9871, .title = "Forrest Gump", .year = 1994y, .length = 202,
-                    .cast = Cast{{
+                    .cast = rtc::movies::Cast{{
                         {.star = "Tom Hanks", .name = "Forrest Gump"},
                         {.star = "Sally Field", .name = "Mrs. Gump"},
                         {.star = "Robin Wright", .name = "Jenny Curran"},
                         {.star = "Mykelti Williamson", .name = "Bubba Blue"}
                     }},
-                    .directors = Directors{{ {.name = "Robert Zemeckis"} }},
-                    .writers = Writers{{ {.name = "Winston Groom"}, {.name = "Eric Roth"} }}
+                    .directors = rtc::movies::Directors{{ {.name = "Robert Zemeckis"} }},
+                    .writers = rtc::movies::Writers{{ {.name = "Winston Groom"}, {.name = "Eric Roth"} }}
                 }
             }}
         };
         out_doc.save_to(temp_file_path);
 
         std::cout << "Reading XML in from: " << temp_file_path << "\n\n";
-        doc in_doc{};
+        rtc::movies::xml::doc in_doc{};
         in_doc.load_from(temp_file_path);
 
         std::cout << "Checking if serializing and deserializing the XML object created the same object... ";
