@@ -94,6 +94,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>C:\Libraries\boost_1_75_0\bin.v2\libs\date_time\build\msvc-14.2\debug\address-model-64\link-static\threading-multi\libboost_date_time-vc142-mt-gd-x64-1_75.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Libraries\boost_1_75_0\stage\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -112,6 +114,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>C:\Libraries\boost_1_75_0\bin.v2\libs\date_time\build\msvc-14.2\debug\address-model-64\link-static\threading-multi\libboost_date_time-vc142-mt-gd-x64-1_75.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Libraries\boost_1_75_0\stage\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -126,6 +130,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>C:\Libraries\boost_1_75_0\bin.v2\libs\date_time\build\msvc-14.2\debug\address-model-64\link-static\threading-multi\libboost_date_time-vc142-mt-gd-x64-1_75.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Libraries\boost_1_75_0\stage\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -144,10 +150,13 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>C:\Libraries\boost_1_75_0\bin.v2\libs\date_time\build\msvc-14.2\debug\address-model-64\link-static\threading-multi\libboost_date_time-vc142-mt-gd-x64-1_75.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Libraries\boost_1_75_0\stage\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="inc\BitSequenceToInt.h" />
+    <ClInclude Include="inc\ThreadAfterTimer.h" />
     <ClInclude Include="inc\ParseIniFile.h" />
     <ClInclude Include="inc\ParseIniFileWithBoost.h" />
     <ClInclude Include="inc\ParseLinesOfDatesAndTimes.h" />
@@ -158,6 +167,7 @@
   <ItemGroup>
     <ClCompile Include="mod\ParsingDates.ixx" />
     <ClCompile Include="mod\PopenTest.ixx" />
+    <ClCompile Include="src\ThreadAfterTimer.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\BitSequenceToInt.cpp" />
     <ClCompile Include="src\ParseIniFile.cpp" />

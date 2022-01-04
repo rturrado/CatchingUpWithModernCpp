@@ -39,6 +39,9 @@
     <ClInclude Include="inc\ParseTimeStringsToDurationsAndCompare.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="inc\ThreadAfterTimer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\VectorOfIntsWithTrianglePattern.cpp">
@@ -69,6 +72,9 @@
       <Filter>Module Files</Filter>
     </ClCompile>
     <ClCompile Include="src\ParseTimeStringsToDurationsAndCompare.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ThreadAfterTimer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
