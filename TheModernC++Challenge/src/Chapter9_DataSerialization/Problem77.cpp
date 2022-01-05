@@ -30,7 +30,6 @@
 //    ----------------------------------------
 void problem_77_main()
 {
-    using namespace rtc::movies;
     using namespace std::chrono_literals;
 
     const auto temp_file_path{ std::filesystem::temp_directory_path() / "list_of_movies.pdf" };
@@ -39,7 +38,7 @@ void problem_77_main()
     {
         std::cout << "Writing PDF out to: " << temp_file_path << "\n\n";
         rtc::movies::pdf::doc out_doc{
-            Catalog{{
+            rtc::movies::Catalog{{
                 { 1, "The Matrix", 1999y, 136 },
                 { 2, "Forrest Gump", 1994y, 142 },
                 { 3, "The Truman Show", 1998y, 103 },

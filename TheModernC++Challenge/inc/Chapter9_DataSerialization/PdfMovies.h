@@ -5,6 +5,9 @@
 #include "pdf_writer_wrapper.h"
 
 #include "AbstractContentContext.h"
+#include "PageContentContext.h"
+#include "PDFPage.h"
+#include "PDFRectangle.h"
 #include "PDFWriter.h"
 
 #include <cmath>

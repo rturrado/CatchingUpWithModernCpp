@@ -1,12 +1,6 @@
 #ifndef PDF_WRITER_WRAPPER_H
 #define PDF_WRITER_WRAPPER_H
 
-#include "AbstractContentContext.h"
-#include "PageContentContext.h"
-#include "PDFPage.h"
-#include "PDFRectangle.h"
-#include "PDFWriter.h"
-
 #include <stdexcept>  // runtime_error
 #include <string>
 
