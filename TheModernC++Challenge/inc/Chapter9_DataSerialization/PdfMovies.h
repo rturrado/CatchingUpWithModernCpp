@@ -43,51 +43,10 @@ namespace rtc::movies::pdf
 
         inline void save_as_table(const std::filesystem::path& output_file_path)
         {
-            using namespace PDFHummus;
-
-            auto start_pdf = [](auto& pdf_writer, auto& output_file_path) {
-                auto output_file_path_str{ output_file_path.string() };
-                if (pdf_writer.StartPDF(output_file_path_str, ePDFVersion17) != eSuccess)
-                {
-                    throw rtc::pdf_writer::StartPdfError{ output_file_path_str };
-                }
-            };
-            auto end_pdf = [](auto& pdf_writer) {
-                if (pdf_writer.EndPDF() != eSuccess)
-                {
-                    throw rtc::pdf_writer::EndPdfError{ pdf_writer.GetOutputFile().GetFilePath() };
-                }
-            };
-            auto create_page = []() {
-                auto page{ new PDFPage{} };
-                page->SetMediaBox(PDFRectangle{ 0, 0, page_width, page_height });
-                return page;
-            };
-            auto write_page_and_release = [](auto& pdf_writer, auto page) {
-                if (pdf_writer.WritePageAndRelease(page) != eSuccess)
-                {
-                    throw rtc::pdf_writer::WritePageAndRelease{ pdf_writer.GetOutputFile().GetFilePath() };
-                };
-            };
-            auto start_page_content_context = [](auto& pdf_writer, auto page) {
-                return pdf_writer.StartPageContentContext(page);
-            };
-            auto end_page_content_context = [](auto& pdf_writer, auto ctx) {
-                if (pdf_writer.EndPageContentContext(ctx) != eSuccess)
-                {
-                    throw rtc::pdf_writer::EndPageContentContextError{ pdf_writer.GetOutputFile().GetFilePath() };
-                }
-            };
-            auto write_text = [](auto ctx, auto x, auto y, auto text, auto text_options) {
-                ctx->WriteText(x, y, text, text_options);
-            };
-            auto draw_line = [](auto ctx, auto x1, auto y1, auto x2, auto y2) {
-                ctx->DrawPath({ {x1, y1}, {x2, y2} });
-            };
 
             // PDF writer
             PDFWriter pdf_writer{};
-            start_pdf(pdf_writer, output_file_path);
+            rtc::pdf_writer::start_pdf(pdf_writer, output_file_path);
 
             // Font, text options
             const auto font{ pdf_writer.GetFontForFile(R"(C:\Windows\Fonts\Pala.ttf)") };
@@ -97,10 +56,10 @@ namespace rtc::movies::pdf
             for (auto it{ std::cbegin(catalog.movies) }; it != std::cend(catalog.movies); )
             {
                 // Page
-                auto page{ create_page() };
+                auto page{ rtc::pdf_writer::create_page(page_width, page_height) };
 
                 // Context
-                auto ctx{ start_page_content_context(pdf_writer, page) };
+                auto ctx{ rtc::pdf_writer::start_page_content_context(pdf_writer, page) };
 
                 // Cursor height
                 double current_y{ page_height - margin_top };
@@ -109,12 +68,12 @@ namespace rtc::movies::pdf
                 if (it == std::cbegin(catalog.movies))
                 {
                     current_y -= font_height;
-                    write_text(ctx, margin_left + font_width, current_y, "List of movies", text_options);
+                    rtc::pdf_writer::write_text(ctx, margin_left + font_width, current_y, "List of movies", text_options);
                 }
 
                 // Line separator
                 current_y -= (line_spacing);
-                draw_line(ctx, margin_left, current_y, page_width - margin_right, current_y);
+                rtc::pdf_writer::draw_line(ctx, margin_left, current_y, page_width - margin_right, current_y);
 
                 // Page layout
                 const size_t movies_per_page{ 25 };
@@ -141,19 +100,19 @@ namespace rtc::movies::pdf
                     
                     // Movie
                     current_y -= (font_height + line_spacing);
-                    write_text(ctx, margin_left + font_width, current_y, oss.str(), text_options);
-                    write_text(ctx, page_width - margin_right - font_width * movie_length.size(), current_y, movie_length, text_options);
+                    rtc::pdf_writer::write_text(ctx, margin_left + font_width, current_y, oss.str(), text_options);
+                    rtc::pdf_writer::write_text(ctx, page_width - margin_right - font_width * movie_length.size(), current_y, movie_length, text_options);
                 }
 
                 // Line separator
                 current_y -= (line_spacing);
-                draw_line(ctx, margin_left, current_y, page_width - margin_right, current_y);
+                rtc::pdf_writer::draw_line(ctx, margin_left, current_y, page_width - margin_right, current_y);
 
-                end_page_content_context(pdf_writer, ctx);
-                write_page_and_release(pdf_writer, page);
+                rtc::pdf_writer::end_page_content_context(pdf_writer, ctx);
+                rtc::pdf_writer::write_page_and_release(pdf_writer, page);
             }
 
-            end_pdf(pdf_writer);
+            rtc::pdf_writer::end_pdf(pdf_writer);
         }
     };
 }  // namespace rtc::movies::pdf
