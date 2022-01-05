@@ -52,6 +52,12 @@
     <Filter Include="Header Files\Chapter9_DataSerialization">
       <UniqueIdentifier>{4f8b783a-e886-4de7-84c4-ba95286f28a5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\problem78">
+      <UniqueIdentifier>{6952a6ee-1599-42a5-ad38-33a9d62ed513}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\problem78\images">
+      <UniqueIdentifier>{2ca459e3-fdf9-485b-9ab1-936f74215622}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp">
@@ -409,5 +415,121 @@
     <Text Include="res\problem34.txt">
       <Filter>Resource Files</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\problem78\images\img01.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img02.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img03.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img04.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img05.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img06.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img07.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img08.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img09.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img10.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img11.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img12.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img13.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img14.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img15.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img16.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img17.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img18.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img19.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img20.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img21.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img22.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img23.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img24.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img25.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img26.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img27.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img28.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img29.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img30.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img31.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img32.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img33.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img34.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img35.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img36.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img37.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
+    <Image Include="res\problem78\images\img38.png">
+      <Filter>Resource Files\problem78\images</Filter>
+    </Image>
   </ItemGroup>
 </Project>
