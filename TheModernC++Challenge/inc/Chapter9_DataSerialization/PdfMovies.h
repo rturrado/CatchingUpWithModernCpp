@@ -43,7 +43,6 @@ namespace rtc::movies::pdf
 
         inline void save_as_table(const std::filesystem::path& output_file_path)
         {
-
             // PDF writer
             PDFWriter pdf_writer{};
             rtc::pdf_writer::start_pdf(pdf_writer, output_file_path);
@@ -72,7 +71,7 @@ namespace rtc::movies::pdf
                 }
 
                 // Line separator
-                current_y -= (line_spacing);
+                current_y -= line_spacing;
                 rtc::pdf_writer::draw_line(ctx, margin_left, current_y, page_width - margin_right, current_y);
 
                 // Page layout
@@ -105,7 +104,7 @@ namespace rtc::movies::pdf
                 }
 
                 // Line separator
-                current_y -= (line_spacing);
+                current_y -= line_spacing;
                 rtc::pdf_writer::draw_line(ctx, margin_left, current_y, page_width - margin_right, current_y);
 
                 rtc::pdf_writer::end_page_content_context(pdf_writer, ctx);
