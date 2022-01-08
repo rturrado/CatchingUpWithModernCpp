@@ -38,4 +38,5 @@ void problem_13_main()
     {
         std::cout << "Estimated value of pi: " << compute_pi(number_of_iterations) << "\n";
     }
+    std::cout << "\n";
 }

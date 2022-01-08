@@ -33,5 +33,5 @@ void problem_2_main()
     }
 
     // Calculate the greatest common divisor
-    std::cout << "The greatest common divisor of " << m << " and " << n << " is: " << gcd(m, n) << "\n";
+    std::cout << "The greatest common divisor of " << m << " and " << n << " is: " << gcd(m, n) << "\n\n";
 }

@@ -34,4 +34,5 @@ void problem_10_main()
             << std::bitset<5>{gray} << "\t\t"
             << decoded_gray << "\n";
     }
+    std::cout << "\n";
 }

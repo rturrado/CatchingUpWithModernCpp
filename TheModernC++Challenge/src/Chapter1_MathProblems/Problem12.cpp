@@ -144,4 +144,6 @@ void problem_12_main()
     std::cout << "\tCollatz sequence (" << result.first << ") size: " << result.second << "\n";
 
     //P12::test_function_performance(limit);
- }
+
+    std::cout << "\n";
+}

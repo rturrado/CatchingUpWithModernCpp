@@ -87,5 +87,5 @@ void problem_14_main()
 
     // Validate 10-digit ISBN
     valid = validate_13_digit_isbn(str);
-    std::cout << str << " is" << (valid ? " " : " NOT ") << "a valid ISBN\n";
+    std::cout << str << " is" << (valid ? " " : " NOT ") << "a valid ISBN\n\n";
 }

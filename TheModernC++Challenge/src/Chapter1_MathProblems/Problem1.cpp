@@ -25,5 +25,5 @@ void problem_1_main()
         }
     }
     std::cout << "The sum of all natural numbers divisible by either 3 or 5 and up to " << n
-        << " is:\n\t" << sum << " " << v << "\n";
+        << " is:\n\t" << sum << " " << v << "\n\n";
 }

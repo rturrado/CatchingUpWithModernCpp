@@ -165,4 +165,6 @@ void problem_8_main()
     print_armstrong_numbers_up_to_a_limit_v1(n, true);
 
     //P8::test_function_performance();
+
+    std::cout << "\n";
 }

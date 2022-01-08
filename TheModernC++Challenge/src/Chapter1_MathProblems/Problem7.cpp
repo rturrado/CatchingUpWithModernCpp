@@ -18,7 +18,6 @@ void playing_with_TMP()
         // fatal error C1202: recursive type or function dependency context too complex
         // std::cout << "\tAmicable number of 898216: {" << 220 << ", " << TMP::amicable<898216>::value << "}\n";
     }
-    return;
 }
 
 
@@ -40,4 +39,6 @@ void problem_7_main()
     }
 
     playing_with_TMP();
+
+    std::cout << "\n";
 }

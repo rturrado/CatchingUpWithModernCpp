@@ -13,5 +13,5 @@ void problem_9_main()
     auto n{ read_positive_number(0) };
 
     // Print the prime factors of that number
-    std::cout << "The prime factors of " << n << " are: " << prime_factors(n) << "\n";
+    std::cout << "The prime factors of " << n << " are: " << prime_factors(n) << "\n\n";
 }

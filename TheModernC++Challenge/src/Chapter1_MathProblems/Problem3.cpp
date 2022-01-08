@@ -44,5 +44,5 @@ void problem_3_main()
     // I sort the input numbers, and take the biggest one
     // Then, I find the number that is 1, 2... i times bigger than the biggest one,
     // such that it is multiple of all the other numbers in the list
-    std::cout << "The least common multiple of " << v << " is: " << lcm(v) << "\n";
+    std::cout << "The least common multiple of " << v << " is: " << lcm(v) << "\n\n";
 }

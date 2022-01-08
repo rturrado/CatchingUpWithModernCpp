@@ -18,5 +18,5 @@ void problem_4_main()
     auto limit{ read_positive_number(2) };
 
     // Calculate biggest prime smaller than limit
-    std::cout << "Biggest prime number smaller than " << limit << " is: " << biggest_prime_smaller_than(limit) << "\n";
+    std::cout << "Biggest prime number smaller than " << limit << " is: " << biggest_prime_smaller_than(limit) << "\n\n";
 }

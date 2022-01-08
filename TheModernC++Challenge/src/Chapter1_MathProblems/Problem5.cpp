@@ -20,4 +20,5 @@ void problem_5_main()
             std::cout << "\t{" << i - 6 << ", " << i << "}\n";
         }
     }
+    std::cout << "\n";
 }

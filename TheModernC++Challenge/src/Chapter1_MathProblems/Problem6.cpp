@@ -25,4 +25,5 @@ void problem_6_main()
             std::cout << "\t"<< i << " " << d << " (" << sum - i << ")\n";
         }
     }
+    std::cout << "\n";
 }
