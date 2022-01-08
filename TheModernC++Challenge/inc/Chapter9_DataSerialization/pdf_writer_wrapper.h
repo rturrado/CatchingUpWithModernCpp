@@ -14,6 +14,7 @@
 namespace rtc::pdf_writer
 {
     using TextOptions = AbstractContentContext::TextOptions;
+    using ImageOptions = AbstractContentContext::ImageOptions;
 
     // Runtime errors
     struct StartPdfError : public std::runtime_error
@@ -89,6 +90,14 @@ namespace rtc::pdf_writer
     inline auto draw_line(PageContentContext* ctx, double x1, double y1, double x2, double y2)
     {
         ctx->DrawPath({ {x1, y1}, {x2, y2} });
+    }
+    inline auto get_image_dimensions(PDFWriter& pdf_writer, const std::filesystem::path& image_file_path)
+    {
+        return pdf_writer.GetImageDimensions(image_file_path.string());
+    }
+    inline auto draw_image(PageContentContext* ctx, double x, double y, const std::filesystem::path& image_file_path, const ImageOptions& image_options = ImageOptions{})
+    {
+        ctx->DrawImage(x, y, image_file_path.string(), image_options);
     }
 }  // rtc::pdf_writer
 
