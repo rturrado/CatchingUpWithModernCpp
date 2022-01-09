@@ -1,0 +1,6 @@
+#ifndef LOG_SYSTEM_WITH_COUNTING_SEMAPHORES_H
+#define LOG_SYSTEM_WITH_COUNTING_SEMAPHORES_H
+
+void log_system_with_counting_semaphores_main();
+
+#endif  / LOG_SYSTEM_WITH_COUNTING_SEMAPHORES_H
