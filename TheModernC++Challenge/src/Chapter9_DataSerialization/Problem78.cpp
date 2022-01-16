@@ -68,15 +68,15 @@ void save_folder_of_images_to_pdf(const std::filesystem::path& input_dir_path, c
 
     for (const auto& dir_entry : std::filesystem::directory_iterator{ input_dir_path })
     {
-        auto is_image = [](const std::filesystem::path& path) {
+        auto is_image_file = [](const std::filesystem::path& path) {
             auto str_tolower = [](std::string s) {
                 std::transform(std::begin(s), std::end(s), std::begin(s), [](unsigned char c) { return std::tolower(c); });
                 return s;
             };
-            const std::vector<std::string> valid_image_extensions{ ".jpg", ".jpeg", ".png", ".tiff" };
-            auto extension{ str_tolower(path.extension().string()) };
-            return std::any_of(std::cbegin(valid_image_extensions), std::cend(valid_image_extensions),
-                [&extension](auto& s) { return s == extension; });
+            const std::vector<std::string> valid_image_file_extensions{ ".jpg", ".jpeg", ".png", ".tiff" };
+            auto file_extension{ str_tolower(path.extension().string()) };
+            return std::any_of(std::cbegin(valid_image_file_extensions), std::cend(valid_image_file_extensions),
+                [&file_extension](auto& s) { return s == file_extension; });
         };
         auto equals = [](double a, double b) {
             return (a - b < 0.1) and (b - a < 0.1);
@@ -112,7 +112,7 @@ void save_folder_of_images_to_pdf(const std::filesystem::path& input_dir_path, c
             return image_options;
         };
 
-        if (not is_image(dir_entry.path())) { continue; }
+        if (not is_image_file(dir_entry.path())) { continue; }
 
         auto [image_width, image_height] = rtc::pdf_writer::get_image_dimensions(pdf_writer, dir_entry.path());
         auto [scaled_image_width, scaled_image_height] = scale_image_to_fit_page(image_width, image_height);

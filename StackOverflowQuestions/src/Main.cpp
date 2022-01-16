@@ -18,6 +18,8 @@ int main()
 /*
     // Bit sequence to int
     { std::cout << "[BIT SEQUENCE TO INT]\n"; bit_sequence_to_int_main(); std::cout << "\n"; }
+    // Log system with counting semaphores
+    { std::cout << "[LOG SYSTEM WITH COUNTING SEMAPHORES]\n"; log_system_with_counting_semaphores_main(); std::cout << "\n"; }
     // Parse INI file
     { std::cout << "[PARSE INI FILE]\n"; parse_ini_file_main(); std::cout << "\n"; }
     // Parse INI file with Boost
@@ -37,6 +39,4 @@ int main()
     // Vector of ints with triangle pattern
     { std::cout << "[VECTOR OF INTS WITH TRIANGLE PATTERN]\n"; vector_of_ints_with_triangle_pattern_main(); std::cout << "\n"; }
 */
-    // Log system with counting semaphores
-    { std::cout << "[LOG SYSTEM WITH COUNTING SEMAPHORES]\n"; log_system_with_counting_semaphores_main(); std::cout << "\n"; }
 }
