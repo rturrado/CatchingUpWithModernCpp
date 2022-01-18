@@ -10,6 +10,7 @@
 #include "Chapter7_Concurrency.h"
 #include "Chapter8_DesignPatterns.h"
 #include "Chapter9_DataSerialization.h"
+#include "Chapter10_ArchivesImagesAndDatabases.h"
 
 #include <cassert>  // assert
 #include <functional>  // function, invoke
@@ -125,6 +126,15 @@ private:
         problem_76_main,
         problem_77_main,
         problem_78_main,
+
+        problem_79_main,  // Archives, images, and databases
+        problem_80_main,
+        problem_81_main,
+        problem_82_main,
+        problem_83_main,
+        problem_84_main,
+        problem_85_main,
+        problem_86_main,
     };
 };
 

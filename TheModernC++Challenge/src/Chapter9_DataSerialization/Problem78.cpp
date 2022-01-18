@@ -139,7 +139,7 @@ void save_folder_of_images_to_pdf(const std::filesystem::path& input_dir_path, c
 // If an image does not fit on the remainder of a page, it must be placed on the next page.
 void problem_78_main()
 {
-    const auto input_dir_path{ std::filesystem::current_path() /  "res/problem78/images" };
+    const auto input_dir_path{ std::filesystem::current_path() / "res" / "problem78" / "images" };
     const auto temp_file_path{ std::filesystem::temp_directory_path() / "images.pdf" };
 
     try

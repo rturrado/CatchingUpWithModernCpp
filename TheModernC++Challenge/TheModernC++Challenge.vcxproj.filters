@@ -58,6 +58,9 @@
     <Filter Include="Resource Files\problem78\images">
       <UniqueIdentifier>{2ca459e3-fdf9-485b-9ab1-936f74215622}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Chapter10_ArchivesImagesAndDatabases">
+      <UniqueIdentifier>{9604b859-d10c-4796-b397-c0d31b6b6cba}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp">
@@ -303,6 +306,33 @@
     <ClCompile Include="C:\Libraries\pugixml\src\pugixml.cpp">
       <Filter>Source Files\Chapter9_DataSerialization</Filter>
     </ClCompile>
+    <ClCompile Include="src\Chapter10_ArchivesImagesAndDatabases\Problem79.cpp">
+      <Filter>Source Files\Chapter10_ArchivesImagesAndDatabases</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chapter10_ArchivesImagesAndDatabases\Problem80.cpp">
+      <Filter>Source Files\Chapter10_ArchivesImagesAndDatabases</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chapter10_ArchivesImagesAndDatabases\Problem81.cpp">
+      <Filter>Source Files\Chapter10_ArchivesImagesAndDatabases</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chapter10_ArchivesImagesAndDatabases\Problem82.cpp">
+      <Filter>Source Files\Chapter10_ArchivesImagesAndDatabases</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chapter10_ArchivesImagesAndDatabases\Problem83.cpp">
+      <Filter>Source Files\Chapter10_ArchivesImagesAndDatabases</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chapter10_ArchivesImagesAndDatabases\Problem84.cpp">
+      <Filter>Source Files\Chapter10_ArchivesImagesAndDatabases</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chapter10_ArchivesImagesAndDatabases\Problem85.cpp">
+      <Filter>Source Files\Chapter10_ArchivesImagesAndDatabases</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chapter10_ArchivesImagesAndDatabases\Problem86.cpp">
+      <Filter>Source Files\Chapter10_ArchivesImagesAndDatabases</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chapter10_ArchivesImagesAndDatabases\Problem87.cpp">
+      <Filter>Source Files\Chapter10_ArchivesImagesAndDatabases</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Chapter1_MathProblems.h">
@@ -407,6 +437,9 @@
     <ClInclude Include="inc\Chapter9_DataSerialization\pdf_writer_wrapper.h">
       <Filter>Header Files\Chapter9_DataSerialization</Filter>
     </ClInclude>
+    <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="res\sample.txt">
@@ -447,5 +480,10 @@
     <Image Include="res\problem78\images\img10.png">
       <Filter>Resource Files\problem78\images</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\problem79.zip">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
