@@ -57,7 +57,7 @@ namespace rtc::pugixml
         SaveToError(const std::string& file_path) : std::runtime_error{ "" }
         {
             std::ostringstream oss{};
-            oss << "trying to save to: \"" << file_path;
+            oss << "trying to save to: \"" << file_path << "\"";
             message_ = oss.str();
         }
         virtual const char* what() const noexcept override { return message_.c_str(); }
