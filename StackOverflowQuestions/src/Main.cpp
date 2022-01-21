@@ -7,6 +7,7 @@
 #include "ParseLinesOfDatesAndTimes.h"
 #include "ParseTimeStringsToDurationsAndCompare.h"
 #include "PlayingWithTimeZonesAndDst.h"
+#include "ReadFileToBuffer.h"
 #include "ThreadAfterTimer.h"
 #include "VectorOfIntsWithTrianglePattern.h"
 
@@ -39,4 +40,6 @@ int main()
     // Vector of ints with triangle pattern
     { std::cout << "[VECTOR OF INTS WITH TRIANGLE PATTERN]\n"; vector_of_ints_with_triangle_pattern_main(); std::cout << "\n"; }
 */
+    // Read file to buffer
+    { std::cout << "[READ FILE TO BUFFER]\n"; read_file_to_buffer_main(); std::cout << "\n"; }
 }

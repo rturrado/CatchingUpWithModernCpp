@@ -157,6 +157,7 @@
   <ItemGroup>
     <ClInclude Include="inc\BitSequenceToInt.h" />
     <ClInclude Include="inc\LogSystemWithCountingSemaphores.h" />
+    <ClInclude Include="inc\ReadFileToBuffer.h" />
     <ClInclude Include="inc\ThreadAfterTimer.h" />
     <ClInclude Include="inc\ParseIniFile.h" />
     <ClInclude Include="inc\ParseIniFileWithBoost.h" />
@@ -169,6 +170,7 @@
     <ClCompile Include="mod\ParsingDates.ixx" />
     <ClCompile Include="mod\PopenTest.ixx" />
     <ClCompile Include="src\LogSystemWithCountingSemaphores.cpp" />
+    <ClCompile Include="src\ReadFileToBuffer.cpp" />
     <ClCompile Include="src\ThreadAfterTimer.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\BitSequenceToInt.cpp" />
