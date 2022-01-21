@@ -1,7 +1,8 @@
 #ifndef CONSOLE_READ_H
 #define CONSOLE_READ_H
 
-#include <algorithm>  // count_if
+
+#include <algorithm>  // binary_search, count_if, sort
 #include <cctype>  // isdigit
 #include <ios>  // dec, streamsize
 #include <iostream>  // cin, cout
@@ -28,6 +29,32 @@ inline void clear_istream(std::istream& is)
     {
         is.ignore(n);
     }
+}
+
+
+// Read a char from a possible list of options
+inline char read_char(const std::string& message, std::vector<char> options)
+{
+    std::sort(std::begin(options), std::end(options));
+
+    char c{};
+    for (;;)
+    {
+        std::cout << message;
+        std::cin >> c;
+        if (not std::cin.fail() and
+            std::binary_search(std::cbegin(options), std::cend(options), c) and
+            is_istream_clear(std::cin))
+        {
+            std::cout << "\tOK\n";
+            break;
+        }
+        std::cout << "\tError: invalid input\n";
+        clear_istream(std::cin);
+        c = 0;
+    }
+    clear_istream(std::cin);
+    return c;
 }
 
 
@@ -61,6 +88,7 @@ inline size_t read_positive_number(
     clear_istream(std::cin);
     return n;
 }
+
 
 // Read a list of positive numbers in the range [lower_limit, upper_limit)
 // or [lower_limit, SIZE_T_MAX) in case upper_limit is not specified
@@ -124,7 +152,7 @@ inline std::vector<size_t> read_list_of_positive_numbers(
 }
 
 
-// Read a n-digit string
+// Read an n-digit string
 inline std::string read_n_digit_string(size_t n)
 {
     std::string ret{};
@@ -151,5 +179,6 @@ inline std::string read_n_digit_string(size_t n)
 
     return ret;
 }
+
 
 #endif  // CONSOLE_READ_H

@@ -325,9 +325,15 @@
     <Image Include="res\problem78\images\img08.png" />
     <Image Include="res\problem78\images\img09.png" />
     <Image Include="res\problem78\images\img10.png" />
+    <Image Include="res\problem80\file.jpg" />
+    <Image Include="res\problem80\folder\guinness.jpg" />
+    <Image Include="res\problem80\folder\john_mccarthy.jpg" />
+    <Image Include="res\problem80\folder\subfolder\UseYourIllussionII.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\problem79.zip" />
+    <None Include="res\problem80\folder\multi_page_2.pdf" />
+    <None Include="res\problem80\folder\multi_page_3.docx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -61,6 +61,15 @@
     <Filter Include="Source Files\Chapter10_ArchivesImagesAndDatabases">
       <UniqueIdentifier>{9604b859-d10c-4796-b397-c0d31b6b6cba}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\problem80">
+      <UniqueIdentifier>{ca581163-fceb-4e75-8f5f-4941efe2749a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\problem80\folder">
+      <UniqueIdentifier>{a765e3c4-960b-446b-9846-a054eb02f89d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\problem80\folder\subfolder">
+      <UniqueIdentifier>{7bf10585-8609-4545-aa8f-7f96dca77c61}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp">
@@ -480,10 +489,28 @@
     <Image Include="res\problem78\images\img10.png">
       <Filter>Resource Files\problem78\images</Filter>
     </Image>
+    <Image Include="res\problem80\folder\subfolder\UseYourIllussionII.jpg">
+      <Filter>Resource Files\problem80\folder\subfolder</Filter>
+    </Image>
+    <Image Include="res\problem80\folder\guinness.jpg">
+      <Filter>Resource Files\problem80\folder</Filter>
+    </Image>
+    <Image Include="res\problem80\folder\john_mccarthy.jpg">
+      <Filter>Resource Files\problem80\folder</Filter>
+    </Image>
+    <Image Include="res\problem80\file.jpg">
+      <Filter>Resource Files\problem80</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\problem79.zip">
       <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\problem80\folder\multi_page_2.pdf">
+      <Filter>Resource Files\problem80\folder</Filter>
+    </None>
+    <None Include="res\problem80\folder\multi_page_3.docx">
+      <Filter>Resource Files\problem80\folder</Filter>
     </None>
   </ItemGroup>
 </Project>
