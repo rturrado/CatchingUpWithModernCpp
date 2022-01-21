@@ -149,6 +149,6 @@ void problem_78_main()
     }
     catch (const std::exception& err)
     {
-        std::cout << "\"Error: " << err.what() << ".\"\n\n";
+        std::cout << "\"Error: " << err.what() << "\"\n\n";
     }
 }
