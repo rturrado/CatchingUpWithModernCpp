@@ -70,6 +70,9 @@
     <Filter Include="Resource Files\problem80\folder\subfolder">
       <UniqueIdentifier>{7bf10585-8609-4545-aa8f-7f96dca77c61}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Chapter10_ArchivesImagesAndDatabases">
+      <UniqueIdentifier>{9a2e4f24-4bb9-489c-813a-a082e1658134}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp">
@@ -448,6 +451,9 @@
     </ClInclude>
     <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases\zip_lib_wrapper.h">
+      <Filter>Header Files\Chapter10_ArchivesImagesAndDatabases</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -31,6 +31,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "inc", "inc", "{0E209F6A-FF36-40CA-AC4B-A452D4A37600}"
 	ProjectSection(SolutionItems) = preProject
 		inc\ConsoleRead.h = inc\ConsoleRead.h
+		inc\Filesystem.h = inc\Filesystem.h
 		inc\PrettyPrint.h = inc\PrettyPrint.h
 		inc\Print.h = inc\Print.h
 		inc\Random.h = inc\Random.h
