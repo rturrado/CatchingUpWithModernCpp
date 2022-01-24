@@ -15,7 +15,7 @@
 #include <vector>
 
 
-namespace rtc::zip_lib_wrapper
+namespace rtc::zip_lib
 {
     namespace fs = std::filesystem;
 
@@ -172,7 +172,7 @@ namespace rtc::zip_lib_wrapper
             std::cout << "\n";
         }
     }
-}
+}  // namespace rtc::zip_lib
 
 
 #endif  // ZIP_LIB_WRAPPER_H

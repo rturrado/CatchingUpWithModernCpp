@@ -10,5 +10,5 @@ void problem_81_main()
 {
     const auto password{ std::string{ "(4n)!(1103+26390n)"} };
     
-    rtc::zip_lib_wrapper::test(password);
+    rtc::zip_lib::test(password);
 }

@@ -8,5 +8,5 @@
 //   - Decompress the contents of a ZIP archive to a user-specified destination directory.
 void problem_80_main()
 {
-    rtc::zip_lib_wrapper::test();
+    rtc::zip_lib::test();
 }
