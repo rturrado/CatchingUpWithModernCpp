@@ -10,16 +10,22 @@
 namespace fs = std::filesystem;
 using namespace rtc::png_writer;
 
-void paint_gradient_background(PNGWriter& png_writer, int image_width, int image_height)
+void paint_gradient_background(PNGWriter& png_writer)
 {
+    const int image_width{ png_writer.get_width() };
+    const int image_height{ png_writer.get_height() };
+
     const Rectangle2D image_rectangle{ {1, 1}, {image_width, image_height} };
     const Gradient gradient{ { 0.3, 0.3, 0.7 }, {} };
 
     png_writer.fill_rectangle_horizontal_gradient(image_rectangle, gradient);
 }
 
-void paint_random_letters(PNGWriter& png_writer, int image_width, int image_height)
+void paint_random_letters(PNGWriter& png_writer)
 {
+    const int image_width{ png_writer.get_width() };
+    const int image_height{ png_writer.get_height() };
+
     const fs::path font_file_root_path{ fs::current_path() / "res" / "problem83" };
     const std::vector<fs::path> font_file_names{
         "calibri.ttf",
@@ -51,8 +57,11 @@ void paint_random_letters(PNGWriter& png_writer, int image_width, int image_heig
     }
 }
 
-void paint_random_strokes(PNGWriter& png_writer, int image_width, int image_height)
+void paint_random_strokes(PNGWriter& png_writer)
 {
+    const int image_width{ png_writer.get_width() };
+    const int image_height{ png_writer.get_height() };
+
     const auto number_of_strokes{ 8 };
 
     RandomInt random_x0{ 5 * image_width / 100, 10 * image_width / 100 };
@@ -78,16 +87,13 @@ void paint_random_strokes(PNGWriter& png_writer, int image_width, int image_heig
 //   - Several random lines of different colours accross the image (on top of the text).
 void problem_83_main()
 {
-    const auto image_width{ 300 };
-    const auto image_height{ 200 };
-    const auto background_colour{ 0.0 };
     const auto image_file_path{ create_png_file_path(fs::temp_directory_path(), "captcha") };
 
     std::cout << std::format("Creating {}...\n\n", image_file_path.string());
 
-    PNGWriter png_writer(image_width, image_height, background_colour, image_file_path);
+    PNGWriter png_writer(300, 200, 0.0, image_file_path);
 
-    paint_gradient_background(png_writer, image_width, image_height);
-    paint_random_letters(png_writer, image_width, image_height);
-    paint_random_strokes(png_writer, image_width, image_height);
+    paint_gradient_background(png_writer);
+    paint_random_letters(png_writer);
+    paint_random_strokes(png_writer);
 }

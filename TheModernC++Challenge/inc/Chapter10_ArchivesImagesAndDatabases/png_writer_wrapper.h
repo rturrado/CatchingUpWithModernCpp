@@ -48,12 +48,20 @@ namespace rtc::png_writer
 
     class PNGWriter {
     public:
-        PNGWriter(int w, int h, double bc, const fs::path& fp) : writer{ w, h, bc, fp.string().c_str() } {}
-        ~PNGWriter() { writer.close(); }
+        PNGWriter(int width, int height, double background_colour, const fs::path& file_path)
+            : width_{ width }, height_{ height }, background_colour_{ background_colour }, file_path_{ file_path }
+            , writer_{width, height, background_colour, file_path.string().c_str() }
+        {}
+        ~PNGWriter() { writer_.close(); }
+
+        [[nodiscard]] int get_width() const { return width_; }
+        [[nodiscard]] int get_height() const { return height_; }
+        [[nodiscard]] double get_background_colour() const { return background_colour_; }
+        [[nodiscard]] fs::path get_file_path() const { return file_path_; }
 
         void fill_rectangle(const Rectangle2D& rectangle, const RGB& colour)
         {
-            writer.filledsquare(rectangle.top_left.x, rectangle.top_left.y, rectangle.bottom_right.x, rectangle.bottom_right.y,
+            writer_.filledsquare(rectangle.top_left.x, rectangle.top_left.y, rectangle.bottom_right.x, rectangle.bottom_right.y,
                 colour.r, colour.g, colour.b);
         }
 
@@ -69,13 +77,13 @@ namespace rtc::png_writer
                 auto red{ (gradient.end.r - gradient.start.r) * factor + gradient.start.r };
                 auto green{ (gradient.end.g - gradient.start.g) * factor + gradient.start.g };
                 auto blue{ (gradient.end.b - gradient.start.b) * factor + gradient.start.b };
-                writer.line(x, y0, x, y1, red, green, blue);
+                writer_.line(x, y0, x, y1, red, green, blue);
             }
         }
 
         void line(const Line2D& line, const RGB& colour)
         {
-            writer.line(line.from.x, line.from.y, line.to.x, line.to.y, colour.r, colour.g, colour.b);
+            writer_.line(line.from.x, line.from.y, line.to.x, line.to.y, colour.r, colour.g, colour.b);
         }
 
         void plot_text(
@@ -86,7 +94,7 @@ namespace rtc::png_writer
             std::string text,
             const RGB& colour)
         {
-            writer.plot_text(
+            writer_.plot_text(
                 const_cast<char*>(font_file_path.string().c_str()),
                 font_size,
                 bottom_left_position.x, bottom_left_position.y,
@@ -95,7 +103,12 @@ namespace rtc::png_writer
                 colour.r, colour.g, colour.b);
         }
     private:
-        pngwriter writer{};
+        int width_{};
+        int height_{};
+        double background_colour_{};
+        fs::path file_path_{};
+
+        pngwriter writer_{};
     };
 }  // namespace rtc::png_writer
 
