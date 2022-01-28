@@ -41,7 +41,6 @@ private:
 // Random letter generator
 // Generates a random letter
 // Valid letters are the white space and the 26 letters of the English alphabet, both in uppercase and lowercase
-template<bool Uppercase = false>
 class RandomLetter
 {
 public:

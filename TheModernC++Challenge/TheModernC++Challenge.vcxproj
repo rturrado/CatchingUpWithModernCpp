@@ -337,6 +337,14 @@
     <None Include="res\problem80\folder\multi_page_2.pdf" />
     <None Include="res\problem80\folder\multi_page_3.docx" />
   </ItemGroup>
+  <ItemGroup>
+    <Font Include="res\problem83\calibri.ttf" />
+    <Font Include="res\problem83\calibrib.ttf" />
+    <Font Include="res\problem83\calibrii.ttf" />
+    <Font Include="res\problem83\calibril.ttf" />
+    <Font Include="res\problem83\calibrili.ttf" />
+    <Font Include="res\problem83\calibriz.ttf" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

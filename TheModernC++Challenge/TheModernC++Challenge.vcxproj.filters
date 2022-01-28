@@ -73,6 +73,9 @@
     <Filter Include="Header Files\Chapter10_ArchivesImagesAndDatabases">
       <UniqueIdentifier>{9a2e4f24-4bb9-489c-813a-a082e1658134}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\problem83">
+      <UniqueIdentifier>{8af9bd0e-4c8d-4c27-8ecf-bbc1d713714b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp">
@@ -521,5 +524,25 @@
     <None Include="res\problem80\folder\multi_page_3.docx">
       <Filter>Resource Files\problem80\folder</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="res\problem83\calibril.ttf">
+      <Filter>Resource Files\problem83</Filter>
+    </Font>
+    <Font Include="res\problem83\calibrili.ttf">
+      <Filter>Resource Files\problem83</Filter>
+    </Font>
+    <Font Include="res\problem83\calibriz.ttf">
+      <Filter>Resource Files\problem83</Filter>
+    </Font>
+    <Font Include="res\problem83\calibri.ttf">
+      <Filter>Resource Files\problem83</Filter>
+    </Font>
+    <Font Include="res\problem83\calibrib.ttf">
+      <Filter>Resource Files\problem83</Filter>
+    </Font>
+    <Font Include="res\problem83\calibrii.ttf">
+      <Filter>Resource Files\problem83</Filter>
+    </Font>
   </ItemGroup>
 </Project>
