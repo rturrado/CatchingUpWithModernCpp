@@ -461,6 +461,9 @@
     <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases\png_writer_wrapper.h">
       <Filter>Header Files\Chapter10_ArchivesImagesAndDatabases</Filter>
     </ClInclude>
+    <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases\ean_13_barcode.h">
+      <Filter>Header Files\Chapter10_ArchivesImagesAndDatabases</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="res\sample.txt">

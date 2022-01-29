@@ -7,7 +7,6 @@
 #include <format>
 #include <iostream>  // cout
 
-namespace fs = std::filesystem;
 using namespace rtc::png_writer;
 
 void paint_gradient_background(PNGWriter& png_writer)
@@ -26,8 +25,8 @@ void paint_random_letters(PNGWriter& png_writer)
     const int image_width{ png_writer.get_width() };
     const int image_height{ png_writer.get_height() };
 
-    const fs::path font_file_root_path{ fs::current_path() / "res" / "problem83" };
-    const std::vector<fs::path> font_file_names{
+    const auto font_file_root_path{ std::filesystem::current_path() / "res" / "problem83" };
+    const std::vector<std::filesystem::path> font_file_names{
         "calibri.ttf",
         "calibrib.ttf",
         "calibrii.ttf",
@@ -87,7 +86,7 @@ void paint_random_strokes(PNGWriter& png_writer)
 //   - Several random lines of different colours accross the image (on top of the text).
 void problem_83_main()
 {
-    const auto image_file_path{ create_png_file_path(fs::temp_directory_path(), "captcha") };
+    const auto image_file_path{ create_png_file_path(std::filesystem::temp_directory_path(), "captcha") };
 
     std::cout << std::format("Creating {}...\n\n", image_file_path.string());
 

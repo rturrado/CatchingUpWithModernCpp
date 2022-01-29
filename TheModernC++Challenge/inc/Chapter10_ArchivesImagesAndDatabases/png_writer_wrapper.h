@@ -37,8 +37,11 @@ namespace rtc::png_writer
     };
 
     struct Rectangle2D {
-        Point2D top_left{};
-        Point2D bottom_right{};
+        Point2D bottom_left{};
+        Point2D top_right{};
+
+        [[nodiscard]] int get_width() const { return top_right.x - bottom_left.x; }
+        [[nodiscard]] int get_height() const { return top_right.y - bottom_left.y; }
     };
 
     struct Gradient {
@@ -61,17 +64,17 @@ namespace rtc::png_writer
 
         void fill_rectangle(const Rectangle2D& rectangle, const RGB& colour)
         {
-            writer_.filledsquare(rectangle.top_left.x, rectangle.top_left.y, rectangle.bottom_right.x, rectangle.bottom_right.y,
+            writer_.filledsquare(rectangle.bottom_left.x, rectangle.bottom_left.y, rectangle.top_right.x, rectangle.top_right.y,
                 colour.r, colour.g, colour.b);
         }
 
         void fill_rectangle_horizontal_gradient(const Rectangle2D& rectangle, const Gradient& gradient)
         {
-            const auto width{ rectangle.bottom_right.x - rectangle.top_left.x };
-            const auto y0{ rectangle.top_left.y };
-            const auto y1{ rectangle.bottom_right.y };
+            const auto width{ rectangle.top_right.x - rectangle.bottom_left.x };
+            const auto y0{ rectangle.bottom_left.y };
+            const auto y1{ rectangle.top_right.y };
 
-            for (int x{rectangle.top_left.x}; x <= rectangle.bottom_right.x; ++x)
+            for (int x{rectangle.bottom_left.x}; x <= rectangle.top_right.x; ++x)
             {
                 auto factor{ static_cast<double>(x) / width };
                 auto red{ (gradient.end.r - gradient.start.r) * factor + gradient.start.r };

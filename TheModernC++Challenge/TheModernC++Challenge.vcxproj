@@ -279,6 +279,7 @@
     <ClInclude Include="..\inc\Print.h" />
     <ClInclude Include="..\inc\Timer.h" />
     <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases.h" />
+    <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases\ean_13_barcode.h" />
     <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases\png_writer_wrapper.h" />
     <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases\zip_lib_wrapper.h" />
     <ClInclude Include="inc\Chapter1_MathProblems.h" />
