@@ -22,9 +22,9 @@ void paint_romania_flag(PNGWriter& png_writer)
     const RGB romanian_flag_yellow{ 252.0 / 255, 209.0 / 255, 22.0 / 255 };  // Pantone 116c
     const RGB romanian_flag_red{ 206.0 / 255, 17.0 / 255, 38.0 / 255 };  // Pantone 186c
 
-    png_writer.fill_rectangle(blue_stripe, romanian_flag_blue);
-    png_writer.fill_rectangle(yellow_stripe, romanian_flag_yellow);
-    png_writer.fill_rectangle(red_stripe, romanian_flag_red);
+    png_writer.plot_filled_rectangle(blue_stripe, romanian_flag_blue);
+    png_writer.plot_filled_rectangle(yellow_stripe, romanian_flag_yellow);
+    png_writer.plot_filled_rectangle(red_stripe, romanian_flag_red);
 }
 
 // Creating a PNG that represents a national flag

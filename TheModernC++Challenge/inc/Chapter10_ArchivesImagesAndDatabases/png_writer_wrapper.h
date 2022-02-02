@@ -62,13 +62,18 @@ namespace rtc::png_writer
         [[nodiscard]] double get_background_colour() const { return background_colour_; }
         [[nodiscard]] fs::path get_file_path() const { return file_path_; }
 
-        void fill_rectangle(const Rectangle2D& rectangle, const RGB& colour)
+        void plot_filled_rectangle(const Rectangle2D& rectangle, const RGB& colour)
         {
             writer_.filledsquare(rectangle.bottom_left.x, rectangle.bottom_left.y, rectangle.top_right.x, rectangle.top_right.y,
                 colour.r, colour.g, colour.b);
         }
 
-        void fill_rectangle_horizontal_gradient(const Rectangle2D& rectangle, const Gradient& gradient)
+        void plot_filled_triangle(const Point2D& v1, const Point2D& v2, const Point2D& v3, const RGB& colour)
+        {
+            writer_.filledtriangle(v1.x, v1.y, v2.x, v2.y, v3.x, v3.y, colour.r, colour.g, colour.b);
+        }
+
+        void plot_filled_rectangle_horizontal_gradient(const Rectangle2D& rectangle, const Gradient& gradient)
         {
             const auto width{ rectangle.top_right.x - rectangle.bottom_left.x };
             const auto y0{ rectangle.bottom_left.y };
@@ -84,7 +89,7 @@ namespace rtc::png_writer
             }
         }
 
-        void line(const Line2D& line, const RGB& colour)
+        void plot_line(const Line2D& line, const RGB& colour)
         {
             writer_.line(line.from.x, line.from.y, line.to.x, line.to.y, colour.r, colour.g, colour.b);
         }

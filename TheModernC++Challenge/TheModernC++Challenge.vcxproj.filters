@@ -73,7 +73,7 @@
     <Filter Include="Header Files\Chapter10_ArchivesImagesAndDatabases">
       <UniqueIdentifier>{9a2e4f24-4bb9-489c-813a-a082e1658134}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files\problem83">
+    <Filter Include="Resource Files\fonts">
       <UniqueIdentifier>{8af9bd0e-4c8d-4c27-8ecf-bbc1d713714b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -464,6 +464,9 @@
     <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases\ean_13_barcode.h">
       <Filter>Header Files\Chapter10_ArchivesImagesAndDatabases</Filter>
     </ClInclude>
+    <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases\ean_13_barcode_png_generator.h">
+      <Filter>Header Files\Chapter10_ArchivesImagesAndDatabases</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="res\sample.txt">
@@ -530,22 +533,22 @@
   </ItemGroup>
   <ItemGroup>
     <Font Include="res\problem83\calibril.ttf">
-      <Filter>Resource Files\problem83</Filter>
+      <Filter>Resource Files\fonts</Filter>
     </Font>
     <Font Include="res\problem83\calibrili.ttf">
-      <Filter>Resource Files\problem83</Filter>
+      <Filter>Resource Files\fonts</Filter>
     </Font>
     <Font Include="res\problem83\calibriz.ttf">
-      <Filter>Resource Files\problem83</Filter>
+      <Filter>Resource Files\fonts</Filter>
     </Font>
     <Font Include="res\problem83\calibri.ttf">
-      <Filter>Resource Files\problem83</Filter>
+      <Filter>Resource Files\fonts</Filter>
     </Font>
     <Font Include="res\problem83\calibrib.ttf">
-      <Filter>Resource Files\problem83</Filter>
+      <Filter>Resource Files\fonts</Filter>
     </Font>
     <Font Include="res\problem83\calibrii.ttf">
-      <Filter>Resource Files\problem83</Filter>
+      <Filter>Resource Files\fonts</Filter>
     </Font>
   </ItemGroup>
 </Project>

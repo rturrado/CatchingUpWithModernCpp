@@ -17,7 +17,7 @@ void paint_gradient_background(PNGWriter& png_writer)
     const Rectangle2D image_rectangle{ {1, 1}, {image_width, image_height} };
     const Gradient gradient{ { 0.3, 0.3, 0.7 }, {} };
 
-    png_writer.fill_rectangle_horizontal_gradient(image_rectangle, gradient);
+    png_writer.plot_filled_rectangle_horizontal_gradient(image_rectangle, gradient);
 }
 
 void paint_random_letters(PNGWriter& png_writer)
@@ -25,7 +25,7 @@ void paint_random_letters(PNGWriter& png_writer)
     const int image_width{ png_writer.get_width() };
     const int image_height{ png_writer.get_height() };
 
-    const auto font_file_root_path{ std::filesystem::current_path() / "res" / "problem83" };
+    const auto font_file_root_path{ std::filesystem::current_path() / "res" / "fonts" };
     const std::vector<std::filesystem::path> font_file_names{
         "calibri.ttf",
         "calibrib.ttf",
@@ -73,7 +73,7 @@ void paint_random_strokes(PNGWriter& png_writer)
         auto line = Line2D{ { random_x0(), random_y() }, { random_x1(), random_y() } };
         auto colour = RGB{ random_colour(), random_colour(), random_colour() };
 
-        png_writer.line(line, colour);
+        png_writer.plot_line(line, colour);
     }
 }
 
