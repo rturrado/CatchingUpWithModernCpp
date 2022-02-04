@@ -12,18 +12,18 @@ struct FillLineStart
     std::string value{ "    " };
 };
 
-std::ostream& operator<<(std::ostream& os, const FillLineStart& fill)
+inline std::ostream& operator<<(std::ostream& os, const FillLineStart& fill)
 {
     std::fill_n(std::ostream_iterator<std::string>(os), fill.level, fill.value);
     return os;
 }
 
-FillLineStart operator+(const FillLineStart& fill, size_t increase)
+inline FillLineStart operator+(const FillLineStart& fill, size_t increase)
 {
     return FillLineStart{ fill.level + increase, fill.value };
 }
 
-FillLineStart operator+(size_t increase, const FillLineStart& fill)
+inline FillLineStart operator+(size_t increase, const FillLineStart& fill)
 {
     return fill + increase;
 }

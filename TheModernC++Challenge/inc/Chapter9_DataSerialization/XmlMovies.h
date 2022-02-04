@@ -6,6 +6,7 @@
 
 #include "pugixml.hpp"
 
+#include <chrono>
 #include <filesystem>
 
 
@@ -149,7 +150,7 @@ namespace rtc::movies::xml
         doc() = default;
         doc(const Catalog& c) : catalog{ c } {}
 
-        [[nodiscard]] const pugi::xml_node& get_pugi_xml_root() const { return pugi_xml_doc_.root(); }
+        [[nodiscard]] pugi::xml_node get_pugi_xml_root() const { return pugi_xml_doc_.root(); }
 
         void save_to(const std::filesystem::path& output_file_path)
         {

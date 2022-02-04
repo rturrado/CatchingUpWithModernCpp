@@ -76,6 +76,9 @@
     <Filter Include="Resource Files\fonts">
       <UniqueIdentifier>{8af9bd0e-4c8d-4c27-8ecf-bbc1d713714b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\db">
+      <UniqueIdentifier>{8dc2b77f-dc66-4280-b7de-1b978bcfcf04}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp">
@@ -348,6 +351,9 @@
     <ClCompile Include="src\Chapter10_ArchivesImagesAndDatabases\Problem87.cpp">
       <Filter>Source Files\Chapter10_ArchivesImagesAndDatabases</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Libraries\sqlite\sqlite3.c">
+      <Filter>Source Files\Chapter10_ArchivesImagesAndDatabases</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Chapter1_MathProblems.h">
@@ -467,6 +473,9 @@
     <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases\ean_13_barcode_png_generator.h">
       <Filter>Header Files\Chapter10_ArchivesImagesAndDatabases</Filter>
     </ClInclude>
+    <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases\SqliteMovies.h">
+      <Filter>Header Files\Chapter10_ArchivesImagesAndDatabases</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="res\sample.txt">
@@ -529,6 +538,9 @@
     </None>
     <None Include="res\problem80\folder\multi_page_3.docx">
       <Filter>Resource Files\problem80\folder</Filter>
+    </None>
+    <None Include="res\db\movies.db">
+      <Filter>Resource Files\db</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

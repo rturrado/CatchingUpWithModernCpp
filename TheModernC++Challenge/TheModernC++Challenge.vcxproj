@@ -90,7 +90,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(ProjectDir)inc;C:\Libraries\boost_1_75_0;C:\Libraries\nlohmann\json\single_include;C:\Libraries\PDF-Writer\PDFWriter;C:\Libraries\pugixml\src;C:\Libraries\ziplib\Source\ZipLib;C:\Libraries\pngwriter\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(ProjectDir)inc;C:\Libraries\boost_1_75_0;C:\Libraries\nlohmann\json\single_include;C:\Libraries\PDF-Writer\PDFWriter;C:\Libraries\pngwriter\src;C:\Libraries\pugixml\src;C:\Libraries\sqlite;C:\Libraries\sqlite_modern_cpp\hdr;C:\Libraries\ziplib\Source\ZipLib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalModuleDependencies>
       </AdditionalModuleDependencies>
@@ -98,6 +98,9 @@
       </AdditionalBMIDirectories>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
       <TranslateIncludes>false</TranslateIncludes>
+      <DisableSpecificWarnings>
+      </DisableSpecificWarnings>
+      <AdditionalOptions>/w34996</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -114,7 +117,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(ProjectDir)inc;C:\Libraries\boost_1_75_0;C:\Libraries\nlohmann\json\single_include;C:\Libraries\PDF-Writer\PDFWriter;C:\Libraries\pugixml\src;C:\Libraries\ziplib\Source\ZipLib;C:\Libraries\pngwriter\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(ProjectDir)inc;C:\Libraries\boost_1_75_0;C:\Libraries\nlohmann\json\single_include;C:\Libraries\PDF-Writer\PDFWriter;C:\Libraries\pngwriter\src;C:\Libraries\pugixml\src;C:\Libraries\sqlite;C:\Libraries\sqlite_modern_cpp\hdr;C:\Libraries\ziplib\Source\ZipLib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalModuleDependencies>
       </AdditionalModuleDependencies>
@@ -122,6 +125,9 @@
       </AdditionalBMIDirectories>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
       <TranslateIncludes>false</TranslateIncludes>
+      <DisableSpecificWarnings>
+      </DisableSpecificWarnings>
+      <AdditionalOptions>/w34996</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -138,7 +144,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(ProjectDir)inc;C:\Libraries\boost_1_75_0;C:\Libraries\nlohmann\json\single_include;C:\Libraries\PDF-Writer\PDFWriter;C:\Libraries\pugixml\src;C:\Libraries\ziplib\Source\ZipLib;C:\Libraries\pngwriter\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(ProjectDir)inc;C:\Libraries\boost_1_75_0;C:\Libraries\nlohmann\json\single_include;C:\Libraries\PDF-Writer\PDFWriter;C:\Libraries\pngwriter\src;C:\Libraries\pugixml\src;C:\Libraries\sqlite;C:\Libraries\sqlite_modern_cpp\hdr;C:\Libraries\ziplib\Source\ZipLib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalModuleDependencies>
       </AdditionalModuleDependencies>
@@ -147,6 +153,9 @@
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
       <TranslateIncludes>false</TranslateIncludes>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DisableSpecificWarnings>
+      </DisableSpecificWarnings>
+      <AdditionalOptions>/w34996</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -163,7 +172,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(ProjectDir)inc;C:\Libraries\boost_1_75_0;C:\Libraries\nlohmann\json\single_include;C:\Libraries\PDF-Writer\PDFWriter;C:\Libraries\pugixml\src;C:\Libraries\ziplib\Source\ZipLib;C:\Libraries\pngwriter\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(ProjectDir)inc;C:\Libraries\boost_1_75_0;C:\Libraries\nlohmann\json\single_include;C:\Libraries\PDF-Writer\PDFWriter;C:\Libraries\pngwriter\src;C:\Libraries\pugixml\src;C:\Libraries\sqlite;C:\Libraries\sqlite_modern_cpp\hdr;C:\Libraries\ziplib\Source\ZipLib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalModuleDependencies>
       </AdditionalModuleDependencies>
@@ -171,6 +180,9 @@
       </AdditionalBMIDirectories>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
       <TranslateIncludes>false</TranslateIncludes>
+      <DisableSpecificWarnings>
+      </DisableSpecificWarnings>
+      <AdditionalOptions>/w34996</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -183,6 +195,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="C:\Libraries\pugixml\src\pugixml.cpp" />
+    <ClCompile Include="C:\Libraries\sqlite\sqlite3.c" />
     <ClCompile Include="src\Chapter10_ArchivesImagesAndDatabases\Problem79.cpp" />
     <ClCompile Include="src\Chapter10_ArchivesImagesAndDatabases\Problem80.cpp" />
     <ClCompile Include="src\Chapter10_ArchivesImagesAndDatabases\Problem81.cpp" />
@@ -282,6 +295,7 @@
     <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases\ean_13_barcode.h" />
     <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases\ean_13_barcode_png_generator.h" />
     <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases\png_writer_wrapper.h" />
+    <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases\SqliteMovies.h" />
     <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases\zip_lib_wrapper.h" />
     <ClInclude Include="inc\Chapter1_MathProblems.h" />
     <ClInclude Include="inc\Chapter1_MathProblems\Digits.h" />
@@ -335,6 +349,7 @@
     <Image Include="res\problem80\folder\subfolder\UseYourIllussionII.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="res\db\movies.db" />
     <None Include="res\problem79.zip" />
     <None Include="res\problem80\folder\multi_page_2.pdf" />
     <None Include="res\problem80\folder\multi_page_3.docx" />
