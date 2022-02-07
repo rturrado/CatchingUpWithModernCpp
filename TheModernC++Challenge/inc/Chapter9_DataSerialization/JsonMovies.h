@@ -132,7 +132,6 @@ namespace rtc::movies
     };
     inline bool operator==(const doc& lhs, const doc& rhs) { return lhs.catalog == rhs.catalog; }
 
-
 }  // namespace rtc::movies
 
 

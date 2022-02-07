@@ -476,6 +476,12 @@
     <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases\SqliteMovies.h">
       <Filter>Header Files\Chapter10_ArchivesImagesAndDatabases</Filter>
     </ClInclude>
+    <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases\ConsoleMovies.h">
+      <Filter>Header Files\Chapter10_ArchivesImagesAndDatabases</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases\FileMovies.h">
+      <Filter>Header Files\Chapter10_ArchivesImagesAndDatabases</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="res\sample.txt">
@@ -483,6 +489,9 @@
     </Text>
     <Text Include="res\problem34.txt">
       <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="res\db\NewMovies.txt">
+      <Filter>Resource Files\db</Filter>
     </Text>
   </ItemGroup>
   <ItemGroup>
@@ -538,9 +547,6 @@
     </None>
     <None Include="res\problem80\folder\multi_page_3.docx">
       <Filter>Resource Files\problem80\folder</Filter>
-    </None>
-    <None Include="res\db\movies.db">
-      <Filter>Resource Files\db</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

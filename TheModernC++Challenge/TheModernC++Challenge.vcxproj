@@ -292,8 +292,10 @@
     <ClInclude Include="..\inc\Print.h" />
     <ClInclude Include="..\inc\Timer.h" />
     <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases.h" />
+    <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases\ConsoleMovies.h" />
     <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases\ean_13_barcode.h" />
     <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases\ean_13_barcode_png_generator.h" />
+    <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases\FileMovies.h" />
     <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases\png_writer_wrapper.h" />
     <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases\SqliteMovies.h" />
     <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases\zip_lib_wrapper.h" />
@@ -329,6 +331,7 @@
     <ClInclude Include="inc\Problems.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="res\db\NewMovies.txt" />
     <Text Include="res\problem34.txt" />
     <Text Include="res\sample.txt" />
   </ItemGroup>
@@ -349,7 +352,6 @@
     <Image Include="res\problem80\folder\subfolder\UseYourIllussionII.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\db\movies.db" />
     <None Include="res\problem79.zip" />
     <None Include="res\problem80\folder\multi_page_2.pdf" />
     <None Include="res\problem80\folder\multi_page_3.docx" />

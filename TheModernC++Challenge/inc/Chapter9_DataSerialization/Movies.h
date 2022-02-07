@@ -113,6 +113,7 @@ namespace rtc::movies
             os << (fill_line_start + 1) << "id: " << id << "\n";
             os << (fill_line_start + 1) << "title: " << title << "\n";
             os << (fill_line_start + 1) << "year: " << year << "\n";
+            os << (fill_line_start + 1) << "length: " << length << "\n";
             cast.print(os, fill_line_start + 1);
             directors.print(os, fill_line_start + 1);
             writers.print(os, fill_line_start + 1);

@@ -5,6 +5,7 @@
 #include <format>
 #include <iostream>  // cout
 
+
 // Reading movies from an SQLite database
 //
 // Write a program that reads movies from an SQLite database and displays them on the console.
@@ -27,15 +28,12 @@
 //                                                                           role      text
 void problem_85_main()
 {
-    using namespace rtc::movies::sqlite_mcpp;
-
     const auto db_file_path{ std::filesystem::current_path() / "res" / "db" / "movies.db" };
 
     try
     {
-        rtc::movies::sqlite_mcpp::database movies_db{};
-        sqlite::database sqlite_db{ create_movies_database(db_file_path) };
-        movies_db.load_from(sqlite_db);
+        auto sqlite_db{ rtc::movies::sqlite_mcpp::create_movies_database(db_file_path) };
+        auto movies_db{ rtc::movies::sqlite_mcpp::database{ sqlite_db } };
         std::cout << movies_db;
     }
     catch (const sqlite::sqlite_exception& ex)
@@ -50,7 +48,7 @@ void problem_85_main()
 
     std::cout << "\n";
 
-    remove_movies_database_file(db_file_path);
+    rtc::movies::sqlite_mcpp::remove_movies_database_file(db_file_path);
 
     std::cout << "\n";
 }

@@ -169,12 +169,11 @@ namespace rtc::movies::xml
         // doc_ should be used as a cache, but it isn't at the moment
         // We load from file to doc_, and then from doc_ to the different structs
         // We save from the different structs to doc_, and then to file
-        // We never check if the structs contents have changed, so we could avoid writing to doc_ and even to file
+        // We never check if the structs contents have changed, to avoid writing to doc_ and even to file
         // That same check would be mandatory before querying doc_ directly, once loaded (e.g. problem 74)
         pugi::xml_document pugi_xml_doc_{};
     };
     inline bool operator==(const doc& lhs, const doc& rhs) { return lhs.catalog == rhs.catalog; }
-
 
 }  // namespace rtc::movies::xml
 
