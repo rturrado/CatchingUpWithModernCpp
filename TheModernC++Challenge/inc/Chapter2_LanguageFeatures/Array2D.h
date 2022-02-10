@@ -11,7 +11,7 @@
 #include <vector>
 
 template <typename T>
-concept printable = requires(std::ostream & os, T t) { os << t; };
+concept printable = requires(std::ostream& os, T t) { os << t; };
 
 template <printable T>
 class Array2D

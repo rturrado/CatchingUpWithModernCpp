@@ -9,7 +9,7 @@ import Utils;
 namespace TemplateArgumentDeduction
 {
     template <typename T>
-    concept Printable = requires(std::ostream & os, T a) { os << a; };
+    concept Printable = requires(std::ostream& os, T a) { os << a; };
 
     template <Printable T>
     class Vector

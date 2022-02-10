@@ -8,7 +8,7 @@ import <string>;
 import <vector>;
 
 template <typename T>
-concept Printable = requires(std::ostream & os, T a) { os << a; };
+concept Printable = requires(std::ostream& os, T a) { os << a; };
 
 template <Printable T>
 void print_span(const std::span<T> s)

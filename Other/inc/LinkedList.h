@@ -151,7 +151,7 @@ private:
 
 // operator<< for LinkedList
 template <typename T>
-concept Printable = requires (std::ostream & os, const T & t) { os << t; };
+concept Printable = requires (std::ostream& os, const T& t) { os << t; };
 
 template <Printable T>
 std::ostream& operator<<(std::ostream& os, const LinkedList<T>& list)

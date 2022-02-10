@@ -98,7 +98,7 @@ export void ranges_main()
         Point3 p2{ 5, 15, 25 };
         Point3 p3{ -10, 10, -10 };
         std::vector<Point3> points{ p1, p2, p3 };
-        std::ranges::sort(points, std::less<>{}, & Point3::x_);
+        std::ranges::sort(points, std::less<>{}, &Point3::x_);
         for (auto&& p : points) { std::cout << p << " "; }
         std::cout << "\n";
     }
