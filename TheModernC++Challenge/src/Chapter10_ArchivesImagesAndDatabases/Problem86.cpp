@@ -15,7 +15,8 @@
 namespace fs = std::filesystem;
 
 
-void add_new_movie(rtc::movies::sqlite_mcpp::database& movies_db, const rtc::movies::Movie& movie)
+// insert_movie updates movie.id
+void add_new_movie(rtc::movies::sqlite_mcpp::database& movies_db, rtc::movies::Movie& movie)
 {
     std::ostringstream oss{};
     oss << movie << "\nAre you sure you want to add this movie to the movies database? [y/n] ";
@@ -31,7 +32,6 @@ void add_new_movie_from_console(rtc::movies::sqlite_mcpp::database& movies_db)
     std::cout << "Please enter the movie data (ID will be later overwritten with DB's Movies.rowid)\n";
     rtc::movies::Movie movie{};
     rtc::movies::console::from_console(movie);
-    movie.id = static_cast<int>(movies_db.get_next_movie_id());
     add_new_movie(movies_db, movie);
 }
 
@@ -49,7 +49,6 @@ void add_new_movie_from_file(rtc::movies::sqlite_mcpp::database& movies_db)
         {
             rtc::movies::Movie movie{};
             rtc::movies::file::from_file(ifs, movie);
-            movie.id = static_cast<int>(movies_db.get_next_movie_id());
             add_new_movie(movies_db, movie);
         }
     }
@@ -90,10 +89,18 @@ void problem_86_main()
 
     try
     {
-        auto sqlite_db{ rtc::movies::sqlite_mcpp::create_movies_database(db_file_path) };
-        auto movies_db{ rtc::movies::sqlite_mcpp::database{ sqlite_db } };
-        add_new_movies(movies_db);
-        std::cout << movies_db;
+        {
+            auto sqlite_db{ rtc::movies::sqlite_mcpp::create_movies_database(db_file_path) };
+            auto movies_db{ rtc::movies::sqlite_mcpp::database{ sqlite_db } };
+
+            add_new_movies(movies_db);
+
+            std::cout << movies_db;
+        }
+
+        std::cout << "\n";
+
+        rtc::movies::sqlite_mcpp::remove_movies_database_file(db_file_path);
     }
     catch (const sqlite::sqlite_exception& ex)
     {
@@ -104,10 +111,6 @@ void problem_86_main()
     {
         std::cout << "Error: " << ex.what() << "\n";
     }
-
-    std::cout << "\n";
-
-    rtc::movies::sqlite_mcpp::remove_movies_database_file(db_file_path);
 
     std::cout << "\n";
 }

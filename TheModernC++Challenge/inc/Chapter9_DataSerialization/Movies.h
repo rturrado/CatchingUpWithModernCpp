@@ -4,6 +4,8 @@
 #include "PrettyPrint.h"
 
 #include <chrono>
+#include <filesystem>
+#include <optional>
 #include <ostream>
 #include <string>
 #include <vector>
@@ -11,6 +13,8 @@
 
 namespace rtc::movies
 {
+    namespace fs = std::filesystem;
+
     struct Role
     {
         std::string star{};
@@ -20,8 +24,8 @@ namespace rtc::movies
         {
             os << fill_line_start << star << " (" << name << ")";
         }
+        auto operator<=>(const Role& other) const = default;
     };
-    inline bool operator==(const Role& lhs, const Role& rhs) { return lhs.star == rhs.star and lhs.name == rhs.name; }
     inline std::ostream& operator<<(std::ostream& os, const Role& role) { role.print(os); return os; }
 
     struct Cast
@@ -36,8 +40,8 @@ namespace rtc::movies
                 role.print(os, fill_line_start + 1); os << "\n";
             }
         }
+        auto operator<=>(const Cast& other) const = default;
     };
-    inline bool operator==(const Cast& lhs, const Cast& rhs) { return lhs.cast == rhs.cast; }
     inline std::ostream& operator<<(std::ostream& os, const Cast& cast) { cast.print(os); return os; }
 
     struct Director
@@ -48,8 +52,8 @@ namespace rtc::movies
         {
             os << fill_line_start << name;
         }
+        auto operator<=>(const Director& other) const = default;
     };
-    inline bool operator==(const Director& lhs, const Director& rhs) { return lhs.name == rhs.name; }
     inline std::ostream& operator<<(std::ostream& os, const Director& director) { director.print(os); return os; }
 
     struct Directors
@@ -64,8 +68,8 @@ namespace rtc::movies
                 director.print(os, fill_line_start + 1); os << "\n";
             }
         }
+        auto operator<=>(const Directors& other) const = default;
     };
-    inline bool operator==(const Directors& lhs, const Directors& rhs) { return lhs.directors == rhs.directors; }
     inline std::ostream& operator<<(std::ostream& os, const Directors& directors) { directors.print(os); return os; }
 
 
@@ -77,8 +81,8 @@ namespace rtc::movies
         {
             os << fill_line_start << name;
         }
+        auto operator<=>(const Writer& other) const = default;
     };
-    inline bool operator==(const Writer& lhs, const Writer& rhs) { return lhs.name == rhs.name; }
     inline std::ostream& operator<<(std::ostream& os, const Writer& writer) { writer.print(os); return os; }
 
     struct Writers
@@ -93,9 +97,42 @@ namespace rtc::movies
                 writer.print(os, fill_line_start + 1); os << "\n";
             }
         }
+        auto operator<=>(const Writers& other) const = default;
     };
-    inline bool operator==(const Writers& lhs, const Writers& rhs) { return lhs.writers == rhs.writers; }
     inline std::ostream& operator<<(std::ostream& os, const Writers& writers) { writers.print(os); return os; }
+
+    struct MediaFile
+    {
+        size_t id{};
+        fs::path file_path{};
+        std::optional<std::string> description{};
+
+        void print(std::ostream& os, const FillLineStart& fill_line_start = {}) const noexcept
+        {
+            os << fill_line_start << "Media file:\n";
+            os << (fill_line_start + 1) << "id: " << id << "\n";
+            os << (fill_line_start + 1) << "path: " << file_path.generic_string() << "\n";
+            os << (fill_line_start + 1) << "description: " << description.value_or("") << "\n";
+        }
+        auto operator<=>(const MediaFile& other) const = default;
+    };
+    inline std::ostream& operator<<(std::ostream& os, const MediaFile& media_file) { media_file.print(os); return os; }
+
+    struct MediaFiles
+    {
+        std::vector<MediaFile> media_files{};
+
+        void print(std::ostream& os, const FillLineStart& fill_line_start = {}) const noexcept
+        {
+            os << fill_line_start << "Media files:\n";
+            for (const auto& media_file : media_files)
+            {
+                media_file.print(os, fill_line_start + 1);
+            }
+        }
+        auto operator<=>(const MediaFiles& other) const = default;
+    };
+    inline std::ostream& operator<<(std::ostream& os, const MediaFiles& media_files) { media_files.print(os); return os; }
 
     struct Movie
     {
@@ -106,6 +143,7 @@ namespace rtc::movies
         Cast cast{};
         Directors directors{};
         Writers writers{};
+        MediaFiles media_files{};
 
         void print(std::ostream& os, const FillLineStart& fill_line_start = {}) const noexcept
         {
@@ -117,18 +155,10 @@ namespace rtc::movies
             cast.print(os, fill_line_start + 1);
             directors.print(os, fill_line_start + 1);
             writers.print(os, fill_line_start + 1);
+            media_files.print(os, fill_line_start + 1);
         }
+        auto operator<=>(const Movie& other) const = default;
     };
-    inline bool operator==(const Movie& lhs, const Movie& rhs)
-    {
-        return lhs.id == rhs.id
-            and lhs.title == rhs.title
-            and lhs.year == rhs.year
-            and lhs.length == rhs.length
-            and lhs.cast == rhs.cast
-            and lhs.directors == rhs.directors
-            and lhs.writers == rhs.writers;
-    }
     inline std::ostream& operator<<(std::ostream& os, const Movie& movie) { movie.print(os); return os; }
 
     struct Catalog
@@ -143,8 +173,8 @@ namespace rtc::movies
                 movie.print(os, fill_line_start + 1);
             }
         }
+        auto operator<=>(const Catalog& other) const = default;
     };
-    inline bool operator==(const Catalog& lhs, const Catalog& rhs) { return lhs.movies == rhs.movies; }
     inline std::ostream& operator<<(std::ostream& os, const Catalog& catalog) { catalog.print(os); return os; }
 }  // namespace rtc::movies
 

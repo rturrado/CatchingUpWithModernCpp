@@ -32,9 +32,16 @@ void problem_85_main()
 
     try
     {
-        auto sqlite_db{ rtc::movies::sqlite_mcpp::create_movies_database(db_file_path) };
-        auto movies_db{ rtc::movies::sqlite_mcpp::database{ sqlite_db } };
-        std::cout << movies_db;
+        {
+            auto sqlite_db{ rtc::movies::sqlite_mcpp::create_movies_database(db_file_path) };
+            auto movies_db{ rtc::movies::sqlite_mcpp::database{ sqlite_db } };
+
+            std::cout << movies_db;
+        }
+
+        std::cout << "\n";
+
+        rtc::movies::sqlite_mcpp::remove_movies_database_file(db_file_path);
     }
     catch (const sqlite::sqlite_exception& ex)
     {
@@ -45,10 +52,6 @@ void problem_85_main()
     {
         std::cout << "Error: " << ex.what() << "\n";
     }
-
-    std::cout << "\n";
-
-    rtc::movies::sqlite_mcpp::remove_movies_database_file(db_file_path);
 
     std::cout << "\n";
 }

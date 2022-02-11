@@ -25,7 +25,7 @@ namespace rtc::movies::file
         }
     }
 
-    inline void from_file(std::ifstream & ifs, Writers& writers)
+    inline void from_file(std::ifstream& ifs, Writers& writers)
     {
         std::string line{};
         std::getline(ifs, line);
@@ -37,7 +37,7 @@ namespace rtc::movies::file
         }
     }
 
-    inline void from_file(std::ifstream & ifs, Directors& directors)
+    inline void from_file(std::ifstream& ifs, Directors& directors)
     {
         std::string line{};
         std::getline(ifs, line);

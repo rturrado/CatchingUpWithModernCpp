@@ -21,15 +21,19 @@ private:
     static inline std::string message_{ "file path does not exist: " };
 };
 
+template <typename T>
+auto get_file_content(const fs::path& file_path)
+{
+    std::ifstream ifs{ file_path, std::ios::in | std::ios::binary };
+    std::vector<T> content{ std::istreambuf_iterator{ifs}, {} };
+    return content;
+};
+
 inline bool are_filesystem_entries_equal(const fs::path& path_1, const fs::path& path_2)
 {
     if (path_1.filename() != path_2.filename()) { return false; }
 
-    std::ifstream ifs_1{ path_1, std::ios::in | std::ios::binary };
-    std::ifstream ifs_2{ path_2, std::ios::in | std::ios::binary };
-    std::vector<uint8_t> contents_1{ std::istreambuf_iterator{ifs_1}, {} };
-    std::vector<uint8_t> contents_2{ std::istreambuf_iterator{ifs_2}, {} };
-    return contents_1 == contents_2;
+    return get_file_content<uint8_t>(path_1) == get_file_content<uint8_t>(path_2);
 }
 
 inline bool are_filesystem_trees_equal(const fs::path& path_1, const fs::path& path_2)
