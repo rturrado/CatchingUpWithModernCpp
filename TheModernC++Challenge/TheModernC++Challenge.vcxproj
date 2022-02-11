@@ -205,6 +205,13 @@
     <ClCompile Include="src\Chapter10_ArchivesImagesAndDatabases\Problem85.cpp" />
     <ClCompile Include="src\Chapter10_ArchivesImagesAndDatabases\Problem86.cpp" />
     <ClCompile Include="src\Chapter10_ArchivesImagesAndDatabases\Problem87.cpp" />
+    <ClCompile Include="src\Chapter11_Cryptography\Problem88.cpp" />
+    <ClCompile Include="src\Chapter11_Cryptography\Problem89.cpp" />
+    <ClCompile Include="src\Chapter11_Cryptography\Problem90.cpp" />
+    <ClCompile Include="src\Chapter11_Cryptography\Problem91.cpp" />
+    <ClCompile Include="src\Chapter11_Cryptography\Problem92.cpp" />
+    <ClCompile Include="src\Chapter11_Cryptography\Problem93.cpp" />
+    <ClCompile Include="src\Chapter11_Cryptography\Problem94.cpp" />
     <ClCompile Include="src\Chapter1_MathProblems\Problem1.cpp" />
     <ClCompile Include="src\Chapter1_MathProblems\Problem10.cpp" />
     <ClCompile Include="src\Chapter1_MathProblems\Problem11.cpp" />
@@ -299,6 +306,7 @@
     <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases\png_writer_wrapper.h" />
     <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases\SqliteMovies.h" />
     <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases\zip_lib_wrapper.h" />
+    <ClInclude Include="inc\Chapter11_Cryptography.h" />
     <ClInclude Include="inc\Chapter1_MathProblems.h" />
     <ClInclude Include="inc\Chapter1_MathProblems\Digits.h" />
     <ClInclude Include="inc\Chapter1_MathProblems\Math.h" />

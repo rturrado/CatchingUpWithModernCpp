@@ -79,6 +79,12 @@
     <Filter Include="Resource Files\db">
       <UniqueIdentifier>{8dc2b77f-dc66-4280-b7de-1b978bcfcf04}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Chapter11_Cryptography">
+      <UniqueIdentifier>{d9048ce1-9960-4daa-be0d-8287a0ff6a45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Chapter11_Cryptography">
+      <UniqueIdentifier>{03bbf094-978f-4585-ad79-beeba9442ee3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp">
@@ -354,6 +360,27 @@
     <ClCompile Include="C:\Libraries\sqlite\sqlite3.c">
       <Filter>Source Files\Chapter10_ArchivesImagesAndDatabases</Filter>
     </ClCompile>
+    <ClCompile Include="src\Chapter11_Cryptography\Problem88.cpp">
+      <Filter>Source Files\Chapter11_Cryptography</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chapter11_Cryptography\Problem89.cpp">
+      <Filter>Source Files\Chapter11_Cryptography</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chapter11_Cryptography\Problem90.cpp">
+      <Filter>Source Files\Chapter11_Cryptography</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chapter11_Cryptography\Problem91.cpp">
+      <Filter>Source Files\Chapter11_Cryptography</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chapter11_Cryptography\Problem92.cpp">
+      <Filter>Source Files\Chapter11_Cryptography</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chapter11_Cryptography\Problem93.cpp">
+      <Filter>Source Files\Chapter11_Cryptography</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chapter11_Cryptography\Problem94.cpp">
+      <Filter>Source Files\Chapter11_Cryptography</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Chapter1_MathProblems.h">
@@ -481,6 +508,9 @@
     </ClInclude>
     <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases\FileMovies.h">
       <Filter>Header Files\Chapter10_ArchivesImagesAndDatabases</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Chapter11_Cryptography.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -11,6 +11,7 @@
 #include "Chapter8_DesignPatterns.h"
 #include "Chapter9_DataSerialization.h"
 #include "Chapter10_ArchivesImagesAndDatabases.h"
+#include "Chapter11_Cryptography.h"
 
 #include <cassert>  // assert
 #include <functional>  // function, invoke
@@ -136,6 +137,14 @@ private:
         problem_85_main,
         problem_86_main,
         problem_87_main,
+
+        problem_88_main,  // Cryptography
+        problem_89_main,
+        problem_90_main,
+        problem_91_main,
+        problem_92_main,
+        problem_93_main,
+        problem_94_main,
     };
 };
 
