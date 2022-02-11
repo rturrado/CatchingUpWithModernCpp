@@ -63,28 +63,28 @@ struct CommandNotFoundError : public std::runtime_error
 {
     CommandNotFoundError(const std::string& command) : std::runtime_error{ message_ + command } {}
 private:
-    std::string message_{ "command not found: " };
+    static inline std::string message_{ "command not found: " };
 };
 
 struct SubcommandNotFoundError : public std::runtime_error
 {
     SubcommandNotFoundError(const std::string& subcommand) : std::runtime_error{ message_ + subcommand } {}
 private:
-    std::string message_{ "subcommand not found: " };
+    static inline std::string message_{ "subcommand not found: " };
 };
 
 struct InvalidMediaIdError : public std::runtime_error
 {
     InvalidMediaIdError(const std::string& media_id_str) : std::runtime_error{ message_ + media_id_str } {}
 private:
-    std::string message_{ "invalid media ID: " };
+    static inline std::string message_{ "invalid media ID: " };
 };
 
 struct InvalidMovieIdError : public std::runtime_error
 {
     InvalidMovieIdError(const std::string& movie_id_str) : std::runtime_error{ message_ + movie_id_str } {}
 private:
-    std::string message_{ "invalid movie ID: " };
+    static inline std::string message_{ "invalid movie ID: " };
 };
 
 struct InvalidSubcommandError : public std::runtime_error
@@ -187,10 +187,10 @@ void parse_add_options(std::istringstream& iss, CommandLineOptions& options) {
     if (std::regex_match(line, matches, pattern))
     {
         options.movie_id = std::stoi(matches[1].str());
-        options.media_file_path = matches[2].str();
+        options.media_file_path = rtc::string::trim_right(matches[2].str());
         if (matches.size() == 4)
         {
-            options.media_file_description = matches[3].str();
+            options.media_file_description = rtc::string::trim_right(matches[3].str());
         }
     }
 }
@@ -269,7 +269,7 @@ void list_media(const rtc::movies::sqlite_mcpp::database& movies_db, size_t movi
     {
         for (auto& media_file : movies_db.get_media_files(movie_id))
         {
-            std::cout << "\t" << media_file << "\n";
+            std::cout << media_file << "\n";
         }
     }
     catch (const rtc::movies::sqlite_mcpp::MovieIdNotFoundError& ex)
@@ -280,9 +280,9 @@ void list_media(const rtc::movies::sqlite_mcpp::database& movies_db, size_t movi
 
 void list_movies(const rtc::movies::sqlite_mcpp::database& movies_db, const std::regex& pattern)
 {
-    for (auto& title : movies_db.get_movie_titles(pattern))
+    for (auto& movie : movies_db.get_movies(pattern))
     {
-        std::cout << "\t" << title << "\n";
+        std::cout << movie << "\n";
     }
 }
 
@@ -313,15 +313,22 @@ void menu(rtc::movies::sqlite_mcpp::database& movies_db)
 {
     for (;;)
     {
-        auto command_line{ read_command_line() };
+        try
+        {
+            auto command_line{ read_command_line() };
 
-        auto [command, subcommand, options] = parse_command_line(command_line);
+            auto [command, subcommand, options] = parse_command_line(command_line);
 
-        if (command == command_t::quit) { break; }
+            if (command == command_t::quit) { break; }
 
-        execute_command(movies_db, command, subcommand, options);
+            execute_command(movies_db, command, subcommand, options);
 
-        std::cout << "\n";
+            std::cout << "\n";
+        }
+        catch (const std::exception& ex)
+        {
+            std::cout << "Error: " << ex.what() << "\n\n";
+        }
     }
 }
 

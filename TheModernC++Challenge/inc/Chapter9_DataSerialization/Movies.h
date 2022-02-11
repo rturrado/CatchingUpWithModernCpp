@@ -111,8 +111,8 @@ namespace rtc::movies
         {
             os << fill_line_start << "Media file:\n";
             os << (fill_line_start + 1) << "id: " << id << "\n";
-            os << (fill_line_start + 1) << "path: " << file_path.generic_string() << "\n";
-            os << (fill_line_start + 1) << "description: " << description.value_or("") << "\n";
+            os << (fill_line_start + 1) << "path: '" << file_path.generic_string() << "'\n";
+            os << (fill_line_start + 1) << "description: '" << description.value_or("") << "'\n";
         }
         auto operator<=>(const MediaFile& other) const = default;
     };

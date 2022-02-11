@@ -365,13 +365,14 @@ namespace rtc::movies::sqlite_mcpp
         }
 
     public:
-        [[nodiscard]] auto get_movie_titles(const std::regex& pattern) const noexcept
+        [[nodiscard]] auto get_movies(const std::regex& pattern) const noexcept
         {
-            std::vector<std::string> ret{};
+            std::vector<Movie> ret{};
             std::ranges::copy_if(
-                catalog.movies | std::ranges::views::transform(&Movie::title),
+                catalog.movies,
                 std::back_inserter(ret),
-                [&pattern](const auto& title) { return std::regex_match(title.c_str(), pattern); });
+                [&pattern](const auto& title) { return std::regex_match(title.c_str(), pattern); },
+                &Movie::title);
             return ret;
         }
 
