@@ -1,6 +1,6 @@
 #include "Chapter6_AlgorithmsAndDataStructures.h"
 #include "Chapter6_AlgorithmsAndDataStructures/DoubleBuffer.h"
-#include "Print.h"
+#include "RtcPrint.h"
 
 #include <algorithm>  // for_each
 #include <chrono>

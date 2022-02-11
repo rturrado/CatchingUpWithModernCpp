@@ -1,6 +1,6 @@
 #include "Chapter6_AlgorithmsAndDataStructures.h"
 #include "Chapter6_AlgorithmsAndDataStructures/CircularBuffer.h"
-#include "Print.h"
+#include "RtcPrint.h"
 
 #include <iostream>  // cout
 #include <stdexcept>  // runtime_error

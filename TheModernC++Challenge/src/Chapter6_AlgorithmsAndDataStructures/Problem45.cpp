@@ -1,6 +1,6 @@
 #include "Chapter6_AlgorithmsAndDataStructures.h"
 #include "Chapter6_AlgorithmsAndDataStructures/PriorityQueue.h"
-#include "Print.h"
+#include "RtcPrint.h"
 
 #include <ios>  // boolalpha
 #include <functional>  // greater, less

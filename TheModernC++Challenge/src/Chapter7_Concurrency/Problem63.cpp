@@ -1,5 +1,5 @@
 #include "Chapter7_Concurrency.h"
-#include "Timer.h"
+#include "RtcTimer.h"
 
 #include <algorithm>  // max_element, min_element, shuffle, transform
 #include <cassert>  // assert

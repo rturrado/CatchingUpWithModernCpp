@@ -419,13 +419,13 @@
     <ClInclude Include="inc\Chapter1_MathProblems\Math.h">
       <Filter>Header Files\Chapter1_MathProblems</Filter>
     </ClInclude>
-    <ClInclude Include="..\inc\ConsoleRead.h">
+    <ClInclude Include="..\inc\RtcConsoleRead.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\inc\Print.h">
+    <ClInclude Include="..\inc\RtcPrint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\inc\Timer.h">
+    <ClInclude Include="..\inc\RtcTimer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\Chapter7_Concurrency.h">
@@ -434,7 +434,7 @@
     <ClInclude Include="inc\Chapter8_DesignPatterns.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\inc\PrettyPrint.h">
+    <ClInclude Include="..\inc\RtcPrettyPrint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\Chapter9_DataSerialization.h">
@@ -537,6 +537,9 @@
     <Image Include="res\problem80\file.jpg">
       <Filter>Resource Files\problem80</Filter>
     </Image>
+    <Image Include="res\db\BladeRunner.jpg">
+      <Filter>Resource Files\db</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\problem79.zip">
@@ -568,5 +571,10 @@
     <Font Include="res\problem83\calibrii.ttf">
       <Filter>Resource Files\fonts</Filter>
     </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="res\db\BladeRunner.mp4">
+      <Filter>Resource Files\db</Filter>
+    </Media>
   </ItemGroup>
 </Project>

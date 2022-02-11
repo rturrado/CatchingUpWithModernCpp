@@ -1,5 +1,5 @@
 #include "Chapter1_MathProblems.h"
-#include "Timer.h"  // function_timer
+#include "RtcTimer.h"  // function_timer
 
 #include <iostream>  // cout
 #include <map>

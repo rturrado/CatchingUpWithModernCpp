@@ -2,8 +2,9 @@
 #include "Chapter10_ArchivesImagesAndDatabases.h"
 #include "Chapter10_ArchivesImagesAndDatabases/SqliteMovies.h"
 
-#include <algorithm>  // transform, none_of
-#include <cctype>  // tolower
+#include "RtcSstream.h"  // get_unread
+#include "RtcString.h"  // to_lowercase
+
 #include <filesystem>
 #include <format>
 #include <iostream>  // cin, cout
@@ -13,7 +14,7 @@
 #include <regex>
 #include <sstream>  // istringstream, ostringstream
 #include <stdexcept>  // runtime_error
-#include <string>
+#include <string>  // getline
 #include <tuple>
 #include <vector>
 
@@ -99,16 +100,6 @@ private:
     std::string message_{};
 };
 
-void to_lowercase(std::string& str)
-{
-    std::ranges::transform(str, std::begin(str), [](unsigned char c) { return std::tolower(c); });
-}
-
-auto get_unread(std::istringstream& iss)
-{
-    return iss.eof() ? "" : iss.str().substr(iss.tellg());
-}
-
 void print_usage()
 {
     std::cout << "Usage:\n";
@@ -143,7 +134,7 @@ void parse_command(std::istringstream& iss, command_t& command)
 {
     std::string command_str{};
     iss >> command_str;
-    to_lowercase(command_str);
+    rtc::string::to_lowercase(command_str);
     if (not string_to_command.contains(command_str)) {
         throw CommandNotFoundError{ command_str }; }
     command = string_to_command[command_str];
@@ -156,7 +147,7 @@ void parse_subcommand(std::istringstream& iss, const command_t& command, subcomm
 
     std::string subcommand_str{};
     iss >> subcommand_str;
-    to_lowercase(subcommand_str);
+    rtc::string::to_lowercase(subcommand_str);
     if (not string_to_subcommand.contains(subcommand_str)) {  // this subcommand does not exist
         throw SubcommandNotFoundError{ subcommand_str }; }
     subcommand = string_to_subcommand[subcommand_str];
@@ -190,7 +181,7 @@ void parse_movie_title_regex_option(std::istringstream& iss, CommandLineOptions&
 }
 
 void parse_add_options(std::istringstream& iss, CommandLineOptions& options) {
-    std::string line{ get_unread(iss) };
+    std::string line{ rtc::sstream::get_unread(iss) };
     std::smatch matches{};
     const std::regex pattern{ R"(\s*([\d]+)\s*,\s*([^,]+)(?:,\s*(.*))?)" };
     if (std::regex_match(line, matches, pattern))

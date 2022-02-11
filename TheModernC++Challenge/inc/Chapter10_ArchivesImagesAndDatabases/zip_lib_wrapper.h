@@ -1,8 +1,8 @@
 #ifndef ZIP_LIB_WRAPPER_H
 #define ZIP_LIB_WRAPPER_H
 
-#include "ConsoleRead.h"
-#include "Filesystem.h"
+#include "RtcConsoleRead.h"
+#include "RtcFilesystem.h"
 
 #include "ZipArchive.h"
 #include "ZipArchiveEntry.h"

@@ -1,5 +1,5 @@
-#ifndef CONSOLE_READ_H
-#define CONSOLE_READ_H
+#ifndef RTC_CONSOLE_READ_H
+#define RTC_CONSOLE_READ_H
 
 
 #include <algorithm>  // binary_search, count_if, sort
@@ -181,4 +181,4 @@ inline std::string read_n_digit_string(size_t n)
 }
 
 
-#endif  // CONSOLE_READ_H
+#endif  // RTC_CONSOLE_READ_H

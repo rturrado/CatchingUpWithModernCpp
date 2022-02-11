@@ -1,6 +1,6 @@
 #include "Chapter8_DesignPatterns.h"
-#include "PrettyPrint.h"
-#include "Print.h"
+#include "RtcPrettyPrint.h"
+#include "RtcPrint.h"
 
 #include <cassert>  // assert
 #include <cmath>  // fabs

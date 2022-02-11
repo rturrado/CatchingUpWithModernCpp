@@ -1,5 +1,5 @@
-#ifndef FILESYSTEM_H
-#define FILESYSTEM_H
+#ifndef RTC_FILESYSTEM_H
+#define RTC_FILESYSTEM_H
 
 #include <algorithm>  // copy, sort
 #include <cstdint>  // uint8_t
@@ -67,4 +67,4 @@ inline bool are_filesystem_trees_equal(const fs::path& path_1, const fs::path& p
     return false;
 }
 
-#endif  // FILESYSTEM_H
+#endif  // RTC_FILESYSTEM_H

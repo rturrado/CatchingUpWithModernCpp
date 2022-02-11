@@ -1,5 +1,5 @@
-#ifndef PRETTY_PRINT_H
-#define PRETTY_PRINT_H
+#ifndef RTC_PRETTY_PRINT_H
+#define RTC_PRETTY_PRINT_H
 
 #include <algorithm>  // fill_n
 #include <iterator>  // ostream_iterator
@@ -28,4 +28,4 @@ inline FillLineStart operator+(size_t increase, const FillLineStart& fill)
     return fill + increase;
 }
 
-#endif  // PRETTY_PRINT_H
+#endif  // RTC_PRETTY_PRINT_H

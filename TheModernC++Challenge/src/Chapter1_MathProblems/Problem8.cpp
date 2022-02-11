@@ -1,8 +1,8 @@
 #include "Chapter1_MathProblems.h"
 #include "Chapter1_MathProblems/Digits.h"
 #include "Chapter1_MathProblems/Math.h"  // is_prime
-#include "ConsoleRead.h"  // read_positive_number
-#include "Timer.h"  // function_timer
+#include "RtcConsoleRead.h"  // read_positive_number
+#include "RtcTimer.h"  // function_timer
 
 #include <cmath>  // pow
 #include <chrono>  // duration, milli

@@ -1,5 +1,5 @@
 #include "Chapter6_AlgorithmsAndDataStructures.h"
-#include "Random.h"
+#include "RtcRandom.h"
 
 #include <algorithm>  // for_each
 #include <atomic>

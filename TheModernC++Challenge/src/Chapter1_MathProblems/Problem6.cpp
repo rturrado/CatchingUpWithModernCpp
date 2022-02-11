@@ -1,7 +1,7 @@
 #include "Chapter1_MathProblems.h"
 #include "Chapter1_MathProblems/Math.h"  // divisors
-#include "ConsoleRead.h"  // read_positive_number
-#include "Print.h"
+#include "RtcConsoleRead.h"  // read_positive_number
+#include "RtcPrint.h"
 
 #include <iostream>  // cout
 #include <numeric>  // accumulate

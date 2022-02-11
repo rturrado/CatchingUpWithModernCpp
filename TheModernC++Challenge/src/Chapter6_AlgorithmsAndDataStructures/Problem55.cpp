@@ -1,5 +1,5 @@
 #include "Chapter6_AlgorithmsAndDataStructures.h"
-#include "Print.h"
+#include "RtcPrint.h"
 
 #include <algorithm>  // min, transform
 #include <iostream>  // cout

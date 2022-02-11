@@ -1,5 +1,5 @@
 #include "Chapter6_AlgorithmsAndDataStructures.h"
-#include "Random.h"
+#include "RtcRandom.h"
 
 #include <algorithm>  // copy, max_element
 #include <functional>  // plus

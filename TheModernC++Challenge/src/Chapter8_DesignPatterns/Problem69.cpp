@@ -1,5 +1,5 @@
 #include "Chapter8_DesignPatterns.h"
-#include "Random.h"
+#include "RtcRandom.h"
 
 #include <algorithm>  // binary_search, sort
 #include <chrono>

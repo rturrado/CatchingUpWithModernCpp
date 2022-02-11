@@ -1,7 +1,7 @@
 #include "Chapter10_ArchivesImagesAndDatabases.h"
 #include "Chapter10_ArchivesImagesAndDatabases/png_writer_wrapper.h"
 
-#include "Random.h"
+#include "RtcRandom.h"
 
 #include <filesystem>
 #include <format>

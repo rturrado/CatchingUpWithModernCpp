@@ -287,10 +287,10 @@
     <ClCompile Include="src\Problem71.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\inc\ConsoleRead.h" />
-    <ClInclude Include="..\inc\PrettyPrint.h" />
-    <ClInclude Include="..\inc\Print.h" />
-    <ClInclude Include="..\inc\Timer.h" />
+    <ClInclude Include="..\inc\RtcConsoleRead.h" />
+    <ClInclude Include="..\inc\RtcPrettyPrint.h" />
+    <ClInclude Include="..\inc\RtcPrint.h" />
+    <ClInclude Include="..\inc\RtcTimer.h" />
     <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases.h" />
     <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases\ConsoleMovies.h" />
     <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases\ean_13_barcode.h" />
@@ -336,6 +336,7 @@
     <Text Include="res\sample.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="res\db\BladeRunner.jpg" />
     <Image Include="res\problem78\images\img01.png" />
     <Image Include="res\problem78\images\img02.png" />
     <Image Include="res\problem78\images\img03.png" />
@@ -363,6 +364,9 @@
     <Font Include="res\problem83\calibril.ttf" />
     <Font Include="res\problem83\calibrili.ttf" />
     <Font Include="res\problem83\calibriz.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="res\db\BladeRunner.mp4" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

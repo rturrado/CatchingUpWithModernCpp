@@ -1,5 +1,5 @@
-#ifndef RANDOM_H
-#define RANDOM_H
+#ifndef RTC_RANDOM_H
+#define RTC_RANDOM_H
 
 #include <concepts>  // floating_point
 #include <random>
@@ -55,4 +55,4 @@ private:
     std::default_random_engine engine_{ std::random_device{}() };
 };
 
-#endif  // RANDOM_H
+#endif  // RTC_RANDOM_H
