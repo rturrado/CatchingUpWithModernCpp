@@ -8,6 +8,7 @@
 #include <iostream>  // cout
 
 using namespace rtc::png_writer;
+using namespace rtc::random;
 
 void paint_gradient_background(PNGWriter& png_writer)
 {

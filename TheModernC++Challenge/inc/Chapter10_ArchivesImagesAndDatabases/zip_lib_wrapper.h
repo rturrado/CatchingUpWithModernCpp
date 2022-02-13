@@ -51,7 +51,7 @@ namespace rtc::zip_lib
     inline void compress(const fs::path& input_path, const fs::path& zip_file_path, const std::string& password = {})
     {
         std::cout << std::format("Compressing: {} -> {}\n", input_path.generic_string(), zip_file_path.generic_string());
-        if (not fs::exists(input_path)) { throw FilePathDoesNotExistError{ input_path.generic_string() }; }
+        if (not fs::exists(input_path)) { throw rtc::filesystem::FilePathDoesNotExistError{ input_path.generic_string() }; }
         if (fs::exists(zip_file_path)) { fs::remove(zip_file_path); }
 
         try
@@ -81,8 +81,8 @@ namespace rtc::zip_lib
     inline void decompress(const fs::path& zip_file_path, const fs::path& output_root_path, const std::string& password = {})
     {
         std::cout << std::format("Decompressing: {} -> {}\n", zip_file_path.generic_string(), output_root_path.generic_string());
-        if (not fs::exists(zip_file_path)) { throw FilePathDoesNotExistError{ zip_file_path.generic_string() }; }
-        if (not fs::exists(output_root_path)) { throw FilePathDoesNotExistError{ output_root_path.generic_string() }; }
+        if (not fs::exists(zip_file_path)) { throw rtc::filesystem::FilePathDoesNotExistError{ zip_file_path.generic_string() }; }
+        if (not fs::exists(output_root_path)) { throw rtc::filesystem::FilePathDoesNotExistError{ output_root_path.generic_string() }; }
 
         std::cout << std::format("\tOpening archive file: {}\n", zip_file_path.generic_string());
         auto archive{ ZipFile::Open(zip_file_path.generic_string()) };
@@ -108,7 +108,7 @@ namespace rtc::zip_lib
     inline void compare_input_and_output(const fs::path& input_path, const fs::path& output_path)
     {
         std::cout << std::format("Checking input '{}' and output '{}' are equal\n", input_path.generic_string(), output_path.generic_string());
-        if (not are_filesystem_trees_equal(input_path, output_path))
+        if (not rtc::filesystem::are_filesystem_trees_equal(input_path, output_path))
         {
             std::cout << std::format("\tError: Input '{}' is different than output '{}'\n", input_path.generic_string(), output_path.generic_string());
         }

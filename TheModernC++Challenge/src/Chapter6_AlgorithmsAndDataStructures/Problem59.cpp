@@ -51,8 +51,8 @@ private:
 
     size_t get_random_index() { return get_random_int(0, static_cast<int>(size()) - 1); }
 
-    static char get_random_letter() { static RandomLetter random_letter_{}; return random_letter_(); }
-    static size_t get_random_int(int low, int high) { static RandomInt random_int_{ low, high }; return random_int_(); }
+    static char get_random_letter() { static rtc::random::RandomLetter random_letter_{}; return random_letter_(); }
+    static size_t get_random_int(int low, int high) { static rtc::random::RandomInt random_int_{ low, high }; return random_int_(); }
 };
 
 // The Weasel program

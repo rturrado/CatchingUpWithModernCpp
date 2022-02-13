@@ -70,7 +70,7 @@ private:
     }
     [[nodiscard]] std::string encode_random_number(const std::string& birth_date_str) const noexcept
     {
-        RandomInt random_int{ 0, get_random_number_max() };
+        rtc::random::RandomInt random_int{ 0, get_random_number_max() };
 
         for (;;)
         {

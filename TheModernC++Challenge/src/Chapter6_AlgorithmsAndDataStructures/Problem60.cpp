@@ -53,7 +53,7 @@ public:
     // Set 90% of probability for a dead cell, 10% for an alive cell
     void set_random_state()
     {
-        static RandomInt random_int_{ 0, 9 };
+        static rtc::random::RandomInt random_int_{ 0, 9 };
         state_ = random_int_() < 9 ? CellState::Dead : CellState::Alive;
     }
 

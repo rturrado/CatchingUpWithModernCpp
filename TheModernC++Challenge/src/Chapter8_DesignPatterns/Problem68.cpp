@@ -56,7 +56,7 @@ public:
     SymbolGenerator(size_t length) noexcept : length_{ length } {}
 
     virtual [[nodiscard]] std::string generate() const noexcept override {
-        static RandomInt random_character{ 0, 31 };  // 32 symbol characters
+        static rtc::random::RandomInt random_character{ 0, 31 };  // 32 symbol characters
         std::string ret(length_, '!');
         std::generate(std::begin(ret), std::end(ret), []() {
                 auto c{ random_character() };
@@ -85,7 +85,7 @@ public:
     {}
 
     virtual [[nodiscard]] std::string generate() const noexcept override {
-        static RandomInt random_character{ first_ascii_code_, last_ascii_code_ };
+        static rtc::random::RandomInt random_character{ first_ascii_code_, last_ascii_code_ };
         std::string ret(length_, static_cast<unsigned char>(first_ascii_code_));
         std::generate(std::begin(ret), std::end(ret), []() { return static_cast<unsigned char>(random_character()); });
         return ret;

@@ -6,7 +6,7 @@
 #include "Chapter9_DataSerialization/Movies.h"
 
 #include "RtcConsoleRead.h"  // read_char
-#include "RtcFilesystem.h"  // get_file_content
+#include "RtcFilesystem.h"
 
 #include "sqlite_modern_cpp.h"
 
@@ -278,7 +278,7 @@ namespace rtc::movies::sqlite_mcpp
             << static_cast<int>(movie_id)
             << media_file.file_path.generic_string()
             << media_file.description
-            << get_file_content<char>(media_file.file_path);
+            << rtc::filesystem::get_binary_file_content<char>(media_file.file_path);
 
         media_file.id = db.last_insert_rowid();
     }

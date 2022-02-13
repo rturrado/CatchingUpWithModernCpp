@@ -14,57 +14,69 @@
 
 namespace fs = std::filesystem;
 
-struct FilePathDoesNotExistError : public std::runtime_error
+
+namespace rtc::filesystem
 {
-    FilePathDoesNotExistError(const std::string& path) : std::runtime_error{ message_ + path } {}
-private:
-    static inline std::string message_{ "file path does not exist: " };
-};
-
-template <typename T>
-auto get_file_content(const fs::path& file_path)
-{
-    std::ifstream ifs{ file_path, std::ios::in | std::ios::binary };
-    std::vector<T> content{ std::istreambuf_iterator{ifs}, {} };
-    return content;
-};
-
-inline bool are_filesystem_entries_equal(const fs::path& path_1, const fs::path& path_2)
-{
-    if (path_1.filename() != path_2.filename()) { return false; }
-
-    return get_file_content<uint8_t>(path_1) == get_file_content<uint8_t>(path_2);
-}
-
-inline bool are_filesystem_trees_equal(const fs::path& path_1, const fs::path& path_2)
-{
-    if (not fs::exists(path_1)) { throw FilePathDoesNotExistError{ path_1.generic_string() }; }
-    if (not fs::exists(path_2)) { throw FilePathDoesNotExistError{ path_2.generic_string() }; }
-
-    if (fs::is_regular_file(path_1))
+    struct FilePathDoesNotExistError : public std::runtime_error
     {
-        return fs::is_regular_file(path_2) and are_filesystem_entries_equal(path_1, path_2);
-    }
-    else if (fs::is_directory(path_1))
+        FilePathDoesNotExistError(const std::string& path) : std::runtime_error{ message_ + path } {}
+    private:
+        static inline std::string message_{ "file path does not exist: " };
+    };
+
+    template <typename T>
+    auto get_binary_file_content(const fs::path& file_path)
     {
-        std::vector<fs::path> entries_1{};
-        std::vector<fs::path> entries_2{};
+        std::ifstream ifs{ file_path, std::ios::in | std::ios::binary };
+        std::vector<T> content{ std::istreambuf_iterator{ifs}, {} };
+        return content;
+    };
 
-        std::copy(fs::recursive_directory_iterator{ path_1 }, {}, std::back_inserter(entries_1));
-        std::copy(fs::recursive_directory_iterator{ path_2 }, {}, std::back_inserter(entries_2));
+    inline auto get_text_file_content(const fs::path& file_path)
+    {
+        std::ifstream ifs{ file_path, std::ios::in };
+        std::string content{ std::istreambuf_iterator{ifs}, {} };
+        return content;
+    };
 
-        std::sort(std::begin(entries_1), std::end(entries_1));
-        std::sort(std::begin(entries_2), std::end(entries_2));
+    inline bool are_filesystem_entries_equal(const fs::path& path_1, const fs::path& path_2)
+    {
+        if (path_1.filename() != path_2.filename()) { return false; }
 
-        return
-            entries_1.size() == entries_2.size() and
-            std::transform_reduce(std::begin(entries_1), std::end(entries_1), std::begin(entries_2),
-                true,
-                std::logical_and<>{},
-                [](auto& p1, auto& p2) { return are_filesystem_entries_equal(p1, p2); }
-        );
+        return get_binary_file_content<uint8_t>(path_1) == get_binary_file_content<uint8_t>(path_2);
     }
-    return false;
-}
+
+    inline bool are_filesystem_trees_equal(const fs::path& path_1, const fs::path& path_2)
+    {
+        if (not fs::exists(path_1)) { throw FilePathDoesNotExistError{ path_1.generic_string() }; }
+        if (not fs::exists(path_2)) { throw FilePathDoesNotExistError{ path_2.generic_string() }; }
+
+        if (fs::is_regular_file(path_1))
+        {
+            return fs::is_regular_file(path_2) and are_filesystem_entries_equal(path_1, path_2);
+        }
+        else if (fs::is_directory(path_1))
+        {
+            std::vector<fs::path> entries_1{};
+            std::vector<fs::path> entries_2{};
+
+            std::copy(fs::recursive_directory_iterator{ path_1 }, {}, std::back_inserter(entries_1));
+            std::copy(fs::recursive_directory_iterator{ path_2 }, {}, std::back_inserter(entries_2));
+
+            std::sort(std::begin(entries_1), std::end(entries_1));
+            std::sort(std::begin(entries_2), std::end(entries_2));
+
+            return
+                entries_1.size() == entries_2.size() and
+                std::transform_reduce(std::begin(entries_1), std::end(entries_1), std::begin(entries_2),
+                    true,
+                    std::logical_and<>{},
+                    [](auto& p1, auto& p2) { return are_filesystem_entries_equal(p1, p2); }
+            );
+        }
+        return false;
+    }
+}  // namespace rtc::filesystem
+
 
 #endif  // RTC_FILESYSTEM_H
