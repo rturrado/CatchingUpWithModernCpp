@@ -1,6 +1,62 @@
 #include "Chapter11_Cryptography.h"
 
+#include "RtcRandom.h"
+#include "RtcFilesystem.h"
+
+#include <algorithm>  // transform
+#include <cctype>  // isalpha, islower, tolower
+#include <filesystem>
 #include <iostream>  // cout
+#include <iterator>  // back_inserter
+#include <memory>  // make_unique, unique_ptr
+#include <string>
+#include <string_view>
+
+
+class Crypt
+{
+public:
+    virtual ~Crypt() = default;
+
+    virtual [[nodiscard]] std::string encrypt(std::string_view text) const = 0;
+    virtual [[nodiscard]] std::string decrypt(std::string_view text) const = 0;
+};
+
+class Caesar : public Crypt
+{
+private:
+    static inline const unsigned char letters_size_{ 26 };
+    unsigned char shift_value_{};
+
+public:
+    Caesar() : shift_value_{ static_cast<unsigned char>(rtc::random::RandomInt{0, letters_size_ - 1}()) } {}
+
+    virtual [[nodiscard]] std::string encrypt(std::string_view text) const override
+    {
+        auto encrypt_char = [this](unsigned char c) {
+            if (not std::isalpha(c)) { return c; }
+            auto ciphered_lower_c_index{ (std::tolower(c) - 'a' + shift_value_) % letters_size_};
+            return static_cast<unsigned char>('a' + ciphered_lower_c_index - (std::islower(c) ? 0 : ('a' - 'A')));
+        };
+
+        std::string ret{};
+        std::ranges::transform(text, std::back_inserter(ret), [&encrypt_char](unsigned char c) { return encrypt_char(c); });
+        return ret;
+    }
+
+    virtual [[nodiscard]] std::string decrypt(std::string_view text) const override
+    {
+        auto decrypt_char = [this](unsigned char c) {
+            if (not std::isalpha(c)) { return c; }
+            auto deciphered_lower_c_index{ (std::tolower(c) - 'a' + letters_size_ - shift_value_) % letters_size_ };
+            return static_cast<unsigned char>('a' + deciphered_lower_c_index - (std::islower(c) ? 0 : ('a' - 'A')));
+        };
+
+        std::string ret{};
+        std::ranges::transform(text, std::back_inserter(ret), [&decrypt_char](unsigned char c) { return decrypt_char(c); });
+        return ret;
+    }
+};
 
 
 // Caesar cipher
@@ -10,5 +66,17 @@
 // ignoring digits, symbols, and other types of characters.
 void problem_88_main()
 {
+    const auto input_file_path{ std::filesystem::current_path() / "res" / "sample.txt" };
+
+    const auto input_file_content{ rtc::filesystem::get_text_file_content(input_file_path) };
+
+    const std::unique_ptr<Crypt> crypt_up{ std::make_unique<Caesar>() };
+
+    const auto encrypted_file_content{ crypt_up->encrypt(input_file_content) };
+    const auto decrypted_file_content{ crypt_up->decrypt(encrypted_file_content) };
+
+    if (input_file_content == decrypted_file_content) { std::cout << "\tOK.\n"; }
+    else { std::cout << "\tError: the decrypted content differs from the original content.\n"; }
+
     std::cout << "\n";
 }
