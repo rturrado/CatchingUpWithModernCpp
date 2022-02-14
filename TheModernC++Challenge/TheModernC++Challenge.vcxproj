@@ -307,6 +307,7 @@
     <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases\SqliteMovies.h" />
     <ClInclude Include="inc\Chapter10_ArchivesImagesAndDatabases\zip_lib_wrapper.h" />
     <ClInclude Include="inc\Chapter11_Cryptography.h" />
+    <ClInclude Include="inc\Chapter11_Cryptography\Crypt.h" />
     <ClInclude Include="inc\Chapter1_MathProblems.h" />
     <ClInclude Include="inc\Chapter1_MathProblems\Digits.h" />
     <ClInclude Include="inc\Chapter1_MathProblems\Math.h" />

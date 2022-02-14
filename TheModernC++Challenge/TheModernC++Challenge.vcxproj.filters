@@ -512,6 +512,9 @@
     <ClInclude Include="inc\Chapter11_Cryptography.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="inc\Chapter11_Cryptography\Crypt.h">
+      <Filter>Header Files\Chapter11_Cryptography</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="res\sample.txt">
