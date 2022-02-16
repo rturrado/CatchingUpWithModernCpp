@@ -8,6 +8,7 @@
 #include <array>
 #include <cctype>  // isalpha, islower, tolower, toupper
 #include <filesystem>
+#include <format>
 #include <iostream>  // cout
 #include <iterator>  // back_inserter, distance
 #include <memory>  // make_unique, unique_ptr
@@ -115,11 +116,12 @@ void problem_89_main()
 
     const std::unique_ptr<Crypt> crypt_up{ std::make_unique<Vigenere>() };
 
+    std::cout << std::format("Encrypting and decrypting file '{}'\n", input_file_path.string());
     const auto encrypted_file_content{ crypt_up->encrypt(input_file_content) };
     const auto decrypted_file_content{ crypt_up->decrypt(encrypted_file_content) };
 
-    if (input_file_content == decrypted_file_content) { std::cout << "\tOK.\n"; }
-    else { std::cout << "\tError: the decrypted content differs from the original content.\n"; }
+    if (input_file_content == decrypted_file_content) { std::cout << "\tOK\n"; }
+    else { std::cout << "\tError: the decrypted content differs from the original content\n"; }
 
     std::cout << "\n";
 }

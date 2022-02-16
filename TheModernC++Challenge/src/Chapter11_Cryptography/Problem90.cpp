@@ -8,9 +8,11 @@
 #include <cassert>  // assert
 #include <cstdint>  // uint8_t
 #include <filesystem>
+#include <format>
 #include <iostream>  // cout
 #include <iterator>  // back_inserter
 #include <unordered_map>
+#include <span>
 #include <string>
 #include <string_view>
 #include <vector>
@@ -88,8 +90,7 @@ public:
             std::ranges::transform(sextets, std::back_inserter(ret),
                 [](auto& sextet) { return encoding_table_[sextet.to_ulong()]; });
 
-            if (max_line_width_reached())
-            {
+            if (max_line_width_reached()) {
                 ret += '\n';
             }
         }
@@ -117,9 +118,9 @@ public:
             //
             // 1 byte left to read -> 2 sextets of padding
             // 2 bytes left to read -> 1 sextet of padding
-            ret += use_padding
-                ? std::string(3 - bytes_left_to_read, padding)
-                : "";
+            if (use_padding) {
+                ret += std::string(3 - bytes_left_to_read, padding);
+            }
         }
 
         return ret;
@@ -141,7 +142,7 @@ public:
                 get_octet(input_bs, 2)
             };
         };
-        auto decode_group = [&build_octets_from_sextets, &ret](const std::vector<value_type>& group) {
+        auto decode_group = [&build_octets_from_sextets, &ret](const std::span<const value_type> group) {
             std::bitset<24> input_bs{
                 (static_cast<unsigned long long>(group[0]) << 18) +
                 (static_cast<unsigned long long>(group[1]) << 12) +
@@ -152,7 +153,7 @@ public:
             std::ranges::transform(octets, std::back_inserter(ret),
                 [](auto& octet) { return static_cast<value_type>(octet.to_ulong()); });
         };
-        auto decode_subgroup = [&build_octets_from_sextets, &ret](const std::vector<value_type>& subgroup) {
+        auto decode_subgroup = [&build_octets_from_sextets, &ret](const std::span<const value_type> subgroup) {
             auto characters_left_to_read{ subgroup.size()};
 
             // 2 or 3 characters left to read
@@ -173,19 +174,20 @@ public:
 
         for (auto i{0}; i < data.size();)
         {
-            std::vector<value_type> chunk{};
-            for (; chunk.size() < 4 and i < data.size(); ++i)
+            value_type chunk[4];
+            size_t j{ 0 };
+            for (; j < 4 and i < data.size(); ++i)
             {
                 if (decoding_table_.contains(data[i]))
                 {
-                    chunk.push_back(decoding_table_.at(data[i]));
+                    chunk[j++] = decoding_table_.at(data[i]);
                 }
             }
-            switch(chunk.size())
+            switch(j)
             {
             case 4: decode_group(chunk); break;
             case 3:
-            case 2: decode_subgroup(chunk); break;
+            case 2: decode_subgroup({ chunk, j }); break;
             case 1: assert("Error: chunk.size() == 1, " and false); break;
             case 0: assert("Error: chunk.size() == 0, " and i != data.size()); break;
             default: break;
@@ -203,8 +205,8 @@ void test_base_64(const auto& input_data, bool use_padding = true)
     const auto encoded_data{ base64.encode(input_data, use_padding) };
     const auto decoded_data{ base64.decode(encoded_data) };
 
-    if (input_data == decoded_data) { std::cout << "\tOK.\n"; }
-    else { std::cout << "\tError: the decoded data differs from the input data.\n"; }
+    if (input_data == decoded_data) { std::cout << "\tOK\n"; }
+    else { std::cout << "\tError: the decoded data differs from the input data\n"; }
 }
 
 
@@ -217,12 +219,14 @@ void problem_90_main()
 {
     const auto input_file_path{ std::filesystem::current_path() / "res" / "fonts" / "calibri.ttf" };
     const auto input_file_content{ rtc::filesystem::get_binary_file_content<Base64::value_type>(input_file_path) };
+    std::cout << std::format("Encoding and decoding file '{}'\n", input_file_path.string());
     test_base_64(input_file_content);
 
     for (std::string_view input_data : { "", "M", "Ma", "Man", "Many", "Many ", "Many h", "Many hands make light work." })
     {
         for (auto use_padding : { true, false })
         {
+            std::cout << std::format("Encoding and decoding text '{}'\n", input_data);
             test_base_64(std::vector<Base64::value_type>{std::cbegin(input_data), std::cend(input_data)}, use_padding);
         }
     }
