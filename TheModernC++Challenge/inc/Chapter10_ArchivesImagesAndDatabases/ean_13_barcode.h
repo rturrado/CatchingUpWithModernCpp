@@ -168,7 +168,7 @@ namespace rtc::ean_13
             }
 
             auto first_digit = digit{ to_uint8_t(get_first_digit_char()) };
-            auto first_group_digits = first_group_structure_map[first_digit.get_value()];
+            auto& first_group_digits = first_group_structure_map[first_digit.get_value()];
             auto second_group_digits = digit_group{ r, r, r, r, r, r };
 
             first_digit_group_bs_ = first_group_digits.encode(get_first_digit_group_str());
