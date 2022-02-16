@@ -61,7 +61,7 @@ public:
             auto lower_c{ std::tolower(c) };
             size_t row{ static_cast<size_t>(key_[key_index]) - 'a' };
             size_t col{ static_cast<size_t>(lower_c) - 'a' };
-            auto ciphered_lower_c{ square_[row][col] };
+            auto ciphered_lower_c{ square_.at(row).at(col)};
             if (std::islower(c)) { return ciphered_lower_c; }
             return static_cast<unsigned char>(std::toupper(ciphered_lower_c));
         };
