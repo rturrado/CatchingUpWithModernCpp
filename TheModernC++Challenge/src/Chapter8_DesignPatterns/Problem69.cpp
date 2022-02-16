@@ -46,11 +46,11 @@ public:
     }
 
 protected:
-    virtual [[nodiscard]] int get_sex_female_code() const noexcept = 0;
-    virtual [[nodiscard]] int get_sex_male_code() const noexcept = 0;
-    virtual [[nodiscard]] int get_random_number_max() const noexcept = 0;
-    virtual [[nodiscard]] int get_random_number_str_size() const noexcept = 0;
-    virtual [[nodiscard]] int get_crc_modulo() const noexcept = 0;
+    [[nodiscard]] virtual int get_sex_female_code() const noexcept = 0;
+    [[nodiscard]] virtual int get_sex_male_code() const noexcept = 0;
+    [[nodiscard]] virtual int get_random_number_max() const noexcept = 0;
+    [[nodiscard]] virtual int get_random_number_str_size() const noexcept = 0;
+    [[nodiscard]] virtual int get_crc_modulo() const noexcept = 0;
 
 private:
     using random_number_str = std::string;
@@ -119,11 +119,11 @@ public:
     static Northeria_SSN_Generator& get_instance() { static Northeria_SSN_Generator instance; return instance; }
 
 protected:
-    virtual [[nodiscard]] int get_sex_female_code() const noexcept override { return sex_female_code_; }
-    virtual [[nodiscard]] int get_sex_male_code() const noexcept override {  return sex_male_code_; }
-    virtual [[nodiscard]] int get_random_number_max() const noexcept override { return random_number_max_; }
-    virtual [[nodiscard]] int get_random_number_str_size() const noexcept override {  return random_number_str_size_; }
-    virtual [[nodiscard]] int get_crc_modulo() const noexcept override { return crc_modulo_; }
+    [[nodiscard]] virtual int get_sex_female_code() const noexcept override { return sex_female_code_; }
+    [[nodiscard]] virtual int get_sex_male_code() const noexcept override {  return sex_male_code_; }
+    [[nodiscard]] virtual int get_random_number_max() const noexcept override { return random_number_max_; }
+    [[nodiscard]] virtual int get_random_number_str_size() const noexcept override {  return random_number_str_size_; }
+    [[nodiscard]] virtual int get_crc_modulo() const noexcept override { return crc_modulo_; }
 
 private:
     Northeria_SSN_Generator() = default;
@@ -142,11 +142,11 @@ public:
     static Southeria_SSN_Generator& get_instance() { static Southeria_SSN_Generator instance; return instance; }
 
 protected:
-    virtual [[nodiscard]] int get_sex_female_code() const noexcept override { return sex_female_code_; }
-    virtual [[nodiscard]] int get_sex_male_code() const noexcept override { return sex_male_code_; }
-    virtual [[nodiscard]] int get_random_number_max() const noexcept override { return random_number_max_; }
-    virtual [[nodiscard]] int get_random_number_str_size() const noexcept override { return random_number_str_size_; }
-    virtual [[nodiscard]] int get_crc_modulo() const noexcept override { return crc_modulo_; }
+    [[nodiscard]] virtual int get_sex_female_code() const noexcept override { return sex_female_code_; }
+    [[nodiscard]] virtual int get_sex_male_code() const noexcept override { return sex_male_code_; }
+    [[nodiscard]] virtual int get_random_number_max() const noexcept override { return random_number_max_; }
+    [[nodiscard]] virtual int get_random_number_str_size() const noexcept override { return random_number_str_size_; }
+    [[nodiscard]] virtual int get_crc_modulo() const noexcept override { return crc_modulo_; }
 
 private:
     Southeria_SSN_Generator() = default;

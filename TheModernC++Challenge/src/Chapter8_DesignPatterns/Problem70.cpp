@@ -21,13 +21,13 @@ class EmployeeRole
 public:
     virtual ~EmployeeRole() = default;
 
-    virtual [[nodiscard]] double get_approval_limit() const noexcept = 0;
+    [[nodiscard]] virtual double get_approval_limit() const noexcept = 0;
 };
 
 class President : public EmployeeRole
 {
 public:
-    virtual [[nodiscard]] double get_approval_limit() const noexcept override { return expense_approval_limit_; };
+    [[nodiscard]] virtual double get_approval_limit() const noexcept override { return expense_approval_limit_; };
 private:
     const double expense_approval_limit_{ std::numeric_limits<double>::max() };
 };
@@ -35,7 +35,7 @@ private:
 class DepartmentManager : public EmployeeRole
 {
 public:
-    virtual [[nodiscard]] double get_approval_limit() const noexcept override { return expense_approval_limit_; };
+    [[nodiscard]] virtual double get_approval_limit() const noexcept override { return expense_approval_limit_; };
 private:
     const double expense_approval_limit_{ 100'000 };
 };
@@ -43,7 +43,7 @@ private:
 class TeamManager : public EmployeeRole
 {
 public:
-    virtual [[nodiscard]] double get_approval_limit() const noexcept override { return expense_approval_limit_; };
+    [[nodiscard]] virtual double get_approval_limit() const noexcept override { return expense_approval_limit_; };
 private:
     const double expense_approval_limit_{ 10'000 };
 };
@@ -51,7 +51,7 @@ private:
 class Regular : public EmployeeRole
 {
 public:
-    virtual [[nodiscard]] double get_approval_limit() const noexcept override { return expense_approval_limit_; };
+    [[nodiscard]] virtual double get_approval_limit() const noexcept override { return expense_approval_limit_; };
 private:
     const double expense_approval_limit_{ 1'000 };
 };

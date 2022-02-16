@@ -20,7 +20,7 @@ class PasswordGenerator
 public:
     virtual ~PasswordGenerator() = default;
 
-    virtual [[nodiscard]] std::string generate() const noexcept = 0;
+    [[nodiscard]] virtual std::string generate() const noexcept = 0;
 };
 
 
@@ -36,7 +36,7 @@ public:
 
     void add_generator(std::unique_ptr<PasswordGenerator> g) noexcept { gs_.push_back(std::move(g)); }
 
-    virtual [[nodiscard]] std::string generate() const noexcept override
+    [[nodiscard]] virtual std::string generate() const noexcept override
     {
         std::string ret{};
         for (auto&& g : gs_) { ret += g->generate(); }
@@ -55,7 +55,7 @@ public:
     SymbolGenerator() = default;
     SymbolGenerator(size_t length) noexcept : length_{ length } {}
 
-    virtual [[nodiscard]] std::string generate() const noexcept override {
+    [[nodiscard]] virtual std::string generate() const noexcept override {
         static rtc::random::RandomInt random_character{ 0, 31 };  // 32 symbol characters
         std::string ret(length_, '!');
         std::generate(std::begin(ret), std::end(ret), []() {
@@ -84,7 +84,7 @@ public:
         : length_{ length }, first_ascii_code_{ ascii_code_range.first }, last_ascii_code_{ ascii_code_range.second }
     {}
 
-    virtual [[nodiscard]] std::string generate() const noexcept override {
+    [[nodiscard]] virtual std::string generate() const noexcept override {
         static rtc::random::RandomInt random_character{ first_ascii_code_, last_ascii_code_ };
         std::string ret(length_, static_cast<unsigned char>(first_ascii_code_));
         std::generate(std::begin(ret), std::end(ret), []() { return static_cast<unsigned char>(random_character()); });

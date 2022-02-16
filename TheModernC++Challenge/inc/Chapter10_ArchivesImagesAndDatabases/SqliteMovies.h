@@ -42,7 +42,7 @@ namespace rtc::movies::sqlite_mcpp
         static inline std::string message_{ "media file id not found: " };
     };
 
-    inline [[nodiscard]] auto create_movies_database(const fs::path& db_file_path)
+    [[nodiscard]] inline auto create_movies_database(const fs::path& db_file_path)
     {
         if (fs::exists(db_file_path)) { return sqlite::database{ db_file_path.string() }; }
 
@@ -118,7 +118,7 @@ namespace rtc::movies::sqlite_mcpp
         return db;
     }
 
-    inline [[nodiscard]] auto remove_movies_database_file(const fs::path& db_file_path)
+    [[nodiscard]] inline auto remove_movies_database_file(const fs::path& db_file_path)
     {
         auto c{
             read_char(
@@ -131,7 +131,7 @@ namespace rtc::movies::sqlite_mcpp
         }
     }
 
-    inline [[nodiscard]] bool exists_person(sqlite::database& db, const std::string& name)
+    [[nodiscard]] inline bool exists_person(sqlite::database& db, const std::string& name)
     {
         bool ret{ false };
         db << "select 1 from Persons where name = (?);" << name
@@ -139,7 +139,7 @@ namespace rtc::movies::sqlite_mcpp
         return ret;
     }
 
-    inline [[nodiscard]] int get_person_id_from_person_name(sqlite::database& db, const std::string& name)
+    [[nodiscard]] inline int get_person_id_from_person_name(sqlite::database& db, const std::string& name)
     {
         int ret{};
         db << "select rowid from Persons where name = (?);" << name
@@ -147,7 +147,7 @@ namespace rtc::movies::sqlite_mcpp
         return ret;
     }
 
-    inline [[nodiscard]] bool exists_media_file(sqlite::database& db, size_t media_file_id)
+    [[nodiscard]] inline bool exists_media_file(sqlite::database& db, size_t media_file_id)
     {
         bool ret{ false };
         db << "select 1 from Media where rowid = (?);" << media_file_id
@@ -155,7 +155,7 @@ namespace rtc::movies::sqlite_mcpp
         return ret;
     }
 
-    inline [[nodiscard]] int get_movie_id_from_media_file_id(sqlite::database& db, size_t media_file_id)
+    [[nodiscard]] inline int get_movie_id_from_media_file_id(sqlite::database& db, size_t media_file_id)
     {
         int ret{};
         db << "select movie_id from Media where rowid = (?);" << media_file_id
@@ -344,7 +344,7 @@ namespace rtc::movies::sqlite_mcpp
 
     private:
         template <typename Database>
-        friend [[nodiscard]] auto find_movie_impl(Database& db, size_t movie_id)
+        [[nodiscard]] friend auto find_movie_impl(Database& db, size_t movie_id)
         {
             return
                 std::ranges::find_if(

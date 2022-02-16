@@ -33,7 +33,7 @@ namespace password_strength_validator_v1
     class PasswordStrengthValidator
     {
     public:
-        virtual [[nodiscard]] validate_return_type validate(std::string_view pw) const noexcept = 0;
+        [[nodiscard]] virtual validate_return_type validate(std::string_view pw) const noexcept = 0;
 
         void set_next(PasswordStrengthValidator* next) noexcept { next_ = next; }
     protected:
@@ -51,7 +51,7 @@ namespace password_strength_validator_v1
         MinimumLengthValidator() = default;
         explicit MinimumLengthValidator(size_t length) : length_{ length } {}
 
-        virtual [[nodiscard]] validate_return_type validate(std::string_view pw) const noexcept override {
+        [[nodiscard]] virtual validate_return_type validate(std::string_view pw) const noexcept override {
             if (pw.size() < length_) { return std::string{ "password length has to be at least " } + std::to_string(length_); }
             else { return validate_with_next(pw); };
         }
@@ -67,7 +67,7 @@ namespace password_strength_validator_v1
         ContainsValidator() = delete;
         explicit ContainsValidator(Predicate pred, std::string_view error_message) : pred_{ pred }, error_message_{ error_message } {}
 
-        virtual [[nodiscard]] validate_return_type validate(std::string_view pw) const noexcept override {
+        [[nodiscard]] virtual validate_return_type validate(std::string_view pw) const noexcept override {
             if (not pred_(pw)) { return error_message_; }
             else { return validate_with_next(pw); };
         }
@@ -97,7 +97,7 @@ namespace password_strength_validator_v2
     class PasswordStrengthValidator
     {
     public:
-        virtual [[nodiscard]] validate_return_type validate(std::string_view pw) const noexcept = 0;
+        [[nodiscard]] virtual validate_return_type validate(std::string_view pw) const noexcept = 0;
 
     protected:
         std::unique_ptr<PasswordStrengthValidator> next_{ nullptr };
@@ -117,7 +117,7 @@ namespace password_strength_validator_v2
         MinimumLengthValidator(size_t length, std::unique_ptr<PasswordStrengthValidator> next)
             : length_{ length }, PasswordStrengthValidator{ std::move(next) } {}
 
-        virtual [[nodiscard]] validate_return_type validate(std::string_view pw) const noexcept override {
+        [[nodiscard]] virtual validate_return_type validate(std::string_view pw) const noexcept override {
             if (pw.size() < length_) { return std::string{ "password length has to be at least " } + std::to_string(length_); }
             else { return validate_with_next(pw); };
         }
@@ -134,7 +134,7 @@ namespace password_strength_validator_v2
         ContainsValidator(ContainsOrErrorF f, std::unique_ptr<PasswordStrengthValidator> next)
             : contains_or_error_f_{ f }, PasswordStrengthValidator{ std::move(next) } {}
 
-        virtual [[nodiscard]] validate_return_type validate(std::string_view pw) const noexcept override {
+        [[nodiscard]] virtual validate_return_type validate(std::string_view pw) const noexcept override {
             if (auto error{ contains_or_error_f_(pw) }) { return error.value(); }
             else { return validate_with_next(pw); };
         }

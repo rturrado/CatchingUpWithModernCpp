@@ -158,7 +158,7 @@ namespace rtc::ean_13::barcode_png
         struct Base
         {
             virtual void paint(PNGWriter& png_writer) const = 0;
-            virtual [[nodiscard]] Point2D get_start_position() const = 0;
+            [[nodiscard]] virtual Point2D get_start_position() const = 0;
             virtual ~Base() {}
         };
 
@@ -196,7 +196,7 @@ namespace rtc::ean_13::barcode_png
             {
                 paint_bar_group(writer, barcode::start_marker, get_start_position(), layout::Bar::width, layout::Marker::height);
             }
-            virtual [[nodiscard]] Point2D get_start_position() const override { return layout::StartMarker::start_position; };
+            [[nodiscard]] virtual Point2D get_start_position() const override { return layout::StartMarker::start_position; };
         };
         struct CenterMarker : public BarGroup
         {
@@ -204,7 +204,7 @@ namespace rtc::ean_13::barcode_png
             {
                 paint_bar_group(writer, barcode::center_marker, get_start_position(), layout::Bar::width, layout::Marker::height);
             }
-            virtual [[nodiscard]] Point2D get_start_position() const override { return layout::CenterMarker::start_position; };
+            [[nodiscard]] virtual Point2D get_start_position() const override { return layout::CenterMarker::start_position; };
         };
         struct EndMarker : public BarGroup
         {
@@ -212,7 +212,7 @@ namespace rtc::ean_13::barcode_png
             {
                 paint_bar_group(writer, barcode::end_marker, get_start_position(), layout::Bar::width, layout::Marker::height);
             }
-            virtual [[nodiscard]] Point2D get_start_position() const override { return layout::EndMarker::start_position; };
+            [[nodiscard]] virtual Point2D get_start_position() const override { return layout::EndMarker::start_position; };
         };
         struct DigitBarGroup : public BarGroup
         {
@@ -232,12 +232,12 @@ namespace rtc::ean_13::barcode_png
         struct FirstDigitBarGroup : public DigitBarGroup
         {
             explicit FirstDigitBarGroup(const digit_group_bs& bs) : DigitBarGroup{ bs } {}
-            virtual [[nodiscard]] Point2D get_start_position() const override { return layout::FirstDigitBarGroup::start_position; };
+            [[nodiscard]] virtual Point2D get_start_position() const override { return layout::FirstDigitBarGroup::start_position; };
         };
         struct SecondDigitBarGroup : public DigitBarGroup
         {
             explicit SecondDigitBarGroup(const digit_group_bs& bs) : DigitBarGroup{ bs } {}
-            virtual [[nodiscard]] Point2D get_start_position() const override { return layout::SecondDigitBarGroup::start_position; };
+            [[nodiscard]] virtual Point2D get_start_position() const override { return layout::SecondDigitBarGroup::start_position; };
         };
 
         // Digit groups
@@ -269,17 +269,17 @@ namespace rtc::ean_13::barcode_png
         struct FirstDigit : public DigitGroup
         {
             explicit FirstDigit(const std::string& digit) : DigitGroup{ digit } {}
-            virtual [[nodiscard]] Point2D get_start_position() const override { return layout::FirstDigit::start_position; };
+            [[nodiscard]] virtual Point2D get_start_position() const override { return layout::FirstDigit::start_position; };
         };
         struct FirstDigitGroup : public DigitGroup
         {
             explicit FirstDigitGroup(const std::string& digit_group) : DigitGroup{ digit_group } {}
-            virtual [[nodiscard]] Point2D get_start_position() const override { return layout::FirstDigitGroup::start_position; };
+            [[nodiscard]] virtual Point2D get_start_position() const override { return layout::FirstDigitGroup::start_position; };
         };
         struct SecondDigitGroup : public DigitGroup
         {
             explicit SecondDigitGroup(const std::string& digit_group) : DigitGroup{ digit_group } {}
-            virtual [[nodiscard]] Point2D get_start_position() const override { return layout::SecondDigitGroup::start_position; };
+            [[nodiscard]] virtual Point2D get_start_position() const override { return layout::SecondDigitGroup::start_position; };
         };
 
         // LMI
@@ -296,7 +296,7 @@ namespace rtc::ean_13::barcode_png
                     RGB{}
                 );
             }
-            virtual [[nodiscard]] Point2D get_start_position() const override { return layout::LMI::start_position; };
+            [[nodiscard]] virtual Point2D get_start_position() const override { return layout::LMI::start_position; };
         };
     }  // namespace controls
 

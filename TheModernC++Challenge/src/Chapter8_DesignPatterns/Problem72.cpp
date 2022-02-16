@@ -15,9 +15,9 @@ struct Discount
 {
     virtual ~Discount() = default;
 
-    virtual [[nodiscard]] float percentage(size_t, float) const noexcept = 0;
+    [[nodiscard]] virtual float percentage(size_t, float) const noexcept = 0;
 
-    virtual [[nodiscard]] void print(std::ostream& os, const FillLineStart& fill_line_start = {}) const noexcept = 0;
+    [[nodiscard]] virtual void print(std::ostream& os, const FillLineStart& fill_line_start = {}) const noexcept = 0;
 };
 
 std::ostream& operator<<(std::ostream& os, const Discount& d) { d.print(os); return os; }
@@ -27,13 +27,13 @@ struct ArticleFixedDiscount : public Discount
 {
     explicit ArticleFixedDiscount(float p) : percentage_{ p } {}
 
-    virtual [[nodiscard]] void print(std::ostream& os, const FillLineStart& fill_line_start = {}) const noexcept override
+    [[nodiscard]] virtual void print(std::ostream& os, const FillLineStart& fill_line_start = {}) const noexcept override
     {
         os << fill_line_start << "ArticleFixedDiscount(percentage : " << percentage_ << ")";
     }
 
 protected:
-    virtual [[nodiscard]] float percentage(size_t, float) const noexcept override
+    [[nodiscard]] virtual float percentage(size_t, float) const noexcept override
     {
         return percentage_;
     }
@@ -50,13 +50,13 @@ class OrderLineVolumeDiscount : public Discount
 public:
     OrderLineVolumeDiscount(float p, size_t q) : percentage_{ p }, minimum_article_quantity_{ q } {}
 
-    virtual [[nodiscard]] void print(std::ostream& os, const FillLineStart& fill_line_start = {}) const noexcept override
+    [[nodiscard]] virtual void print(std::ostream& os, const FillLineStart& fill_line_start = {}) const noexcept override
     {
         os << fill_line_start << "ArticleVolumeDiscount(percentage : " << percentage_ << ", minimum_article_quantity : " << minimum_article_quantity_ << ")";
     }
 
 protected:
-    virtual [[nodiscard]] float percentage(size_t article_quantity, float) const noexcept override
+    [[nodiscard]] virtual float percentage(size_t article_quantity, float) const noexcept override
     {
         return (article_quantity >= minimum_article_quantity_) ? percentage_ : 0;
     }
@@ -74,13 +74,13 @@ struct OrderLinePriceDiscount : public Discount
 public:
     OrderLinePriceDiscount(float p, float mtap) : percentage_{ p }, minimum_total_article_price_{ mtap } {}
 
-    virtual [[nodiscard]] void print(std::ostream& os, const FillLineStart& fill_line_start = {}) const noexcept override
+    [[nodiscard]] virtual void print(std::ostream& os, const FillLineStart& fill_line_start = {}) const noexcept override
     {
         os << fill_line_start << "OrderLinePriceDiscount(percentage : " << percentage_ << ", minimum_total_article_price : " << minimum_total_article_price_ << ")";
     }
 
 protected:
-    virtual [[nodiscard]] float percentage(size_t article_quantity, float article_price) const noexcept override
+    [[nodiscard]] virtual float percentage(size_t article_quantity, float article_price) const noexcept override
     {
         return (article_quantity * article_price > minimum_total_article_price_) ? percentage_ : 0;
     }
@@ -98,13 +98,13 @@ struct OrderPriceDiscount : public Discount
 public:
     OrderPriceDiscount(float p, float mtop) : percentage_{ p }, minimum_total_order_price_{ mtop } {}
 
-    virtual [[nodiscard]] void print(std::ostream& os, const FillLineStart& fill_line_start = {}) const noexcept override
+    [[nodiscard]] virtual void print(std::ostream& os, const FillLineStart& fill_line_start = {}) const noexcept override
     {
         os << fill_line_start << "OrderPriceDiscount(percentage : " << percentage_ << ", minimum_total_order_price : " << minimum_total_order_price_ << ")";
     }
 
 protected:
-    virtual [[nodiscard]] float percentage(size_t, float order_price) const noexcept override
+    [[nodiscard]] virtual float percentage(size_t, float order_price) const noexcept override
     {
         return (order_price > minimum_total_order_price_) ? percentage_ : 0;
     }
@@ -222,13 +222,13 @@ struct PriceCalculator
 {
     virtual ~PriceCalculator() = default;
 
-    virtual [[nodiscard]] float calculate(const Order& order) const noexcept = 0;
+    [[nodiscard]] virtual float calculate(const Order& order) const noexcept = 0;
 };
 
 
 struct CumulativePriceCalculator : public PriceCalculator
 {
-    virtual [[nodiscard]] float calculate(const Order& order) const noexcept override
+    [[nodiscard]] virtual float calculate(const Order& order) const noexcept override
     {
         float ret{};
 
@@ -259,7 +259,7 @@ struct CumulativePriceCalculator : public PriceCalculator
 
 struct NonCumulativePriceCalculator : public PriceCalculator
 {
-    virtual [[nodiscard]] float calculate(const Order& order) const noexcept override
+    [[nodiscard]] virtual float calculate(const Order& order) const noexcept override
     {
         float ret{};
         float discountable_order_price{};
