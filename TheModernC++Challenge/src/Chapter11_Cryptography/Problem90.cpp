@@ -5,6 +5,7 @@
 #include <algorithm>  // transform
 #include <array>
 #include <bitset>
+#include <cassert>  // assert
 #include <cstdint>  // uint8_t
 #include <filesystem>
 #include <iostream>  // cout
@@ -39,6 +40,7 @@ private:
         '4', '5', '6', '7', '8', '9', '+', '/'
     };
     static inline const unsigned char padding{ '=' };
+    static inline const size_t max_line_width{ 76 };
 
     static inline const decoding_table_t decoding_table_{
         {'A', 0}, {'B', 1}, {'C', 2}, {'D', 3}, {'E', 4}, {'F', 5}, {'G', 6}, {'H', 7},
@@ -74,6 +76,9 @@ public:
                 get_sextet(input_bs, 3)
             };
         };
+        auto max_line_width_reached = [&ret]() {
+            return ((ret.size() % max_line_width) + 4) >= max_line_width;
+        };
 
         size_t i{ 0 };
         for (; i + 3 <= data.size(); i += 3)
@@ -82,6 +87,11 @@ public:
             auto sextets{ build_sextets_from_octets(octets) };
             std::ranges::transform(sextets, std::back_inserter(ret),
                 [](auto& sextet) { return encoding_table_[sextet.to_ulong()]; });
+
+            if (max_line_width_reached())
+            {
+                ret += '\n';
+            }
         }
 
         if (i < data.size())
@@ -131,25 +141,25 @@ public:
                 get_octet(input_bs, 2)
             };
         };
-        auto decode_group = [&build_octets_from_sextets, &ret](std::string_view group) {
+        auto decode_group = [&build_octets_from_sextets, &ret](const std::vector<value_type>& group) {
             std::bitset<24> input_bs{
-                (static_cast<unsigned long long>(decoding_table_.at(group[0])) << 18) +
-                (static_cast<unsigned long long>(decoding_table_.at(group[1])) << 12) +
-                (static_cast<unsigned long long>(decoding_table_.at(group[2])) << 6) +
-                decoding_table_.at(group[3])
+                (static_cast<unsigned long long>(group[0]) << 18) +
+                (static_cast<unsigned long long>(group[1]) << 12) +
+                (static_cast<unsigned long long>(group[2]) << 6) +
+                group[3]
             };
             auto octets{ build_octets_from_sextets(input_bs) };
             std::ranges::transform(octets, std::back_inserter(ret),
                 [](auto& octet) { return static_cast<value_type>(octet.to_ulong()); });
         };
-        auto decode_subgroup = [&build_octets_from_sextets, &ret](std::string_view subgroup) {
+        auto decode_subgroup = [&build_octets_from_sextets, &ret](const std::vector<value_type>& subgroup) {
             auto characters_left_to_read{ subgroup.size()};
 
             // 2 or 3 characters left to read
             std::bitset<24> input_bs{
-                (static_cast<unsigned long long>(decoding_table_.at(subgroup[0])) << 18) +
-                (static_cast<unsigned long long>(decoding_table_.at(subgroup[1])) << 12) +
-                ((characters_left_to_read == 3) ? (static_cast<unsigned long long>(decoding_table_.at(subgroup[2])) << 6) : 0)
+                (static_cast<unsigned long long>(subgroup[0]) << 18) +
+                (static_cast<unsigned long long>(subgroup[1]) << 12) +
+                ((characters_left_to_read == 3) ? (static_cast<unsigned long long>(subgroup[2]) << 6) : 0)
             };
             auto octets{ build_octets_from_sextets(input_bs) };
 
@@ -161,33 +171,25 @@ public:
                 [](auto& octet) { return static_cast<value_type>(octet.to_ulong()); });
         };
 
-        // Safety check for empty data
-        if (data.size() == 0)
+        for (auto i{0}; i < data.size();)
         {
-            return ret;
-        }
-        // Process everything except for the last group of characters
-        size_t i{ 0 };
-        for (; i + 4 < data.size(); i += 4)
-        {
-            decode_group({ std::cbegin(data) + i, std::cbegin(data) + i + 4});
-        }
-        // Process last group of characters
-        if (i + 4 == data.size())  // size is 4
-        {
-            // Check if it contains padding characters
-            if (auto end_pos{ data.find_first_of(padding, i) }; end_pos == std::string_view::npos)
+            std::vector<value_type> chunk{};
+            for (; chunk.size() < 4 and i < data.size(); ++i)
             {
-                decode_group({ std::cbegin(data) + i, std::cend(data) });  // no
+                if (decoding_table_.contains(data[i]))
+                {
+                    chunk.push_back(decoding_table_.at(data[i]));
+                }
             }
-            else
+            switch(chunk.size())
             {
-                decode_subgroup({ std::cbegin(data) + i, std::cbegin(data) + end_pos });  // yes
+            case 4: decode_group(chunk); break;
+            case 3:
+            case 2: decode_subgroup(chunk); break;
+            case 1: assert("Error: chunk.size() == 1, " and false); break;
+            case 0: assert("Error: chunk.size() == 0, " and i != data.size()); break;
+            default: break;
             }
-        }
-        else // size is less than 4
-        {
-            decode_subgroup({ std::cbegin(data) + i, std::cend(data) });
         }
 
         return ret;
