@@ -90,7 +90,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(ProjectDir)inc;C:\Libraries\boost_1_75_0;C:\Libraries\nlohmann\json\single_include;C:\Libraries\PDF-Writer\PDFWriter;C:\Libraries\pngwriter\src;C:\Libraries\pugixml\src;C:\Libraries\sqlite;C:\Libraries\sqlite_modern_cpp\hdr;C:\Libraries\ziplib\Source\ZipLib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(ProjectDir)inc;C:\Libraries\boost_1_75_0;C:\Libraries\cryptocpp;C:\Libraries\nlohmann\json\single_include;C:\Libraries\PDF-Writer\PDFWriter;C:\Libraries\pngwriter\src;C:\Libraries\pugixml\src;C:\Libraries\sqlite;C:\Libraries\sqlite_modern_cpp\hdr;C:\Libraries\ziplib\Source\ZipLib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalModuleDependencies>
       </AdditionalModuleDependencies>
@@ -101,12 +101,14 @@
       <DisableSpecificWarnings>
       </DisableSpecificWarnings>
       <AdditionalOptions>/w34996</AdditionalOptions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>C:\Libraries\PDF-Writer\Build\FreeType\$(Configuration)\FreeType.lib;C:\Libraries\PDF-Writer\Build\LibAesgm\$(Configuration)\LibAesgm.lib;C:\Libraries\PDF-Writer\Build\LibJpeg\$(Configuration)\LibJpeg.lib;C:\Libraries\PDF-Writer\Build\LibPng\$(Configuration)\LibPng.lib;C:\Libraries\PDF-Writer\Build\LibTiff\$(Configuration)\LibTiff.lib;C:\Libraries\PDF-Writer\Build\PDFWriter\$(Configuration)\PDFWriter.lib;C:\Libraries\PDF-Writer\Build\ZLib\$(Configuration)\ZLib.lib;C:\Libraries\ziplib\Bin\$(Platform)\$(Configuration)\ZipLib.lib;C:\Libraries\ziplib\Bin\$(Platform)\$(Configuration)\bzip2.lib;C:\Libraries\ziplib\Bin\$(Platform)\$(Configuration)\lzma.lib;C:\Libraries\pngwriter\out\build\$(Platform)-$(Configuration)\PNGWriter.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>C:\Libraries\cryptocpp\$(Platform)\Output\$(Configuration)\cryptlib.lib;C:\Libraries\PDF-Writer\Build\FreeType\$(Configuration)\FreeType.lib;C:\Libraries\PDF-Writer\Build\LibAesgm\$(Configuration)\LibAesgm.lib;C:\Libraries\PDF-Writer\Build\LibJpeg\$(Configuration)\LibJpeg.lib;C:\Libraries\PDF-Writer\Build\LibPng\$(Configuration)\LibPng.lib;C:\Libraries\PDF-Writer\Build\LibTiff\$(Configuration)\LibTiff.lib;C:\Libraries\PDF-Writer\Build\PDFWriter\$(Configuration)\PDFWriter.lib;C:\Libraries\PDF-Writer\Build\ZLib\$(Configuration)\ZLib.lib;C:\Libraries\pngwriter\out\build\$(Platform)-$(Configuration)\PNGWriter.lib;C:\Libraries\ziplib\Bin\$(Platform)\$(Configuration)\bzip2.lib;C:\Libraries\ziplib\Bin\$(Platform)\$(Configuration)\lzma.lib;C:\Libraries\ziplib\Bin\$(Platform)\$(Configuration)\ZipLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>/NODEFAULTLIB:LIBCMTD.lib %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -117,7 +119,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(ProjectDir)inc;C:\Libraries\boost_1_75_0;C:\Libraries\nlohmann\json\single_include;C:\Libraries\PDF-Writer\PDFWriter;C:\Libraries\pngwriter\src;C:\Libraries\pugixml\src;C:\Libraries\sqlite;C:\Libraries\sqlite_modern_cpp\hdr;C:\Libraries\ziplib\Source\ZipLib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(ProjectDir)inc;C:\Libraries\boost_1_75_0;C:\Libraries\cryptocpp;C:\Libraries\nlohmann\json\single_include;C:\Libraries\PDF-Writer\PDFWriter;C:\Libraries\pngwriter\src;C:\Libraries\pugixml\src;C:\Libraries\sqlite;C:\Libraries\sqlite_modern_cpp\hdr;C:\Libraries\ziplib\Source\ZipLib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalModuleDependencies>
       </AdditionalModuleDependencies>
@@ -128,6 +130,7 @@
       <DisableSpecificWarnings>
       </DisableSpecificWarnings>
       <AdditionalOptions>/w34996</AdditionalOptions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -135,7 +138,8 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>C:\Libraries\PDF-Writer\Build\FreeType\$(Configuration)\FreeType.lib;C:\Libraries\PDF-Writer\Build\LibAesgm\$(Configuration)\LibAesgm.lib;C:\Libraries\PDF-Writer\Build\LibJpeg\$(Configuration)\LibJpeg.lib;C:\Libraries\PDF-Writer\Build\LibPng\$(Configuration)\LibPng.lib;C:\Libraries\PDF-Writer\Build\LibTiff\$(Configuration)\LibTiff.lib;C:\Libraries\PDF-Writer\Build\PDFWriter\$(Configuration)\PDFWriter.lib;C:\Libraries\PDF-Writer\Build\ZLib\$(Configuration)\ZLib.lib;C:\Libraries\ziplib\Bin\$(Platform)\$(Configuration)\ZipLib.lib;C:\Libraries\ziplib\Bin\$(Platform)\$(Configuration)\bzip2.lib;C:\Libraries\ziplib\Bin\$(Platform)\$(Configuration)\lzma.lib;C:\Libraries\pngwriter\out\build\$(Platform)-$(Configuration)\PNGWriter.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>C:\Libraries\cryptocpp\$(Platform)\Output\$(Configuration)\cryptlib.lib;C:\Libraries\PDF-Writer\Build\FreeType\$(Configuration)\FreeType.lib;C:\Libraries\PDF-Writer\Build\LibAesgm\$(Configuration)\LibAesgm.lib;C:\Libraries\PDF-Writer\Build\LibJpeg\$(Configuration)\LibJpeg.lib;C:\Libraries\PDF-Writer\Build\LibPng\$(Configuration)\LibPng.lib;C:\Libraries\PDF-Writer\Build\LibTiff\$(Configuration)\LibTiff.lib;C:\Libraries\PDF-Writer\Build\PDFWriter\$(Configuration)\PDFWriter.lib;C:\Libraries\PDF-Writer\Build\ZLib\$(Configuration)\ZLib.lib;C:\Libraries\pngwriter\out\build\$(Platform)-$(Configuration)\PNGWriter.lib;C:\Libraries\ziplib\Bin\$(Platform)\$(Configuration)\bzip2.lib;C:\Libraries\ziplib\Bin\$(Platform)\$(Configuration)\lzma.lib;C:\Libraries\ziplib\Bin\$(Platform)\$(Configuration)\ZipLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>/NODEFAULTLIB:LIBCMTD.lib %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -144,7 +148,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(ProjectDir)inc;C:\Libraries\boost_1_75_0;C:\Libraries\nlohmann\json\single_include;C:\Libraries\PDF-Writer\PDFWriter;C:\Libraries\pngwriter\src;C:\Libraries\pugixml\src;C:\Libraries\sqlite;C:\Libraries\sqlite_modern_cpp\hdr;C:\Libraries\ziplib\Source\ZipLib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(ProjectDir)inc;C:\Libraries\boost_1_75_0;C:\Libraries\cryptocpp;C:\Libraries\nlohmann\json\single_include;C:\Libraries\PDF-Writer\PDFWriter;C:\Libraries\pngwriter\src;C:\Libraries\pugixml\src;C:\Libraries\sqlite;C:\Libraries\sqlite_modern_cpp\hdr;C:\Libraries\ziplib\Source\ZipLib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalModuleDependencies>
       </AdditionalModuleDependencies>
@@ -156,12 +160,14 @@
       <DisableSpecificWarnings>
       </DisableSpecificWarnings>
       <AdditionalOptions>/w34996</AdditionalOptions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>C:\Libraries\PDF-Writer\Build\FreeType\$(Configuration)\FreeType.lib;C:\Libraries\PDF-Writer\Build\LibAesgm\$(Configuration)\LibAesgm.lib;C:\Libraries\PDF-Writer\Build\LibJpeg\$(Configuration)\LibJpeg.lib;C:\Libraries\PDF-Writer\Build\LibPng\$(Configuration)\LibPng.lib;C:\Libraries\PDF-Writer\Build\LibTiff\$(Configuration)\LibTiff.lib;C:\Libraries\PDF-Writer\Build\PDFWriter\$(Configuration)\PDFWriter.lib;C:\Libraries\PDF-Writer\Build\ZLib\$(Configuration)\ZLib.lib;C:\Libraries\ziplib\Bin\$(Platform)\$(Configuration)\ZipLib.lib;C:\Libraries\ziplib\Bin\$(Platform)\$(Configuration)\bzip2.lib;C:\Libraries\ziplib\Bin\$(Platform)\$(Configuration)\lzma.lib;C:\Libraries\pngwriter\out\build\$(Platform)-$(Configuration)\PNGWriter.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>C:\Libraries\cryptocpp\$(Platform)\Output\$(Configuration)\cryptlib.lib;C:\Libraries\PDF-Writer\Build\FreeType\$(Configuration)\FreeType.lib;C:\Libraries\PDF-Writer\Build\LibAesgm\$(Configuration)\LibAesgm.lib;C:\Libraries\PDF-Writer\Build\LibJpeg\$(Configuration)\LibJpeg.lib;C:\Libraries\PDF-Writer\Build\LibPng\$(Configuration)\LibPng.lib;C:\Libraries\PDF-Writer\Build\LibTiff\$(Configuration)\LibTiff.lib;C:\Libraries\PDF-Writer\Build\PDFWriter\$(Configuration)\PDFWriter.lib;C:\Libraries\PDF-Writer\Build\ZLib\$(Configuration)\ZLib.lib;C:\Libraries\pngwriter\out\build\$(Platform)-$(Configuration)\PNGWriter.lib;C:\Libraries\ziplib\Bin\$(Platform)\$(Configuration)\bzip2.lib;C:\Libraries\ziplib\Bin\$(Platform)\$(Configuration)\lzma.lib;C:\Libraries\ziplib\Bin\$(Platform)\$(Configuration)\ZipLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>/NODEFAULTLIB:LIBCMTD.lib %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -172,7 +178,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(ProjectDir)inc;C:\Libraries\boost_1_75_0;C:\Libraries\nlohmann\json\single_include;C:\Libraries\PDF-Writer\PDFWriter;C:\Libraries\pngwriter\src;C:\Libraries\pugixml\src;C:\Libraries\sqlite;C:\Libraries\sqlite_modern_cpp\hdr;C:\Libraries\ziplib\Source\ZipLib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(ProjectDir)inc;C:\Libraries\boost_1_75_0;C:\Libraries\cryptocpp;C:\Libraries\nlohmann\json\single_include;C:\Libraries\PDF-Writer\PDFWriter;C:\Libraries\pngwriter\src;C:\Libraries\pugixml\src;C:\Libraries\sqlite;C:\Libraries\sqlite_modern_cpp\hdr;C:\Libraries\ziplib\Source\ZipLib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalModuleDependencies>
       </AdditionalModuleDependencies>
@@ -183,6 +189,7 @@
       <DisableSpecificWarnings>
       </DisableSpecificWarnings>
       <AdditionalOptions>/w34996</AdditionalOptions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -190,7 +197,8 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>C:\Libraries\PDF-Writer\Build\FreeType\$(Configuration)\FreeType.lib;C:\Libraries\PDF-Writer\Build\LibAesgm\$(Configuration)\LibAesgm.lib;C:\Libraries\PDF-Writer\Build\LibJpeg\$(Configuration)\LibJpeg.lib;C:\Libraries\PDF-Writer\Build\LibPng\$(Configuration)\LibPng.lib;C:\Libraries\PDF-Writer\Build\LibTiff\$(Configuration)\LibTiff.lib;C:\Libraries\PDF-Writer\Build\PDFWriter\$(Configuration)\PDFWriter.lib;C:\Libraries\PDF-Writer\Build\ZLib\$(Configuration)\ZLib.lib;C:\Libraries\ziplib\Bin\$(Platform)\$(Configuration)\ZipLib.lib;C:\Libraries\ziplib\Bin\$(Platform)\$(Configuration)\bzip2.lib;C:\Libraries\ziplib\Bin\$(Platform)\$(Configuration)\lzma.lib;C:\Libraries\pngwriter\out\build\$(Platform)-$(Configuration)\PNGWriter.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>C:\Libraries\cryptocpp\$(Platform)\Output\$(Configuration)\cryptlib.lib;C:\Libraries\PDF-Writer\Build\FreeType\$(Configuration)\FreeType.lib;C:\Libraries\PDF-Writer\Build\LibAesgm\$(Configuration)\LibAesgm.lib;C:\Libraries\PDF-Writer\Build\LibJpeg\$(Configuration)\LibJpeg.lib;C:\Libraries\PDF-Writer\Build\LibPng\$(Configuration)\LibPng.lib;C:\Libraries\PDF-Writer\Build\LibTiff\$(Configuration)\LibTiff.lib;C:\Libraries\PDF-Writer\Build\PDFWriter\$(Configuration)\PDFWriter.lib;C:\Libraries\PDF-Writer\Build\ZLib\$(Configuration)\ZLib.lib;C:\Libraries\pngwriter\out\build\$(Platform)-$(Configuration)\PNGWriter.lib;C:\Libraries\ziplib\Bin\$(Platform)\$(Configuration)\bzip2.lib;C:\Libraries\ziplib\Bin\$(Platform)\$(Configuration)\lzma.lib;C:\Libraries\ziplib\Bin\$(Platform)\$(Configuration)\ZipLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>/NODEFAULTLIB:LIBCMTD.lib %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
