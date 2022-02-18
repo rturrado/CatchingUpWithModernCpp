@@ -6,8 +6,6 @@ module;
 #include <ranges>  // take
 #include <utility>  // exchange
 
-#include <tl/generator.hpp>
-
 export module InfiniteSequence;
 
 import InfiniteSequenceGenerator;

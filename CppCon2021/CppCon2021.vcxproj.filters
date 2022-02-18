@@ -18,11 +18,14 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="mod\InfiniteSequence.ixx">
-      <Filter>Module Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Main.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mod\Composition.ixx">
+      <Filter>Module Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mod\InfiniteSequence.ixx">
+      <Filter>Module Files</Filter>
     </ClCompile>
     <ClCompile Include="mod\InfiniteSequenceCoroutine.ixx">
       <Filter>Module Files</Filter>
@@ -30,11 +33,8 @@
     <ClCompile Include="mod\InfiniteSequenceGenerator.ixx">
       <Filter>Module Files</Filter>
     </ClCompile>
-    <ClCompile Include="mod\Composition.ixx">
-      <Filter>Module Files</Filter>
-    </ClCompile>
-    <ClCompile Include="mod\Ranges.ixx">
-      <Filter>Module Files</Filter>
+    <ClCompile Include="src\RangesTest.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -42,6 +42,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\inc\Print.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\RangesTest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
