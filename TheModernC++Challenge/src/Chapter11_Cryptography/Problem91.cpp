@@ -6,8 +6,8 @@
 #include <stdexcept>  // runtime_error
 #include <string>
 
-#include "cryptlib.h"
-#include "sha.h"
+#include "cryptocpp/cryptlib.h"
+#include "cryptocpp/sha.h"
 
 
 class Login
