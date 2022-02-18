@@ -7,6 +7,7 @@
 #include "ParseLinesOfDatesAndTimes.h"
 #include "ParseTimeStringsToDurationsAndCompare.h"
 #include "PlayingWithTimeZonesAndDst.h"
+#include "PrintTimetInLocalTime.h"
 #include "ReadFileToBuffer.h"
 #include "ThreadAfterTimer.h"
 #include "VectorOfIntsWithTrianglePattern.h"
@@ -35,11 +36,13 @@ int main()
     { std::cout << "[PLAYING WITH TIME ZONES AND DST]\n"; playing_with_time_zones_and_dst_main(); std::cout << "\n"; }
     // Popen test
     { std::cout << "[POPEN TEST]\n"; popen_test_main(); std::cout << "\n"; }
+    // Read file to buffer
+    { std::cout << "[READ FILE TO BUFFER]\n"; read_file_to_buffer_main(); std::cout << "\n"; }
     // Thread after timer
     { std::cout << "[THREAD AFTER TIMER]\n"; thread_after_timer_main(); std::cout << "\n"; }
     // Vector of ints with triangle pattern
     { std::cout << "[VECTOR OF INTS WITH TRIANGLE PATTERN]\n"; vector_of_ints_with_triangle_pattern_main(); std::cout << "\n"; }
 */
-    // Read file to buffer
-    { std::cout << "[READ FILE TO BUFFER]\n"; read_file_to_buffer_main(); std::cout << "\n"; }
+    // Print time_t in local time
+    { std::cout << "[PRINT TIME_T IN LOCAL TIME]\n"; print_time_t_in_local_time_main(); std::cout << "\n"; }
 }
