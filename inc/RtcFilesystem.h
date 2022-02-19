@@ -24,7 +24,7 @@ namespace rtc::filesystem
         static inline std::string message_{ "file path does not exist: " };
     };
 
-    template <typename T>
+    template <typename T = std::uint8_t>
     auto get_binary_file_content(const fs::path& file_path)
     {
         std::ifstream ifs{ file_path, std::ios::in | std::ios::binary };
@@ -43,7 +43,7 @@ namespace rtc::filesystem
     {
         if (path_1.filename() != path_2.filename()) { return false; }
 
-        return get_binary_file_content<uint8_t>(path_1) == get_binary_file_content<uint8_t>(path_2);
+        return get_binary_file_content(path_1) == get_binary_file_content(path_2);
     }
 
     inline bool are_filesystem_trees_equal(const fs::path& path_1, const fs::path& path_2)
