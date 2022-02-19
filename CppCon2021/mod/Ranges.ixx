@@ -2,7 +2,7 @@
 // - Conquering C++20 Ranges; Tristan Brindle; CppCon 2021
 // - C++20 Ranges — Complete Guide: https://itnext.io/c-20-ranges-complete-guide-4d26e3511db0
 
-#include "RangesTest.h"
+module;
 
 #include "RtcPrint.h"
 
@@ -24,6 +24,7 @@
 #include <string_view>
 #include <vector>
 
+export module Ranges;
 
 struct Point3
 {
@@ -32,15 +33,13 @@ struct Point3
     int z_{};
 };
 
-
 std::ostream& operator<<(std::ostream& os, const Point3& p)
 {
     os << "(" << p.x_ << ", " << p.y_ << ", " << p.z_ << ")";
     return os;
 }
 
-
-void ranges_test_main()
+export void ranges_main()
 {
     auto even = [](std::integral auto n) { return (n % 2 == 0); };
     auto odd = [](std::integral auto n) { return (n % 2 != 0); };
@@ -99,7 +98,7 @@ void ranges_test_main()
         Point3 p2{ 5, 15, 25 };
         Point3 p3{ -10, 10, -10 };
         std::vector<Point3> points{ p1, p2, p3 };
-        std::ranges::sort(points, std::less<>{}, & Point3::x_);
+        std::ranges::sort(points, std::less<>{}, &Point3::x_);
         for (auto&& p : points) { std::cout << p << " "; }
         std::cout << "\n";
     }
@@ -112,7 +111,7 @@ void ranges_test_main()
         auto n{ 1234567890 };
         //auto str_it{ std::ranges::find(std::to_string(n), '0') };  // error: string is an owning range
         //std::cout << *str_it << "\n";
-
+        
         auto str{ "1234567890" };
         auto sv_it{ std::ranges::find(std::string_view(str), '0') };  // OK: string_view is a non-owning range
         std::cout << *sv_it << "\n";
@@ -145,7 +144,7 @@ void ranges_test_main()
             return seq
                 | r3v::take(n);
         };  // first n elements of sequence
-
+        
         for (auto&& n : seq_first_n(9)) { std::cout << n << " "; }
         std::cout << "\n";
     }
@@ -159,7 +158,7 @@ void ranges_test_main()
                 | r3v::filter(odd)
                 | r3v::take(n);
         };  // 1, 3, 5... nth odd number
-
+        
         for (auto&& n : first_n_odd(5)) { std::cout << n << " "; }
         std::cout << "\n";
     }

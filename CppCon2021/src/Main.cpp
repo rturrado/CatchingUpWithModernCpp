@@ -1,6 +1,6 @@
 #include <iostream>  // cout
 
-#include "RangesTest.h"
+#include "Ranges.h"
 
 import Composition;
 import InfiniteSequence;
@@ -12,5 +12,5 @@ int main()
     // Infinite sequence
     { std::cout << "[INFINITE SEQUENCE]\n"; infinite_sequence_main(); std::cout << "\n"; }
     // Ranges
-    { std::cout << "[RANGES]\n"; ranges_test_main(); std::cout << "\n"; }
+    { std::cout << "[RANGES]\n"; ranges_main(); std::cout << "\n"; }
 }

@@ -33,7 +33,7 @@
     <ClCompile Include="mod\InfiniteSequenceGenerator.ixx">
       <Filter>Module Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\RangesTest.cpp">
+    <ClCompile Include="src\Ranges.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,7 +44,7 @@
     <ClInclude Include="..\inc\Print.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\RangesTest.h">
+    <ClInclude Include="inc\Ranges.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
