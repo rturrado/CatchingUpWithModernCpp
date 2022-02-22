@@ -1,9 +1,8 @@
 #include <iostream>  // cout
 
-#include "Ranges.h"
-
 import Composition;
 import InfiniteSequence;
+import Ranges;
 
 int main()
 {

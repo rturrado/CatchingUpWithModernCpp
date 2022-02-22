@@ -44,7 +44,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
-    <EnableASAN>true</EnableASAN>
+    <EnableASAN>false</EnableASAN>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -181,13 +181,12 @@
     <ClCompile Include="mod\InfiniteSequence.ixx" />
     <ClCompile Include="mod\InfiniteSequenceCoroutine.ixx" />
     <ClCompile Include="mod\InfiniteSequenceGenerator.ixx" />
+    <ClCompile Include="mod\Ranges.ixx" />
     <ClCompile Include="src\Main.cpp" />
-    <ClCompile Include="src\Ranges.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\inc\Print.h" />
     <ClInclude Include="C:\Libraries\generator\include\tl\generator.hpp" />
-    <ClInclude Include="inc\Ranges.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
