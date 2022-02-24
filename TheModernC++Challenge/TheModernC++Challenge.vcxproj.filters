@@ -85,6 +85,12 @@
     <Filter Include="Header Files\Chapter11_Cryptography">
       <UniqueIdentifier>{03bbf094-978f-4585-ad79-beeba9442ee3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Chapter12_NetworkingAndServices">
+      <UniqueIdentifier>{376bc26f-447b-4a60-b754-eaa2d4a3cfc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Chapter12_NetworkingAndServices">
+      <UniqueIdentifier>{d5378dee-1ff8-4cae-acfa-92356bfbe075}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp">
@@ -381,6 +387,24 @@
     <ClCompile Include="src\Chapter11_Cryptography\Problem94.cpp">
       <Filter>Source Files\Chapter11_Cryptography</Filter>
     </ClCompile>
+    <ClCompile Include="src\Chapter12_NetworkingAndServices\Problem95.cpp">
+      <Filter>Source Files\Chapter12_NetworkingAndServices</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chapter12_NetworkingAndServices\Problem96.cpp">
+      <Filter>Source Files\Chapter12_NetworkingAndServices</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chapter12_NetworkingAndServices\Problem97.cpp">
+      <Filter>Source Files\Chapter12_NetworkingAndServices</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chapter12_NetworkingAndServices\Problem98.cpp">
+      <Filter>Source Files\Chapter12_NetworkingAndServices</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chapter12_NetworkingAndServices\Problem99.cpp">
+      <Filter>Source Files\Chapter12_NetworkingAndServices</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chapter12_NetworkingAndServices\Problem100.cpp">
+      <Filter>Source Files\Chapter12_NetworkingAndServices</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Chapter1_MathProblems.h">
@@ -514,6 +538,9 @@
     </ClInclude>
     <ClInclude Include="inc\Chapter11_Cryptography\Crypt.h">
       <Filter>Header Files\Chapter11_Cryptography</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Chapter12_NetworkingAndServices.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

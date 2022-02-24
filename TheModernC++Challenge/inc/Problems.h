@@ -12,6 +12,7 @@
 #include "Chapter9_DataSerialization.h"
 #include "Chapter10_ArchivesImagesAndDatabases.h"
 #include "Chapter11_Cryptography.h"
+#include "Chapter12_NetworkingAndServices.h"
 
 #include <cassert>  // assert
 #include <functional>  // function, invoke
@@ -145,6 +146,13 @@ private:
         problem_92_main,
         problem_93_main,
         problem_94_main,
+
+        problem_95_main,  // Networking and services
+        problem_96_main,
+        problem_97_main,
+        problem_98_main,
+        problem_99_main,
+        problem_100_main
     };
 };
 
