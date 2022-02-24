@@ -165,7 +165,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Libraries\boost_1_75_0\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>C:\Libraries\cryptocpp\$(Platform)\Output\$(Configuration)\cryptlib.lib;C:\Libraries\PDF-Writer\Build\FreeType\$(Configuration)\FreeType.lib;C:\Libraries\PDF-Writer\Build\LibAesgm\$(Configuration)\LibAesgm.lib;C:\Libraries\PDF-Writer\Build\LibJpeg\$(Configuration)\LibJpeg.lib;C:\Libraries\PDF-Writer\Build\LibPng\$(Configuration)\LibPng.lib;C:\Libraries\PDF-Writer\Build\LibTiff\$(Configuration)\LibTiff.lib;C:\Libraries\PDF-Writer\Build\PDFWriter\$(Configuration)\PDFWriter.lib;C:\Libraries\PDF-Writer\Build\ZLib\$(Configuration)\ZLib.lib;C:\Libraries\pngwriter\out\build\$(Platform)-$(Configuration)\PNGWriter.lib;C:\Libraries\ziplib\Bin\$(Platform)\$(Configuration)\bzip2.lib;C:\Libraries\ziplib\Bin\$(Platform)\$(Configuration)\lzma.lib;C:\Libraries\ziplib\Bin\$(Platform)\$(Configuration)\ZipLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalOptions>/NODEFAULTLIB:LIBCMTD.lib %(AdditionalOptions)</AdditionalOptions>
     </Link>
