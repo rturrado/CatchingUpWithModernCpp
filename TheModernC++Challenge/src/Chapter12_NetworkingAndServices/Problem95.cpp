@@ -7,22 +7,20 @@
 #include <utility>  // pair
 #include <vector>
 
-#include <boost/asio.hpp>
-
+#define BOOST_ASIO_STANDALONE
+#include <boost_asio/asio/include/asio.hpp>
 
 auto get_host_ipv4_addresses(std::string_view host, std::string_view service)
 {
-    using namespace boost::asio;
-
     std::vector<std::string> ret{};
 
-    io_context my_io_context;
-    ip::tcp::resolver resolver(my_io_context);
-    auto iter{ resolver.resolve(ip::tcp::v4(), host, service)};
-    ip::tcp::resolver::iterator end{};
+    asio::io_context my_io_context;
+    asio::ip::tcp::resolver resolver(my_io_context);
+    auto iter{ resolver.resolve(asio::ip::tcp::v4(), host, service)};
+    asio::ip::tcp::resolver::iterator end{};
     while (iter != end)
     {
-        ip::tcp::endpoint endpoint = *iter++;
+        asio::ip::tcp::endpoint endpoint = *iter++;
         ret.emplace_back(endpoint.address().to_string().c_str());
     }
     return ret;

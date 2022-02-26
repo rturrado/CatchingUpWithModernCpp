@@ -90,7 +90,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(ProjectDir)inc;C:\Libraries;C:\Libraries\boost_1_75_0;C:\Libraries\nlohmann\json\single_include;C:\Libraries\PDF-Writer\PDFWriter;C:\Libraries\pngwriter\src;C:\Libraries\pugixml\src;C:\Libraries\sqlite;C:\Libraries\sqlite_modern_cpp\hdr;C:\Libraries\ziplib\Source\ZipLib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(ProjectDir)inc;C:\Libraries;C:\Libraries\boost_1_75_0;C:\Libraries\boost_asio\asio\include;C:\Libraries\nlohmann\json\single_include;C:\Libraries\PDF-Writer\PDFWriter;C:\Libraries\pngwriter\src;C:\Libraries\pugixml\src;C:\Libraries\sqlite;C:\Libraries\sqlite_modern_cpp\hdr;C:\Libraries\ziplib\Source\ZipLib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalModuleDependencies>
       </AdditionalModuleDependencies>
@@ -119,7 +119,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(ProjectDir)inc;C:\Libraries;C:\Libraries\boost_1_75_0;C:\Libraries\nlohmann\json\single_include;C:\Libraries\PDF-Writer\PDFWriter;C:\Libraries\pngwriter\src;C:\Libraries\pugixml\src;C:\Libraries\sqlite;C:\Libraries\sqlite_modern_cpp\hdr;C:\Libraries\ziplib\Source\ZipLib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(ProjectDir)inc;C:\Libraries;C:\Libraries\boost_1_75_0;C:\Libraries\boost_asio\asio\include;C:\Libraries\nlohmann\json\single_include;C:\Libraries\PDF-Writer\PDFWriter;C:\Libraries\pngwriter\src;C:\Libraries\pugixml\src;C:\Libraries\sqlite;C:\Libraries\sqlite_modern_cpp\hdr;C:\Libraries\ziplib\Source\ZipLib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalModuleDependencies>
       </AdditionalModuleDependencies>
@@ -148,7 +148,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(ProjectDir)inc;C:\Libraries;C:\Libraries\boost_1_75_0;C:\Libraries\nlohmann\json\single_include;C:\Libraries\PDF-Writer\PDFWriter;C:\Libraries\pngwriter\src;C:\Libraries\pugixml\src;C:\Libraries\sqlite;C:\Libraries\sqlite_modern_cpp\hdr;C:\Libraries\ziplib\Source\ZipLib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(ProjectDir)inc;C:\Libraries;C:\Libraries\boost_1_75_0;C:\Libraries\boost_asio\asio\include;C:\Libraries\nlohmann\json\single_include;C:\Libraries\PDF-Writer\PDFWriter;C:\Libraries\pngwriter\src;C:\Libraries\pugixml\src;C:\Libraries\sqlite;C:\Libraries\sqlite_modern_cpp\hdr;C:\Libraries\ziplib\Source\ZipLib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalModuleDependencies>
       </AdditionalModuleDependencies>
@@ -178,7 +178,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(ProjectDir)inc;C:\Libraries;C:\Libraries\boost_1_75_0;C:\Libraries\nlohmann\json\single_include;C:\Libraries\PDF-Writer\PDFWriter;C:\Libraries\pngwriter\src;C:\Libraries\pugixml\src;C:\Libraries\sqlite;C:\Libraries\sqlite_modern_cpp\hdr;C:\Libraries\ziplib\Source\ZipLib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)inc;$(ProjectDir)inc;C:\Libraries;C:\Libraries\boost_1_75_0;C:\Libraries\boost_asio\asio\include;C:\Libraries\nlohmann\json\single_include;C:\Libraries\PDF-Writer\PDFWriter;C:\Libraries\pngwriter\src;C:\Libraries\pugixml\src;C:\Libraries\sqlite;C:\Libraries\sqlite_modern_cpp\hdr;C:\Libraries\ziplib\Source\ZipLib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalModuleDependencies>
       </AdditionalModuleDependencies>
