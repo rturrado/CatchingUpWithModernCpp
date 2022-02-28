@@ -542,6 +542,12 @@
     <ClInclude Include="inc\Chapter12_NetworkingAndServices.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="inc\Chapter12_NetworkingAndServices\Bitcoin.h">
+      <Filter>Header Files\Chapter12_NetworkingAndServices</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Chapter12_NetworkingAndServices\JsonBitcoin.h">
+      <Filter>Header Files\Chapter12_NetworkingAndServices</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="res\sample.txt">
