@@ -6,6 +6,7 @@
 #include <memory>  // make_shared
 #include <iostream>  // cout
 #include <string>  // getline
+#include <string_view>
 #include <system_error>  // errc
 
 #define BOOST_ASIO_STANDALONE
@@ -13,7 +14,17 @@
 #include <boost_asio/asio/include/asio.hpp>
 
 
-std::string read(asio::ip::tcp::socket& socket)
+std::string remove_newline(std::string_view text)
+{
+    if (text.size() > 0 and text.ends_with('\n'))
+    {
+        text.remove_suffix(1);
+    }
+    return std::string{ text };
+}
+
+
+std::string read_line(asio::ip::tcp::socket& socket)
 {
     std::string ret{};
     asio::error_code ec{};
@@ -22,16 +33,16 @@ std::string read(asio::ip::tcp::socket& socket)
         std::cout << std::format("Error: reading: {}", ec.message());
     }
     else {
-        ret = ret.substr(0, length - 1);
+        ret = remove_newline({ ret.data(), length});
     }
     return ret;
 }
 
 
-void write(asio::ip::tcp::socket& socket, const std::string& message)
+void write_line(asio::ip::tcp::socket& socket, const std::string& message)
 {
     asio::error_code ec{};
-    asio::write(socket, asio::buffer(message), ec);
+    asio::write(socket, asio::buffer(message + "\n"), ec);
     if (ec) {
         std::cout << std::format("Error: writing: {}", ec.message());
     }
@@ -51,13 +62,13 @@ public:
         accept();
         for (;;)
         {
-            auto request_str{ read(socket_) };
+            auto request_str{ read_line(socket_) };
             if (request_str == "quit") {
                 break;
             }
             auto request_number{ std::atoi(request_str.c_str()) };
             auto response_str{ fizzbuzz(request_number) };
-            write(socket_, response_str + "\n" );
+            write_line(socket_, response_str);
         }
         std::cout << "[server] Exiting\n";
     }
@@ -99,11 +110,11 @@ public:
         {
             auto request_str{ read_from_console() };
             std::cout << std::format("[client] Says '{}'\n", request_str);
-            write(socket_, request_str + "\n" );
+            write_line(socket_, request_str);
             if (request_str == "quit") {
                 break;
             }
-            auto response_str{ read(socket_) };
+            auto response_str{ read_line(socket_) };
             std::cout << std::format("[server] Says '{}'\n", response_str);
         }
         std::cout << "[client] Exiting\n";
