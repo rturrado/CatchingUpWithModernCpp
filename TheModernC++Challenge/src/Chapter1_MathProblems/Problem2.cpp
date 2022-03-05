@@ -21,8 +21,8 @@ auto gcd(const size_t m, const size_t n)
 void problem_2_main()
 {
     // Read two positive integers
-    auto m{ read_positive_number(1) };
-    auto n{ read_positive_number(1) };
+    auto m{ read_positive_number("Please enter a number (starting from 1): ", 1) };
+    auto n{ read_positive_number("Please enter a number (starting from 1): ", 1) };
 
     // Sort m and n so that m >= n
     if (m < n)

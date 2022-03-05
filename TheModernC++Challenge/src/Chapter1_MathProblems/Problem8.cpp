@@ -160,7 +160,7 @@ void problem_8_main()
     print_armstrong_numbers_with_three_digits();
 
     // Read limit
-    auto n{ read_positive_number(0) };
+    auto n{ read_positive_number("Please enter a number (starting from 0): ", 0) };
     // Print Armstrong numbers up to the limit
     print_armstrong_numbers_up_to_a_limit_v1(n, true);
 

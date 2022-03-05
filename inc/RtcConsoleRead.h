@@ -61,13 +61,14 @@ inline char read_char(const std::string& message, std::vector<char> options)
 // Read a positive number in the range [lower_limit, upper_limit)
 // or [lower_limit, SIZE_T_MAX) in case upper_limit is not specified
 inline size_t read_positive_number(
+    const std::string& message,
     size_t lower_limit,
     size_t upper_limit = std::numeric_limits<size_t>::max())
 {
     size_t n{ 0 };
     for (;;)
     {
-        std::cout << std::dec << "Please enter a number in the range [" << lower_limit << ", " << upper_limit << "): ";
+        std::cout << message;
         std::cin >> n;
         if (std::cin.fail())
         {

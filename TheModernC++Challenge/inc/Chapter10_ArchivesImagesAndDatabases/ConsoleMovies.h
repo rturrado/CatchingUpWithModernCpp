@@ -60,17 +60,17 @@ namespace rtc::movies::console
         namespace ch = std::chrono;
 
         std::cout << "ID?\n";
-        movie.id = read_positive_number(0);
+        movie.id = read_positive_number("Please enter a number (starting from 0): ", 0);
 
         std::cout << "Title?\n";
         std::getline(std::cin, movie.title);
 
         auto current_year{ ch::year_month_day{ ch::floor<ch::days>(ch::system_clock::now()) }.year() };
         std::cout << "Year?\n";
-        movie.year = ch::year{ static_cast<int>(read_positive_number(1900, static_cast<int>(current_year))) };
+        movie.year = ch::year{ static_cast<int>(read_positive_number("Please enter a number (starting from 1900): ", 1900, static_cast<int>(current_year))) };
 
         std::cout << "Length (in minutes)?\n";
-        movie.length = read_positive_number(0);
+        movie.length = read_positive_number("Please enter a number (starting from 0): ", 0);
 
         from_console(movie.cast);
         from_console(movie.directors);

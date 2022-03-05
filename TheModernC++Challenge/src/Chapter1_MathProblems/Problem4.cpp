@@ -15,7 +15,7 @@ size_t biggest_prime_smaller_than(const size_t n)
 void problem_4_main()
 {
     // Read limit
-    auto limit{ read_positive_number(2) };
+    auto limit{ read_positive_number("Please enter a number (starting from 2): ", 2) };
 
     // Calculate biggest prime smaller than limit
     std::cout << "Biggest prime number smaller than " << limit << " is: " << biggest_prime_smaller_than(limit) << "\n\n";

@@ -9,7 +9,7 @@
 void problem_5_main()
 {
     // Read limit
-    auto limit{ read_positive_number(1) };
+    auto limit{ read_positive_number("Please enter a number (starting from 1): ", 1) };
 
     // Print sexy prime pairs up to the limit
     std::cout << "Sexy prime pairs up to " << limit << ":\n";

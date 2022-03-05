@@ -12,7 +12,7 @@
 void problem_6_main()
 {
     // Read limit
-    auto limit{ read_positive_number(1) };
+    auto limit{ read_positive_number("Please enter a number (starting from 1): ", 1) };
 
     // Print abundant numbers up to the limit and their abundance
     std::cout << "Abudant numbers up to " << limit << ", {list of divisors}, (and their abundance):\n";

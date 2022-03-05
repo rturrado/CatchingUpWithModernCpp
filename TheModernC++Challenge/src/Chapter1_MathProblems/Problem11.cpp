@@ -307,7 +307,7 @@ namespace P11
 void problem_11_main()
 {
     // Read a positive number
-    size_t n{ read_positive_number(0, 4000) };
+    size_t n{ read_positive_number("Please enter a number (between 0 and 3999): ", 0, 4000) };
 
     // Print the prime factors of that number
     std::cout << "Number\tRoman numeral equivalent\n";

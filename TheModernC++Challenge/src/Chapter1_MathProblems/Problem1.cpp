@@ -11,7 +11,7 @@
 void problem_1_main()
 {
     // Read limit
-    auto n{ read_positive_number(0) };
+    auto n{ read_positive_number("Please enter a number (starting from 0): ", 0) };
 
     // Calculate the sum
     auto sum{ 0ull };
