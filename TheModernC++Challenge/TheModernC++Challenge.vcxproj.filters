@@ -405,6 +405,9 @@
     <ClCompile Include="src\Chapter12_NetworkingAndServices\Problem100.cpp">
       <Filter>Source Files\Chapter12_NetworkingAndServices</Filter>
     </ClCompile>
+    <ClCompile Include="src\Chapter12_NetworkingAndServices\ImapConnection.cpp">
+      <Filter>Source Files\Chapter12_NetworkingAndServices</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Chapter1_MathProblems.h">
@@ -546,6 +549,9 @@
       <Filter>Header Files\Chapter12_NetworkingAndServices</Filter>
     </ClInclude>
     <ClInclude Include="inc\Chapter12_NetworkingAndServices\JsonBitcoin.h">
+      <Filter>Header Files\Chapter12_NetworkingAndServices</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Chapter12_NetworkingAndServices\ImapConnection.h">
       <Filter>Header Files\Chapter12_NetworkingAndServices</Filter>
     </ClInclude>
   </ItemGroup>

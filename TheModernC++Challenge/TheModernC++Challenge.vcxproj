@@ -220,6 +220,7 @@
     <ClCompile Include="src\Chapter11_Cryptography\Problem92.cpp" />
     <ClCompile Include="src\Chapter11_Cryptography\Problem93.cpp" />
     <ClCompile Include="src\Chapter11_Cryptography\Problem94.cpp" />
+    <ClCompile Include="src\Chapter12_NetworkingAndServices\ImapConnection.cpp" />
     <ClCompile Include="src\Chapter12_NetworkingAndServices\Problem100.cpp" />
     <ClCompile Include="src\Chapter12_NetworkingAndServices\Problem95.cpp" />
     <ClCompile Include="src\Chapter12_NetworkingAndServices\Problem96.cpp" />
@@ -324,6 +325,7 @@
     <ClInclude Include="inc\Chapter11_Cryptography\Crypt.h" />
     <ClInclude Include="inc\Chapter12_NetworkingAndServices.h" />
     <ClInclude Include="inc\Chapter12_NetworkingAndServices\Bitcoin.h" />
+    <ClInclude Include="inc\Chapter12_NetworkingAndServices\ImapConnection.h" />
     <ClInclude Include="inc\Chapter12_NetworkingAndServices\JsonBitcoin.h" />
     <ClInclude Include="inc\Chapter1_MathProblems.h" />
     <ClInclude Include="inc\Chapter1_MathProblems\Digits.h" />
