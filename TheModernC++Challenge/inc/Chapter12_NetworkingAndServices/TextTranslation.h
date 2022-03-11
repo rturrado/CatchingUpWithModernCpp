@@ -39,11 +39,12 @@ namespace rtc::text_translation
         static inline std::string_view endpoint{ "https://api.microsofttranslator.com/V2/Http.svc" };
         static inline std::string_view key_header{ "Ocp-Apim-Subscription-Key" };
 
-        [[nodiscard]] auto parse_translate_response(const std::string& response) const -> std::string;
-
+        [[nodiscard]] std::string parse_translate_response(const std::string& response) const;
     public:
         translator(std::string_view key);
-        [[nodiscard]] auto translate(std::string_view text, language_code from, language_code to) const -> std::string;
+        
+        // Translation is done from utf8 to utf8
+        [[nodiscard]] std::string translate(std::string_view text, language_code from, language_code to) const;
     private:
         std::string key_{};
     };

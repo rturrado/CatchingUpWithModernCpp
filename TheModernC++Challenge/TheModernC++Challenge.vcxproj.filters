@@ -411,6 +411,9 @@
     <ClCompile Include="src\Chapter12_NetworkingAndServices\TextTranslation.cpp">
       <Filter>Source Files\Chapter12_NetworkingAndServices</Filter>
     </ClCompile>
+    <ClCompile Include="src\Chapter12_NetworkingAndServices\FaceDetection.cpp">
+      <Filter>Source Files\Chapter12_NetworkingAndServices</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Chapter1_MathProblems.h">
@@ -560,6 +563,15 @@
     <ClInclude Include="inc\Chapter12_NetworkingAndServices\TextTranslation.h">
       <Filter>Header Files\Chapter12_NetworkingAndServices</Filter>
     </ClInclude>
+    <ClInclude Include="inc\Chapter12_NetworkingAndServices\FaceDetection.h">
+      <Filter>Header Files\Chapter12_NetworkingAndServices</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Chapter12_NetworkingAndServices\Faces.h">
+      <Filter>Header Files\Chapter12_NetworkingAndServices</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Chapter12_NetworkingAndServices\JsonFaces.h">
+      <Filter>Header Files\Chapter12_NetworkingAndServices</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="res\sample.txt">
@@ -617,6 +629,9 @@
     </Image>
     <Image Include="res\db\BladeRunner.jpg">
       <Filter>Resource Files\db</Filter>
+    </Image>
+    <Image Include="res\problem100.jpg">
+      <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
