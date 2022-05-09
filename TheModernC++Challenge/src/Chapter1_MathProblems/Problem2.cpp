@@ -6,7 +6,7 @@
 auto gcd(const size_t m, const size_t n)
 {
     size_t i{ 1 };
-    for (i = n; i > 0; --i)
+    for (i = n; i > 1; --i)
     {
         if ((m % i == 0) && (n % i == 0))
         {

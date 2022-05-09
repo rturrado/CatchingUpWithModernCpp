@@ -7,12 +7,12 @@
 
 #define CRYPTOPP_ENABLE_NAMESPACE_WEAK 1
 
-#include "cryptocpp/cryptlib.h"
-#include "cryptocpp/files.h"  // FileSource
-#include "cryptocpp/filters.h"  // HashFilter, StringSink
-#include "cryptocpp/hex.h"  // HexEncoder
-#include "cryptocpp/md5.h"  // MD5
-#include "cryptocpp/sha.h"  // SHA1, SHA256
+#include "cryptopp/cryptlib.h"
+#include "cryptopp/files.h"  // FileSource
+#include "cryptopp/filters.h"  // HashFilter, StringSink
+#include "cryptopp/hex.h"  // HexEncoder
+#include "cryptopp/md5.h"  // MD5
+#include "cryptopp/sha.h"  // SHA1, SHA256
 
 namespace fs = std::filesystem;
 

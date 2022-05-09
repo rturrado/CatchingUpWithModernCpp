@@ -85,7 +85,7 @@ void problem_14_main()
     // Read 13-digit ISBN
     str = read_n_digit_isbn(13);
 
-    // Validate 10-digit ISBN
+    // Validate 13-digit ISBN
     valid = validate_13_digit_isbn(str);
     std::cout << str << " is" << (valid ? " " : " NOT ") << "a valid ISBN\n\n";
 }

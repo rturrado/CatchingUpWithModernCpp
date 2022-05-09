@@ -6,10 +6,10 @@
 #include <iostream>  // cout
 #include <string>
 
-#include "cryptocpp/cryptlib.h"
-#include "cryptocpp/default.h"  // DefaultDecryptorWithMac, DefaultEncryptorWithMAC
-#include "cryptocpp/files.h"  // FileSink, FileSource
-#include "cryptocpp/hex.h"  // HexDecoder, HexEncoder
+#include "cryptopp/cryptlib.h"
+#include "cryptopp/default.h"  // DefaultDecryptorWithMac, DefaultEncryptorWithMAC
+#include "cryptopp/files.h"  // FileSink, FileSource
+#include "cryptopp/hex.h"  // HexDecoder, HexEncoder
 
 
 // Encrypting and decrypting files

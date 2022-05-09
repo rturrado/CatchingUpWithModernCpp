@@ -1,7 +1,7 @@
 #include "Chapter2_LanguageFeatures.h"
 #include "Chapter2_LanguageFeatures/Problem18.h"
 
-#include <functional>  // greter
+#include <functional>  // greater
 #include <iostream>  // cout
 #include <string>
 
