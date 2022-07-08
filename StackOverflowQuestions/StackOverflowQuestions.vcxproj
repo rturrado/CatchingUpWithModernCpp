@@ -155,6 +155,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="inc\AddingTwoDaysToADate.h" />
     <ClInclude Include="inc\BitSequenceToInt.h" />
     <ClInclude Include="inc\LogSystemWithCountingSemaphores.h" />
     <ClInclude Include="inc\PrintTimetInLocalTime.h" />
@@ -170,6 +171,7 @@
   <ItemGroup>
     <ClCompile Include="mod\ParsingDates.ixx" />
     <ClCompile Include="mod\PopenTest.ixx" />
+    <ClCompile Include="src\AddingTwoDaysToADate.cpp" />
     <ClCompile Include="src\LogSystemWithCountingSemaphores.cpp" />
     <ClCompile Include="src\PrintTimetInLocalTime.cpp" />
     <ClCompile Include="src\ReadFileToBuffer.cpp" />

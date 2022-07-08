@@ -1,5 +1,6 @@
 #include <iostream>
 
+#include "AddingTwoDaysToADate.h"
 #include "BitSequenceToInt.h"
 #include "LogSystemWithCountingSemaphores.h"
 #include "ParseIniFile.h"
@@ -17,6 +18,8 @@ import PopenTest;
 
 int main()
 {
+    // Adding two days to a date
+    { std::cout << "[ADDING TWO DAYS TO A DATE]\n"; adding_two_days_to_a_date_main(); std::cout << "\n"; }
 /*
     // Bit sequence to int
     { std::cout << "[BIT SEQUENCE TO INT]\n"; bit_sequence_to_int_main(); std::cout << "\n"; }
@@ -42,7 +45,7 @@ int main()
     { std::cout << "[THREAD AFTER TIMER]\n"; thread_after_timer_main(); std::cout << "\n"; }
     // Vector of ints with triangle pattern
     { std::cout << "[VECTOR OF INTS WITH TRIANGLE PATTERN]\n"; vector_of_ints_with_triangle_pattern_main(); std::cout << "\n"; }
-*/
     // Print time_t in local time
     { std::cout << "[PRINT TIME_T IN LOCAL TIME]\n"; print_time_t_in_local_time_main(); std::cout << "\n"; }
+*/
 }
