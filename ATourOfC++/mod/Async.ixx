@@ -25,8 +25,8 @@ export void async_main()
     // https://en.cppreference.com/w/cpp/thread/future/~future
     // Scott Meyers' Effective Modern C++, Item 38, Be aware of varying thread handle destructor behaviour
     std::cout << "First example: two non-concurrent asyncs: ";
-    std::async([]() { f(); });  // ~future blocks
-    std::async([]() { g(); });  // ~future blocks
+    (void) std::async([]() { f(); });  // ~future blocks
+    (void) std::async([]() { g(); });  // ~future blocks
 
     std::cout << "\n";
 
