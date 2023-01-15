@@ -1,6 +1,6 @@
-# CatchingUpWithModernCpp
+# Catching up with Modern C++
 
-A Visual Studio 2019 solution with different projects.
+A Visual Studio solution with different projects.
 
 Each project contains small examples from a variety of sources I'm following to learn modern C++:
 
